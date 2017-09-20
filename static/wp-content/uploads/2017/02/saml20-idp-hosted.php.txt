@@ -1,0 +1,74 @@
+<?php
+/*
+ * This is an EXAMPLE to help you configure a SimpleSAMLphp identity provider
+ * to produce metadata that is reasonably complete and closely meets SAIFRE's
+ * recommendations. You may need to hand-edit the result, but hopefully not much.
+ */
+$metadata['__DYNAMIC:1__'] = array(
+    'host' => '__DEFAULT__',
+    'privatekey' => 'server.pem',
+    'privatekey_pass' => 'YourPrivateKeyPassphrase', /* you encrypt your private key, right? */
+    'certificate' => 'server.crt', /* see https://safire.ac.za/technical/resources/generating-certificates-for-safire/ */
+    'auth' => 'example-userpass', /* from config/authsources.php */
+    'scope' => array('safire.ac.za', 'wf.safire.ac.za'), /* Scopes showing all possible valid right-hand-sides for eduPersonPrincipalName and mail */
+    'signature.algorithm' => 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256', /* SHA1 not acceptable */
+    'SingleSignOnServiceBinding' => array('urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',), /* SAML2int only requires HTTP-Redirect, but could include HTTP-POST */
+    'SingleLogoutServiceBinding' => array('urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',), /* SAML2int only requires HTTP-Redirect, but could include HTTP-POST */
+    'attributes.NameFormat' => 'urn:oasis:names:tc:SAML:2.0:attrname-format:uri',
+
+    /*
+     * Feel free to include as many official translations as you have.
+     * English & Afrikaans currently natively supported; want to
+     * eventually include is Zulu & isiXhosa support too. Where a
+     * translation is not included, English will be used by default.
+     */
+    'OrganizationName' => array( /* Legal Name */
+        'en' => 'Example University',
+        'af' => 'Byvorbeeld Universiteit',
+    ),
+    'OrganizationDisplayName' => array( /* Name your university is commonly known by */
+        'en' => 'ExampleU',
+        'af' => 'ByvorbeeldU',
+    ),
+    'OrganizationURL' => array('en' => 'https://example.ac.za/',), /* Your home page */
+    'UIInfo' => array(
+        'DisplayName' => array( /* usually same as OrganizationDisplayName */
+            'en' => 'Example Identity Provider',
+            'af' => 'Byvorbeeld Identiteit Verskaffer',
+        ),
+        'Description' => array(
+            'en' => 'Example Identity Provider',
+            'af' => 'Byvorbeeld Identiteit Verskaffer',
+        ),
+        'PrivacyStatementURL' => array('en' => 'https://safire.ac.za/safire/policy/privacy',), /* STRONGLY RECOMMENDED */
+        'InformationURL' => array('en' => 'https://safire.ac.za/users/who-why-what',), /* suggested */
+        'Logo' => array(
+            array( /* Recommended by Shibboleth SP */
+                'url' => 'https://static.safire.ac.za/logos/safire-logo-16x16.png',
+                'height' => 16,
+                'width' => 16,
+            ),
+            array( /* Recommended by Shibboleth SP */
+                'url' => 'https://static.safire.ac.za/logos/safire-logo-80x60.png',
+                'height' => 60,
+                'width' => 80,
+            ),
+            array( /* This is the size recommended by SAFIRE (at least 150x150, square) */
+                'url' => 'https://static.safire.ac.za/logos/safire-logo-300x300.png',
+                'height' => 300,
+                'width' => 300,
+            ),
+        ),
+    ),
+    'DiscoHints' => array( /* centre of your campus. u= radius in metres */
+        'GeolocationHint' => array('geo:-34.002972,18.467533;u=100'),
+    ),
+    'contacts' => array( /* technical contact is added automatically from config/config.php */
+        array(
+            'contactType' => 'support',
+            'emailAddress' => 'mailto:support@example.ac.za', /* role not person */
+            'givenName' => 'Example University Help Desk',
+            'telephoneNumber' => '+27.21.763.0000',
+        ),
+    ),
+);

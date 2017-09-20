@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<md:EntityDescriptor xmlns:mdui="urn:oasis:names:tc:SAML:metadata:ui" xmlns:md="urn:oasis:names:tc:SAML:2.0:metadata">
+  <md:SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
+    <md:Extensions>
+      <mdui:UIInfo>
+        <mdui:DisplayName xml:lang="en">Example Service Provider</mdui:DisplayName>
+        <mdui:DisplayName xml:lang="af">Byvoorveeld Diens-Verskaffer</mdui:DisplayName>
+        <mdui:Description xml:lang="en">The description should be short, and explain why you need the attributes your want.</mdui:Description>
+        <mdui:PrivacyStatementURL xml:lang="en">SET_ME_XXX</mdui:PrivacyStatementURL><!-- mandatory for service providers -->
+        <mdui:InformationURL xml:lang="en">https://safire.ac.za/users/who-why-what</mdui:InformationURL><!-- where can I find info about your service? suggested -->
+        <mdui:Logo width="300" height="300">https://static.safire.ac.za/logos/safire-logo-300x300.png</mdui:Logo><!-- This is the size recommended by SAFIRE (at least 150x150, square) -->
+      </mdui:UIInfo>
+    </md:Extensions>
+    <md:AttributeConsumingService index="0">
+      <!-- the ServiceName and ServiceDescription must match the mdui versions above -->
+      <md:ServiceName xml:lang="en">Example Service Provider</md:ServiceName>
+      <md:ServiceName xml:lang="af">Byvoorveeld Diens-Verskaffer</md:ServiceName>
+      <md:ServiceDescription xml:lang="en">The description should be short, and explain why you need the attributes your want.</md:ServiceDescription>
+      <!-- edit this list to include those attibutes you request - see https://safire.ac.za/technical/attributes/ -->
+      <md:RequestedAttribute FriendlyName="eduPersonScopedAffiliation" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.9" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+      <md:RequestedAttribute FriendlyName="eduPersonTargetedID" Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.10" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri" isRequired="true"/>
+      <md:RequestedAttribute FriendlyName="mail" Name="urn:oid:0.9.2342.19200300.100.1.3" NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"/>
+    </md:AttributeConsumingService>
+  </md:SPSSODescriptor>
+  <!--
+    Feel free to include as many official translations as you have.
+    English & Afrikaans currently natively supported; want to
+    eventually include is Zulu & isiXhosa support too. Where a
+    translation is not included, English will be used by default.
+  -->
+  <md:Organization>
+    <md:OrganizationName xml:lang="en">Example University</md:OrganizationName><!-- Legal Name -->
+    <md:OrganizationName xml:lang="af">Byvorbeeld Universiteit</md:OrganizationName>
+    <md:OrganizationDisplayName xml:lang="en">ExampleU</md:OrganizationDisplayName>
+    <md:OrganizationDisplayName xml:lang="af">ByvorbeeldU</md:OrganizationDisplayName><!-- Name your organisation is commonly known by -->
+    <md:OrganizationURL xml:lang="en">https://www.example.ac.za</md:OrganizationURL>
+  </md:Organization>
+  <md:ContactPerson contactType="technical">
+    <md:GivenName>Example University Identity Management Team</md:GivenName>
+    <md:EmailAddress>mailto:idp@example.ac.za</md:EmailAddress>
+  </md:ContactPerson>
+  <md:ContactPerson contactType="support">
+    <md:GivenName>Example University Help Desk</md:GivenName>
+    <md:EmailAddress>mailto:support@example.ac.za</md:EmailAddress><!-- role not person -->
+    <md:TelephoneNumber>+27.21.763.0000</md:TelephoneNumber>
+  </md:ContactPerson>
+</md:EntityDescriptor>
+
