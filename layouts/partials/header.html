@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- partial: header -->
+<html lang="{{ with .Site.LanguageCode}}{{ . }}{{ else }}en-US{{end}}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <meta name="creator" content="South African Identity Federation">
+    <meta name="theme-color" content="#5da9dd">
+    <title>{{ if .IsPage }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}</title>
+    {{ "<!--[if lt IE 9]>" | safeHTML }}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
+    {{ "<![endif]-->" | safeHTML }}
+
+    <link rel='dns-prefetch' href='//cdnjs.cloudflare.com'>
+    <link rel='dns-prefetch' href='//fonts.googleapis.com'>
+    <link href='https://fonts.gstatic.com' crossorigin rel='preconnect'>
+
+	<link href="{{ absURL "/index.xml" }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
+
+    <link rel='stylesheet' id='twentyfourteen-lato-css'  href='//fonts.googleapis.com/css?family=Lato%3A300%2C400%2C700%2C900%2C300italic%2C400italic%2C700italic&#038;subset=latin%2Clatin-ext' type='text/css' media='all'>
+    <link rel='stylesheet' id='list-participants-style-css'  href='{{ relURL "/.safire-website-helpers/ui/jquery-ui.css" }}' type='text/css' media='all'>
+    <link rel='stylesheet' id='twentyfourteen-style-css' href='{{ relURL "/css/style.css" }}' type='text/css' media='all'>
+    <link rel='stylesheet' id='tablepress-style-css' href='{{ relURL "/css/tablepress.css" }}' type='text/css' media='all'>
+    <link rel='stylesheet' id='twentyfourteen-child-style-css' href='{{ relURL "/css/safire.css" }}' type='text/css' media='all'>
+    <link rel="stylesheet" id='highlightjs-css' href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" integrity="sha256-3YM6A3pH4QFCl9WbSU8oXF5N6W/2ylvW0o2g+Z6TmLQ=" crossorigin="anonymous">
+    <link rel="stylesheet" id='genericons-css' href="//cdnjs.cloudflare.com/ajax/libs/genericons/3.1/genericons.min.css" integrity="sha256-94YC+gTur/YZZ12GeJQ58KJpR/b3yJeam4jkVJb840g=" crossorigin="anonymous">
+    <!--[if lt IE 9]>
+    <link rel='stylesheet' id='twentyfourteen-ie-css'  href='/css/ie.css' type='text/css' media='all'>
+    <![endif]-->
+
+    <link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
+    <link rel="icon" type="image/icon" href="//static.safire.ac.za/favicons/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="//static.safire.ac.za/favicons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="//static.safire.ac.za/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="72x72" href="//static.safire.ac.za/favicons/favicon-72x72.png">
+    <link rel="icon" type="image/png" sizes="150x150" href="//static.safire.ac.za/favicons/favicon-150x150.png">
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js" integrity="sha256-JAW99MJVpJBGcbzEuXk4Az05s/XyDdBomFqNlM3ic+I=" crossorigin="anonymous"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.0/jquery-migrate.min.js" integrity="sha256-JklDYODbg0X+8sPiKkcFURb5z7RvlNMIaE3RA2z97vw=" crossorigin="anonymous"></script>
+</head>
+
+<body class="home blog masthead-fixed list-view full-width grid">
+	<div id="page" class="hfeed site">
+		<header id="masthead" class="site-header" role="banner">
+			<div class="header-main">
+				<h1 class="site-title"><a href="{{ relURL "/" }}" rel="home">{{ .Site.Title }}</a></h1>
+
+				<div class="search-toggle">
+					<a href="#search-container" class="screen-reader-text">Search</a>
+				</div>
+
+				<nav id="primary-navigation" class="site-navigation primary-navigation" role="navigation">
+					<button class="menu-toggle">Primary Menu</button>
+					<a class="screen-reader-text skip-link" href="#content">Skip to content</a>
+					{{ partial "nav-menu.html" . }}
+				</nav>
+			</div>
+
+			<div id="search-container" class="search-box-wrapper hide">
+				<div class="search-box">
+					{{ partial "searchform.html" . }}
+				</div>
+			</div>
+		</header><!-- #masthead -->
+
+		<div id="main" class="site-main">
+<!-- end partial: header -->

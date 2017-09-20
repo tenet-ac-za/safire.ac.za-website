@@ -1,0 +1,53 @@
+{{ partial "header.html" . }}
+
+<div id="main-content" class="main-content">
+    <div id="primary" class="content-area">
+        <div id="content" class="site-content" role="main">
+{{/* HACK: can't use layout to do this because sections don't read custom layouts */}}
+{{ if .Params.versioned }}
+    {{ partial "versioned.html" . }}
+{{ else }}
+            <article class="post type-post status-publish format-standard hentry">
+                <!-- .entry-header -->
+                <header class="entry-header">
+                    <h1 class="entry-title">{{ .Title }}</h1>
+                    {{ partial "entry-meta.html" . }}
+                </header>
+
+                <div class="entry-content">
+                    {{ .Content }}
+
+					<nav class="display-posts-listing">
+						<h1>Latest News</h1>
+						<ul class="display-posts-listing">
+						{{ range first 4 (.Site.GetPage "section" "safire/news").Pages.ByDate.Reverse }}
+							<li class="listing-item">
+								<a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+								<span class="date">
+									<time class="date" datetime="{{ .Lastmod | default now }}">
+										({{ (.Lastmod | default now).Format "2006-01-02" }})
+									</time>
+								</span>
+								<span class="excerpt-dash">-</span>
+								<span class="excerpt">
+									{{ .Summary}}
+									{{ if .Truncated }}
+									<a href="{{ .RelPermalink }}">&hellip;</a>
+									{{ end }}
+								</span>
+							</li>
+						{{ end }}
+						</ul> <!-- .display-posts-listing -->
+					</nav> <!-- .section-menu -->
+					<footer>
+						<a href="{{ relURL "/safire/news/" }}">news archive</a>
+					</footer>
+                </div><!-- .entry-content -->
+            </article> <!-- #post-## -->
+{{end}}
+        </div><!-- #content -->
+    </div><!-- #primary -->
+    {{ partial "sidebar.html" . }}
+</div><!-- #main-content -->
+
+{{ partial "footer.html" . }}

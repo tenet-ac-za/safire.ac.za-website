@@ -1,0 +1,215 @@
+/*
+ *  Theme Name:   Twenty Fourteen Child
+ *   Description:  Twenty Fourteen Child Theme
+ *    Author:       Guy Halse
+ *     Author URI:   http://orcid.org/0000-0002-9388-8592
+ *      Template:     twentyfourteen
+ *       Version:      1.0.0
+ *        License:      GNU General Public License v2 or later
+ *         License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ *          Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ *           Text Domain:  twenty-fourteen-child
+ *           */
+
+.footnotes { font-size: 12px; margin-top: 18px; }
+
+.version-history { 	font-size: 14px; line-height: 1.2857142857; padding-top: 18px; color: #767676; }
+
+.site-info { display: none; }
+pre.xml { white-space: pre; font-size: 75%; }
+
+/*#participantList dl{border: 3px double #ccc; padding: 0.5em;}*/
+#participantList dt { float: left; clear: left; width: 9em; text-align: right; font-weight: bold; color: #6d488c; }
+#participantList dt:after { content: ":"; padding-right: 0.5em; }
+#participantList dd { margin: 0 0 0 10em; padding: 0 0 0.5em 0; }
+#participantList dl.participantTechnical { font-size: 80%; }
+#participantList dd.emailAddress ul.stringOrArrayList { margin: 0; list-style: none; padding-left: 0; }
+#participantList dl.participantTechnical ul.stringOrArrayList { display: inline; margin: 0; padding: 0; list-style: none; }
+#participantList dl.participantTechnical ul.stringOrArrayList li { display: inline; padding-right: 0.3em; }
+#participantList dl.participantTechnical ul.stringOrArrayList li + li:before { content: "\25fe"; padding-right: 0.3em; }
+#participantList dd button { margin: 0 1px 2px; }
+
+.attributedescription ul.referencelist li, .attributedescription ul.referencelist { display: inline-block; padding:0; margin:0; }
+.attributedescription ul.referencelist li:after { content: ";"; }
+.attributedescription ul.referencelist li:last-child:after { content: ""; }
+
+pre > code { font-family: monospace, serif; font-size: 12px; white-space: pre; overflow: auto; }
+
+abbr[title] { text-decoration: none; }
+
+.site-header { background-color: #32373c; }
+.menu-toggle { background-color: #32373c; }
+.site-footer { background-color: #32373c; }
+#secondary { background-color: #32373c; }
+.site:before { background-color: #32373c; }
+
+a { color: #5da9dd; }
+::selection { background-color: #5da9dd; }
+::-moz-selection { background-color: #5da9dd; }
+button,
+.button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] { background-color: #5da9dd; }
+.search-toggle { background-color: #5da9dd; }
+.hentry .mejs-controls .mejs-time-rail .mejs-time-current { background-color: #5da9dd; }
+.hentry .mejs-overlay:hover .mejs-overlay-button { background-color: #5da9dd; }
+.paging-navigation .page-numbers.current { border-top: 5px solid #5da9dd; }
+.widget button,
+.widget .button,
+.widget input[type="button"],
+.widget input[type="reset"],
+.widget input[type="submit"] { background-color: #5da9dd; }
+.widget_calendar tbody a { background-color: #5da9dd; }
+.content-sidebar .widget a { background-color: #5da9dd; }
+.content-sidebar .widget input[type="button"],
+.content-sidebar .widget input[type="reset"],
+.content-sidebar .widget input[type="submit"] { background-color: #5da9dd; }
+.slider-control-paging .slider-active:before,
+.slider-control-paging .slider-active:hover:before { background-color: #5da9dd; }
+.slider-direction-nav a:hover { background-color: #5da9dd; }
+@media screen and (min-width: 783px) {
+	.primary-navigation ul ul { background-color: #5da9dd; }
+	.primary-navigation li:hover > a,
+	.primary-navigation li.focus > a { background-color: #5da9dd; }
+}
+@media screen and (min-width: 1008px) {
+	.secondary-navigation ul ul { background-color: #5da9dd; }
+	.secondary-navigation li:hover > a,
+	.secondary-navigation li.focus > a { background-color: #5da9dd; }
+}
+
+@font-face {
+	font-family: 'Esphimere Light';
+	src: url('//static.safire.ac.za/fonts/Esphimere_Light.woff') format('woff');
+}
+@font-face {
+	font-family: 'Rounded Elegance';
+	src: url('//static.safire.ac.za/fonts/Rounded_Elegance.woff') format('woff');
+}
+
+a:active,
+a:hover { color: #1c77b7; }
+button:hover,
+button:focus,
+.button:hover,
+.button:focus,
+input[type="button"]:hover,
+input[type="button"]:focus,
+input[type="reset"]:hover,
+input[type="reset"]:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus { background-color: #1c77b7; }
+.search-toggle:hover,
+.search-toggle.active { background-color: #1c77b7; }
+.search-box { background-color: #1c77b7; }
+.site-navigation a:hover { color: #1c77b7; }
+.entry-title a:hover { color: #1c77b7; }
+.entry-meta a:hover { color: #1c77b7; }
+.cat-links a:hover { color: #1c77b7; }
+.entry-meta .tag-links a:hover { background-color: #1c77b7; }
+.entry-meta .tag-links a:hover:before { border-right-color: #1c77b7; }
+.entry-content .edit-link a:hover { color: #1c77b7; }
+.hentry .mejs-controls .mejs-button button:hover { color: #1c77b7; }
+.page-links a:hover { background-color: #1c77b7; border: 1px solid #1c77b7; }
+.post-navigation a:hover,
+.image-navigation a:hover { color: #1c77b7; }
+.paging-navigation a:hover { border-top: 5px solid #1c77b7; }
+.comment-author a:hover,
+.comment-list .pingback a:hover,
+.comment-list .trackback a:hover,
+.comment-metadata a:hover { color: #1c77b7; }
+.comment-reply-title small a:hover { color: #1c77b7; }
+.widget a:hover { color: #1c77b7; }
+.widget input[type="button"]:hover,
+.widget input[type="button"]:focus,
+.widget input[type="reset"]:hover,
+.widget input[type="reset"]:focus,
+.widget input[type="submit"]:hover,
+.widget input[type="submit"]:focus { background-color: #1c77b7; }
+.widget-title a:hover { color: #1c77b7; }
+.widget_calendar tbody a:hover { background-color: #1c77b7; }
+.widget_twentyfourteen_ephemera .entry-meta a:hover { color: #1c77b7; }
+.content-sidebar .widget a:hover { color: #1c77b7; }
+.content-sidebar .widget input[type="button"]:hover,
+.content-sidebar .widget input[type="button"]:focus,
+.content-sidebar .widget input[type="reset"]:hover,
+.content-sidebar .widget input[type="reset"]:focus,
+.content-sidebar .widget input[type="submit"]:hover,
+.content-sidebar .widget input[type="submit"]:focus { background-color: #1c77b7; }
+.content-sidebar .widget .widget-title a:hover { color: #1c77b7; }
+.content-sidebar .widget_twentyfourteen_ephemera .entry-meta a:hover { color: #1c77b7; }
+.site-info a:hover { color: #1c77b7; }
+.slider-control-paging a:hover:before { background-color: #1c77b7; }
+@media screen and (min-width: 783px) {
+        .primary-navigation ul ul a:hover,
+        .primary-navigation ul ul li.focus > a { background-color: #1c77b7; }
+}
+@media screen and (min-width: 1008px) {
+        .secondary-navigation ul ul a:hover,
+        .secondary-navigation ul ul li.focus > a {
+                background-color: #1c77b7;
+        }
+}
+
+button:active,
+.button:active,
+input[type="button"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active { background-color: #6d488c; }
+.site-navigation .current_page_item > a,
+.site-navigation .current_page_ancestor > a,
+.site-navigation .current-menu-item > a,
+.site-navigation .current-menu-ancestor > a { color: #6d488c; }
+.widget input[type="button"]:active,
+.widget input[type="reset"]:active,
+.widget input[type="submit"]:active { background-color: #6d488c; }
+.content-sidebar .widget input[type="button"]:active,
+.content-sidebar .widget input[type="reset"]:active,
+.content-sidebar .widget input[type="submit"]:active { background-color: #6d488c; }
+button:active,
+.button:active,
+input[type="button"]:active,
+input[type="reset"]:active,
+input[type="submit"]:active { background-color: #6d488c; }
+.site-navigation .current_page_item > a,
+.site-navigation .current_page_ancestor > a,
+.site-navigation .current-menu-item > a,
+.site-navigation .current-menu-ancestor > a { color: #5da9dd; }
+.widget input[type="button"]:active,
+.widget input[type="reset"]:active,
+.widget input[type="submit"]:active {  background-color: #6d488c; }
+.content-sidebar .widget input[type="button"]:active,
+.content-sidebar .widget input[type="reset"]:active,
+.content-sidebar .widget input[type="submit"]:active { background-color: #6d488c; }
+.site-title,.site-description { font-family: 'Rounded Elegance', sans-serif }
+.site-title a:hover { color: #ccc; }
+.entry-title { font-family: 'Esphimere Light', sans-serif; text-transform: initial; }
+
+/* hack at featured content */
+.featured-content a:hover { color: #1c77b7; }
+.featured-content .post-thumbnail { display: none; }
+.grid .featured-content .entry-header { height: auto; min-height: 0; border-width: 5px; border-color: #23282d; background-color: #23282d}
+.featured-content .cat-links { font-size: smaller; font-weight: normal; }
+.featured-content .entry-title { font-size: 14px; }
+
+@media screen and (min-width: 783px) {
+	.site-title a:hover {
+		font-size: 0;
+		color: transparent;
+	}
+	.site-title a {
+		color: transparent;
+		height: 48px;
+		overflow: hidden;
+		padding: 0;
+	}
+	.site-title a:before {
+		content: url("//static.safire.ac.za/logos/SAFIRE_P_White_Wordpress.svg");
+		display: inline-block;
+		font-size: 0;
+		line-height: 0;
+	}
+	.site-description { padding-top: 0.5em; }
+}
+

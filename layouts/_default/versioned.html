@@ -1,0 +1,42 @@
+{{ partial "header.html" . }}
+
+<div id="main-content" class="main-content">
+
+    <div id="primary" class="content-area">
+        <div id="content" class="site-content" role="main">
+
+            <header class="archive-header">
+                {{ $title := .Title }}
+                <h1 class="archive-title">{{ .Title }}</h1>
+                <div class="taxonomy-description">
+                    {{ .Content }}
+                </div> <!-- .taxonomy-description -->
+
+                <details class="version-history">
+                    <summary>Version History</summary>
+                    <ul id="section-menu">
+                    {{ range (where (union .Pages .Sections) ".Params.tags" "intersect" (slice "versioned")).ByDate.Reverse }}
+                        <li><a href="{{ .Permalink }}">{{ .Title }}</a> ({{ .Date.Format "2006-01-02" }})</li>
+                    {{ end }}
+                    </ul>
+                </details> <!-- .version-history -->
+            </header> <!-- .archive-header -->
+
+            {{ range last 1 (where (union .Pages .Sections) ".Params.tags" "intersect" (slice "versioned")).ByDate }}
+            <article class="post type-post status-publish format-standard hentry">
+                <header class="entry-header">
+                    <h1 class="entry-title">{{ .Title }}</h1>
+                    {{ partial "entry-meta.html" . }}
+                </header>
+                <div class="entry-content">
+                    {{.Content}}
+                </div> <!-- .entry-content -->
+            </article> <!-- #post-## -->
+            {{ end }}
+
+        </div><!-- #content -->
+    </div><!-- #primary -->
+    {{ partial "sidebar.html" . }}
+</div><!-- #main-content -->
+
+{{ partial "footer.html" . }}

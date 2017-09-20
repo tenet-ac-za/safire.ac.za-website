@@ -1,0 +1,7 @@
+<div id="participantList"><em>Loading participant list&hellip;</em></div>
+<script src="/.safire-website-helpers/participants.js"></script>
+<script type="text/javascript">
+{{ with .Get "type" }}
+$(document).ready(function () { loadParticipants('{{ . }}'); });
+{{ end }}
+</script>

@@ -1,0 +1,55 @@
+{{ partial "header.html" . }}
+
+<div id="main-content" class="main-content">
+    <div id="primary" class="content-area">
+        <div id="content" class="site-content" role="main">
+            <article class="post type-post status-publish format-standard hentry">
+                <!-- .entry-header -->
+                <header class="entry-header">
+                    <h1 class="entry-title">Attribute: {{ .Title }}</h1>
+                    {{ partial "entry-meta.html" . }}
+                </header>
+
+                <div class="entry-content">
+                    {{ .Content }}
+
+                    <section class="attributedescription">
+                        <table>
+                            <tr>
+                                <th>Friendly Name</th>
+                                <td>{{ .Title }}</td>
+                            </tr>
+                            <tr>
+                                <th>OID</th>
+                                <td>{{ .Params.attributeOid|default "unknown" }}</td>
+                            </tr>
+                            <tr>
+                                <th>Description</th>
+                                <td>{{ .Content }}</td>
+                            </tr>
+                            <tr>
+                                <th>Format</th>
+                                <td>{{ .Params.attributeFormat|default ""|markdownify }}</td>
+                            </tr>
+                            <tr>
+                                <th>References</th>
+                                <td>{{ if .Params.attributeReferences }}<ul class="referencelist">
+                                {{ range $i,$v := .Params.attributeReferences }}
+                                    <li>{{ with $v.URL }}<a href="{{.|safeURL}}">{{end}}{{ $v.Name|markdownify }}{{ with $v.URL }}</a>{{end}}</li>
+                                {{end}}
+                                </ul>{{ else }}none{{end}}</td>
+                            </tr>
+                            <tr>
+                                <th>Example</th>
+                                <td>{{ .Params.attributeexample|default "none given"|markdownify }}</td>
+                            </tr>
+                        </table>
+                    </section>
+                </div><!-- .entry-content -->
+            </article> <!-- #post-## -->
+        </div><!-- #content -->
+    </div><!-- #primary -->
+    {{ partial "sidebar.html" . }}
+</div><!-- #main-content -->
+
+{{ partial "footer.html" . }}

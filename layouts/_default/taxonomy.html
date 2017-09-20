@@ -1,0 +1,54 @@
+{{ partial "header.html" . }}
+
+<div id="main-content" class="main-content">
+
+    <div id="primary" class="content-area">
+        <div id="content" class="site-content" role="main">
+
+            <header class="archive-header">
+                <h1 class="archive-title">{{ .Title }} Archive</h1>
+                <div class="taxonomy-description">
+                    {{ .Content }}
+                </div> <!-- .taxonomy-description -->
+            </header>
+
+            {{ range (.Paginate .Data.Pages.ByDate.Reverse).Pages }}
+            <article class="post type-post status-publish format-standard hentry">
+                <!-- .entry-header -->
+                <header class="entry-header">
+                    <div class="entry-meta">
+                        <span class="cat-links">
+                        {{ range .Params.categories }}
+                            <a href="/categories/{{ . }}" rel="category tag">{{ . }}</a>
+                        {{ end }}
+                        </span>
+                    </div>
+                    <h1 class="entry-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+                    {{ partial "entry-meta.html" . }}
+                </header>
+
+                <div class="entry-content">
+                    {{ .Summary }}
+                    {{ if .Truncated }}
+                    <a href="{{ .RelPermalink }}">&hellip;</a>
+                    {{ end }}
+                </div><!-- .entry-content -->
+
+                <footer class="entry-meta">
+                    <span class="tag-links">
+                        {{ range .Params.tags }}
+                            <a href="{{ relURL (printf "/tags/%s/" (lower . | urlize)) }}" rel="tag">{{ . }}</a>
+                        {{ end }}
+                    </span>
+                </footer>
+            </article> <!-- #post-## -->
+            {{ end }}
+
+            {{ partial "pagination.html" . }}
+
+        </div><!-- #content -->
+    </div><!-- #primary -->
+    {{ partial "sidebar.html" . }}
+</div><!-- #main-content -->
+
+{{ partial "footer.html" . }}

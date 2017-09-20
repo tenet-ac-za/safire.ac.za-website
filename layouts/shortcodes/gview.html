@@ -1,0 +1,3 @@
+{{ with .Get "file" }}
+<iframe src="//docs.google.com/viewer?url=hl=en_GB&embedded=true&{{ absURL . | urlize }}" class="gde-frame" style="width:100%; height:500px; border: none;" scrolling="no"></iframe>
+{{ end }}

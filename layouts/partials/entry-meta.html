@@ -1,0 +1,29 @@
+<!-- partial: entry-meta -->
+<div class="entry-meta">
+    <span class="entry-date">
+        <a href="{{ .Permalink }}" rel="bookmark">
+            {{ if .GitInfo}}
+            <time class="entry-date" datetime="{{ .GitInfo.AuthorDate }}">
+                {{ .GitInfo.AuthorDate.Format "2006-01-02" }}
+            </time>
+            {{ else }}
+            <time class="entry-date" datetime="{{ .Lastmod | default now }}">
+                {{ (.Lastmod | default now).Format "2006-01-02" }}
+            </time>
+            {{ end }}
+        </a>
+    </span>
+    {{ if .GitInfo}}
+    <span class="byline">
+        <span class="author">
+            {{ .GitInfo.AuthorName }}
+        </span>
+    </span>
+    <span class="edit-link">
+        <a href="https://github.com/safire-ac-za/safire-ac-za.github.io/commit/{{ .GitInfo.Hash|urlize }}" rel="bookmark">
+            {{ .GitInfo.AbbreviatedHash }}
+        </a>
+    </span>
+    {{ end }}
+</div><!-- .entry-meta -->
+<!-- end partial: entry-meta -->

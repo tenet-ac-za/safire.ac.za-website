@@ -1,0 +1,64 @@
+---
+languageCode: en-ZA
+language: en
+title: SAFIRE
+theme: twentyfourteen
+metaDataFormat: yaml
+canonifyURLs: true
+#enableGitInfo: true
+params:
+  Description: "South African Identity Federation"
+googleAnalytics: "UA-88766195-1"
+
+# External menu links & crosslinks
+menu:
+  main:
+  - Name: "SAFIRE"
+    Identifier: safire
+    URL: /
+    Weight: 1
+  - Name: "Home Organisations"
+    Identifier: users-where-idp
+    URL: /participants/idp/list/
+    Parent: users-where
+  - Name: "Services"
+    Identifier: users-where-sp
+    URL: /participants/sp/list/
+    Parent: users-where
+
+  - Name: "Test Login"
+    Identifier: users-help-test
+    URL: https://testsp.safire.ac.za/
+    Parent: users-help
+    Weight: 1
+  - Name: "Manage Consent"
+    Identifier: users-help-consentadmin
+    URL: https://consentadmin.safire.ac.za/
+    Parent: users-help
+    Weight: 2
+
+  - Name: "Service Status"
+    Identifier: participants-support-status
+    URL: https://monitor.safire.ac.za/safire/thruk/cgi-bin/bp.cgi?action=details&minimal=1&bp=1
+    Parent: participants-support
+    Weight: 1
+  - Name: "IdP Reachability"
+    Identifier: participants-support-reachability
+    URL: https://monitor.safire.ac.za/safire/thruk/cgi-bin/status.cgi?servicegroup=instidps&style=detail&title=Institutional+Identity+Provider+Reachability&nav=0&hidetop=1
+    Parent: participants-support
+    Weight: 2
+  - Name: "eduGAIN Connectivity Check Service"
+    Identifier: participants-support-eccs
+    URL: https://technical.edugain.org/eccs/?registrationAuthority=https://safire.ac.za
+    Parent: participants-support
+    Weight: 3
+
+  - Name: "Attribute Release Policy"
+    Identifier: technical-saml2-arp
+    URL: /safire/policy/arp/
+    Parent: technical-saml2
+    Weight: 4
+  - Name: "Metadata Validator"
+    Identifier: technical-saml2-validator
+    URL: http://validator.safire.ac.za/
+    Parent: technical-saml2

@@ -1,0 +1,9 @@
+<!-- partial: sidebar -->
+<div id="secondary">
+    {{ with .Site.Params.Description }}<h2 class="site-description">{{ . }}</h2>{{ end }}
+    <div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
+        {{ partial "searchform.html" . }}
+        {{ partial "quicklinks.html" . }}
+    </div>
+</div><!-- #secondary -->
+<!-- end partial: sidebar -->
