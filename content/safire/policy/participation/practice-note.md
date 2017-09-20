@@ -1,7 +1,7 @@
 ---
 aliases:
   - /safire/policy/practice-note-participation-agreement/
-date: 2017-02-02 12:50:56+00:00
+date: 2017-09-20 14:24:56+00:00
 slug: practice-note-participation-agreement
 tags:
   - participation
@@ -17,6 +17,10 @@ Federation is a complex space, and South Africa is grappling with the implicatio
 Some people have raised the concern that the preamble section (§1) is somewhat vague or too broad. This is deliberate, as it is meant as an introduction to identity federation in the general case. In some senses, the agreement could be read without it, as many of the SAFIRE-specific requirements are detailed later on. For instance, §1.2 describes the federation trust model; §6 codifies this as specific responsibilities for the various actors in SAFIRE.
 
 Thus if you have concerns with §1, please make sure that they're not already addressed later on in the document.
+
+# Tripartite relationship
+
+The phrase "tripartite trust relationship" in §1.2.1 has caused confusion among people who rightly point out that there are only two signatories to the Participation Agreement. However, this phrase doesn't directly refer to the Participation Agreement but rather the implicit relationships that are created by the multiplicity of bipartite agreements between participants and the Federation. Every participant knows and understands that other participants are bound by the same agreement they are, and this transparency fosters trust between parties who have not entered into an explicit agreement between themselves.
 
 # Loss of control
 
@@ -41,6 +45,8 @@ Both the [default attribute release policy](/safire/policy/arp/#default) and the
 # Consent for personal information release
 
 SAFIRE's understanding of consent is that it must be given by a data subject (end user), and it must be informed, freely given, and for a specific purpose. It must also be [withdrawable at any point](https://consentadmin.safire.ac.za/). These principles are applied throughout. Likewise, the principle of minimality is observed when negotiating [attribute release policies](/safire/policy/arp/).
+
+Our understanding of consent will continue to evolve as regulation is gazetted in South Africa. In the mean time, we follow the developments relating to the European GDPR with interest.
 
 # Display of policy documents
 
@@ -67,6 +73,10 @@ Section 3 notes that the cost structure is unknown, but provides an opt-out for 
 ## Service Providers
 
 Participants who only wish to (or are only able to) register service providers still need to sign the Participation Agreement, but --- per §3.1.1 --- are not charged and will not be invoiced. (§3.2 only applies once a Participant further submits an [IdP Registration Request form]({{< ref "/technical/saml2/forms.md" >}}) and is accepted as an identity provider.)
+
+# Sanctions
+
+Section 8 provides for "sanctions", a term borrowed from earlier related agreements. However, what §8 doesn't explicitly state is that there is only one possible remedy available to the parties — withdrawal/removal from the Federation. This defeats the objectives of federation and is thus in nobody's interests. It will only be exercised by the Federation once **all** other avenues have been exhausted. Moreover, it does not carry any form of direct financial penalty.
 
 # Sole provider/alternatives
 
