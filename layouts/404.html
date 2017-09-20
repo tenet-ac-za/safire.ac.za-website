@@ -1,0 +1,22 @@
+{{ partial "header.html" . }}
+<div id="main-content" class="main-content">
+    <div id="primary" class="content-area">
+        <div id="content" class="site-content" role="main">
+
+            <header class="page-header">
+                <h1 class="page-title">Not Found</h1>
+            </header>
+
+            <div class="page-content">
+                <p>It looks like nothing was found at this location. Maybe try a search?</p>
+
+                {{ partial "searchform.html" . }}
+
+            </div><!-- .page-content -->
+
+        </div><!-- #content -->
+    </div><!-- #primary -->
+    {{ partial "sidebar.html" . }}
+</div><!-- #main-content -->
+{{ partial "footer.html" . }}
+

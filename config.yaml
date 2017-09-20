@@ -5,6 +5,7 @@ title: SAFIRE
 theme: twentyfourteen
 metaDataFormat: yaml
 canonifyURLs: true
+enableRobotsTXT: true
 #enableGitInfo: true
 params:
   Description: "South African Identity Federation"
