@@ -28,7 +28,7 @@
                 </header>
 
                 <div class="entry-content">
-                    {{- .Summary|safeHTML -}}
+                    {{- .Summary|htmlUnescape|plainify -}}
                     {{- if .Truncated -}}
                     <a href="{{ .RelPermalink }}">&hellip;</a>
                     {{- end }}
