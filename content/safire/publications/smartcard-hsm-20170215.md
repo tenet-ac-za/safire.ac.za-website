@@ -12,7 +12,7 @@ title: Using a Smartcard-based HSM for SAFIRE
 url: /safire/publications/smartcard-hsm-20170215/
 ---
 
-This post documents SAFIRE's experiments with, and ultimate deployment of, a smartcard-based HSM for SAML metadata signing in the hope that we can help other emerging federations along the way.<!-- more -->
+This post documents SAFIRE's experiments with, and ultimate deployment of, a smartcard-based HSM for SAML metadata signing in the hope that we can help other emerging federations along the way.<!--more-->
 
 # The need for an HSM
 

@@ -21,7 +21,7 @@ The monitoring system initiates a single sign-on request, and reports the outcom
 
 The monitoring output shows the hosts we passed through on the way to what we believe is the login page. It may also give details of any problem(s) that were encountered.
 
-<!-- more -->
+<!--more-->
 
 # Implementation information
 

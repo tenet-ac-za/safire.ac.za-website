@@ -11,7 +11,7 @@ url: /safire/news/services-for-safire/
 Services are the core of a Federation and for any federation to become truly useful, it must have a good portfolio of services available to its members.
 
 As such the community was invited to suggest services that they would find useful. The following is the list of services were suggested during the FID workshop:
-<!-- more -->
+<!--more-->
 
   * RIMS
 

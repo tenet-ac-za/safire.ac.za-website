@@ -8,7 +8,7 @@ url: /safire/news/feedback-to-asaudit-community/
 ---
 
 The SAFIRE project team gave feedback to the ASAUDIT community about the plan for the second phase of the SAFIRE project. The presentation was largely well received by the community.
-<!-- more -->
+<!--more-->
 The lead agents for the project in this phase will be:
 
   * SANReN

@@ -9,5 +9,5 @@ url: /safire/publications/20160830-library-workshop/
 ---
 
 Halse, G. "[Introduction to the South African Identity Federation](/wp-content/uploads/2016/08/SAFIRE-Libraries-August-2016.pptx)" Library IT Network Usage Enhancement Workshop, Emperor's Palace, 30 August 2016.
-<!-- more -->
+<!--more-->
 {{< gview file="/wp-content/uploads/2016/08/SAFIRE-Libraries-August-2016.pptx" >}}

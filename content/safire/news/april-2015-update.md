@@ -9,7 +9,7 @@ url: /safire/news/april-2015-update/
 
 The Steering committee for SAFIRE had its first meeting in March. Subsequently a planning meeting was held between the elected chairperson (Sakkie Janse van Rensberg) and the project manager for the SAFIRE project to date (Siju Mammen).
 
-<!-- more -->The planning meeting worked on 2 main tasks:
+<!--more-->The planning meeting worked on 2 main tasks:
 
   1. Defining the Terms of Reference for the Steering Committee
 

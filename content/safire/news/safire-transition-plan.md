@@ -9,7 +9,7 @@ title: SAFIRE Transition Plan
 url: /safire/news/safire-transition-plan/
 ---
 
-SAFIRE is in the process of transitioning, both in architecture (from full-mesh to hub-and-spoke) and governance (from the SCA to TENET). The purpose of this post is to provide more detail on the transitional arrangements.<!-- more -->
+SAFIRE is in the process of transitioning, both in architecture (from full-mesh to hub-and-spoke) and governance (from the SCA to TENET). The purpose of this post is to provide more detail on the transitional arrangements.<!--more-->
 
 ## 1. Change freeze
 

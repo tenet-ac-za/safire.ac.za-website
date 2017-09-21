@@ -9,5 +9,5 @@ url: /safire/publications/sci-gaia-icri-fringe-event-2016/
 ---
 
 Halse, G. "[Status Update - South African Identity Federation](/wp-content/uploads/2016/10/SAFIRE-ICRI-SciGaIA-Oct-2016.pptx)" [Sci-GaIA ICRI Fringe Event: Paths to Success in Open Science](https://agenda.ct.infn.it/event/1234/), Centre for High Performance Computing (Cape Town), 7 October 2016.
-<!-- more -->
+<!--more-->
 {{< gview file="/wp-content/uploads/2016/10/SAFIRE-ICRI-SciGaIA-Oct-2016.pptx" >}}

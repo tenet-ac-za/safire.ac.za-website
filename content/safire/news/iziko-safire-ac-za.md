@@ -6,7 +6,7 @@ url: /safire/news/iziko-safire-ac-za/
 ---
 
 To emphasise it's South African heritage, SAFIRE's federation hub uses the name _iziko_ within its entity ID and as a publicly visible website address. While it's not expected that many of SAFIRE's users will notice this, it is worth explaining the origin of the hub's name --- particularly for those outside of South Africa who may view it in [metadata]({{< ref "/technical/metadata.md" >}}).
-<!-- more -->
+<!--more-->
 
 The word "_iziko_" has similar meaning in isiXhosa and isiZulu, two of the most [widely spoken languages in South Africa](https://en.wikipedia.org/wiki/Languages_of_South_Africa). It is variously translated as "hearth", "fireplace", "center" or "hub". In some contexts, it can also sometimes mean "institution", particularly one that is a center for something.
 

@@ -10,7 +10,7 @@ url: /safire/news/june-2015-steering-committee-meeting/
 The SAFIRE Steering Committee had a meeting on the 11th June 2015. A quorum was present which allowed the Steering committee to make decisions on the project.
 
 The main discussions were based on the ToR for the project as well as feedback to the committee regarding the planning workshop that was held at UCT in April. The highlights for the meeting were the following:
-<!-- more -->
+<!--more-->
 
   * Apart from a couple of minor changes, the ToR was adopted.
 

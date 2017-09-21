@@ -10,7 +10,7 @@ title: "Practice Note: Participation Agreement"
 url: /safire/policy/participation/practice-note/
 ---
 
-Federation is a complex space, and South Africa is grappling with the implication of new privacy legislation. Whilst we've tried to make SAFIRE's Participation Agreement easy for the likely signatory --- a federation layman --- to understand, experience has shown that there are sometimes misunderstandings of the technology and gaps in interpretation. This document is intended to consolidate that experience into a practice note for legal departments and other people trying to make sense of the [SAFIRE Participation Agreement](/safire/policy/participation/).<!-- more -->
+Federation is a complex space, and South Africa is grappling with the implication of new privacy legislation. Whilst we've tried to make SAFIRE's Participation Agreement easy for the likely signatory --- a federation layman --- to understand, experience has shown that there are sometimes misunderstandings of the technology and gaps in interpretation. This document is intended to consolidate that experience into a practice note for legal departments and other people trying to make sense of the [SAFIRE Participation Agreement](/safire/policy/participation/).<!--more-->
 
 # Preamble section
 

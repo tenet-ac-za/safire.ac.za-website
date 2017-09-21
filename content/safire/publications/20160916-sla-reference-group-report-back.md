@@ -9,5 +9,5 @@ url: /safire/publications/20160916-sla-reference-group-report-back/
 ---
 
 Halse, G. "[SLA Reference Group Report Back](/wp-content/uploads/2016/08/SAFIRE-SLARG-August-2016.pptx)", SLA Reference Group Meeting, Kopanong Hotel and Conference Centre (Johannesburg), 16 August 2016.
-<!-- more -->
+<!--more-->
 {{< gview file="/wp-content/uploads/2016/08/SAFIRE-SLARG-August-2016.pptx" >}}

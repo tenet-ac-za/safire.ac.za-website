@@ -11,7 +11,7 @@ At 00:00 SAST on 1 August 2017, the remaining entities in the old metadata aggre
 
 [https://discservice.sanren.ac.za/safire.xml](https://discservice.sanren.ac.za/safire.xml)
 
-will expire. Any provider who still has mention of the above URL in their configuration should remove it, as it will not be supported beyond the end of the month.<!-- more -->
+will expire. Any provider who still has mention of the above URL in their configuration should remove it, as it will not be supported beyond the end of the month.<!--more-->
 
 As you're no doubt aware, SAFIRE has been transitioning architectures from the original full-mesh pilot to a hub-and-spoke Federation. For some time we've had transitional arrangements in place to minimise the impact of this change on users. Initially, both federations operated in parallel, and more recently all full-mesh service providers were provisionally imported into the hub-and-spoke Federation (albeit with some restrictions).
 

@@ -10,7 +10,7 @@ url: /safire/news/technical-planning-meeting-update/
 On the 21st July 2015, the SAFIRE lead institutions came together to determine the future technical implementation for SAFIRE.
 
 The following are the key highlights of the meeting:
-<!-- more -->
+<!--more-->
 
   * The architecture of SAFIRE will need to change from its current mesh topology to a hub-and-spoke topology. The goal is to implement this hub-and-spoke topology by the end of September 2015.
 

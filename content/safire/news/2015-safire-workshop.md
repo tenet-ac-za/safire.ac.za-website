@@ -8,7 +8,7 @@ url: /safire/news/2015-safire-workshop/
 ---
 
 SANReN, TENET and ASAUDIT successfully hosted the second Federated Identity Workshop in Pretoria on the 27th February 2015. This workshop was attended by 18 Universities and 7 science and research institutions.
-<!-- more -->
+<!--more-->
 The goals of the workshop were to:
 
   1. Provide feedback to the community regarding the work that has been done on the pilot implementation.

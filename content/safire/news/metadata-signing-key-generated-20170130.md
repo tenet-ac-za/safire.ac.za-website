@@ -11,7 +11,7 @@ url: /safire/news/metadata-signing-key-generated-20170130/
 ---
 
 On January 30, SAFIRE generated a new [metadata signing key]({{< ref "/technical/metadata.md" >}}) which will be used to sign all of the Federation's metadata aggregates.
-<!-- more -->
+<!--more-->
 
 Key generation was done at a ceremony at TENET's Wynberg offices in the presence of an observer from the University of Cape Town. Reasonable precautions were taken ensure the integrity of the new key, in accordance with our [key management practice statement](/safire/policy/kmps/).
 
