@@ -9,4 +9,4 @@ url: /safire/publications/draft-technical-roadmap-july-2016/
 
 Halse, G. "[SAFIRE Draft Technical Roadmap - July 2016](/wp-content/uploads/2016/06/SAFIRE-Roadmap-July-2016.pptx)", SLA Reference Group Meeting, Kopanong Hotel and Conference Centre, 16 August 2016.
 <!-- more -->
-{{< gview file="/wp-content/2016/06/SAFIRE-Roadmap-July-2016.pptx" >}}
+{{< gview file="/wp-content/uploads/2016/06/SAFIRE-Roadmap-July-2016.pptx" >}}
