@@ -34,9 +34,9 @@
                             <tr>
                                 <th>References</th>
                                 <td>{{ if .Params.attributeReferences }}<ul class="referencelist">
-                                {{ range $i,$v := .Params.attributeReferences }}
+                                {{- range $i,$v := .Params.attributeReferences }}
                                     <li>{{ with $v.URL }}<a href="{{.|safeURL}}">{{end}}{{ $v.Name|markdownify }}{{ with $v.URL }}</a>{{end}}</li>
-                                {{end}}
+                                {{- end }}
                                 </ul>{{ else }}none{{end}}</td>
                             </tr>
                             <tr>

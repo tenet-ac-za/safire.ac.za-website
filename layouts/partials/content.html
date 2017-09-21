@@ -5,16 +5,16 @@
         <h1 class="entry-title">{{ .Title }}</h1>
         {{ partial "entry-meta.html" . }}
     </header>
-    
+
     <div class="entry-content">
         {{ .Content }}
     </div><!-- .entry-content -->
 
     <footer class="entry-meta">
-        <span class="tag-links">        
-            {{ range .Params.tags }}
+        <span class="tag-links">
+            {{- range .Params.tags }}
                 <a href="{{ relURL (printf "/tags/%s/" (lower . | urlize)) }}" rel="tag">{{ . }}</a>
-            {{ end }}
+            {{- end }}
         </span>
     </footer>
 </article> <!-- #post-## -->

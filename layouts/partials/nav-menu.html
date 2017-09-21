@@ -1,19 +1,19 @@
 <!-- partial: nav-menu -->
 <div class="nav-menu">
     <ul id="primary-menu" class="nav-menu">
-        {{ $currentPage := . }}
-        {{ range .Site.Menus.main }}
+        {{- $currentPage := . -}}
+        {{- range .Site.Menus.main }}
             <li class="menu-item{{ if .HasChildren }} menu-item-has-children{{end}}{{if $currentPage.HasMenuCurrent "main" .}} current-menu-item{{end}}{{if $currentPage.IsMenuCurrent "main" .}} current-menu-item{{end}}">
                 <a href="{{ .URL }}">{{ .Name }}</a>
-                {{ if .HasChildren }}
+                {{- if .HasChildren }}
                 <ul class="sub-menu">
-                    {{ range .Children }}
-                        {{ template "nav-menu-item" . }}
-                    {{ end }}
+                    {{- range .Children }}
+                        {{- template "nav-menu-item" . }}
+                    {{- end -}}
                 </ul>
-                {{ end }}
+                {{- end }}
             </li>
-        {{ end }}
+        {{- end }}
     </ul>
 </div>
 <!-- end partial: nav-menu -->
@@ -21,12 +21,12 @@
 {{ define "nav-menu-item" }}
     <li class="menu-item{{ if .HasChildren }} menu-item-has-children{{end}}">
         <a href="{{ .URL }}">{{ .Name }}</a>
-        {{ if .HasChildren }}
+        {{- if .HasChildren }}
         <ul class="sub-menu">
-            {{ range .Children }}
-                {{ template "nav-menu-item" . }}
-            {{ end }}
+            {{- range .Children }}
+                {{- template "nav-menu-item" . }}
+            {{- end -}}
         </ul>
-        {{ end }}
+        {{- end }}
     </li>
 {{end}}

@@ -2,35 +2,35 @@
 <nav class="navigation paging-navigation" role="navigation">
     <h1 class="screen-reader-text">Posts navigation</h1>
     <div class="pagination loop-pagination">
-    {{ if .Paginator.HasPrev }}
-        {{ with .Paginator.Prev }}
+    {{- if .Paginator.HasPrev }}
+        {{- with .Paginator.Prev }}
         <a class="prev page-numbers" href="{{.URL}}">&larr; Previous</a>
-        {{ end }}
-    {{ end }}
-    {{ if gt .Paginator.PageNumber 1 }}
+        {{- end }}
+    {{- end }}
+    {{- if gt .Paginator.PageNumber 1 }}
         {{ with .Paginator.First }}
         <a class="page-numbers" href="{{.URL}}">{{.PageNumber}}</a>
-        {{end}}
-    {{ end }}
-    {{ if gt .Paginator.PageNumber 2 }}
+        {{- end }}
+    {{- end }}
+    {{- if gt .Paginator.PageNumber 2 }}
             <span class="page-numbers dots">&hellip;</span>
-    {{end}}
-    {{ with .Paginator }}
+    {{- end }}
+    {{- with .Paginator }}
         <span class="page-numbers current">{{.PageNumber}}</span>
-    {{ end }}
-    {{ if le .Paginator.PageNumber ( sub .Paginator.TotalPages 2 ) }}
+    {{- end }}
+    {{- if le .Paginator.PageNumber ( sub .Paginator.TotalPages 2 ) }}
         <span class="page-numbers dots">&hellip;</span>
-    {{ end }}
-    {{ if le .Paginator.PageNumber ( sub .Paginator.TotalPages 1 ) }}
-        {{ with .Paginator.Last }}
+    {{- end }}
+    {{- if le .Paginator.PageNumber ( sub .Paginator.TotalPages 1 ) }}
+        {{- with .Paginator.Last }}
         <a class="page-numbers" href="{{.URL}}">{{.PageNumber}}</a>
-        {{ end }}
-    {{end}}
-    {{ if .Paginator.HasNext }}
-        {{ with .Paginator.Next }}
+        {{- end }}
+    {{- end }}
+    {{- if .Paginator.HasNext }}
+        {{- with .Paginator.Next }}
         <a class="next page-numbers" href="{{.URL}}">Next &rarr;</a>
-        {{ end }}
-    {{ end }}
+        {{- end }}
+    {{- end }}
     </div><!-- .pagination -->
 </nav> <!-- .navigation -->
 <!-- end partitial: pagination -->

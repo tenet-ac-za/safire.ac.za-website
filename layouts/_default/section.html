@@ -19,17 +19,17 @@
                 <div class="entry-content">
                     {{ .Content }}
 
-                    {{ if not .Params.skipsectionmenu }}
+                    {{- if not .Params.skipsectionmenu }}
                     <nav class="section-menu">
                         <ul class="section-menu">
-                        {{ range (union .Pages .Sections) }}
-                            {{ if not (in .Params.tags "versioned") }}
+                        {{- range (union .Pages .Sections) }}
+                            {{- if not (in .Params.tags "versioned") -}}
                                 {{ template "section-menu-item" . }}
-                            {{ end }}
-                        {{ end }}
+                            {{- end -}}
+                        {{- end }}
                         </ul>
                     </nav> <!-- .section-menu -->
-                    {{ end }}
+                    {{- end }}
                 </div><!-- .entry-content -->
 
             </article> <!-- #post-## -->
@@ -44,14 +44,15 @@
 {{ define "section-menu-item" }}
     <li>
         <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        {{ if .IsNode }}
+        {{- if .IsNode }}
         <ul class="sub-menu">
-            {{ range (union .Pages .Sections) }}
-                {{ if not (in .Params.tags "versioned") }}
+            {{- range (union .Pages .Sections) }}
+                {{- if not (in .Params.tags "versioned") -}}
                     {{ template "section-menu-item" . }}
-                {{ end }}
-            {{ end }}
+                {{- end -}}
+            {{- end -}}
         </ul>
-        {{ end }}
+        {{- end }}
     </li>
 {{ end }}
+

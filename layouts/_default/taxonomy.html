@@ -12,15 +12,15 @@
                 </div> <!-- .taxonomy-description -->
             </header>
 
-            {{ range (.Paginate .Data.Pages.ByDate.Reverse).Pages }}
+            {{- range (.Paginate .Data.Pages.ByDate.Reverse).Pages }}
             <article class="post type-post status-publish format-standard hentry">
                 <!-- .entry-header -->
                 <header class="entry-header">
                     <div class="entry-meta">
                         <span class="cat-links">
-                        {{ range .Params.categories }}
+                        {{- range .Params.categories -}}
                             <a href="/categories/{{ . }}" rel="category tag">{{ . }}</a>
-                        {{ end }}
+                        {{- end -}}
                         </span>
                     </div>
                     <h1 class="entry-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
@@ -28,21 +28,21 @@
                 </header>
 
                 <div class="entry-content">
-                    {{ .Summary }}
-                    {{ if .Truncated }}
+                    {{- .Summary|safeHTML -}}
+                    {{- if .Truncated -}}
                     <a href="{{ .RelPermalink }}">&hellip;</a>
-                    {{ end }}
+                    {{- end }}
                 </div><!-- .entry-content -->
 
                 <footer class="entry-meta">
                     <span class="tag-links">
-                        {{ range .Params.tags }}
+                        {{- range .Params.tags }}
                             <a href="{{ relURL (printf "/tags/%s/" (lower . | urlize)) }}" rel="tag">{{ . }}</a>
-                        {{ end }}
+                        {{- end }}
                     </span>
                 </footer>
             </article> <!-- #post-## -->
-            {{ end }}
+            {{- end }}
 
             {{ partial "pagination.html" . }}
 

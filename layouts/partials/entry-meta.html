@@ -2,28 +2,28 @@
 <div class="entry-meta">
     <span class="entry-date">
         <a href="{{ .Permalink }}" rel="bookmark">
-            {{ if .GitInfo}}
+            {{- if .GitInfo -}}
             <time class="entry-date" datetime="{{ .GitInfo.AuthorDate }}">
-                {{ .GitInfo.AuthorDate.Format "2006-01-02" }}
+                {{- .GitInfo.AuthorDate.Format "2006-01-02" -}}
             </time>
-            {{ else }}
+            {{- else -}}
             <time class="entry-date" datetime="{{ .Lastmod | default now }}">
-                {{ (.Lastmod | default now).Format "2006-01-02" }}
+                {{- (.Lastmod | default now).Format "2006-01-02" -}}
             </time>
-            {{ end }}
+            {{- end -}}
         </a>
     </span>
-    {{ if .GitInfo}}
+    {{- if .GitInfo }}
     <span class="byline">
         <span class="author">
-            {{ .GitInfo.AuthorName }}
+            {{- .GitInfo.AuthorName -}}
         </span>
     </span>
     <span class="edit-link">
         <a href="https://github.com/safire-ac-za/safire-ac-za.github.io/commit/{{ .GitInfo.Hash|urlize }}" rel="bookmark">
-            {{ .GitInfo.AbbreviatedHash }}
+            {{- .GitInfo.AbbreviatedHash -}}
         </a>
     </span>
-    {{ end }}
+    {{- end }}
 </div><!-- .entry-meta -->
 <!-- end partial: entry-meta -->

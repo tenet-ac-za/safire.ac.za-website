@@ -15,24 +15,24 @@
                 <details class="version-history">
                     <summary>Version History</summary>
                     <ul id="section-menu">
-                    {{ range (where (union .Pages .Sections) ".Params.tags" "intersect" (slice "versioned")).ByDate.Reverse }}
+                    {{- range (where (union .Pages .Sections) ".Params.tags" "intersect" (slice "versioned")).ByDate.Reverse }}
                         <li><a href="{{ .Permalink }}">{{ .Title }}</a> ({{ .Date.Format "2006-01-02" }})</li>
-                    {{ end }}
+                    {{- end }}
                     </ul>
                 </details> <!-- .version-history -->
             </header> <!-- .archive-header -->
 
-            {{ range last 1 (where (union .Pages .Sections) ".Params.tags" "intersect" (slice "versioned")).ByDate }}
+            {{- range last 1 (where (union .Pages .Sections) ".Params.tags" "intersect" (slice "versioned")).ByDate }}
             <article class="post type-post status-publish format-standard hentry">
                 <header class="entry-header">
                     <h1 class="entry-title">{{ .Title }}</h1>
                     {{ partial "entry-meta.html" . }}
                 </header>
                 <div class="entry-content">
-                    {{.Content}}
+                    {{ .Content }}
                 </div> <!-- .entry-content -->
             </article> <!-- #post-## -->
-            {{ end }}
+            {{- end }}
 
         </div><!-- #content -->
     </div><!-- #primary -->
