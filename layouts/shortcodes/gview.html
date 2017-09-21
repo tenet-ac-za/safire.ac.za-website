@@ -1,3 +1,9 @@
 {{ with .Get "file" }}
-<iframe src="//docs.google.com/viewer?url=hl=en_GB&embedded=true&{{ absURL . | urlize }}" class="gde-frame" style="width:100%; height:500px; border: none;" scrolling="no"></iframe>
+<div class="gde-frame">
+  <iframe src="//docs.google.com/viewer?hl=en_GB&embedded=true&url={{ absURL . | urlize }}" class="gde-frame" style="width:100%; height:500px; border:none; overflow:hidden;"></iframe>
+  <p style="text-align:center" class="gde-links">
+    <a href="{{ relURL . }}" target="_blank" download><button>Download</button></a>
+    <a href="//docs.google.com/viewer?hl=en_GB&url={{ absURL . | urlize }}" target="_blank"><button>Open at Google</button></a>
+  </p>
+</div>
 {{ end }}
