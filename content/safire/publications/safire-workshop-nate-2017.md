@@ -9,10 +9,31 @@ title: SAFIRE Workshop @ NATE 2017
 url: /safire/publications/safire-workshop-nate-2017/
 ---
 
-Halse, G. “[SAFIRE Workshop @ NATE 2017](/wp-content/uploads/2017/07/SAFIRE-Workshop-NATE-June-2017.pptx)”. NATE 2017, Mangosuthu University of Technology, Umlazi, 26 June 2017.
+{{< cite
+    first = "Guy"
+    last = "Halse"
+    title = "SAFIRE Workshop @ NATE 2017"
+    url = "/wp-content/uploads/2017/07/SAFIRE-Workshop-NATE-June-2017.pptx"
+    date = "2017-06-26"
+    event = "National ASAUDIT Technology Event (NATE) 2017"
+    event-date = "2017-06-26"
+    event-url = "http://www.asaudit.ac.za/Lists/Events/CustomDispForm.aspx?ID=74"
+    location = "Mangosuthu University of Technology, Umlazi"
+>}}
 
-Coetzee, D. “[Path to SAFIRE – A UCT Perspective](/wp-content/uploads/2017/07/UCT-path-to-SAFIRE-NATE-2017.pptx)”. NATE 2017, Mangosuthu University of Technology, Umlazi, 26 June 2017.
-
-<!-- more -->
+{{< cite
+    first = "Donald"
+    last = "Coetzee"
+    title = "Path to SAFIRE – A UCT Perspective"
+    url = "/wp-content/uploads/2017/07/UCT-path-to-SAFIRE-NATE-2017.pptx"
+    date = "2017-06-26"
+    event = "National ASAUDIT Technology Event (NATE) 2017"
+    event-date = "2017-06-26"
+    event-url = "http://www.asaudit.ac.za/Lists/Events/CustomDispForm.aspx?ID=74"
+    location = "Mangosuthu University of Technology, Umlazi"
+>}}
+<!--more-->
 
 {{< gview file="/wp-content/uploads/2017/07/SAFIRE-Workshop-NATE-June-2017.pptx" >}}
+
+{{< gview file="/wp-content/uploads/2017/07/UCT-path-to-SAFIRE-NATE-2017.pptx" >}}
