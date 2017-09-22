@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+{{ if .GitInfo }}{{ "<!--"|safeHTML }}
+  src: {{ .File.Path }}
+  unique id: {{ .Page.UniqueID }}
+  commit: {{ .GitInfo.Hash }}
+{{ "-->"|safeHTML }}{{ end -}}
 <!-- partial: header -->
 <html lang="{{ with .Site.LanguageCode}}{{ . }}{{ else }}en-US{{end}}">
 <head>
@@ -6,6 +11,8 @@
     <meta name="viewport" content="width=device-width">
     <meta name="creator" content="South African Identity Federation">
     <meta name="theme-color" content="#5da9dd">
+    {{ with .Page.Keywords }}<meta name="keywords" content="{{.}}">{{ end -}}
+    <meta name="generator" content="{{ .Hugo.Generator}}">
     <title>{{ if .IsPage }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}</title>
     {{ "<!--[if lt IE 9]>" | safeHTML }}
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
@@ -39,7 +46,7 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.0.0/jquery-migrate.min.js" integrity="sha256-JklDYODbg0X+8sPiKkcFURb5z7RvlNMIaE3RA2z97vw=" crossorigin="anonymous"></script>
 </head>
 
-<body class="group-blog masthead-fixed full-width grid">
+<body class="group-blog masthead-fixed full-width grid{{ if .Page.IsHome }} home{{ end }}">
 	<div id="page" class="hfeed site">
 		<header id="masthead" class="site-header" role="banner">
 			<div class="header-main">

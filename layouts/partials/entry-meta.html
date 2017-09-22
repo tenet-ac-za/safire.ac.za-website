@@ -1,7 +1,7 @@
 <!-- partial: entry-meta -->
 <div class="entry-meta">
     <span class="entry-date">
-        <a href="{{ .Permalink }}" rel="bookmark">
+        <a href="{{ .Permalink }}" rel="bookmark" title="Permalink">
             {{- if .GitInfo -}}
             <time class="entry-date" datetime="{{ .GitInfo.AuthorDate }}">
                 {{- .GitInfo.AuthorDate.Format "2006-01-02" -}}
@@ -15,12 +15,14 @@
     </span>
     {{- if .GitInfo }}
     <span class="byline">
-        <span class="author">
-            {{- .GitInfo.AuthorName -}}
+        <span class="author vcard">
+          <a rel="author" title="{{ .GitInfo.AuthorName|htmlEscape }}">
+            {{- replaceRE "^([^@]+)@.*$" "$1" .GitInfo.AuthorEmail -}}
+          </a>
         </span>
     </span>
     <span class="edit-link">
-        <a href="https://github.com/safire-ac-za/safire-ac-za.github.io/commit/{{ .GitInfo.Hash|urlize }}" rel="bookmark">
+        <a title="{{ .GitInfo.Subject|htmlEscape  }}" href="https://github.com/safire-ac-za/safire-ac-za.github.io/blob/{{ .GitInfo.Hash|urlize }}/content/{{ .File.Path }}" rel="nofollow noopener" target="_blank">
             {{- .GitInfo.AbbreviatedHash -}}
         </a>
     </span>
