@@ -118,7 +118,7 @@
                 <dd>{{ if $p.eduGAIN }}yes, will be published{{ else }}no, will not be published{{ end }}</dd>
         {{- else -}}
             <dt>Participation Agreement</dt>
-                <dd>{{ if not $p.ParticipationAgreement }}Not {{ end }}Signed</dd>
+                <dd>{{ if $p.ParticipationAgreement }}yes, has signed{{ else }}no, has not yet signed{{ end }}</dd>
         {{- end }}
         </dl>
     </div>
