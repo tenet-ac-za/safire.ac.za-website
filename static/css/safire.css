@@ -18,6 +18,7 @@
 .site-info { display: none; }
 pre.xml { white-space: pre; font-size: 75%; }
 
+#participantList { padding-bottom:18px; }
 /*#participantList dl{border: 3px double #ccc; padding: 0.5em;}*/
 #participantList dt { float: left; clear: left; width: 9em; text-align: right; font-weight: bold; color: #6d488c; }
 #participantList dt:after { content: ":"; padding-right: 0.5em; }
