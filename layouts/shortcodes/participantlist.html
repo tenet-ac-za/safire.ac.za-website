@@ -1,66 +1,19 @@
 {{- $type := .Get "type" }}
-{{- $.Scratch.Set "index" 0 -}}
+<!-- this is a counter used for button indices -->
+{{- $.Scratch.Set "i" 0 -}}
 <div id="participantList" class="ui-accordion ui-widget ui-helper-reset">
-    {{- range $p := sort .Site.Data.safire "mdui.displayName" }}
+    <!-- display the participants from metadata -->
+    {{- range $p := sort .Site.Data.safire "mdui.displayName"  }}
     {{- if or (not $type) (eq $p.entityType $type) }}
-        {{- $i := $.Scratch.Get "index" -}}
-        <h3 data-entityid="{{ $p.entityID }}" data-tabindex="{{ $i }}" class="ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons">
-        {{- template "displayServiceName" $p -}}
-        <span style="float:right">
-        {{- if not $p.ParticipationAgreement }}Pending {{ end -}}
-        {{- template "shortParticipantType" $p.entityType -}}
-        </span></h3>
-        <div id="participantdetail-{{ printf "%03d" $i }}" style="display:none;" class="ui-accordion-content ui-corner-bottom ui-helper-reset ui-widget-content">
-            <div style="float: right">{{- template "displayLogo" $p -}}</div>
-            <p>{{- template "displayServiceDescription" $p -}}</p>
-            <dl class="participantDetail">
-                <dt>Type</dt>
-                    <dd>{{- template "participantType" $p.entityType -}}</dd>
-                <dt>Participant</dt>
-                    <dd>{{- template "displayParticipant" $p -}}</dd>
-                {{- if $p.contact }}
-                <dt>Contact info</dt><dd>
-                {{- range $contactType, $contact := $p.contact -}}
-                    <button type="button" id="contactbutton-{{ printf "%03d" $i }}-{{ $contactType }}">{{ title $contactType }}</button>
-                    <div class="participantContact" id="contactdiv-{{ printf "%03d" $i }}-{{ $contactType }}" title="{{ title $contactType }} contact for {{ template "displayOrgName" $p }}">
-                    {{- template "displayContact" $contact -}}
-                    </div>
-                {{- end }}
-                </dd>
-                {{- end }}
-                {{- if or $p.mdui.PrivacyStatementURL $p.mduiInformationURL }}
-                <dt>Additional info</dt>
-                    <dd>
-                    {{- with $p.mdui.PrivacyStatementURL -}}
-                        <a target="_blank" href="{{.}}" title="Privacy Statement"><button type="button">Privacy Statement</button></a>
-                    {{- end -}}
-                    {{- with $p.mdui.InformationURL -}}
-                        <a target="_blank" href="{{.}}"><button type="button">Information Page</button></a>
-                    {{- end -}}
-                    </dd>
-                {{- end }}
-            </dl><hr class="participantSeparator">
-            <dl class="participantTechnical">
-
-                {{- with $p.RegistrationInstant }}
-                <dt><abbr title="Registration Instant (last substantive change to metadata)">Last updated</abbr></dt>
-                    <dd>{{ dateFormat "2006-01-02T15:04Z" . }}</dd>
-                {{- end }}
-                <dt><abbr title="Unique identifier for this particular participant (entity)">Metadata entityID</a></dt>
-                    <dd>{{ $p.entityID }}</dd>
-                {{- with $p.Scope }}
-                <dt>Domains</dt>
-                    <dd>{{ template "stringOrArray" . }}</dd>
-                {{- end }}
-                {{- with $p.EntityCategories }}
-                <dt>Entity Categories</dt>
-                    <dd>{{ template "stringOrArray" . }}</dd>
-                {{- end }}
-                <dt><abbr title="entity is published to eduGAIN and other interfederation partners">eduGAIN</abbr></dt>
-                    <dd>{{ if .eduGAIN }}yes, will be published{{ else }}no, will not be published{{ end }}</dd>
-            </dl>
-        </div>
-        {{- $.Scratch.Add "index" 1 -}}
+        {{ template "listParticipant" (dict "p" $p "i" ($.Scratch.Get "i")) }}
+        {{- $.Scratch.Add "i" 1 -}}
+    {{- end }}
+    {{- end }}
+    <!-- display the pending participants from data/pending.json -->
+    {{- range $p := sort .Site.Data.pending "OrganizationDisplayName"  }}
+    {{- if or (not $type) (eq $p.entityType $type) }}
+        {{ template "listParticipant" (dict "p" $p "i" ($.Scratch.Get "i")) }}
+        {{- $.Scratch.Add "i" 1 -}}
     {{- end }}
     {{- end }}
 </div>
@@ -91,6 +44,7 @@
 			}
 		}
 
+        // create dialogs for contact details
         $('.participantContact').dialog({ width: 500, autoOpen: false });
         $('.participantContact').each(function(index)
         {
@@ -104,28 +58,94 @@
     });
 </script>
 
+{{ define "listParticipant" }}
+    <!-- display a single participant $p with index $i -->
+    {{- $i := .i }}
+    {{- $p := .p }}
+    <h3 data-entityid="{{ $p.entityID }}" data-tabindex="{{ $i }}" class="ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons">
+    {{- template "displayServiceName" $p -}}
+    <span style="float:right">
+    {{- if or (not $p.ParticipationAgreement) (not $p.TechnicalIntegration) }}Pending {{ end -}}
+    {{- template "shortParticipantType" $p.entityType -}}
+    </span></h3>
+    <div id="participantdetail-{{ printf "%03d" $i }}" style="display:none;" class="ui-accordion-content ui-corner-bottom ui-helper-reset ui-widget-content">
+        <div style="float: right">{{- template "displayLogo" $p -}}</div>
+        <p>{{- template "displayServiceDescription" $p -}}</p>
+        <dl class="participantDetail">
+            <dt>Type</dt>
+                <dd>{{- template "participantType" $p.entityType -}}</dd>
+            <dt>Participant</dt>
+                <dd>{{- template "displayParticipant" $p -}}</dd>
+            {{- if $p.contact }}
+            <dt>Contact info</dt><dd>
+            {{- range $contactType, $contact := $p.contact -}}
+                <button type="button" id="contactbutton-{{ printf "%03d" $i }}-{{ $contactType }}">{{ title $contactType }}</button>
+                <div class="participantContact" id="contactdiv-{{ printf "%03d" $i }}-{{ $contactType }}" title="{{ title $contactType }} contact for {{ template "displayOrgName" $p }}">
+                {{- template "displayContact" $contact -}}
+                </div>
+            {{- end }}
+            </dd>
+            {{- end }}
+            {{- if or $p.mdui.PrivacyStatementURL $p.mduiInformationURL }}
+            <dt>Additional info</dt>
+                <dd>
+                {{- with $p.mdui.PrivacyStatementURL -}}
+                    <a target="_blank" href="{{.}}" title="Privacy Statement"><button type="button">Privacy Statement</button></a>
+                {{- end -}}
+                {{- with $p.mdui.InformationURL -}}
+                    <a target="_blank" href="{{.}}"><button type="button">Information Page</button></a>
+                {{- end -}}
+                </dd>
+            {{- end }}
+        </dl><hr class="participantSeparator">
+        <dl class="participantTechnical">
+        {{- if .TechnicalIntegration }}
+            {{- with $p.RegistrationInstant }}
+            <dt><abbr title="Registration Instant (last substantive change to metadata)">Last updated</abbr></dt>
+                <dd>{{ dateFormat "2006-01-02T15:04Z" . }}</dd>
+            {{- end }}
+            <dt><abbr title="Unique identifier for this particular participant (entity)">Metadata entityID</a></dt>
+                <dd>{{ $p.entityID }}</dd>
+            {{- with $p.Scope }}
+            <dt>Domains</dt>
+                <dd>{{ template "stringOrArray" . }}</dd>
+            {{- end }}
+            {{- with $p.EntityCategories }}
+            <dt>Entity Categories</dt>
+                <dd>{{ template "stringOrArray" . }}</dd>
+            {{- end }}
+            <dt><abbr title="entity is published to eduGAIN and other interfederation partners">eduGAIN</abbr></dt>
+                <dd>{{ if .eduGAIN }}yes, will be published{{ else }}no, will not be published{{ end }}</dd>
+        {{- else -}}
+            <dt>Participation Agreement</dt>
+                <dd>{{ if not .ParticipationAgreement }}Not {{ end }}Signed</dd>
+        {{- end }}
+        </dl>
+    </div>
+{{ end }}
+
 {{ define "participantType" }}
-  {{- if eq . "idp" -}}
-    Identity provider (home organisation)
-  {{- else if eq . "sp" -}}
-    Service provider (visited organisation)
-  {{- else if eq . "aa" -}}
-    Attribute authority
-  {{- else -}}
-    Unknown Type
-  {{- end -}}
+    {{- if eq . "idp" -}}
+        Identity provider (home organisation)
+    {{- else if eq . "sp" -}}
+        Service provider (visited organisation)
+    {{- else if eq . "aa" -}}
+        Attribute authority
+    {{- else -}}
+        Unknown Type
+    {{- end -}}
 {{ end }}
 
 {{ define "shortParticipantType" }}
-  {{- if eq . "idp" -}}
-    IdP
-  {{- else if eq . "sp" -}}
-    SP
-  {{- else if eq . "aa" -}}
-    AA
-  {{- else -}}
-    ??
-  {{- end -}}
+    {{- if eq . "idp" -}}
+        IdP
+    {{- else if eq . "sp" -}}
+        SP
+    {{- else if eq . "aa" -}}
+        AA
+    {{- else -}}
+        ??
+    {{- end -}}
 {{ end }}
 
 {{ define "displayOrgName" }}
@@ -140,7 +160,7 @@
     {{- if .mdui.DisplayName -}}
         {{- .mdui.DisplayName -}}
     {{- else -}}
-        {{- template "displayOrgName" -}}
+        {{- template "displayOrgName" . -}}
     {{- end -}}
 {{ end }}
 
@@ -153,6 +173,7 @@
 {{ end }}
 
 {{ define "displayLogo" }}
+    <!-- logic to display a logo, or a logo placeholder -->
     {{- if .mdui.Logo -}}
         {{- with .OrganizationURL -}}
             <a target="_blank" href="{{.}}">
@@ -173,28 +194,32 @@
     {{- if not .ParticipationAgreement }}
         <p class="pendingsignature">(pending signature of the <a href="{{ relURL "/safire/policy/participation/" }}">Participation Agreement</a>)</p>
     {{- end -}}
+    {{- if not .TechnicalIntegration }}
+        <p class="pendingsignature">(pending technical integration)</p>
+    {{- end -}}
 {{ end }}
 
 {{ define "displayContact" }}
-                    <dl class="participantListContact">
-                        <dt>Name</dt>
-                            <dd>{{ .GivenName -}} {{- .SurName }}</dd>
-                        {{- with .Company }}
-                        <dt>Company</dt>
-                            <dd>{{.}}</dd>
-                        {{- end }}
-                        {{- with .EmailAddress }}
-                        <dt>Email</dt>
-                            <dd class="emailAddress">{{ template "stringOrArray" . }}</dd>
-                        {{- end }}
-                        {{- with .TelephoneNumber }}
-                        <dt>Phone</dt>
-                            <dd>{{ template "stringOrArray" . }}</dd>
-                        {{- end }}
-                    </dl>
+    <dl class="participantListContact">
+        <dt>Name</dt>
+            <dd>{{ .GivenName -}} {{- .SurName }}</dd>
+        {{- with .Company }}
+        <dt>Company</dt>
+            <dd>{{.}}</dd>
+        {{- end }}
+        {{- with .EmailAddress }}
+        <dt>Email</dt>
+            <dd class="emailAddress">{{ template "stringOrArray" . }}</dd>
+        {{- end }}
+        {{- with .TelephoneNumber }}
+        <dt>Phone</dt>
+            <dd>{{ template "stringOrArray" . }}</dd>
+        {{- end }}
+    </dl>
 {{ end }}
 
 {{ define "stringOrArray" }}
+    <!-- only way I could find to determine string vs slice -->
     {{- if eq "string" (printf "%T" .) -}}
         {{.}}
     {{- else -}}
