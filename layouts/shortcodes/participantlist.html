@@ -99,7 +99,7 @@
             {{- end }}
         </dl><hr class="participantSeparator">
         <dl class="participantTechnical">
-        {{- if .TechnicalIntegration }}
+        {{- if $p.TechnicalIntegration }}
             {{- with $p.RegistrationInstant }}
             <dt><abbr title="Registration Instant (last substantive change to metadata)">Last updated</abbr></dt>
                 <dd>{{ dateFormat "2006-01-02T15:04Z" . }}</dd>
