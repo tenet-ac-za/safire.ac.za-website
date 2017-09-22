@@ -99,7 +99,7 @@
             {{- end }}
         </dl><hr class="participantSeparator">
         <dl class="participantTechnical">
-        {{- if .TechnicalIntegration }}
+        {{- if $p.TechnicalIntegration }}
             {{- with $p.RegistrationInstant }}
             <dt><abbr title="Registration Instant (last substantive change to metadata)">Last updated</abbr></dt>
                 <dd>{{ dateFormat "2006-01-02T15:04Z" . }}</dd>
@@ -115,10 +115,10 @@
                 <dd>{{ template "stringOrArray" . }}</dd>
             {{- end }}
             <dt><abbr title="entity is published to eduGAIN and other interfederation partners">eduGAIN</abbr></dt>
-                <dd>{{ if .eduGAIN }}yes, will be published{{ else }}no, will not be published{{ end }}</dd>
+                <dd>{{ if $p.eduGAIN }}yes, will be published{{ else }}no, will not be published{{ end }}</dd>
         {{- else -}}
             <dt>Participation Agreement</dt>
-                <dd>{{ if not .ParticipationAgreement }}Not {{ end }}Signed</dd>
+                <dd>{{ if not $p.ParticipationAgreement }}Not {{ end }}Signed</dd>
         {{- end }}
         </dl>
     </div>
