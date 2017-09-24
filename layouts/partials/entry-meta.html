@@ -21,7 +21,7 @@
           </a>
         </span>
     </span>
-    <span class="edit-link">
+    <span class="edit-link" aria-hidden="true">
         <a title="{{ .GitInfo.Subject|htmlEscape  }}" href="https://github.com/safire-ac-za/safire-ac-za.github.io/blob/{{ .GitInfo.Hash|urlize }}/content/{{ .File.Path }}" rel="nofollow noopener" target="_blank">
             {{- .GitInfo.AbbreviatedHash -}}
         </a>
