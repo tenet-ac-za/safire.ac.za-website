@@ -3,11 +3,11 @@
     <span class="entry-date">
         <a href="{{ .Permalink }}" rel="bookmark" title="Permalink">
             {{- if .GitInfo -}}
-            <time class="entry-date" datetime="{{ .GitInfo.AuthorDate }}">
+            <time class="entry-date" datetime="{{ .GitInfo.AuthorDate.Format "2006-01-02T15:04:05Z" }}">
                 {{- .GitInfo.AuthorDate.Format "2006-01-02" -}}
             </time>
             {{- else -}}
-            <time class="entry-date" datetime="{{ .Lastmod | default now }}">
+            <time class="entry-date" datetime="{{ (.Lastmod | default now).Format "2006-01-02T15:04:05Z" }}">
                 {{- (.Lastmod | default now).Format "2006-01-02" -}}
             </time>
             {{- end -}}

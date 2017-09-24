@@ -24,7 +24,7 @@
 							<li class="listing-item">
 								<a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a>
 								<span class="date">
-									<time class="date" datetime="{{ .Lastmod | default now }}">
+									<time class="date" datetime="{{ (.Lastmod | default now).Format "2006-01-02T15:04:05Z" }}">
 										({{ (.Lastmod | default now).Format "2006-01-02" }})
 									</time>
 								</span>
