@@ -18,7 +18,7 @@
                     {{ .Content }}
 
 					<nav class="display-posts-listing">
-						<h1>Latest News</h1>
+						<h2>Latest News</h2>
 						<ul class="display-posts-listing">
 						{{ range first 4 (.Site.GetPage "section" "safire/news").Pages.ByDate.Reverse }}
 							<li class="listing-item">
@@ -30,7 +30,7 @@
 								</span>
 								<span class="excerpt-dash">-</span>
 								<span class="excerpt">
-									{{ .Summary}}
+									{{ .Summary|htmlUnescape|plainify }}
 									{{ if .Truncated }}
 									<a href="{{ .RelPermalink }}">&hellip;</a>
 									{{ end }}

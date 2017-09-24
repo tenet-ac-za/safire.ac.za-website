@@ -1,10 +1,10 @@
 {{/* HACK: can't use layout to do this because sections don't read custom layouts */}}
-{{ if eq .Params.layout "versioned" }}
+{{- if eq .Params.layout "versioned" }}
     {{ template "_default/versioned.html" . }}
-{{ else if eq .Params.layout "taxonomy" }}
+{{- else if eq .Params.layout "taxonomy" }}
 	{{ template "_default/taxonomy.html" . }}
-{{ else }}
-{{ partial "header.html" . }}
+{{- else }}
+{{- partial "header.html" . }}
 <div id="main-content" class="main-content archive category list-view">
     <div id="primary" class="content-area">
 
