@@ -1,0 +1,5 @@
+<span class="defusticate">
+{{- range (split (base64Encode (replaceRE "^mailto:(.*)$" "$1" (.Get 0))) "") -}}
+  {{- printf "&#x%X;" . | safeHTML -}}
+{{- end -}}
+</span>

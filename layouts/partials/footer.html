@@ -11,9 +11,12 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha256-KM512VNnjElC30ehFwehXjx1YCHPiQkOPmqnrWtpccM=" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/powershell.min.js" integrity="sha256-cRUESDACI7Yr/eSmoHs6zDQu6HmpAkCp0s4xrZ9RnE0=" crossorigin="anonymous"></script>
-    <script type='text/javascript'>hljs.initHighlightingOnLoad();</script>
-    <script type='text/javascript' src='{{ relURL "/js/functions.js" }}'></script>
+    <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
+    <script type="text/javascript" src="{{ relURL "/js/functions.js" }}"></script>
     {{ template "_internal/google_analytics.html" . }}
+    <script type="text/javascript">
+      $(function(){$('.defusticate').each(function(i,v){$(this).text(atob($(this).text()));if(/^[^@]+@[^.]+\..+$/.test($(this).text())){$(this).html('<a href="mailto:'+$(this).text()+'">'+$(this).text()+'</a>');}});});
+    </script>
 </body>
 </html>
 <!-- end partial: footer -->

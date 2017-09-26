@@ -35,5 +35,5 @@ Telephone
 : [+27.21.763.7156](tel:+27.21.763.7156)
 
 General Contact
-: safire@tenet.ac.za
+: {{< email "safire@tenet.ac.za" >}}
 
