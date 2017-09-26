@@ -9,6 +9,7 @@ menu:
 slug: list
 title: Current Identity Providers
 url: /participants/idp/list/
+skipentrydate: true
 ---
 
 Below is a list[^1] of participants in SAFIRE who currently act as identity providers and authenticate for their users. You can click on a participant to find out more.

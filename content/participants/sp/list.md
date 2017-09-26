@@ -9,6 +9,7 @@ menu:
 slug: list
 title: Current Service Providers
 url: /participants/sp/list/
+skipentrydate: true
 ---
 
 Below is a list[^1] of participants in SAFIRE who currently act as service providers and provide services to others. You can click on a participant to find out more.
