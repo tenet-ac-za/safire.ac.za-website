@@ -23,19 +23,19 @@ Log into the G Suite Admin console at [admin.google.com ](https://admin.google.
 
 G Suite will offer you the choice of a number of service providers, but you should select "Setup my own custom app" to add SAFIRE's details.
 
-{{< figure src="/wp-content/uploads/2017/03/gapps_sso_step1-300x243.png" caption="Step 1" >}}
+{{< figure src="/wp-content/uploads/2017/03/gapps_sso_step1.png" caption="Step 1" >}}
 
 ## Step 2
 
 Download G Suite's IdP metadata (Option 2) and save this for later. You'll need to hand-edit the XML in order to comply with SAFIRE's [metadata requirements](/technical/saml2/idp-requirements/) and pass [validation](https://validator.safire.ac.za/). However what you get from this stage is a useful starting point.
 
-{{< figure src="/wp-content/uploads/2017/03/gapps_sso_step2-300x243.png" caption="Step 2" >}}
+{{< figure src="/wp-content/uploads/2017/03/gapps_sso_step2.png" caption="Step 2" >}}
 
 ### Step 3
 
 Configure the basic information for the Custom App. You want to add information that tells your users that they're connected to the SAFIRE federation, but feel free to customise this in a way that makes sense to you. If you need a logo, you can use [this one](https://static.safire.ac.za/logos/safire-logo-300x300.png).
 
-{{< figure src="/wp-content/uploads/2017/03/gapps_sso_step3-300x243.png" caption="Step 3" >}}
+{{< figure src="/wp-content/uploads/2017/03/gapps_sso_step3.png" caption="Step 3" >}}
 
 ## Step 4
 
@@ -73,13 +73,13 @@ Add the federation hub's details, as derived from [metadata]({{< ref "/technical
 
 {{< /raw >}}
 Which should then look something like this:
-{{< figure src="/wp-content/uploads/2017/03/gapps_sso_step4-300x243.png" caption="Step 4" >}}
+{{< figure src="/wp-content/uploads/2017/03/gapps_sso_step4.png" caption="Step 4" >}}
 
 ## Step 5
 
 Add attribute mappings to map the G Suite directory attributes into SAML attributes [SAFIRE understands](/technical/attributes/). The mappings available are quite limited, but you should be able to map at least the required attributes.
 
-{{< figure src="/wp-content/uploads/2017/03/gapps_sso_step5-300x243.png" caption="Step 5" >}}
+{{< figure src="/wp-content/uploads/2017/03/gapps_sso_step5.png" caption="Step 5" >}}
 
 Note that we've specified the mapping using urn:oid format, rather than the friendly names that get displayed. The four mappings shown above are as follows:
 
@@ -136,7 +136,7 @@ If you've [extended the schema](https://support.google.com/a/answer/6327792) in 
 
 If all worked successfully, you should get a confirmation message telling you the details were saved and reminding you to upload your metadata.
 
-{{< figure src="/wp-content/uploads/2017/03/gapps_sso_fin-300x119.png" caption="Finished" >}}
+{{< figure src="/wp-content/uploads/2017/03/gapps_sso_fin.png" caption="Finished" >}}
 
 After which you should have a new "SAFIRE" application listed. Note that by default this application is turned OFF. You will need to turn it on for those users or organisations you wish to authenticate.
 
