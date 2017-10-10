@@ -1,0 +1,28 @@
+[
+    {
+        "entityType": "sp",
+        "ParticipationAgreement": true,
+        "OrganizationName": "Square Kilometre Array South Africa",
+        "OrganizationDisplayName": "SKA South Africa",
+        "OrganizationURL": "https:\/\/www.ska.ac.za\/",
+        "TechnicalIntegration": false,
+        "mdui": {
+            "Logo": {
+                "URL": "https:\/\/pbs.twimg.com\/profile_images\/485001837108424705\/QJKv7j2M_400x400.png"
+            }
+        }
+    },
+    {
+        "entityType": "idp",
+        "ParticipationAgreement": true,
+        "OrganizationName": "University of the Witwatersrand",
+        "OrganizationDisplayName": "University of the Witwatersrand",
+        "OrganizationURL": "https:\/\/www.wits.ac.za\/",
+        "TechnicalIntegration": false,
+        "mdui": {
+            "Logo": {
+                "URL": "https:\/\/pbs.twimg.com\/profile_images\/553068392874139649\/UagOekEh_400x400.png"
+            }
+        }
+    }
+]
