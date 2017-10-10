@@ -1,0 +1,6 @@
+# Apache24 .htaccess file
+{{- range $p := .Site.Pages -}}
+{{   range .Aliases }}
+RedirectMatch permanent ^{{ relURL . }}?$ {{ $p.Permalink -}}
+{{   end -}}
+{{- end -}}

@@ -6,6 +6,7 @@ theme: twentyfourteen
 metaDataFormat: yaml
 canonifyURLs: true
 enableRobotsTXT: true
+disableAliases: true
 #enableGitInfo: true
 params:
   Description: "South African Identity Federation"
@@ -63,3 +64,19 @@ menu:
     Identifier: technical-saml2-validator
     URL: http://validator.safire.ac.za/
     Parent: technical-saml2
+
+# Based on https://gohugo.io/news/http2-server-push-in-hugo/
+outputs:
+ home: [ "HTML", "RSS", "HTACCESS" ]
+
+mediaTypes:
+  "text/apache24":
+    suffix: ""
+    delimiter: ""
+
+outputFormats:
+  HTACCESS:
+    mediatype: text/apache24
+    baseName: .htaccess
+    isPlainText: true
+    notAlternative: true
