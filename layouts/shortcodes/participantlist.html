@@ -3,7 +3,7 @@
 {{- $.Scratch.Set "i" 0 -}}
 <div id="participantList" class="ui-accordion ui-widget ui-helper-reset">
     <!-- display the participants from metadata -->
-    {{- range $p := .Site.Data.safire }}
+    {{- range $p := .Site.Data.safire.metadata }}
     {{- if or (not $type) (eq $p.entityType $type) }}
         {{ template "listParticipant" (dict "p" $p "i" ($.Scratch.Get "i")) }}
         {{- $.Scratch.Add "i" 1 -}}

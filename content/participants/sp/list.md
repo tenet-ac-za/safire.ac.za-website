@@ -9,7 +9,6 @@ menu:
 slug: list
 title: Current Service Providers
 url: /participants/sp/list/
-skipentrydate: true
 ---
 
 Below is a list[^1] of participants in SAFIRE who currently act as service providers and provide services to others. You can click on a participant to find out more.
@@ -20,5 +19,5 @@ Note that this isn't a full list of services that are available to SAFIRE partic
 
 If a service you'd like to use is not listed here, let them know you'd like to be able to use your home account to be able to log into their service.
 
-[^1]: This list is automatically generated from SAML metadata and is refreshed every few hours.
+[^1]: This list is automatically generated from SAML metadata was last refreshed at {{< participantlistlastmod >}}.
 

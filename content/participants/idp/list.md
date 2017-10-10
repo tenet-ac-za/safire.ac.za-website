@@ -9,7 +9,6 @@ menu:
 slug: list
 title: Current Identity Providers
 url: /participants/idp/list/
-skipentrydate: true
 ---
 
 Below is a list[^1] of participants in SAFIRE who currently act as identity providers and authenticate for their users. You can click on a participant to find out more.
@@ -18,5 +17,5 @@ Below is a list[^1] of participants in SAFIRE who currently act as identity prov
 
 If your home organisation does not participate in SAFIRE, please let your IT staff know that you'd like them to.
 
-[^1]: This list is automatically generated from SAML metadata and is refreshed every few hours.
+[^1]: This list is automatically generated from SAML metadata and was last refreshed at {{< participantlistlastmod >}}.
 
