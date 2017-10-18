@@ -1,22 +1,23 @@
 <!-- this is a counter used for button indices -->
 {{- $.Scratch.Set "i" 0 -}}
 <style>
-.library-green { background-color:#0f3; }
-.library-yellow { background-color:#ffde00; }
-.library-red { background-color:#ff5b33; }
+.library-status-green { background-color:#0f3; }
+.library-status-yellow { background-color:#ffde00; }
+.library-status-red { background-color:#ff5b33; }
+.library-status.library-status-unknown { background:repeating-linear-gradient(45deg,transparent,transparent 3px,#f6f6f6 3px,#f6f6f6 6px),#cccccc; }
 .library-status { float:right; width:1em; }
 </style>
 <div id="participantList" class="ui-accordion ui-widget ui-helper-reset">
 {{- range $p := .Site.Data.libraries.Providers }}
     <h3 data-name="{{ $p.Name|urlize }}" data-tabindex="{{ ($.Scratch.Get "i") }}" class="ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons">
         {{ $p.Name }}
-    <span class="library-status{{ with $p.StatusColour }} library-{{.}}{{end}}">&nbsp;</span>
+    <span class="library-status library-status-{{ $p.StatusColour|default "unknown" }}">&nbsp;</span>
     </h3>
     <div id="participantdetail-{{ printf "%03d" ($.Scratch.Get "i") }}" style="display:none;" class="ui-accordion-content ui-corner-bottom ui-helper-reset ui-widget-content">
         <dl class="participantDetail">
             {{- if $p.Status }}
             <dt>Status</dt>
-                <dd{{ with $p.StatusColour }} class="library-{{.}}"{{end}}>{{ $p.Status }}</dd>
+                <dd class="library-status-{{ $p.StatusColour|default "unknown" }}">{{ $p.Status }}</dd>
             {{- end }}
 
             {{- if $p.LoginLink }}
