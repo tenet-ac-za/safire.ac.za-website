@@ -1,0 +1,153 @@
+---
+lastMod: 2017-10-18T10:17:12Z
+Providers:
+    - Name: ACM Digital Library
+      LoginLink: Sign in via your Institution
+      Status: No SA institutions listed by default
+      Documentation:
+       - http://libraries.acm.org/subscriptions-access/authentication
+
+    - Name: BioOne
+      LoginLink: Login via your Institution (Shibboleth)
+      Status: No SA institutions listed by default
+      Documentation:
+       - http://www.bioone.org/page/help/RemoteAccess
+
+    - Name: Cambridge Core
+      LoginLink: "[Institutional login](https://shibboleth.cambridge.org/CJOShibb2/index?app=https://www.cambridge.org/core/shibboleth?ref=/core)"
+      Status: Tested, working
+      StatusColour: green
+      Notes: Libraries need to set an appropriate value for eduPersonScopedAffiliation within the Cambridge admin portal.
+      Documentation:
+       - https://vimeo.com/178305091/ac7ed284ae
+
+    - Name: Dawsonera
+      LoginLink: "[Shibboleth login](https://www.dawsonera.com/wayf/wayf.html?entityID=https%3A%2F%2Fwww.dawsonera.com%2Fshibboleth&return=https%3A%2F%2Fwww.dawsonera.com%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dcookie%253A1501229600_249b)"
+      Status: Tested, working
+      StatusColour: green
+      Notes: |
+        Libraries need to generate a WAYFless URL of the form https://www.dawsonera.com/Shibboleth.sso/Login?entityID={{idp_proxy_entityid}}&target=https://www.dawsonera.com/depp/shibboleth/ShibbolethLogin.html?dest= using their [proxied entity id](https://phph.safire.ac.za/mdfileview?type=published&fed=SAFIRE-BIRK-PUBLIC) and send it to Dawson support to get themselves listed.
+
+    - Name: De Gruyter
+      LoginLink: Connect via Institution
+      Status: No SA institutions listed by default
+      Documentation:
+       - https://www.degruyter.com/page/286#Shibboleth
+
+    - Name: EBSCO
+      LoginLink: "[Shibboleth Login](http://search.ebscohost.com/login.aspx?profile=ehost)"
+      Status: Tested, working, discovery problem, contacted
+      StatusColour: yellow
+      Notes: |
+        Libraries need to set an appropriate value for eduPersonScopedAfilliation within the EBSCOadmin portal. However, the discovery service is confusing for end users: all of SAFIRE appears under "UK Higher Education", and institution names are not always in English (e.g. UCT is listed as "IYunivesithi yaseKapa"). EBSCO has been contacted to try and resolve this.
+      Documentation:
+       - https://help.ebsco.com/interfaces/EBSCOadmin/Admin_User_Guide/set_up_Shibboleth_SAML_Authentication
+
+    - Name: Elsevier ScienceDirect/Scopus
+      LoginLink: "[Other institution](http://www.sciencedirect.com/science?_ob=FederationURL&_method=display&md5=e2d806d1e8c4953bc9f57621cb18fbd2&prevURL=https%3A%2F%2Fwww.sciencedirect.com%2Fuser%2Frouter%2Fshib)"
+      Status: Tested, working
+      StatusColour: green
+      Notes: |
+        Libraries need to generate a WAYFless URL of the form https://auth.elsevier.com/ShibAuth/institutionLogin?entityID={{idp_proxy_entityid}}&appReturnURL={{url-encoded-target}} using their [proxied entity id](https://phph.safire.ac.za/mdfileview?type=published&fed=SAFIRE-BIRK-PUBLIC) and send it to Elsevier support to get themselves listed.
+      Documentation:
+       - https://www.elsevier.com/solutions/scopus/support/federated-authentication-through-saml
+
+    - Name: Emerald Insight
+      LoginLink: "[Shibboleth login](https://www.emeraldinsight.com/action/ssostart?redirectUri=%2F)"
+      Status: No SA institutions listed by default
+      Documentation:
+       - http://www.emeraldgrouppublishing.com/support/librarian/shibboleth_access.htm
+
+    - Name: Gale Cengage
+      Status: Not tested
+      Documentation:
+       - http://admin.galegroup.com/galeadmin/help/help/GADMAuthenticationShibbolethHelp.html
+
+    - Name: IEEE Xplore
+      LoginLink: "[Shibboleth](http://ieeexplore.ieee.org/servlet/wayf.jsp)"
+      Status: No SA institutions listed by default
+      Notes: Institutions need to register
+      Documentation:
+       - https://supportcenter.ieee.org/app/answers/detail/a_id/162/~/does-ieee-support-shibboleth-or-athens-authentication-in-xplore%3F
+
+    - Name: JSTOR
+      LoginLink: "[Login via an institution](https://www.jstor.org/institutionSearch?redirectUri=%2F)"
+      Status: Tested, working
+      StatusColour: green
+      Notes: |
+        Libraries need to generate a [WAYFless URL](https://shibboleth2sp.jstor.org/wayfless_url_generator.html) using their [proxied entity id](https://phph.safire.ac.za/mdfileview?type=published&fed=SAFIRE-BIRK-PUBLIC) and send it to JSTOR support to get themselves listed. Can negotiate specific values of eduPersonScopedAffiliation.
+      Documentation:
+       - http://support.jstor.org/access-management/2016/10/6/jstor-saml-information
+       - https://shibboleth2sp.jstor.org/wayfless_url_generator.html
+
+    - Name: LexisNexus Academic
+      Status: Not tested/can't find
+
+    - Name: LexisNexus SA
+      Status: Not tested/can't find. Contacted customer support.
+      StatusColour: red
+
+    - Name: ORCID
+      LoginLink: "[Institutional account](https://orcid.org/signin)"
+      Status: Tested, working
+      StatusColour: green
+      Notes: Individuals need to link their institutional account with an existing ORCID identifier.
+      Documentation:
+       - https://members.orcid.org/api/integrate/institution-sign-in
+
+    - Name: Ovid SP
+      LoginLink: "[Institutional Login](https://shibboleth.ovid.com/)"
+      Status: No SA institutions listed by default
+
+    - Name: Oxford University Press
+      LoginLink: Access Management Federation login
+      Status: No SA institutions listed by default
+
+    - Name: ProQuest (RefWorks)
+      LoginLink: My Institutions Credentials (Shibboleth)
+      Status: Not tested
+
+    - Name: Sabinet
+      LoginLink: Not supported
+      StatusColour: red
+      Notes: Sabinet is investigating joining SAFIRE.
+
+    - Name: SAGE
+      LoginLink: "[Institutional access: Shibboleth](http://journals.sagepub.com/action/ssostart?redirectUri=/)"
+      Status: No SA institutions listed by default
+
+    - Name: SpringerLink
+      LoginLink: "[Log in via Shibboleth or Athens](https://link.springer.com/athens-shibboleth-login?previousUrl=https%3A%2F%2Flink.springer.com%2F)"
+      Status: No SA institutions listed by default
+      StatusColour:
+      Notes: |
+        A [WAYFless URL](https://springeronlineservice.freshdesk.com/support/solutions/articles/6000079268-construct-a-wayfless-url-in-athens-openathens-) allows login; not sure what else needs doing.
+      Documentation:
+       - https://springeronlineservice.freshdesk.com/support/solutions/articles/6000079268-construct-a-wayfless-url-in-athens-openathens-
+
+    - Name: Taylor & Francis Online
+      LoginLink: "[Shibboleth](http://www.tandfonline.com/action/ssostart?redirectUri=%2F)"
+      Status: Testing in progress
+      StatusColour: yellow
+      Notes: Institutions will need to have their unique organisation ID/scope registered to their account to permit access to their users.  Institutional administrators can enter their Shibboleth credentials themselves, or provide T&F with the details and they can add this to their account on their behalf.
+
+    - Name: Thieme Connect
+      LoginLink: "[Shibboleth Login](https://profile.thieme.de/HTML/sso/ejournals/shibboleth.htm?hook_url=https://www.thieme-connect.de/products/all/home.html&rdeLocaleAttr=en)"
+      Status: No SA institutions listed by default
+
+    - Name: Thomson-Reuters Web of Science
+      LoginLink: Institutional users sign in
+      Status: Tested, discovery problem
+      StatusColour: yellow
+      Notes: Appears under UK Federation
+
+    - Name: Westlaw
+      LoginLink: Not tested/can't find
+
+    - Name: Wiley
+      LoginLink: "[Institutional Login](https://onlinelibrary.wiley.com/login-options)"
+      Status: Contacted
+      StatusColour: yellow
+      Notes: Libraries need to contact Wiley support and complete a Shibboleth (Federated Access) Request Form.
+      Documentation:
+       - http://media.wiley.com/assets/2265/11/Wiley_Online_Library_Federated_Access_Dec_2013.pdf
