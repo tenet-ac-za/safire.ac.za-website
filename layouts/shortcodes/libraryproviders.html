@@ -8,7 +8,7 @@
 </style>
 <div id="participantList" class="ui-accordion ui-widget ui-helper-reset">
 {{- range $p := .Site.Data.libraries.Providers }}
-    <h3 data-name="{{ $p.Name }}" data-tabindex="{{ ($.Scratch.Get "i") }}" class="ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons">
+    <h3 data-name="{{ $p.Name|urlize }}" data-tabindex="{{ ($.Scratch.Get "i") }}" class="ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons">
         {{ $p.Name }}
     <span class="library-status{{ with $p.StatusColour }} library-{{.}}{{end}}">&nbsp;</span>
     </h3>
