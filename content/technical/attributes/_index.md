@@ -28,7 +28,7 @@ The following is a summary of the (SAML2) attributes supported by SAFIRE.
 
 # Optional attributes
 
-  * [eduPersonEntitlement]({{< ref "/technical/attributes/edupersonentitlement.md" >}})
+  * [eduPersonEntitlement]({{< ref "/technical/attributes/edupersonentitlement.md" >}}) [^supplied]
   * [eduPersonOrcid]({{< ref "/technical/attributes/edupersonorcid.md" >}})
   * [eduPersonPrimaryAffiliation]({{< ref "/technical/attributes/edupersonprimaryaffiliation.md" >}})
   * [employeeNumber]({{< ref "/technical/attributes/employeenumber.md" >}})
