@@ -23,8 +23,8 @@ However, it is important to note that you do not need to be able to produce all 
 
 The [REFEDs ePSA usage comparison](https://www.terena.org/activities/refeds/docs/ePSAcomparison_0_13.pdf) provides guidance for mapping the controlled language. In South Africa, we've tied this language to the [data elements used in HEMIS]({{< ref "/technical/attributes/edupersonaffiliation.md" >}}). The table below summarises some common South Africa situations.
 
-{{< raw >}}
 <table class="tablepress">
+
 <thead>
 <tr class="row-1 odd">
 <th>Role</th>
@@ -69,8 +69,8 @@ The [REFEDs ePSA usage comparison](https://www.terena.org/activities/refeds/docs
 <td class="column-2">member</td>
 </tr>
 </tbody>
+
 </table>
-{{< /raw >}}
 
 # Case 1: Containers / distinguished name
 
