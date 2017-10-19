@@ -31,6 +31,12 @@ MACE has delegated the operation of **urn:mace:safire.ac.za** namespace to the S
     </td>
   </tr>
   <tr class="row-3 odd">
+    <td class="column-1">urn:mace:safire.ac.za:entitlement:dummy</td>
+    <td class="column-2">
+      Can be used as an eduPersonEntitlement to supress automatic generation of urn:mace:dir:entitlement:common-lib-terms. See <a href="{{< ref "/technical/attributes/edupersonentitlement.md" >}}">eduPersonEntitlement</a>.
+    </td>
+  </tr>
+  <tr class="row-4 even">
     <td class="column-1">urn:mace:safire.ac.za:urn</td>
     <td class="column-2">
       Remapped URN-based entity ids in SAML proxy metadata. urn: space
