@@ -242,6 +242,9 @@
         </span>
     {{- else if findRE "^[+][1-9][ 0-9.-]*$" . -}}
         <a href="tel:{{ . }}">{{ . }}</a>
+    {{- else if hasPrefix . "eduPerson" -}}
+        {{ $url := printf "/technical/attributes/%s/" (lower . ) -}}
+        <a href="{{ $url }}">{{ . }}</a>
     {{- else -}}
         {{- . -}}
     {{- end -}}

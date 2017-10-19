@@ -1,11 +1,13 @@
 ---
-lastMod: 2017-10-18T10:17:12Z
+# Remember to change lastMod!
+lastMod: 2017-10-19T10:17:12Z
 Providers:
     - Name: ACM Digital Library
       LoginLink: Sign in via your Institution
       Status: No SA institutions listed by default
       Documentation:
        - http://libraries.acm.org/subscriptions-access/authentication
+      AuthAttribute: eduPersonEntitlement
 
     - Name: BioOne
       LoginLink: Login via your Institution (Shibboleth)
@@ -20,6 +22,7 @@ Providers:
       Notes: Libraries need to set an appropriate value for eduPersonScopedAffiliation within the Cambridge admin portal.
       Documentation:
        - https://vimeo.com/178305091/ac7ed284ae
+      AuthAttribute: eduPersonScopedAffiliation
 
     - Name: Dawsonera
       LoginLink: "[Shibboleth login](https://www.dawsonera.com/wayf/wayf.html?entityID=https%3A%2F%2Fwww.dawsonera.com%2Fshibboleth&return=https%3A%2F%2Fwww.dawsonera.com%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dcookie%253A1501229600_249b)"
@@ -42,6 +45,7 @@ Providers:
         Libraries need to set an appropriate value for eduPersonScopedAfilliation within the EBSCOadmin portal. However, the discovery service is confusing for end users: all of SAFIRE appears under "UK Higher Education", and institution names are not always in English (e.g. UCT is listed as "IYunivesithi yaseKapa"). EBSCO has been contacted to try and resolve this.
       Documentation:
        - https://help.ebsco.com/interfaces/EBSCOadmin/Admin_User_Guide/set_up_Shibboleth_SAML_Authentication
+      AuthAttribute: eduPersonScopedAffiliation
 
     - Name: Elsevier ScienceDirect/Scopus
       LoginLink: "[Other institution](http://www.sciencedirect.com/science?_ob=FederationURL&_method=display&md5=e2d806d1e8c4953bc9f57621cb18fbd2&prevURL=https%3A%2F%2Fwww.sciencedirect.com%2Fuser%2Frouter%2Fshib)"
@@ -51,6 +55,9 @@ Providers:
         Libraries need to generate a WAYFless URL of the form https://auth.elsevier.com/ShibAuth/institutionLogin?entityID={{idp_proxy_entityid}}&appReturnURL={{url-encoded-target}} using their [proxied entity id](https://phph.safire.ac.za/mdfileview?type=published&fed=SAFIRE-BIRK-PUBLIC) and send it to Elsevier support to get themselves listed.
       Documentation:
        - https://www.elsevier.com/solutions/scopus/support/federated-authentication-through-saml
+      AuthAttribute:
+       - eduPersonEntitlement
+       - eduPersonScopedAffiliation
 
     - Name: Emerald Insight
       LoginLink: "[Shibboleth login](https://www.emeraldinsight.com/action/ssostart?redirectUri=%2F)"
@@ -79,6 +86,7 @@ Providers:
       Documentation:
        - http://support.jstor.org/access-management/2016/10/6/jstor-saml-information
        - https://shibboleth2sp.jstor.org/wayfless_url_generator.html
+      AuthAttribute: eduPersonScopedAffiliation
 
     - Name: LexisNexus Academic
       Status: Not tested/can't find
@@ -130,6 +138,9 @@ Providers:
       Status: Testing in progress
       StatusColour: yellow
       Notes: Institutions will need to have their unique organisation ID/scope registered to their account to permit access to their users.  Institutional administrators can enter their Shibboleth credentials themselves, or provide T&F with the details and they can add this to their account on their behalf.
+      AuthAttribute:
+       - eduPersonScopedAffiliation
+       - eduPersonEntitlement
 
     - Name: Thieme Connect
       LoginLink: "[Shibboleth Login](https://profile.thieme.de/HTML/sso/ejournals/shibboleth.htm?hook_url=https://www.thieme-connect.de/products/all/home.html&rdeLocaleAttr=en)"
@@ -151,3 +162,4 @@ Providers:
       Notes: Libraries need to contact Wiley support and complete a Shibboleth (Federated Access) Request Form.
       Documentation:
        - http://media.wiley.com/assets/2265/11/Wiley_Online_Library_Federated_Access_Dec_2013.pdf
+      AuthAttribute: eduPersonScopedAffiliation

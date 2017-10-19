@@ -1,3 +1,4 @@
+<!-- uses stringOrArray and hyperlinkIfNeeded defined in participantlist.html -->
 <!-- this is a counter used for button indices -->
 {{- $.Scratch.Set "i" 0 -}}
 <style>
@@ -35,6 +36,10 @@
             <dt>Documentation</dt>
                 <dd>{{ template "stringOrArray" $p.Documentation }}</dd>
             {{- end }}
+            {{- if $p.AuthAttribute }}
+            <dt>Authorization attribute(s)</dt>
+                <dd>{{ template "stringOrArray" $p.AuthAttribute }}</dd>
+            {{- end }}
         </dl>
     </div>
     {{- $.Scratch.Add "i" 1 -}}
@@ -66,32 +71,3 @@
 		}
     });
 </script>
-
-{{ define "stringOrArray" }}
-    <!-- only way I could find to determine string vs slice -->
-    {{- if eq "string" (printf "%T" .) -}}
-        {{ template "hyperlinkIfNeeded" . }}
-    {{- else -}}
-        <ul class="stringOrArrayList">
-        {{- range . }}
-            <li>{{ template "hyperlinkIfNeeded" . }}</li>
-        {{- end }}
-        </ul>
-    {{- end -}}
-{{ end }}
-
-{{ define "hyperlinkIfNeeded" }}
-    {{- if findRE "^(http|https|tel):" . -}}
-        <a href="{{ . }}" target="_blank">{{ . }}</a>
-    {{- else if hasPrefix . "mailto:" -}}
-        <span class="defusticate">
-        {{- range (split (base64Encode (replaceRE "^mailto:(.*)$" "$1" .)) "") -}}
-          {{- printf "&#x%X;" . | safeHTML -}}
-        {{- end -}}
-        </span>
-    {{- else if findRE "^[+][1-9][ 0-9.-]*$" . -}}
-        <a href="tel:{{ . }}">{{ . }}</a>
-    {{- else -}}
-        {{- . -}}
-    {{- end -}}
-{{ end }}
