@@ -7,7 +7,7 @@
             <time class="entry-date" datetime="{{ $t.UTC.Format "2006-01-02T15:04:05Z" }}">
                 {{- $t.Local.Format "2006-01-02"  }}
             </time>
-        {{- else if findRE "/technical/resources/library-resources/" .RelPermalink }}
+        {{- else if findRE "/technical/resources/library-services/" .RelPermalink }}
         {{- $t := time .Site.Data.libraries.lastMod}}
             <time class="entry-date" datetime="{{ $t.UTC.Format "2006-01-02T15:04:05Z" }}">
                 {{- $t.Local.Format "2006-01-02"  }}
