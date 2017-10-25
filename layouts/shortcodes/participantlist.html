@@ -116,6 +116,10 @@
             {{- end }}
             <dt><abbr title="entity is published to eduGAIN and other interfederation partners">eduGAIN</abbr></dt>
                 <dd>{{ if $p.eduGAIN }}yes, will be published{{ else }}no, will not be published{{ end }}</dd>
+            {{ if $p.Sirtfi }}
+            <dt><abbr title="entity has indicated it complies with https://refeds.org/sirtfi">Sirtfi</abbr></dt>
+                <dd>yes, compliance statement received</dd>
+            {{ end }}
         {{- else -}}
             <dt>Participation Agreement</dt>
                 <dd>{{ if $p.ParticipationAgreement }}yes, has signed{{ else }}no, has not yet signed{{ end }}</dd>
