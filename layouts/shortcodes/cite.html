@@ -16,18 +16,19 @@
       <span class="citation-author" itemprop="http://schema.org/author" itemtype="http://schema.org/Person" itemscope>
         {{- with .orcid }}<a href="{{.}}" itemprop="url">{{ end }}
         <span class="citation-author-surname" itemprop="familyName">{{ .last }}</span>,
-        <span class="citation-author-givenName" itemprop="givenName" title="{{ .first }}">{{ range split .first " " }}{{ substr . 0 1|upper }}{{ end }}</span>.
-        {{- if .orcid }}</a>&nbsp;<img alt="" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="font-size:13px; width:16px; height:16px">{{ end }}
+        <span class="citation-author-givenName" itemprop="givenName" title="{{ .first }}">{{ range split .first " " }}{{ substr . 0 1|upper }}{{ end }}</span>
+        {{- if .orcid }}&nbsp;<img alt="" title="ORCID iD" src="https://orcid.org/sites/default/files/images/orcid_16x16.png" style="font-size:13px; width:16px; height:16px"></a>{{ end }}.
       </span>, <!-- .citation-author -->
       {{- end }}{{- end }}
   </span> <!-- .citation-authors -->
   (<time class="citation-date" itemprop="http://schema.org/dateCreated" datetime="{{ dateFormat "2006-01-02T15:04:05Z" $date }}">{{ substr (dateFormat "2006-01-02" $date) 0 4 }}</time>).
-  {{- with $url }}<a class="citation-url" rel="alternate" href="{{.}}" itemprop="http://schema.org/url">{{ end }}"<span class="citation-title" itemprop="http://schema.org/name">{{ $title }}</span>"{{ if $url }}</a>{{ end }}.
+  {{ with $url }}<a class="citation-url" rel="alternate" href="{{.}}" itemprop="http://schema.org/url">{{ end }}"<span class="citation-title" itemprop="http://schema.org/name">{{ $title }}</span>"{{ if $url }}</a>{{ end }}.
   {{- if or $event $location }}
   <span class="citation-event" itemtype="http://schema.org/Event" itemscope>
-  {{- with $event }}At <em class="citation-event-name" itemprop="http://schema.org/name">{{.}}</em>{{ if $location }}, {{ end -}}{{ end -}}
-  {{- with $eventUrl }}<a href="{{.}}" itemprop="http://schema.org/url">{{ end }}{{ with $location }}<span class="citation-event-location" itemprop="http://schema.org/location">{{.}}</span>{{ end }}{{ if $eventUrl }}</a>{{ end -}}.
-  {{- if $event }}<time class="citation-event-date" itemprop="http://schema.org/startDate" datetime="{{ dateFormat "2006-01-02T15:04:05Z" $eventDate }}">{{ dateFormat "_2 January 2006" $eventDate }}</time>.{{ end -}}
+  {{- with $event }}At
+  {{ with $eventUrl }}<a href="{{.}}" itemprop="http://schema.org/url">{{ end -}}<em class="citation-event-name" itemprop="http://schema.org/name">{{.}}</em>{{ if $eventUrl }}</a>{{ end -}}{{ if $location }}, {{ end -}}{{ end -}}
+  {{ with $location }}<span class="citation-event-location" itemprop="http://schema.org/location">{{.}}</span>{{ end }}.
+  {{ if $event }}<time class="citation-event-date" itemprop="http://schema.org/startDate" datetime="{{ dateFormat "2006-01-02T15:04:05Z" $eventDate }}">{{ dateFormat "_2 January 2006" $eventDate }}</time>.{{ end -}}
   </span> <!-- .citation-event -->
   {{- end }}
 </span> <!-- .citation -->
