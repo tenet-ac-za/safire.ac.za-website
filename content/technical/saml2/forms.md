@@ -19,3 +19,11 @@ In addition to the [Participation Agreement](/safire/policy/participation/), par
 These forms supplement and are used to validate the information provided in metadata.
 
 Please ensure you always have the most up-to-date versions of these forms from this page.
+
+### Sirtfi compliance
+
+If you need to assert [Sirtfi](https://refeds.org/sirtfi) compliance, in addition to a registration request you also need to supply a statement of your Sirtfi compliance. You can use the following template:
+
+  * [SAFIRE Sirtfi Compliance Template](/wp-content/uploads/2017/10/SAFIRE-Sirtfi-Compliance-Template.docx)
+
+This statement must be on institional letterhead, and should be signed by the person responsible for conducting the assessment (which may or may not be your technical contact).
