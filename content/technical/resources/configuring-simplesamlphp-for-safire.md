@@ -1,5 +1,5 @@
 ---
-date: 2016-12-14 07:47:32+00:00
+date: 2017-11-03 07:47:32+00:00
 slug: configuring-simplesamlphp-for-safire
 tags:
   - configuration
@@ -131,29 +131,6 @@ If the cron module is correctly refreshing your metadata you should see log entr
 [b0160ff3fb] cron [metarefresh]: Executing set [safire]
 ```
 
-# Configuring a Service Provider
-
-## Configure SSO
-
-If you're using SimpleSAMLphp as a service provider and you want to use SAFIRE's central discovery service, you need to add an 'idp' attribute to your [saml:SP configuration](https://simplesamlphp.org/docs/stable/saml:sp) in config/authsources.php:
-
-```php
-$config = array(
-    'default-sp' => array(
-        'saml:SP',
-        'idp' => 'https://iziko.safire.ac.za/',
-    ),
-);
-```
-
-If you want to use local discovery, no SAFIRE-specific configuration should be required provided you got the metadata step correct.
-
-To produce better automated metadata, you should also configure the [MDUI options](https://simplesamlphp.org/docs/stable/simplesamlphp-metadata-extensions-ui) correctly. (There's a [sample authsources.php](/wp-content/uploads/2017/02/authsources.php.txt)  file available to help you do this.)
-
-## Configure attribute mapping
-
-SimpleSAMLphp's default attribute map contains almost all of SAFIRE's attributes. Depending on what version you're using, you [may need to add eduPersonOrcid](https://github.com/simplesamlphp/simplesamlphp/commit/63c7abf68deb670f85c6567366c7df83d1a43b67) if you need it.
-
 # Configuring an Identity Provider
 
 # Configure a hosted IdP
@@ -180,3 +157,25 @@ To produce better automated metadata, you should also configure the [MDUI option
 
 If you're using SimpleSAMLphp as an identity provider, you need to configure an internal authentication source (e.g. [ldap:LDAP](https://simplesamlphp.org/docs/stable/ldap:ldap)) to provide [all of the attributes required by SAFIRE](/technical/attributes/). You may also need to configure [authentication processing filters](https://simplesamlphp.org/docs/stable/simplesamlphp-authproc) to map your internal attributes into the correct OID format. How you do this is site-specific and beyond the scope of this document.
 
+# Configuring a Service Provider
+
+## Configure SSO
+
+If you're using SimpleSAMLphp as a service provider and you want to use SAFIRE's central discovery service, you need to add an 'idp' attribute to your [saml:SP configuration](https://simplesamlphp.org/docs/stable/saml:sp) in config/authsources.php:
+
+```php
+$config = array(
+    'default-sp' => array(
+        'saml:SP',
+        'idp' => 'https://iziko.safire.ac.za/',
+    ),
+);
+```
+
+If you want to use local discovery, no SAFIRE-specific configuration should be required provided you got the metadata step correct.
+
+To produce better automated metadata, you should also configure the [MDUI options](https://simplesamlphp.org/docs/stable/simplesamlphp-metadata-extensions-ui) correctly. (There's a [sample authsources.php](/wp-content/uploads/2017/02/authsources.php.txt)  file available to help you do this.)
+
+## Configure attribute mapping
+
+SimpleSAMLphp's default attribute map contains almost all of SAFIRE's attributes. Depending on what version you're using, you [may need to add eduPersonOrcid](https://github.com/simplesamlphp/simplesamlphp/commit/63c7abf68deb670f85c6567366c7df83d1a43b67) if you need it.
