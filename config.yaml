@@ -55,6 +55,27 @@ menu:
     Parent: participants-support
     Weight: 3
 
+  - Name: "RADIUS/EAP Technology Profile"
+    Identifier: technical-radius
+    URL: https://eduroam.ac.za/
+    Parent: technical
+    Weight: 4
+  - Name: "Technical Requirements"
+    Identifier: technical-radius-policy
+    URL: https://eduroam.ac.za/policy/
+    Parent: technical-radius
+    Weight: 1
+  - Name: "Registration Request Forms"
+    Identifier: technical-radius-forms
+    URL: https://eduroam.ac.za/policy/
+    Parent: technical-radius
+    Weight: 2
+  - Name: "Management"
+    Identifier: technical-radius-manage
+    URL: https://eduroam.ac.za/manage/
+    Parent: technical-radius
+    Weight: 3
+
   - Name: "Attribute Release Policy"
     Identifier: technical-saml2-arp
     URL: /safire/policy/arp/
