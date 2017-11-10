@@ -75,7 +75,7 @@ The [REFEDs ePSA usage comparison](https://www.terena.org/activities/refeds/docs
 ### Nesting of eduPersonAffiliation values
 
 The following figure shows how the most commonly used values nest together, allowing a check for an outer box to include all people covered by an inner one.
-{{< figure src="/wp-content/uploads/2017/10/Nesting-of-eduPersonAffiliation-values.svg" caption="Nesting of eduPersonAffiliation values in SAFIRE" >}}
+[{{< figure src="/wp-content/uploads/2017/10/Nesting-of-eduPersonAffiliation-values.svg" caption="Nesting of eduPersonAffiliation values in SAFIRE" >}}](/wp-content/uploads/2017/10/Nesting-of-eduPersonAffiliation-values.svg)
 It should be apparent that this means that the vast majority of users are expected to have more than one value for eduPersonAffiliation.
 
 # Case 1: Containers / distinguished name
