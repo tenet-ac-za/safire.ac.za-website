@@ -42,7 +42,9 @@ Importantly SAML does **not** perform authorisation (AuthZ), although the inform
 
 ### Information flow
 
-[[todo:figure]]
+[{{< figure src="/wp-content/uploads/2017/11/WebSSO-Flows.svg" caption="WebSSO Information Flow" >}}](/wp-content/uploads/2017/11/WebSSO-Flows.svg)
+
+A flow typically starts when a user clicks the "login" button on a service provider's web page.
 
 An AuthN request flows from the service provider via the user's web browser and zero-or-more intermediaries to the identity provider's `SingleSignOnService`.
 
