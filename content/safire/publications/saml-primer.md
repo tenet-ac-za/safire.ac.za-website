@@ -4,23 +4,31 @@ date: 2017-11-09 23:23:00+02:00
 tags:
   - technical
   - saml2
+keywords:
+  - SAML2
+  - SAML primer
+  - introduction
+  - lesson
 ---
 
 This document intends to be a quick primer on SAML for those who want to get on with the rest of their todo list.
 
-SAML seems big and scary, because it has a lot of decisions and moving parts. But the reality is that many of these decisions have already been made for you, and you don't need to know about the moving parts to make it work for you. Thus this document attempts to distill out the most important bits. Purists will probably tell you it massively over-simplifies things :-).
+SAML seems big and scary, because it has a lot of decisions and moving parts. But the reality is that many of these decisions have already been made for you, and you don't need to know about the moving parts to make it work for you. Thus this primer attempts to distill out the most important bits in a way that's easy to skim.
 <!--more-->
-## SAML?
+
+Purists will probably tell you it massively over-simplifies things. That's exactly what it sets out to do ;-).
+
+## 1. SAML?
 
 SAML is the **Security Assertion Markup Language**, a security framework and open standard defined by [OASIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=security).
 
-As a framework, there are many ways to deploy SAML --- but the only one that matters here is the [web browser single sign-on profile](https://en.wikipedia.org/wiki/SAML_2.0#Web_Browser_SSO_Profile) (**WebSSO**). Within WebSSO, there are many options one can choose. However the research & education community has pre-defined many of them in the [inter-operable SAML2 profile](https://saml2int.org/) (**SAML2int**). This is the subset of SAML most universities need to worry about, and that this document refers to.
+As a framework, there are many ways to deploy SAML --- but the only one that matters here is the [web browser single sign-on profile](https://en.wikipedia.org/wiki/SAML_2.0#Web_Browser_SSO_Profile) (**WebSSO**). Within WebSSO, there are many options one can choose. However the research & education community has pre-defined many of them in the [interoperable SAML2 profile](https://saml2int.org/) (**SAML2int**). This is the subset of SAML most universities need to worry about, and that this document refers to.
 
-## SAML vs Shibboleth
+## 2. SAML vs Shibboleth
 
 These days the terms "SAML" and "Shibboleth" are used interchangeably and mean the same thing. The former is more correct, because people are typically referring to SAML 2.0. Confusingly Shibboleth is both a precursor to the first version of SAML and also a [vendor of SAML software](http://shibboleth.net/). Use "SAML2" to avoid ambiguity and to keep the purists happy. Use "Shibboleth" when you talk to library information providers, since they're still catching up.
 
-## What SAML does
+## 3. What SAML does
 
 Stripped to the bare essentials, a SAML transaction consists of three parts:
 
@@ -30,7 +38,7 @@ Stripped to the bare essentials, a SAML transaction consists of three parts:
 
 Importantly SAML does **not** perform authorisation (AuthZ), although the information gleaned from the assertions may provide entitlement information that assists with this.
 
-## How SAML works
+## 4. How SAML works
 
 ### Information flow
 
@@ -46,9 +54,9 @@ Sometimes, particularly in a federation, a service provider does not know which 
 
 Depending on the architecture, the discovery service may or may not act as an intermediary in the SAML conversation. If it does, you can think of it as a form of proxy server.
 
-### Transport protocol
+### Transport protocol (bindings)
 
-There are many ways to transport a SAML request or response, and these are known as *bindings*.
+There are many ways to transport a SAML request or response, and these are known as **bindings**.
 
 Early implementations used a dedicated back channel with mutual certificate authentication for assertions. This was very secure, but also complicated to understand and difficult to debug. For this reason, current implementations prefer to hide this information in plain sight --- they use the user's browser as a transport, meaning that the entire protocol conversation is visible to the user.
 
@@ -56,23 +64,23 @@ This is typically done in one of two ways, known as the **HTTP-Redirect** and **
 
 Both these bindings work in essentially the same way, by passing information the same way web forms do. HTTP-Redirect does this as a query string in an HTTP GET request; as it's name suggests, HTTP-POST does this with an HTTP POST request. Sometimes both are implemented simultaneously.
 
-Authentication responses and assertions passed via a user's browser must be [cryptographically signed](https://en.wikipedia.org/wiki/Digital_signature) to prevent them from being altered en-route. This is done in a standards-based way with [xmldsig](https://www.w3.org/TR/xmldsig-core/), using information from [metadata](#saml-metadata).
+Authentication responses and assertions passed via a user's browser must be [cryptographically signed](https://en.wikipedia.org/wiki/Digital_signature) to prevent them from being altered en-route. This is done in a standards-based way with [xmldsig](https://www.w3.org/TR/xmldsig-core/), using information from [metadata]({{< ref "#5-saml-metadata" >}}).
 
 The SAML protocol also allows for the messages to be encrypted, but most deployments prefer to rely on the underlying HTTP encryption (https://). There's no loss of security in transit but it makes debugging much easier because messages are available in-the-clear in the user's browser.
 
 ### Messages
 
-SAML messages are structured as XML. However, just as you don't need to know how DNS or LDAP is encoded on the wire, most people typically don't need to understand the structure of SAML messages :-). It suffices to know how to capture them.
+Messages in the SAML protocol are structured as XML. However, just as you don't need to know how DNS or LDAP is encoded on the wire, most people typically don't need to understand the structure of SAML messages :-). It suffices to know how to capture them.
 
-There are browser plugins available for both [FireFox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/) and [Chrome](https://chrome.google.com/webstore/detail/saml-message-decoder/mpabchoaimgbdbbjjieoaeiibojelbhm) that will allow you to easily capture and view SAML messages. Both also allow the conversations to be exported as JSON, to allow you to easily share them with others who may be helping you.
+There are browser plugins available for both [FireFox](https://addons.mozilla.org/en-US/firefox/addon/saml-tracer/) and [Chrome](https://chrome.google.com/webstore/detail/saml-message-decoder/mpabchoaimgbdbbjjieoaeiibojelbhm) that will allow you to easily capture and view SAML messages. Both also allow the conversations to be exported as JSON, to allow you to easily share them with others who may be helping you. Think of them as [tcpdump](http://www.tcpdump.org/) for SAML.
 
-The rest of this section is provided for interest, and you can probably skip to the [section on metadata](#saml-metadata) if you want.
+The rest of this section is provided for interest or future reference, and you can probably skip to the [section on metadata]({{< ref "#5-saml-metadata" >}}) if you want.
 
-If you do ever delve in, [samltools.com](https://www.samltool.com/) have a number of useful [online tools for decoding and debugging](https://www.samltool.com/online_tools.php) SAML conversations.
+If you do ever delve in, [samltools.com](https://www.samltool.com/) have a number of useful [online tools for decoding, validating and debugging](https://www.samltool.com/online_tools.php) SAML conversations. Think of these tools as [Wireshark](https://www.wireshark.org/) for SAML.
 
 #### A brief look at a SAML message
 
-A typical authentication (AuthN) requests looks like this:
+A typical authentication (**AuthN**) requests looks like this:
 ```xml
 <samlp:AuthnRequest xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
                     AssertionConsumerServiceURL="https://testsp.safire.ac.za/Shibboleth.sso/SAML2/POST"
@@ -84,9 +92,9 @@ A typical authentication (AuthN) requests looks like this:
   <saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">https://testsp.safire.ac.za/Shibboleth.sso/Metadata</saml:Issuer>
   <samlp:NameIDPolicy AllowCreate="1" /></samlp:AuthnRequest>
 ```
-Arguably the most important thing to note in the above message is the `IssueInstant` (see [time](#time)).
+Arguably the most important thing to note in the above message is the `IssueInstant` (see [time]({{< ref "#8-time" >}})).
 
-The `saml:Issuer` tells you who sent the request, and the `Destination` tells you where it is going. The `AssertionConsumerServiceURL` tells the IdP where the SP would like the response to go (whether it honours that depends on its configuration).
+The `ID` uniquely identifies this message, and is used like an email Message-Id to link transactions together. The `saml:Issuer` tells you who sent the request, and the `Destination` tells you where it is going. The `AssertionConsumerServiceURL` tells the IdP where the SP would like the response to go (whether it honours that depends on its configuration).
 
 A SAML response is typically more complicated (and therefore longer), because it contains both assertions about the subject and a cryptographic signature. A stripped down version looks like this:
 ```xml
@@ -120,41 +128,75 @@ The well-known parameters are `SAMLRequest` for a SAML request, `SAMLResponse` f
 
 ### Single logout
 
-One of SAML's weaknesses is poor support for single logout --- that is for a logout at one service provider to be able to initiate a logout at every other one for the same SSO session. Whilst the protocol supports it, its implementation varies considerably and is sometimes non-existent. [Much has been written about this subject](https://www.google.co.za/search?q=saml+single+logout).
+One of SAML's weaknesses is poor support for single logout (**SLO**) --- that is for a logout at one service provider to be able to initiate a logout at every other one for the same SSO session. Whilst the protocol supports it, its implementation varies considerably and is sometimes non-existent. [Much has been written about this subject](https://www.google.co.za/search?q=saml+single+logout).
 
-## SAML metadata
+## 5. SAML metadata
 
-In order for the protocol to work, both parties need to know stuff about each other. The service provider needs to know where to send an AuthN request, and the identity provider needs to know where to send a response and any assertions. In addition, in order for signing and encryption to work, the two parties need to share public keys. This is achieved by means of SAML metadata.
+In order for the protocol to work, both parties need to know stuff about each other. The service provider needs to know where to send an AuthN request, and the identity provider needs to know where to send a response and any assertions. In addition, in order for signing and encryption to work, the **[relying parties](https://en.wikipedia.org/wiki/Relying_party)** need to share public keys. This is achieved by means of SAML metadata.
 
-Like the messages, SAML metadata is XML. In a federated environment, you supply your metadata to the federation and get metadata for other participants from the federation.
+Like the messages, SAML metadata is XML and has lots of options. Fortunately we only need to care about the subset defined in the [metadata interoperablity profile](https://wiki.oasis-open.org/security/SAML2MetadataIOP) (**MetaIOP**) and a very small set of metadata extensions.
 
-Federation metadata is typically cryptographically signed using xmldsig so that you can be sure it is trustworthy. However, once you've validated the signature, you can do whatever transformations you need to make the metadata useful to you.
+Unlike the messages, it does pay to have some understanding of the basic structure of metadata. Fortunately, however, many federations provide [documentation](/technical/saml2/) on their metadata requirements and often a [metadata template](/wp-content/uploads/2016/12/metadata.xml) too.
 
-### EntityID
+In a federated environment, you supply your metadata to the federation and get metadata for other participants from the federation.
+
+### Generation and editing
+
+Most SAML software can automatically generate metadata. However, unless this is done with a template, the auto-generated metadata tends to contain extraneous elements (for instance, AD FS inserts many [RoleDescriptors]({{< ref "#roledescriptors" >}}) that are not relevant under SAML2int and MetaIOP; Shibboleth includes old SAML1 elements).
+
+Unsigned metadata can (and probably should) be edited to ensure it only contains those elements that are relevant. Metadata is just UTF-8 encoded text, and can be edited with any modern text editor.
+
+One thing that characterises SAML federations is that they have high-quality, hand curated metadata. Most federations will have specific normalization and [validation](https://validator.safire.ac.za/) requirements, and may do some of the heavy lifting for you.
+
+Federation metadata is typically cryptographically signed using xmldsig so that you can be sure it is trustworthy. This means you *cannot edit it without breaking the signature*. However, once you've validated the signature, your SAML software can do whatever transformations you need to make the metadata useful to you.
+
+### General structure
+
+SAML metadata consists of one or more **EntityDescriptor**s. Each EntityDescriptor is identified by an [`EntityID`]({{< ref "#entityid" >}}), and contains some information about the federation that registered it followed by one or more [`RoleDescriptor`s]({{< ref "#roledescriptors" >}}). Towards the end of the metadata is information about the Organization it refers to and some Contact information. Both the EntityDescriptor and individual RoleDescriptors can include Extensions.
+
+#### EntityID
 
 Every entity in metadata must have a unique identifier, known as an **EntityID**. In the SAML spec, these are free-form. However convention says we structure them in the form of a URL as a well-known location. Typically the host portion of the URL should be the FQDN of the server hosting the entity.
 
 You normally refer to a specific identity- or service provider by its EntityID, and this information is useful to others trying to debug a problem.
 
-### RoleDescriptors
+You should not change an EntityID without carefully considering the consequences.
 
-SAML metadata contains RoleDescriptors that explain what the entity being described does. The two that are most relevant are `IDPSSODescriptor` for an identity provider and `SPSSODescriptor` for a service providers.
+#### RoleDescriptors
 
-Your metadata may contain other RoleDescriptors (particularly if it is from AD FS), but you can probably ignore these.
+SAML metadata contains `RoleDescriptor`s that explain what the entity being described does. The two that are most relevant are `IDPSSODescriptor` for an identity provider and `SPSSODescriptor` for a service providers.
 
-Some parts of a RoleDescriptor share information (like an service name or an X.509 certificate) whereas others act like access control lists (e.g. the AssertionConsumerService list in an IdP's copy of an SP's metadata). Understanding the structure of metadata is beyond the scope of this document, but is more useful than understanding protocol SAML messages.
+Your metadata may contain other RoleDescriptors (particularly if it is from AD FS), but you can probably ignore and/or delete these.
 
-## Security --- signing and encryption
+Some parts of a RoleDescriptor share information (like an service name or an X.509 certificate) whereas others act like access control lists (e.g. the AssertionConsumerService list in an IdP's copy of an SP's metadata). Your SAML software's documentation will provide guidance on this.
+
+#### Scope
+
+An `IDPSSODescriptor` can (and should) contain one or more `<shibmd:Scope>` elements in Extensions. These are much the same as realms in RADIUS, and often directly match. They are structured as FQDNs but, like realms, they do not need to exist in DNS. The Scope elements in metadata are used by federation participants to validate any attributes that contain a realm/domain/scope (e.g. [eduPersonPrincipalName]({{<ref "/technical/attributes/edupersonprincipalname.md" >}})).
+
+The specification for the Scope element allows for these to be defined by regular expressions, however in practice few service providers support these. Rather include multiple Scope elements defining all possible scopes for your users.
+
+#### MDUI
+
+A widely used extension to the basic SAML metadata is the Metadata Extensions for Login and Discovery User Interface (**MDUI**). These provide additional elements such as service descriptions and logos to make the login and discovery processes simpler and more user-friendly. Federations typically have specific recommendations around MDUI, and there are also some [federation non-specific recommendations](https://wiki.refeds.org/display/FBP/MDUI+Advice) available.
+
+#### EntityCategories
+
+Another widely used extension are [EntityCategories](https://wiki.refeds.org/display/ENT/Entity-Categories+Home), a subset of the Metadata Extension for Entity Attributes. As their name suggests, they're used to group and categories different entities that share common criteria.
+
+Arguably the most important EntityCategory, and the only one you really need to concern yourself with, is the [Research & Scholarship](https://wiki.refeds.org/display/ENT/Research+and+Scholarship+FAQ) one. This groups entities who's main purpose is supporting or furthering the aims of the research & education community, and has a [specific definition](https://refeds.org/category/research-and-scholarship) available. It is used to manipulate attribute release.
+
+## 6. Security --- signing and encryption
 
 Both SAML signing and encryption use [public key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography), and transport a public key encoded as a [certificate](https://en.wikipedia.org/wiki/Public_key_certificate).
 
-There are two ways to validate such a certificate: using [public key infrastructure](https://en.wikipedia.org/wiki/Public_key_infrastructure) (PKI) or by pre-sharing a public key to create "explicit key trust". The later is done by means of including the certificate in metadata, and is the preferred method for our purposes. Because it is defined in the [metadata inter-operablity profile](https://wiki.oasis-open.org/security/SAML2MetadataIOP) the explicit key trust model is sometime known as **MetaIOP**. In general, when presented with a choice you should choose MetaIOP.
+There are two ways to validate such a certificate: using [public key infrastructure](https://en.wikipedia.org/wiki/Public_key_infrastructure) (PKI) or by pre-sharing a public key to create "explicit key trust". The later is done by means of including the certificate in metadata, and is the preferred method for our purposes. Because it is defined in the metadata the explicit key trust model is sometime erroneously known as **MetaIOP**. In general, when presented with a choice you should choose explicit trust/metadata/MetaIOP.
 
-Because it does not rely on PKI, certificates for SAML [do not need to be signed by a certificate authority]({{< ref "/technical/resources/generating-certificates-for-safire.md#saml-signing-certificate" >}}) (and in fact, should not). Likewise, in this configuration, the expiry date of a certificate is technically irrelevant --- but poor software implementations mean you should make sure your certificate is always valid.
+Because it does not rely on PKI, certificates for SAML [do not need to be signed by a certificate authority]({{< ref "/technical/resources/generating-certificates-for-safire.md#saml-signing-certificate" >}}) (and in fact, should not). Likewise, in this configuration, the expiry date of a certificate is technically irrelevant --- but poor software implementations mean you should make sure your certificate is always valid!
 
-(The certificates you use to [secure your web server]({{< ref "/technical/resources/generating-certificates-for-safire.md#web-server-certificate" >}}), however, do require PKI and *must* be signed by a trusted certificate authority and *must* be valid.)
+(The certificates you use to [secure the public facing parts of your web server]({{< ref "/technical/resources/generating-certificates-for-safire.md#web-server-certificate" >}}), however, do require PKI and *must* be signed by a trusted certificate authority and *must* be valid. The requirements for these are the same as any other secure website.)
 
-## Attributes
+## 7. Attributes
 
 Arguably the most useful part of SAML is its ability to transport rich information about a data subject (user). This is done by means of attributes, and both parties need to [agree on what these mean](/technical/attributes/) before they're useful.
 
@@ -162,23 +204,27 @@ The SAML metadata defines what attributes a service provider would like, and whe
 
 ### Attribute naming
 
-SAML supports different name formats, but for these purposes the only one that matters is [Object Identifiers](https://en.wikipedia.org/wiki/Object_identifier) (OIDs) represented in [URN](https://en.wikipedia.org/wiki/Uniform_Resource_Name) space. Whilst that may sound complicated, its the same representation used internally by many protocols, including RADIUS and LDAP.
+SAML supports different name formats, but for these purposes the only one that matters is [Object Identifiers](https://en.wikipedia.org/wiki/Object_identifier) (OIDs) represented in [URN](https://en.wikipedia.org/wiki/Uniform_Resource_Name) space. Whilst that may sound complicated, its the same representation used internally by many protocols, including RADIUS and LDAP.  Most SAML software will automatically map attributes into to more friendly and familiar names so that you never need to deal with the OID form directly (just as you don't deal with OIDs in LDAP).
 
 In a SAML response on the wire, a SAML assertion for an attribute looks like this:
 ```xml
-<saml:Attribute Name="urn:oid:1.3.6.1.4.1.5923.1.1.1.16"
-                FriendlyName="eduPersonOrcid"
+<saml:Attribute Name="urn:oid:2.5.4.42"
+                FriendlyName="givenName"
                 NameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri">
-    <saml:AttributeValue xsi:type="xs:string">https://orcid.org/0000-0002-1825-0097</saml:AttributeValue>
+    <saml:AttributeValue xsi:type="xs:string">Vuyo</saml:AttributeValue>
 </saml:Attribute>
 ```
-You can see the attribute's name is the URN-encoded OID `urn:oid:1.3.6.1.4.1.5923.1.1.1.16` which corresponds to the attribute more familiarly known as [eduPersonOrcid]({{<ref "/technical/attributes/edupersonorcid.md">}}).
+You can see the attribute's name is the URN-encoded OID `urn:oid:2.5.4.42` which corresponds to the attribute more familiarly known as [givenName]({{<ref "/technical/attributes/givenname.md">}}).
+
+By convention we use the same OIDs that are defined in various LDAP schemas such as [inetOrgPerson](https://tools.ietf.org/html/rfc2798) and [eduPerson](https://www.internet2.edu/products-services/trust-identity/eduperson-eduorg/), and the `FriendlyName` matches the LDAP attribute name.
+
+Note that the naming format used in the R&E space is different from the standard AD FS claims, and so AD FS users need to [specifically add support for OIDs]({{< ref "/technical/resources/configuring-adfs-for-safire.md" >}}).
 
 ### Attribute values
 
-The structure of an attribute's values depends on the specific definition of the attribute, and may vary from provider to provider. Some, like the eduPersonOrcid above, are well defined and can be easily validated whereas others are free-form. Likewise, some attributes can only contain a single value whereas others may contain many related values.
+The structure of an attribute's values depends on the specific definition of the attribute, and may vary from provider to provider. Some are well defined and can be easily validated whereas others, like the *givenName* above, are free-form. Likewise, some attributes can only contain a single value whereas others may contain many related values.
 
-Most federations [provide guidance](/technical/attributes/) on both attribute naming and their corresponding values.
+Most federations [provide strict guidelines](/technical/attributes/) on both attribute naming and their corresponding values. This ensures a common understanding and interoperability.
 
 ### NameIDs
 
@@ -190,9 +236,9 @@ There are several forms for these, but the important ones are **transient** and 
 
  * A persistent NameID is intended to persist between sessions, but is not necessarily portable between service providers. In its most common form, the persistent NameID contains the same value as the deprecated [eduPersonTargetedId]({{< ref "/technical/attributes/edupersontargetedid.md" >}}) attribute.
 
-You should use a NameID in preference to an attribute whereever a "username" is required.
+You should use a NameID in preference to an attribute wherever a "username" is required.
 
-## Time
+## 8. Time
 
 Time and clocks get a special mention here because, like many authentication protocols, SAML is heavily reliant on accurate time. SAML responses typically indicate a validity period:
 ```xml
