@@ -20,13 +20,11 @@ Purists will probably tell you it massively over-simplifies things. That's exact
 
 ## 1. SAML?
 
-SAML is the **Security Assertion Markup Language**, a security framework and open standard defined by [OASIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=security).
-
-As a framework, there are many ways to deploy SAML --- but the only one that matters here is the [web browser single sign-on profile](https://en.wikipedia.org/wiki/SAML_2.0#Web_Browser_SSO_Profile) (**WebSSO**). Within WebSSO, there are many options one can choose. However the research & education community has pre-defined many of them in the [interoperable SAML2 profile](https://saml2int.org/) (**SAML2int**). This is the subset of SAML most universities need to worry about, and that this document refers to.
+SAML is the **Security Assertion Markup Language**[^saml-oasis]. As a framework, there are many ways to deploy SAML --- but the only one that matters here is the [web browser single sign-on profile](https://en.wikipedia.org/wiki/SAML_2.0#Web_Browser_SSO_Profile) (**WebSSO**). Within WebSSO, there are many options one can choose. However the research & education community has pre-defined many of them in the [interoperable SAML2 profile](https://saml2int.org/) (**SAML2int**). This is the subset of SAML most universities need to worry about, and that this document refers to.
 
 ## 2. SAML vs Shibboleth
 
-These days the terms "SAML" and "Shibboleth" are used interchangeably and mean the same thing. The former is more correct, because people are typically referring to SAML 2.0. Confusingly Shibboleth is both a precursor to the first version of SAML and also a [vendor of SAML software](http://shibboleth.net/). Use "SAML2" to avoid ambiguity and to keep the purists happy. Use "Shibboleth" when you talk to library information providers, since they're still catching up.
+These days the terms "SAML" and "Shibboleth" are used interchangeably and mean the same thing. The former is more correct, because people are typically referring to SAML 2.0. Confusingly Shibboleth is both a precursor to the first version of SAML[^shib] and also a [vendor of SAML software](http://shibboleth.net/). Use "SAML2" to avoid ambiguity and to keep the purists happy. Use "Shibboleth" when you talk to library information providers, since they're still catching up.
 
 ## 3. What SAML does
 
@@ -44,7 +42,7 @@ Importantly SAML does **not** perform authorisation (AuthZ), although the inform
 
 [{{< figure src="/wp-content/uploads/2017/11/WebSSO-Flows.svg" caption="WebSSO Information Flow" >}}](/wp-content/uploads/2017/11/WebSSO-Flows.svg)
 
-A flow typically starts when a user clicks the "login" button on a service provider's web page.
+A flow typically starts when a user clicks the "login" button on a service provider's web page[^idp-init].
 
 An AuthN request flows from the service provider via the user's web browser and zero-or-more intermediaries to the identity provider's `SingleSignOnService`.
 
@@ -248,3 +246,8 @@ Time and clocks get a special mention here because, like many authentication pro
                  NotOnOrAfter="2017-11-09T19:12:47Z">
 ```
 The difference between `NotBefore` and `NotOnOrAfter` is usually about five minutes. This means that a clock difference of even a few minutes between an identity provider and a service provider will cause authentication to fail.
+
+
+[^saml-oasis]: SAML is a security framework and open standard defined by [OASIS](https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=security) in a series of technical documents and XML schemas.
+[^shib]: Shibboleth evolved SAML 1.0 → SAML 1.1 → SAML 2.0 (see <http://saml.xml.org/history>)
+[^idp-init]: It is also possible for an identity provider to initiate the flow, but service-provider initiated is the most common case.
