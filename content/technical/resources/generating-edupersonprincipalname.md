@@ -77,7 +77,7 @@ A problem that commonly afflicts Active Directory users is that their AD domain 
 ),
 ```
 
-Note that if your AD name is a valid subdomain within your DNS domain, you do not necessarily have to do this --- it is okay to use subdomains provided they are properly reflected in the [<md:Scope> elements](/technical/saml2/idp-requirements/) within your metadata. (Or you could do the above if you'd prefer not to reflect your domain name outwards.)
+Note that if your AD name is a valid subdomain within your DNS domain, you do not necessarily have to do this --- it is okay to use subdomains provided they are properly reflected in the [`<md:Scope>` elements](/technical/saml2/idp-requirements/) within your metadata. (Or you could do the above if you'd prefer not to reflect your domain name outwards.)
 
 # Case 3: You have an unscoped user identifier
 
