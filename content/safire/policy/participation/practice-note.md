@@ -1,7 +1,7 @@
 ---
 aliases:
   - /safire/policy/practice-note-participation-agreement/
-date: 2017-09-20 14:24:56+00:00
+date: 2018-02-05 09:00:00+02:00
 slug: practice-note-participation-agreement
 tags:
   - participation
@@ -44,13 +44,15 @@ Both the [default attribute release policy](/safire/policy/arp/#default) and the
 
 # Consent for personal information release
 
-SAFIRE's understanding of consent is that it must be given by a data subject (end user), and it must be informed, freely given, and for a specific purpose. It must also be [withdrawable at any point](https://consentadmin.safire.ac.za/). These principles are applied throughout. Likewise, the principle of minimality is observed when negotiating [attribute release policies](/safire/policy/arp/).
+SAFIRE's understanding of consent is that it must be given by a data subject (end user), and it must be informed, freely given, and for a specific purpose. It must also be [withdrawable at any point](https://consentadmin.safire.ac.za/). Irrespective of whether consent is actually required for lawful processing, these principles are applied throughout SAFIRE's operations and the data subject is always informed about data transfers and given the opportunity to abort the transaction. Likewise, the principle of minimality is observed when negotiating [attribute release policies](/safire/policy/arp/).
 
-Our understanding of consent will continue to evolve as regulation is gazetted in South Africa. In the mean time, we follow the developments relating to the European GDPR with interest.
+Our understanding of consent and other bases for lawful processing will continue to evolve as regulation is gazetted in South Africa.
+
+The European GDPR has significant impact on inter-federation and cross-border operations, and is in some senses more evolved than South African's own legislation. A great deal of work is being done by other NRENs, both within Europe and outside, on the applicability of the GDPR on their operations. We full expect that the GDPR will impact South African researchers, our NREN and SAFIRE in particular. We are thus following these developments --- and specifically those that relate to the [lawful basis for data processing](https://wiki.refeds.org/display/ENT/Guidance+on+justification+for+attribute+release) --- with interest.
 
 # Display of policy documents
 
-SAFIRE's consent page for SAML transactions provides links to both [SAFIRE's Privacy Statement](/safire/policy/privacy/) and to the privacy policy or statement of the specific service provider that's being visited. Moreover, the consent page displays the post-processed attributes, exactly as they will be onward released. No further processing is done after consent. All of this is important to allow people to make an informed decision about consent.
+SAFIRE's information release notification page for SAML transactions provides links to both [SAFIRE's Privacy Statement](/safire/policy/privacy/) and to the privacy policy or statement of the specific service provider that's being visited. Moreover, the information release notification page displays the post-processed attributes, exactly as they will be onward released. No further processing is done after this notification. All of this is important to allow people to make an informed decision about whether they wish to continue with the transaction.
 
 Should individual SAML identity- or service providers wish to display other policies or terms, they may build those into their own systems.
 
@@ -104,6 +106,12 @@ Secondly, as a small non-profit, TENET simply doesn't have the resources to mana
 
 Potential identity providers (mostly universities) were given an opportunity to provide input into and comment on drafts of the Participation Agreement before it was approved, and the current version incorporates all feedback we received during that process.
 
-Changes to the Participation Agreement need to undergo [community review]({{< ref "/safire/governance.md" >}}) and legal oversight before being presented to TENET's Board for approval. Then, depending on the nature of the changes, we may have to ask existing Participants to re-sign the agreement per §10.2. This process is likely to take several months, and so is not something we will undertake lightly.
+Changes to the Participation Agreement need to undergo [community review]({{< ref "/safire/governance.md" >}}) and legal oversight before being presented to TENET's Board for approval. Then, depending on the nature of the changes, we have to ask existing Participants to re-sign the agreement per §10.2. This process is likely to take several months, and so is not something we will undertake lightly.
 
-Of course, if there is good cause to amend the Participation Agreement, we will obviously consider this.  However, any proposed changes need to be viewed in a holistic manner that considers the impact on all participants rather than just one.
+Of course, if there is good cause to amend the Participation Agreement, we will obviously consider this.  However, any proposed changes need to be viewed in a holistic manner that considers the impact on *all* participants rather than just one.
+
+# May-vs-Must
+
+In general, the Participation Agreement and other SAFIRE documentation is drafted with the terms “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” used as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt). Most documents explicitly state this, but the Participation Agreement does not.
+
+Concern has been expressed about the use of the work "may" in §10.2 giving TENET the ability to make unilateral changes. This is not our intent, and the current use of "may" rather than "must" was an oversight. We've sought specific legal advice around this issue and TENET's own lawyers have advised that under common law, it is a fundamental requirement that agreements and amendments to agreements, are reached by consensus --- thus even the current wording would require resignature (which was our intent in any event). However we will happily give any institution that requires it a written undertaking as a separate annexure that substantive changes to the Participation Agreement MUST involve resignature.
