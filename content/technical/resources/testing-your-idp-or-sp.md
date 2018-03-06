@@ -6,7 +6,9 @@ tags:
   - technical
   - testing
 title: Testing your IdP or SP
-url: /safire/news/testing-your-idp-or-sp/
+url: /technical/resources/testing-your-idp-or-sp/
+aliases:
+  - /safire/news/testing-your-idp-or-sp/
 ---
 
 # Testing an Identity Provider
