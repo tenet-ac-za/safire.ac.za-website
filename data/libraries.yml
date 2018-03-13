@@ -135,8 +135,8 @@ Providers:
 
     - Name: Taylor & Francis Online
       LoginLink: "[Shibboleth](http://www.tandfonline.com/action/ssostart?redirectUri=%2F)"
-      Status: Testing in progress
-      StatusColour: yellow
+      Status: Tested, working
+      StatusColour: green
       Notes: Institutions will need to have their unique organisation ID/scope registered to their account to permit access to their users.  Institutional administrators can enter their Shibboleth credentials themselves, or provide T&F with the details and they can add this to their account on their behalf.
       AuthAttribute:
        - eduPersonScopedAffiliation
