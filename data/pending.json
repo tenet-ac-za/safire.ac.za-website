@@ -2,8 +2,8 @@
     {
         "entityType": "sp",
         "ParticipationAgreement": true,
-        "OrganizationName": "Square Kilometre Array South Africa",
-        "OrganizationDisplayName": "SKA South Africa",
+        "OrganizationName": "South African Radio Astronomy Observatory",
+        "OrganizationDisplayName": "SARAO",
         "OrganizationURL": "https:\/\/www.ska.ac.za\/",
         "TechnicalIntegration": false,
         "mdui": {
