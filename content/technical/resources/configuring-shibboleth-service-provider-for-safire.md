@@ -12,6 +12,10 @@ url: /technical/resources/configuring-shibboleth-service-provider-for-safire/
 
 The [Shibboleth Service Provider](http://shibboleth.net/products/service-provider.html) has [good documentation](https://wiki.shibboleth.net/confluence/display/SHIB2/Installation), and so this is not a complete/worked example of how to configure it. Instead, this provides the SAFIRE-specific snippets you may need when working through that documentation.
 
+# Installing Shibboleth Service Provider
+
+Note that some package repositories ship out-of-date and [vulnerable](https://wiki.shibboleth.net/confluence/display/SHIB2/SecurityAdvisories) versions of the Shibboleth SP. However, the Swiss federation operator (SWITCHaai) maintains [up-to-date packages for Debian and Ubuntu](http://pkg.switch.ch/switchaai/).
+
 # Configuring a metadata provider to fetch SAFIRE metadata
 
 Shibboleth Service Provider provides a [dynamic metadata provider](https://wiki.shibboleth.net/confluence/display/SHIB2/NativeSPMetadataProvider#NativeSPMetadataProvider-DynamicMetadataProvider) that allows you to periodically fetch metadata. You should use this to keep SAFIRE's metadata up-to-date, checking for new metadata at least once a day (the example below checks every four hours).
