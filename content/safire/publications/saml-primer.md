@@ -1,6 +1,6 @@
 ---
 title: SAML 101 - An intro to SAML for sysadmin
-date: 2017-11-09 23:23:00+02:00
+date: 2018-03-22 09:06:00+02:00
 tags:
   - technical
   - saml2
@@ -32,7 +32,7 @@ Stripped to the bare essentials, a SAML transaction consists of three parts:
 
  1. An authentication (AuthN) request
  2. An authentication response
- 3. Some [assertions](https://en.wiktionary.org/wiki/assertion) about the subject of the authentication, usually expressed as [attributes](/technical/attributes/).
+ 3. Some [assertions](https://www.collinsdictionary.com/dictionary/english/assertion) about the subject of the authentication, usually expressed as [attributes](/technical/attributes/).
 
 Importantly SAML does **not** perform authorisation (AuthZ), although the information gleaned from the assertions may provide entitlement information that assists with this.
 
@@ -156,7 +156,7 @@ SAML metadata consists of one or more **EntityDescriptor**s. Each EntityDescript
 
 #### EntityID
 
-Every entity in metadata must have a unique identifier, known as an **EntityID**. In the SAML spec, these are free-form. However convention says we structure them in the form of a URL as a well-known location. Typically the host portion of the URL should be the FQDN of the server hosting the entity.
+Every entity in metadata must have a unique identifier, known as an **EntityID**. In the SAML spec, these are free-form. However [convention](https://wiki.shibboleth.net/confluence/display/CONCEPT/EntityNaming) says we structure them in the form of a URL as a well-known location. Typically the host portion of the URL should be the FQDN of the server hosting the entity.
 
 You normally refer to a specific identity- or service provider by its EntityID, and this information is useful to others trying to debug a problem.
 
@@ -200,7 +200,7 @@ Because it does not rely on PKI, certificates for SAML [do not need to be signed
 
 Arguably the most useful part of SAML is its ability to transport rich information about a data subject (user). This is done by means of attributes, and both parties need to [agree on what these mean](/technical/attributes/) before they're useful.
 
-The SAML metadata defines what attributes a service provider would like, and where the identity provider should send them. An identity provider is free to send whatever attributes it wants, although federations typically have [standards that identity providers must comply with](technical/saml2/idp-requirements/).
+The SAML metadata defines what attributes a service provider would like, and where the identity provider should send them. An identity provider is free to send whatever attributes it wants, although federations typically have [standards that identity providers must comply with](/technical/saml2/idp-requirements/).
 
 ### Attribute naming
 
@@ -232,11 +232,29 @@ Subject name identifiers or **NameID**s are special SAML2 attributes that are sp
 
 There are several forms for these, but the important ones are **transient** and **persistent** NameIDs.
 
- * A transient NameID is intended to be ephemeral, and doesn't last beyond the current session. It is the most common form of NameID.
+ * A transient NameID is intended to be [ephemeral](https://www.collinsdictionary.com/dictionary/english/ephemeral), and doesn't last beyond the current session. It is the most common form of NameID.
 
  * A persistent NameID is intended to persist between sessions, but is not necessarily portable between service providers. In its most common form, the persistent NameID contains the same value as the deprecated [eduPersonTargetedId]({{< ref "/technical/attributes/edupersontargetedid.md" >}}) attribute.
 
 You should use a NameID in preference to an attribute wherever a "username" is required.
+
+#### Identifier terminology
+
+Documentation comparing various types of usernames, distinguished names, or name identifiers often uses specific terminology that may be unfamiliar to a layman. Below is an attempt to summarize the most important terms you may encounter:
+
+ * "**opaque**" identifiers do not reveal any personal information about a user. Opaque identifiers are typically generated as [cryptographic hashes](https://en.wikipedia.org/wiki/Cryptographic_hash_function) (e.g. SHA-256).
+
+ * "**persistent**" means that the same identifier is used between different sessions over a long period of time, so you can retrieve the same user profile each time you log in. "**transient**" is the opposite of persistent.
+
+ * "**pseudonym**" refers to a generated identifier that replaces the real identifier, so opaque identifiers are usually pseudonyms based on a real username. Its use is analogous to authors using pseudonyms when publishing books.
+
+ * "**targeted**" means that the identifier is service-specific and different identifiers are used for different services. This helps prevent service providers from sharing information about their users. Targeted identifiers are usually opaque.
+
+ * "**transferable**" refers to whether or not the same identifier can be shared between different people (sometimes referred to as "**reassignment**"). Ideally identifiers used in federation should not be re-used for other people.
+
+ * "**unique**" means that the identifier only identifies a single person. Uniqueness is often ensured by [scoping]({{< ref "#scope" >}}) an identifier.
+
+A South African identity number is a persistent pseudonym that is not supposed to be reassigned, but it is not opaque (it reveals your birth date and citizenship) nor is it targeted; your full name is neither persistent (e.g. it can change when you get married), unique (there can be more than one "Vuyo Smith"), opaque, nor targeted.
 
 ## 8. Time
 
