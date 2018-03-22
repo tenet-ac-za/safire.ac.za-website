@@ -61,7 +61,12 @@ Providers:
 
     - Name: Emerald Insight
       LoginLink: "[Shibboleth login](https://www.emeraldinsight.com/action/ssostart?redirectUri=%2F)"
-      Status: No SA institutions listed by default
+      Status: Tested, discovery problem, contacted
+      StatusColour: yellow
+      Notes: |
+        Libraries need to contact Emerald support and request Shibboleth
+        access is enabled, after which logins via a WAYFless URL work. However,
+        instutions appears under UK Higher Education in the discovery interface.
       Documentation:
        - http://www.emeraldgrouppublishing.com/support/librarian/shibboleth_access.htm
 
