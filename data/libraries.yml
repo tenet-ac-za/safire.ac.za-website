@@ -120,6 +120,9 @@ Providers:
       LoginLink: My Institutions Credentials (Shibboleth)
       Status: Not tested
 
+    - Name: Radiological Society of North America
+      Status: Not tested
+
     - Name: Sabinet
       LoginLink: Not supported
       StatusColour: red
