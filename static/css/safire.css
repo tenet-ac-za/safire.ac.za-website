@@ -13,7 +13,8 @@
 
 .footnotes { font-size: 12px; margin-top: 18px; }
 
-.version-history { 	font-size: 14px; line-height: 1.2857142857; padding-top: 18px; color: #767676; }
+.version-history { font-size: 14px; line-height: 1.2857142857; padding-top: 18px; color: #767676; }
+.taxonomy-description { font-size: 12px; }
 
 .site-info { display: none; }
 pre.xml { white-space: pre; font-size: 75%; }
