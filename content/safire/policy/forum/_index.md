@@ -14,3 +14,5 @@ url: /safire/policy/forum/
 ---
 
 This page documents the history of the SAFIRE Participants' Forum's Terms of Reference and will display the most recent version. You should always reference this page when linking to the Terms of Reference, unless you intend to link to a specific, versioned document.
+
+Changes to the SAFIRE Participants' Forum Terms of Reference are approved by the SAFIRE Steering Committee.

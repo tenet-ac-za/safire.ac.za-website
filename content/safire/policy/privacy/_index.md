@@ -14,3 +14,5 @@ url: /safire/policy/privacy/
 ---
 
 This page documents the history of SAFIRE's Privacy Statement and will display the most recent version. You should always reference this page when linking to the Privacy Statement, unless you intend to link to a specific, versioned document.
+
+Changes to the Privacy Statement are approved by the SAFIRE Steering Committee.

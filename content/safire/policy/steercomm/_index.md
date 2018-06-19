@@ -14,3 +14,5 @@ url: /safire/policy/steercomm/
 ---
 
 This page documents the history of the SAFIRE Steering Committee's Terms of Reference and will display the most recent version. You should always reference this page when linking to the Terms of Reference, unless you intend to link to a specific, versioned document.
+
+Changes to the SAFIRE Steering Committee's Terms of Reference are approved by TENET's Board of Directors on recommendation from the SAFIRE Steering Committee.
