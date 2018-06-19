@@ -13,3 +13,5 @@ url: /safire/policy/arp/
 ---
 
 This page documents the history of SAFIRE's Attribute Release Policy and will display the most recent version. You should always reference this page when linking to the Attribute Release Policy, unless you intend to link to a specific, versioned document.
+
+Changes to the Attribute Release Policy are approved by the SAFIRE Steering Committee.

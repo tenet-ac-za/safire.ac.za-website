@@ -15,3 +15,5 @@ url: /technical/saml2/idp-requirements/
 ---
 
 This page documents the history of SAFIRE's Requirements for SAML2 Identity Providers and will display the most recent version. You should always reference this page when linking to the Requirements for SAML2 Identity Providers, unless you intend to link to a specific, versioned document.
+
+Changes to the Requirements for SAML2 Identity Providers that are purely technical in nature must reach rough consenus/no opposition at the SAFIRE Participants' Forum. Changes to the administrative requirements are synchronised with the Metadata Registration Practice Statement.
