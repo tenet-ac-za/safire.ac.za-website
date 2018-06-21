@@ -1,7 +1,7 @@
 ---
 aliases:
   - /safire/policy/practice-note-participation-agreement/
-date: 2018-02-05 09:00:00+02:00
+date: 2018-06-21T15:35:00+02:00
 slug: practice-note-participation-agreement
 tags:
   - participation
@@ -44,7 +44,7 @@ Both the [default attribute release policy](/safire/policy/arp/#default) and the
 
 # Consent for personal information release
 
-SAFIRE's understanding of consent is that it must be given by a data subject (end user), and it must be informed, freely given, and for a specific purpose. It must also be [withdrawable at any point](https://consentadmin.safire.ac.za/). Irrespective of whether consent is actually required for lawful processing, these principles are applied throughout SAFIRE's operations and the data subject is always informed about data transfers and given the opportunity to abort the transaction. Likewise, the principle of minimality is observed when negotiating [attribute release policies](/safire/policy/arp/).
+SAFIRE's understanding of consent is that it must be given by a data subject (end user), and it must be informed, freely given, and for a specific purpose. It must also be [withdrawable at any point]({{< ref "/users/help.md#changed-your-mind-about-sending-information-to-a-service-provider" >}}). Irrespective of whether consent is actually required for lawful processing, these principles are applied throughout SAFIRE's operations and the data subject is always informed about data transfers and given the opportunity to abort the transaction. Likewise, the principle of minimality is observed when negotiating [attribute release policies](/safire/policy/arp/).
 
 Our understanding of consent and other bases for lawful processing will continue to evolve as regulation is gazetted in South Africa.
 

@@ -1,5 +1,5 @@
 ---
-date: 2016-09-12 10:17:29+00:00
+date: 2018-06-21T15:34:00+02:00
 menu:
   main:
     identifier: users-how
@@ -18,7 +18,7 @@ When visiting a participating service, you’ll typically see SAFIRE markings. T
 
 You can click to see a list of all the information that will be released to the institution you’re connecting to; we operate on a principle of minimality, which means that it’s kept to the bare essentials. And to put your mind further at ease --- [SAFIRE doesn’t store any of this information](/safire/policy/privacy/).
 
-Click agree and off you go --- disagree, and the process automatically aborts. You only have to consent once if you tick the remember box, and you can [un-tick it at any stage if you want to](https://consentadmin.safire.ac.za/)).
+Click agree and off you go --- disagree, and the process automatically aborts. You only have to do this once if you tick the remember box, and you can un-tick it at any stage if you want to by [clearing our cookies]({{< ref "/users/help.md#changed-your-mind-about-sending-information-to-a-service-provider" >}}).
 
 The diagram below illustrates the flow of information and the various actors involved.
 

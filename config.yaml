@@ -33,11 +33,6 @@ menu:
     URL: https://testsp.safire.ac.za/
     Parent: users-help
     Weight: 1
-  - Name: "Manage Consent"
-    Identifier: users-help-consentadmin
-    URL: https://consentadmin.safire.ac.za/
-    Parent: users-help
-    Weight: 2
 
   - Name: "Service Status"
     Identifier: participants-support-status

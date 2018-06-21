@@ -1,7 +1,7 @@
---- 
-date: 2016-09-12 10:18:05+00:00
-menu: 
-  main: 
+---
+date: 2018-06-21T15:24:00+02:00
+menu:
+  main:
     identifier: users-help
     parent: users
     weight: 4
@@ -28,9 +28,9 @@ If it is just a single service that you cannot log in, look carefully at the err
 
 Alternatively, there could be a problem with either the service or your home institution. Your home IT help desk should be able to help you work out which it is. You should tell them which service you were trying to log into (the address of the website you want to access). You also need to give them the full and exact wording of any error message(s) you see. Again, your cell phone camera is a useful way of recording error messages for the help desk.
 
-# Gave consent by mistake/changed your mind about a Service Provider
+# Changed your mind about sending information to a Service Provider
 
-You control how your personal information is handled, and you can [withdraw recorded consent](https://consentadmin.safire.ac.za/) for any service provider at any time. You need to log into the [consent administration system](https://consentadmin.safire.ac.za/) in order to determine what values would be sent to individual providers.
+When you first log into a service provider, we let you know what personal information will be sent to that provider. We record that you've seen that notice in a cookie so that your next login is quicker. However, you control how your personal information is handled and you can withdraw the record for any service provider at any time. To do so you need to [clear any cookies](https://www.google.co.za/search?q=How+do+I+clear+cookies+for+a+specific+site%3F) set by [`iziko.safire.ac.za`]({{< ref "/safire/news/iziko-safire-ac-za.md" >}}) in your browser.
 
 # Problems with SAFIRE itself
 
