@@ -30,7 +30,7 @@ Alternatively, there could be a problem with either the service or your home in
 
 # Changed your mind about sending information to a Service Provider
 
-When you first log into a service provider, we let you know what personal information will be sent to that provider. We record that you've seen that notice in a cookie so that your next login is quicker. However, you control how your personal information is handled and you can withdraw the record for any service provider at any time. To do so you need to [clear any cookies](https://www.google.co.za/search?q=How+do+I+clear+cookies+for+a+specific+site%3F) set by [`iziko.safire.ac.za`]({{< ref "/safire/news/iziko-safire-ac-za.md" >}}) in your browser.
+When you first log into a service provider, we let you know what personal information will be sent to that provider. We record that you've seen that notice in a cookie so that your next login is quicker and won't show you the notice again for about three months. However, you control how your personal information is handled and you can withdraw the record for any service provider at any time. To do so you need to [clear any cookies](https://www.google.co.za/search?q=How+do+I+clear+cookies+for+a+specific+site%3F) set by [`iziko.safire.ac.za`]({{< ref "/safire/news/iziko-safire-ac-za.md" >}}) in your browser.
 
 # Problems with SAFIRE itself
 
