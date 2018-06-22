@@ -1,5 +1,5 @@
 ---
-date: 2016-09-12 10:22:30+00:00
+date: 2018-06-22T12:52:00+02:00
 menu:
   main:
     identifier: participants-sp-why-join
@@ -19,14 +19,14 @@ The [NSRC](http://nsrc.org/), [REFEDS](http://refeds.org/) & [GÉANT](http://ge
   * Reduced support costs --- typical user problems such as password resets and name changes are effectively outsourced back to the user's home institution.
   * Re-use of existing credentials, meaning users don't need yet another password for your service. However, unlike social media logins, those credentials also provide third-party-verified identity and are tied to an affiliation with a particular institution --- meaning you can trust that the name, etc you're presented with is accurate and you'll know when users cease to be eligible for your service.
   * Allows South African service providers easier and more consistent access to a global research & education market, leveraging on already existing infrastructure for inter-federation.
-  * Helps compliance with the Protection of Personal Information (POPI) Act by enforcing user consent and reducing the amount of personal information services need to collect and store.
+  * Helps compliance with the Protection of Personal Information (POPI) Act by notifying end-users of personal information transfer (and allowing for user consent if that's needed) and reducing the amount of personal information services need to collect and store.
   * The risk of securing user credentials falls to the user's home organisation (who have to do this anyway).
 
 SAFIRE is the South African academic identity federation, meaning we're focused on South African needs within the broader global context. We took a specific decision to build a hub-and-spoke federation because we believed it was most suitable to the South African context. Among the benefits this decision offers are:
 
   * Better, more standardised, [attribute release](/safire/policy/arp/) to service providers.
   * Simplified integration --- service providers can integrate once with SAFIRE to gain access to multiple identity providers; you don't need to troubleshoot multiple identity providers when things go wrong. This should translate to lower startup costs.
-  * Mandatory consent, helping ease the burden of POPI compliance for both identity- and service providers.
+  * Mandatory notification to end-users of personal information transfer, helping ease the burden of POPI Act compliance for both identity- and service providers.
 
 Commercial service providers could consider translating the potential integration savings into cost reductions for South African higher educational institutions. Cost has become increasingly important in the post 2015 #FeesMustFall era and thus may offer competitive advantage.
 

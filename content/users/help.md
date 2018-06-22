@@ -30,7 +30,20 @@ Alternatively, there could be a problem with either the service or your home in
 
 # Changed your mind about sending information to a Service Provider
 
-When you first log into a service provider, we let you know what personal information will be sent to that provider. We record that you've seen that notice in a cookie so that your next login is quicker and won't show you the notice again for about three months. However, you control how your personal information is handled and you can withdraw the record for any service provider at any time. To do so you need to [clear any cookies](https://www.google.co.za/search?q=How+do+I+clear+cookies+for+a+specific+site%3F) set by [`iziko.safire.ac.za`]({{< ref "/safire/news/iziko-safire-ac-za.md" >}}) in your browser.
+When you first log into a service provider, we let you know what personal information will be sent to that provider. We record that you've seen the transfer notice in a cookie so that your next login is quicker and we won't show you the notice again for about three months. However, you control how your personal information is handled and you can withdraw the record for any service provider at any time by clearing or deleting any cookies set by [`iziko.safire.ac.za`]({{< ref "/safire/news/iziko-safire-ac-za.md" >}}) in your browser.
+
+Under your browser's advanced Internet setting you can clear or delete individual cookies or all the cookies that your browser has stored. Here's how to do it in several common browsers:
+
+ * [Clear cookies in Google Chrome](https://support.google.com/chrome/answer/95647?hl=en-GB)
+ * [Delete cookies in Mozilla Firefox](https://support.mozilla.org/en-US/kb/delete-cookies-remove-info-websites-stored)
+ * [Clear cookies in Microsoft Edge](https://privacy.microsoft.com/en-us/windows-10-microsoft-edge-and-privacy)
+ * [Delete cookies in Internet Explorer](https://support.microsoft.com/en-za/help/17442/windows-internet-explorer-delete-manage-cookies)
+ * [Remove cookies in Safari](https://support.apple.com/kb/PH5049?locale=en_ZA)
+ * [Delete cookies in Opera](http://help.opera.com/Mac/11.60/en/cookies.html)
+ * [Clear cookies on iPad, iPhone or iPod touch](https://support.apple.com/en-gb/HT201265)
+ * [Delete cookies on Android mobile](https://hubpages.com/technology/How-to-delete-internet-cookies-on-your-Droid-or-any-Android-device)
+ * [Delete cookies on Windows mobile](https://kb.wisc.edu/page.php?id=24078)
+ * [Other browsers](https://www.google.co.za/search?q=How+do+I+clear+cookies+for+a+specific+site%3F)
 
 # Problems with SAFIRE itself
 

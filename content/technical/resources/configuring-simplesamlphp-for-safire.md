@@ -50,7 +50,7 @@ $config = array(
                           'eduPersonEntitlement', 'eduPersonOrcid', 'eduPersonPrimaryAffiliation', 'eduPersonScopedAffiliation',
                           'employeeNumber', 'preferredLanguage', 'schacHomeOrganization',
                         ),
-                        /* SAFIRE federation hub handles consent */
+                        /* SAFIRE federation hub handles consent/transfer notification */
                         'consent.disable' => true,
                     ),
                 ),
@@ -74,7 +74,7 @@ $config = array(
                           'eduPersonEntitlement', 'eduPersonOrcid', 'eduPersonPrimaryAffiliation', 'eduPersonScopedAffiliation',
                           'employeeNumber', 'preferredLanguage', 'schacHomeOrganization',
                         ),
-                        /* SAFIRE federation hub handles consent */
+                        /* SAFIRE federation hub handles consent/transfer notification */
                         'consent.disable' => true,
                     ),
                 ),

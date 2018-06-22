@@ -14,11 +14,11 @@ url: /users/how/
 
 SAFIRE has been [contracted](/safire/policy/participation/) by your university to negotiate with other education-related organisations ([service providers]({{< ref "/users/where.md" >}})) about the personal information that needs to be shared to confirm your rights when accessing their resources.
 
-When visiting a participating service, you’ll typically see SAFIRE markings. To gain access to these external resources, you’ll need to log in and select your [home institution]({{< ref "/users/where.md" >}}) from a drop-down list. You'll then be redirected to your institutional log-in page where your username and password will then be confirmed. Finally, you’ll be asked to consent to your information being shared with the service provider.
+When visiting a participating service, you’ll typically see SAFIRE markings. To gain access to these external resources, you’ll need to log in and select your [home institution]({{< ref "/users/where.md" >}}) from a drop-down list. You'll then be redirected to your institutional log-in page where your username and password will then be confirmed.
 
-You can click to see a list of all the information that will be released to the institution you’re connecting to; we operate on a principle of minimality, which means that it’s kept to the bare essentials. And to put your mind further at ease --- [SAFIRE doesn’t store any of this information](/safire/policy/privacy/).
+Once you're authenticated you’ll be shown a transfer notice with a summary of the information that will be shared with the service provider; we operate on a principle of minimality, which means that it’s kept to the bare essentials. And to put your mind further at ease --- [SAFIRE doesn’t store any of this information](/safire/policy/privacy/).
 
-Click agree and off you go --- disagree, and the process automatically aborts. You only have to do this once if you tick the remember box, and you can un-tick it at any stage if you want to by [clearing our cookies]({{< ref "/users/help.md#changed-your-mind-about-sending-information-to-a-service-provider" >}}).
+Click continue and off you go --- disagree, and the process automatically aborts. You only have to do this once if you tick the remember box, and you can un-tick it at any stage if you want to by [clearing our cookies]({{< ref "/users/help.md#changed-your-mind-about-sending-information-to-a-service-provider" >}}).
 
 The diagram below illustrates the flow of information and the various actors involved.
 
@@ -32,6 +32,6 @@ Your personal information (which, remember, is kept to a minimum) is protected a
 
 The whole process is completely transparent about what’s happening to your personal information; at the end of the day, it’s your information, not ours, so we place control in your hands.
 
-If you feel uncomfortable, you can read the privacy policy of the institution you’re logging into --- we make this available on the consent page.
+If you feel uncomfortable, you can read the privacy policy of the institution you’re logging into --- we make this available on the personal information transfer notice page.
 
 If you have any questions, talk to the IT staff at your institution. We’re all [here to help]({{< ref "/users/help.md" >}}).
