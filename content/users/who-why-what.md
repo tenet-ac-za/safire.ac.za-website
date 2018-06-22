@@ -16,13 +16,13 @@ SAFIRE is an academic identity federation, housed in [TENET](http://www.tenet.ac
 
 Firstly, [TENET](http://www.tenet.ac.za/) is the Tertiary Education and Research Network of South Africa --- a local Non-Profit Company (NPC) and Public Benefit Organisation (PBO) aimed at securing Information and Technology services for the benefit of South African universities and associated research and support institutions.
 
-SAFIRE is essentially a data processor or operator, depending on the lingo you choose to use. They facilitate access to other academic institutions; thanks to SAFIRE, you can use your university login details to access resources at other universities and education-related institutions around the world – at no cost to you.
+SAFIRE is essentially a data processor or operator, depending on the lingo you choose to use. They facilitate access to other academic institutions; thanks to SAFIRE, you can use your university login details to access resources at other universities and education-related institutions around the world --- at no cost to you.
 
 # Why does SAFIRE exist?
 
 Research in higher education is necessarily collaborative today; institutions have to be smart with their limited resources and arrange sharing agreements that are mutually beneficial and save costs.
 
-The tricky part is facilitating that collaboration in a way that scales effectively --– which can be a bureaucratic nightmare. SAFIRE exists to simplify the sharing and to make sure it’s secure for students, staff and their institutions.
+The tricky part is facilitating that collaboration in a way that scales effectively --- which can be a bureaucratic nightmare. SAFIRE exists to simplify the sharing and to make sure it’s secure for students, staff and their institutions.
 
 SAFIRE strives to make the process seamless and integrated so that it’s easy for you to log into another institution to get the resources you need for your research or teaching.
 
