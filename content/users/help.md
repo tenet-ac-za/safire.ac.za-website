@@ -30,9 +30,11 @@ Alternatively, there could be a problem with either the service or your home in
 
 # Changed your mind about sending information to a Service Provider
 
-When you first log into a service provider, we let you know what personal information will be sent to that provider. We record that you've seen the transfer notice in a cookie so that your next login is quicker and we won't show you the notice again for about three months. However, you control how your personal information is handled and you can withdraw the record for any service provider at any time by clearing or deleting any cookies set by [`iziko.safire.ac.za`]({{< ref "/safire/news/iziko-safire-ac-za.md" >}}) in your browser.
+When you first log into a service provider, we let you know what personal information will be sent to that provider. We record that you've seen the transfer notice in a cookie so that your next login is quicker and we won't show you the notice again for about three months. However, you control how your personal information is handled and you can withdraw the record for any service provider at any time by clearing or deleting any cookies we've set in your browser.
 
-Under your browser's advanced Internet setting you can clear or delete individual cookies or all the cookies that your browser has stored. Here's how to do it in several common browsers:
+We provide a way for you to [clear the transfer notice cookies](https://iziko.safire.ac.za/module.php/safire/forgetme.php).
+
+If you want to delete other cookies set by us, under your browser's advanced Internet setting you can clear or delete individual cookies or all the cookies that your browser has stored. Here's how to do it in several common browsers:
 
  * [Clear cookies in Google Chrome](https://support.google.com/chrome/answer/95647?hl=en-GB)
  * [Delete cookies in Mozilla Firefox](https://support.mozilla.org/en-US/kb/delete-cookies-remove-info-websites-stored)
