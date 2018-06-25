@@ -16,7 +16,7 @@
                     <summary>Version History</summary>
                     <ul id="section-menu">
                     {{- range (where (union .Pages .Sections) ".Params.tags" "intersect" (slice "versioned")).ByDate.Reverse }}
-                        <li><a href="{{ .Permalink }}">{{ .Title }}</a> (<time datetime="{{ .Date.Format "2006-01-02T15:04:05Z" }}">{{ .Date.Format "2006-01-02" }}</time>)</li>
+                        <li><a href="{{ .Permalink }}">{{ .Title }}</a> (<time datetime="{{ .Date.Format "2006-01-02T15:04:05Z" }}">{{ .Date.Format "2006-01-02" }}</time>){{ if .Draft }} [Draft]{{ end }}</li>
                     {{- end }}
                     </ul>
                 </details> <!-- .version-history -->
@@ -25,7 +25,7 @@
             {{- range last 1 (where (union .Pages .Sections) ".Params.tags" "intersect" (slice "versioned")).ByDate }}
             <article class="post type-post status-publish format-standard hentry">
                 <header class="entry-header">
-                    <h1 class="entry-title">{{ .Title }}</h1>
+                    <h1 class="entry-title">{{ .Title }}{{ if .Draft }} [Draft]{{ end }}</h1>
                     {{ partial "entry-meta.html" . }}
                 </header>
                 <div class="entry-content">

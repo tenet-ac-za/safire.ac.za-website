@@ -12,7 +12,7 @@
             <article class="post type-post status-publish format-standard hentry">
                 <!-- .entry-header -->
                 <header class="entry-header">
-                    <h1 class="entry-title">{{ .Title }}</h1>
+                    <h1 class="entry-title">{{ .Title }}{{ if .Draft }} [Draft]{{ end }}</h1>
                     {{ partial "entry-meta.html" . }}
                 </header>
 
@@ -43,7 +43,7 @@
 
 {{ define "section-menu-item" }}
     <li>
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ if .Draft }} [Draft]{{ end }}
         {{- if .IsNode }}
         <ul class="sub-menu">
             {{- range (union .Pages .Sections) }}
