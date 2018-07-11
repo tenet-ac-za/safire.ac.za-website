@@ -18,7 +18,7 @@ When visiting a participating service, you’ll typically see SAFIRE markings. T
 
 Once you're authenticated you’ll be shown a transfer notice with a summary of the information that will be shared with the service provider; we operate on a principle of minimality, which means that it’s kept to the bare essentials. And to put your mind further at ease --- [SAFIRE doesn’t store any of this information](/safire/policy/privacy/).
 
-Click continue and off you go --- disagree, and the process automatically aborts. You only have to do this once if you tick the remember box, and you can un-tick it at any stage if you want to by [clearing our cookies]({{< ref "/users/help.md#changed-your-mind-about-sending-information-to-a-service-provider" >}}).
+Click Yes or Continue and off you go --- disagree, and the process automatically aborts. Unless you choose the "only this time" button, you only need to do this once per service provider (we use a cookie to remember that you've seen the notice, which you can [clear at any stage]({{< ref "/users/help.md#changed-your-mind-about-sending-information-to-a-service-provider" >}}) if you change your mind).
 
 The diagram below illustrates the flow of information and the various actors involved.
 
