@@ -104,8 +104,10 @@
             <dt><abbr title="Registration Instant (last substantive change to metadata)">Last updated</abbr></dt>
                 <dd>{{ dateFormat "2006-01-02T15:04Z" . }}</dd>
             {{- end }}
+            {{- with $p.entityID }}
             <dt><abbr title="Unique identifier for this particular participant (entity)">Metadata entityID</a></dt>
-                <dd>{{ $p.entityID }}</dd>
+                <dd>{{ . }}</dd>
+            {{- end }}
             {{- with $p.Scope }}
             <dt>Domains</dt>
                 <dd>{{ template "stringOrArray" . }}</dd>
@@ -123,6 +125,10 @@
         {{- else -}}
             <dt>Participation Agreement</dt>
                 <dd>{{ if $p.ParticipationAgreement }}yes, has signed{{ else }}no, has not yet signed{{ end }}</dd>
+        {{- end }}
+        {{- with $p.Notes }}
+            <dt>Notes</dt>
+                <dd>{{ template "stringOrArray" . }}</dd>
         {{- end }}
         </dl>
     </div>
