@@ -104,7 +104,7 @@ Providers:
       LoginLink: "[Institutional account](https://orcid.org/signin)"
       Status: Tested, working
       StatusColour: green
-      Notes: Individuals need to link their institutional account with an existing ORCID identifier.
+      Notes: Individuals need to link their institutional account with an existing ORCID identifier. Supports wayfless URLs of the form https://orcid.org/Shibboleth.sso/Login?SAMLDS=1&target=https://orcid.org/shibboleth/signin&entityID={{idp_proxy_entityid}}
       Documentation:
        - https://members.orcid.org/api/integrate/institution-sign-in
 
