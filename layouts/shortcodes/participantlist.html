@@ -35,14 +35,14 @@
         }
         $('button').button();
         $('abbr').tooltip();
-		// allow us to pre-open a tab
-		if (window.location.hash) {
-			if ($.isNumeric(window.location.hash.substring(1))) {
-				p.accordion('option', 'active', parseInt(window.location.hash.substring(1)));
-			} else if(t = $(this).find('[data-entityid="' + window.location.hash.substring(1) + '"]')) {
-				p.accordion('option', 'active', t.data('tabindex'));
-			}
-		}
+        // allow us to pre-open a tab
+        if (window.location.hash) {
+            if ($.isNumeric(window.location.hash.substring(1))) {
+                p.accordion('option', 'active', parseInt(window.location.hash.substring(1)));
+            } else if(t = $(this).find('[data-entityid="' + window.location.hash.substring(1) + '"]')) {
+                p.accordion('option', 'active', t.data('tabindex'));
+            }
+        }
 
         // create dialogs for contact details
         $('.participantContact').dialog({ width: 500, autoOpen: false });
@@ -54,6 +54,12 @@
                 console.log(div);
                 $('#' + div).dialog('open');
             });
+        });
+
+        // allow us to unfold entity ids:
+        $('.entityidfold').click(function() {
+            console.log('entityidfold click');
+            $('.entityidfold-' + $(this).attr('data-id')).toggle();
         });
     });
 </script>
@@ -105,8 +111,16 @@
                 <dd>{{ dateFormat "2006-01-02T15:04Z" . }}</dd>
             {{- end }}
             {{- with $p.entityID }}
-            <dt><abbr title="Unique identifier for this particular participant (entity)">Metadata entityID</a></dt>
-                <dd>{{ . }}</dd>
+            <dt class="entityidfold" data-id="{{ $i }}"><abbr title="Unique identifier for this particular participant (entity). Click for other forms.">Metadata entityID</abbr></dt>
+                <dd class="entityidfold" data-id="{{ $i }}" style="cursor: help">{{ . }}</dd>
+                {{- with $p.proxyEntityID }}
+            <dt class="entityidfold-{{ $i }}" style="display:none"><abbr title="Proxy identifier for this particular participant (entity)">Proxy entityID</abbr></dt>
+                <dd class="entityidfold-{{ $i }}" style="display:none">{{ . }}</dd>
+                {{- end }}
+                {{- with $p.wayflessEntityID }}
+            <dt class="entityidfold-{{ $i }}" style="display:none"><abbr title="Encoded version of entityID for wayfless URLs">Wayfless entityID</abbr></dt>
+                <dd class="entityidfold-{{ $i }}" style="display:none">{{ . }}</dd>
+                {{- end }}
             {{- end }}
             {{- with $p.Scope }}
             <dt>Domains</dt>
