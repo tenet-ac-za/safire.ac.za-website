@@ -111,15 +111,15 @@
                 <dd>{{ dateFormat "2006-01-02T15:04Z" . }}</dd>
             {{- end }}
             {{- with $p.entityID }}
-            <dt class="entityidfold" data-id="{{ $i }}"><abbr title="Unique identifier for this particular participant (entity). Click for other forms.">Metadata entityID</abbr></dt>
-                <dd class="entityidfold" data-id="{{ $i }}" style="cursor: help">{{ . }}</dd>
+            <dt class="entityidfold" data-id="{{ $i }}"><abbr title="Unique identifier for this particular participant (entity).{{ if or $p.proxyEntityID $p.wayflessEntityID }} Click for other forms.{{end}}">Metadata entityID</abbr></dt>
+                <dd class="entityidfold" data-id="{{ $i }}"{{ if or $p.proxyEntityID $p.wayflessEntityID }} style="cursor: help" title="Click for other forms"{{end}}>{{ . }}</dd>
                 {{- with $p.proxyEntityID }}
-            <dt class="entityidfold-{{ $i }}" style="display:none"><abbr title="Proxy identifier for this particular participant (entity)">Proxy entityID</abbr></dt>
-                <dd class="entityidfold-{{ $i }}" style="display:none">{{ . }}</dd>
+            <dt class="entityidfold-{{ $i }}" hidden><abbr title="Proxy identifier for this particular participant (entity)">Proxy entityID</abbr></dt>
+                <dd class="entityidfold-{{ $i }}" hidden>{{ . }}</dd>
                 {{- end }}
                 {{- with $p.wayflessEntityID }}
-            <dt class="entityidfold-{{ $i }}" style="display:none"><abbr title="Encoded version of entityID for wayfless URLs">Wayfless entityID</abbr></dt>
-                <dd class="entityidfold-{{ $i }}" style="display:none">{{ . }}</dd>
+            <dt class="entityidfold-{{ $i }}" hidden><abbr title="URL-encoded version of entityID, needed for many wayfless URLs">Wayfless entityID</abbr></dt>
+                <dd class="entityidfold-{{ $i }}" hidden>{{ . }}</dd>
                 {{- end }}
             {{- end }}
             {{- with $p.Scope }}
