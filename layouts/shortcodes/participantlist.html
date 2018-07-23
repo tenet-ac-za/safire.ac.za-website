@@ -134,7 +134,9 @@
                 <dd>{{ if $p.eduGAIN }}yes, will be published{{ else }}no, will not be published{{ end }}</dd>
             {{ if $p.Sirtfi }}
             <dt><abbr title="entity has indicated it complies with https://refeds.org/sirtfi">Sirtfi</abbr></dt>
-                <dd>yes, compliance statement received</dd>
+                <dd>yes, {{ with $p.entityID }}<a href="/technical/saml2/sirtfi/{{ .|sha1 }}.pdf" target="_blank">{{ end -}}
+                    self-assertion of compliance received
+                    {{- with $p.entityID }}</a>{{ end }}</dd>
             {{ end }}
         {{- else -}}
             <dt>Participation Agreement</dt>

@@ -1,0 +1,8 @@
+Sitemap: /sitemap.xml
+
+User-agent: *
+Disallow: /technical/saml2/sirtfi/
+
+User-agent: GoogleBot
+Disallow: /technical/saml2/sirtfi/*.pdf
+
