@@ -11,9 +11,9 @@ url: /technical/saml2/sirtfi/
 
 The [Security Incident Response Trust Framework for Federated Identity](https://refeds.org/sirtfi) (Sirtfi) aims to enable the coordination of incident response across federated organisations. A growing number of service providers require identity providers to be Sirtfi compliant before they will grant users access to their service.
 
-### Asserting Sirtfi compliance
+### Attesting Sirtfi compliance
 
-If you need to assert Sirtfi compliance, in addition to a registration request you also need to supply a statement of your Sirtfi compliance. You can use the following template:
+If you need to attest to your institution's Sirtfi compliance, in addition to a [registration request]({{< ref "/technical/saml2/forms.md" >}}) you also need to supply a statement of your Sirtfi compliance. You can use the following template:
 
   * [SAFIRE Sirtfi Compliance Template](./SAFIRE-Sirtfi-Compliance-Template.docx)
 

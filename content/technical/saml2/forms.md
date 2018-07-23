@@ -18,6 +18,6 @@ In addition to the [Participation Agreement](/safire/policy/participation/), par
 
 These forms supplement and are used to validate the information provided in metadata.
 
-Note that if you need to assert [Sirtfi](https://refeds.org/sirtfi) compliance, in addition to a registration request you also need to [supply a statement of your Sirtfi compliance](/technical/saml2/sirtfi/).
+Note that if you need to attest [Sirtfi](https://refeds.org/sirtfi) compliance, in addition to a registration request you also need to [supply a statement of your Sirtfi compliance](/technical/saml2/sirtfi/).
 
 Please ensure you always have the most up-to-date versions of these forms from this page.
