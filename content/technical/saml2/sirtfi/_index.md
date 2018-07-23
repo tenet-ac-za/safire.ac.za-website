@@ -15,7 +15,7 @@ The [Security Incident Response Trust Framework for Federated Identity](https://
 
 If you need to assert Sirtfi compliance, in addition to a registration request you also need to supply a statement of your Sirtfi compliance. You can use the following template:
 
-  * [SAFIRE Sirtfi Compliance Template](/wp-content/uploads/2017/10/SAFIRE-Sirtfi-Compliance-Template.docx)
+  * [SAFIRE Sirtfi Compliance Template](./SAFIRE-Sirtfi-Compliance-Template.docx)
 
 This statement must be on institional letterhead, and should be signed by the person responsible for conducting the assessment (which may or may not be your technical contact).
 
