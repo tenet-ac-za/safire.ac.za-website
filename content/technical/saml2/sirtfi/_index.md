@@ -19,3 +19,8 @@ If you need to attest to your institution's Sirtfi compliance, in addition to a 
 
 This statement must be on institional letterhead, and should be signed by the person responsible for conducting the assessment (which may or may not be your technical contact).
 
+### Sirtfi-compliant entities
+
+The following entities in SAFIRE have attested their Sirtfi compliance:
+
+{{< participantlist type="sirtfi" >}}
