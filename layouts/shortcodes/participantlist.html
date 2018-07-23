@@ -114,11 +114,11 @@
             <dt class="entityidfold" data-id="{{ $i }}"><abbr title="Unique identifier for this particular participant (entity).{{ if or $p.proxyEntityID $p.wayflessEntityID }} Click for other forms.{{end}}">Metadata entityID</abbr></dt>
                 <dd class="entityidfold" data-id="{{ $i }}"{{ if or $p.proxyEntityID $p.wayflessEntityID }} style="cursor: help" title="Click for other forms"{{end}}>{{ . }}</dd>
                 {{- with $p.proxyEntityID }}
-            <dt class="entityidfold-{{ $i }}" hidden><abbr title="Proxy identifier for this particular participant (entity)">Proxy entityID</abbr></dt>
+            <dt class="entityidfold-{{ $i }}" hidden><abbr title="Proxied identifier for this particular participant (entity)">Proxied entityID</abbr></dt>
                 <dd class="entityidfold-{{ $i }}" hidden>{{ . }}</dd>
                 {{- end }}
                 {{- with $p.wayflessEntityID }}
-            <dt class="entityidfold-{{ $i }}" hidden><abbr title="URL-encoded version of entityID, needed for many wayfless URLs">Wayfless entityID</abbr></dt>
+            <dt class="entityidfold-{{ $i }}" hidden><abbr title="URL-encoded version of proxied entityID, needed for many wayfless URLs">Wayfless entityID</abbr></dt>
                 <dd class="entityidfold-{{ $i }}" hidden>{{ . }}</dd>
                 {{- end }}
             {{- end }}
