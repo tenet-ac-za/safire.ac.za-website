@@ -1,0 +1,37 @@
+---
+new_page_extension: md
+auto_deploy: false
+admin_path: 
+webhook_url: 
+sections:
+- type: directory
+  path: content
+  label: Pages
+  create: all
+  match: "*"
+- type: directory
+  path: content/technical
+  label: Technical
+  create: all
+  match: "**/*"
+- type: directory
+  path: content/participants
+  label: Participants
+  create: all
+  match: "**/*"
+- type: directory
+  path: content/safire
+  label: Safire
+  create: all
+  match: "**/*"
+- type: directory
+  path: content/users
+  label: Users
+  create: all
+  match: "**/*"
+upload_dir: static/wp-content/uploads
+public_path: "/wp-content/uploads"
+front_matter_path: ''
+use_front_matter_path: false
+file_template: ":filename:"
+version: 0.47.1
