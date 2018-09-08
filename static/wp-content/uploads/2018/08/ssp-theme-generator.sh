@@ -377,6 +377,6 @@ echo "
 Your theme has been generated as a module named \"${THEME}\"
 
 To use this theme, add
-    'theme' => '${THEME}:${THEME}',
+    'theme.use' => '${THEME}:${THEME}',
 into config/config.php
 "
