@@ -40,5 +40,18 @@
         "Scope": [ "up.ac.za" ],
         "eduGAIN": true,
         "Notes": "Currently in QA"
+    },
+    {
+        "entityType": "idp",
+        "ParticipationAgreement": true,
+        "OrganizationName": "Cape Peninsula University of Technology",
+        "OrganizationDisplayName": "Cape Peninsula University of Technology",
+        "OrganizationURL": "https:\/\/www.cput.ac.za\/",
+        "TechnicalIntegration": false,
+        "mdui": {
+            "Logo": {
+                "URL": "https:\/\/pbs.twimg.com\/profile_images\/906163233299542016\/n6CfkOjP_400x400.jpg"
+            }
+        }
     }
 ]
