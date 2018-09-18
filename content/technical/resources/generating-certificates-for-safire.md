@@ -45,7 +45,7 @@ To generate a self-signed certificate that meets SAFIRE's recommendations using 
 
 ```bash
 # separated to ensure BasicConstraints=CA:FALSE
-openssl req -newkey rsa:2048 -keyout example_ac_za.pem -new -subj '/C=ZA/O=Example University/CN=idp.example.ac.za' -sha256 -out example_ac_za.req
+openssl req -newkey rsa:3072 -keyout example_ac_za.pem -new -subj '/C=ZA/O=Example University/CN=idp.example.ac.za' -sha256 -out example_ac_za.req
 openssl x509 -in example_ac_za.req -req -days 3652 -sha256 -signkey example_ac_za.pem -out example_ac_za.crt
 ```
 
