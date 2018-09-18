@@ -1,0 +1,5 @@
+{{- if .Get 0 }}
+{{ dateFormat "2006" (now.AddDate (int (.Get 0)) 0 0) }}
+{{- else }}
+{{ dateFormat "2006" now }}
+{{- end }}

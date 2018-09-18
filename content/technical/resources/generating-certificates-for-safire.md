@@ -1,5 +1,5 @@
 ---
-date: 2017-03-06 08:35:08+00:00
+date: 2018-09-18 09:40:08+02:00
 slug: generating-certificates-for-safire
 tags:
   - configuration
@@ -23,7 +23,7 @@ Simplistically, this is because your login page (IdPs) or service (SPs) will be 
 
 The requirement is that you make use of "PKI that is reasonably likely to be embedded in the browser of all users of the identity and/or service provider." In most circumstances, this means a commercial certificate authority that participates in the [CA/browser forum](https://cabforum.org/). The [validator](https://validator.safire.ac.za/) checks this with [cURL's root certificate bundle](https://curl.haxx.se/docs/caextract.html).
 
-It is not for SAFIRE to recommend a CA --- you can use [any commercial certificate authority](https://www.sslshopper.com/) of your choosing and that meets your individual requirements. It cost is an issue, consider something like [Let's Encrypt](https://letsencrypt.org/).  If you're eligible, TENET's certificate service may also be an option.
+It is not for SAFIRE to recommend a CA --- you can use [any commercial certificate authority](https://www.sslshopper.com/) of your choosing and that meets your individual requirements. It cost is an issue, consider something like [Let's Encrypt](https://letsencrypt.org/).  If you're eligible, the [SA NREN certificate service](https://www.tenet.ac.za/services/certs) may also be an option.
 
 # SAML signing certificate
 
@@ -37,7 +37,7 @@ The one that's most often relevant is that commercially signed certificates tend
 
 It is (relatively) easy to revoke your web server's certificate if it is compromised because browsers understand [certificate revocation lists](https://en.wikipedia.org/wiki/Certificate_revocation_list). There's no equivalent in metadata, and revoking a compromised certificate involves new metadata and a potentially disruptive key rollover. This means that from a risk perspective, it also makes sense to use a separate private key to the public-facing parts of your web server (depending on how your deploy your provider, this may even be privilege separated). This would mean maintaining a separate certificate too.
 
-Best practice is to use a long-lived self-signed certificate for SAML signing. SAFIRE recommends generating a certificate that is valid for at least ten years.
+Best practice is to use a long-lived self-signed certificate for SAML signing. SAFIRE recommends generating a certificate that is valid for at least **ten years**. You should use an [appropriate bit length](https://www.keylength.com/en/compare/?twirl=0&parambase={{< year 10 >}}) to ensure the key will remain secure throughout its lifetime.
 
 ## Generating a self-signed cert
 
