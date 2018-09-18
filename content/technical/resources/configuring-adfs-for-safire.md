@@ -50,7 +50,11 @@ An example [claim-descriptions.ps1](/wp-content/uploads/2016/12/claim-descriptio
 
 # Improving generated metadata
 
-By default, ADFS publishes its generated metadata at a well-known URL (https://your.adfs.server/FederationMetadata/2007-06/FederationMetadata.xml). You can use this to obtain the copy of metadata you need to supply to SAFIRE. However, but default the auto-generated metadata does not include many of the [required elements](/technical/saml2/idp-requirements/).
+By default, ADFS publishes its generated metadata at a well-known URL of:
+
+* https://<em>your-adfs-server.example.ac.za</em>/FederationMetadata/2007-06/FederationMetadata.xml
+
+You can use this to obtain the copy of metadata you need to supply to SAFIRE. However, but default the auto-generated metadata does not include many of the [required elements](/technical/saml2/idp-requirements/).
 
 You can improve the generated metadata (and thus require less editing) by providing ADFS with some information about your organisation. To do this, open AD FS Management, select the service and then click on _Edit Federation Service…_. In the resulting properties dialogue, complete the organisational information on the _Organization_ tab and check the _Publish organization information in federation metadata_ checkbox.
 
