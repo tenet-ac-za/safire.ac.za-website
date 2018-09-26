@@ -1,8 +1,8 @@
---- 
-attributeExample: Ben Vuyo
+---
+attributeExample: Benjamin Vuyo
 attributeFormat: Single valued (multi allowed in RFC2798, but not by SAFIRE)
 attributeOid: urn:oid:2.5.4.42
-attributeReferences: 
+attributeReferences:
   - Name: RFC2798
     URL: https://tools.ietf.org/html/rfc2798
   - Name: eduPerson
