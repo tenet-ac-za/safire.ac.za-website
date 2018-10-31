@@ -1,5 +1,5 @@
 ---
-date: 2017-11-03 08:22:54+00:00
+date: 2018-10-31 14:44:32+02:00
 slug: generating-edupersonaffiliation
 tags:
   - eduPersonAffiliation
@@ -83,27 +83,27 @@ It should be apparent that this means that the vast majority of users are expect
 If you've organised your directory into containers that reflect the above roles, you may be able to use the distinguishedName (or entryDN in some LDAP directories) attribute to derive eduPersonAffiliation. The example below also sets [eduPersonPrimaryAffiliation]({{< ref "/technical/attributes/edupersonprimaryaffiliation.md" >}}).
 
 ```php
-20 => array(
+20 => [
   'class' => 'core:PHP',
   'code' => '
     $dnou = preg_replace("/^.*,ou=(\w+),dc=example,dc=local/", "$1", $attributes["distinguishedName"][0]);
     switch (strtoupper($dnou)) {
       case "STAFF":
-        $a = array("member","staff"); $p = "staff";
+        $a = ["member","staff"]; $p = "staff";
         break;
       case "STUDENTS":
-        $a = array("member","student"); $p = "student";
+        $a = ["member","student"]; $p = "student";
         break;
       case "GUESTS":
-        $a = array("affiliate"); $p = "affiliate";
+        $a = ["affiliate"]; $p = "affiliate";
         break;
       default:
-        $a = array("library-walk-in"); $p = "library-walk-in";
+        $a = ["library-walk-in"]; $p = "library-walk-in";
     }
     $attributes["eduPersonAffiliation"] = $a;
     $attributes["eduPersonPrimaryAffiliation"][0] = $p;
   ',
-),
+],
 ```
 
 # Case 2: Group membership
@@ -111,10 +111,10 @@ If you've organised your directory into containers that reflect the above roles,
 Many organisations use groups to record roles and affiliations. These are usually exposed in LDAP as the groupMembership or memberOf attributes, which typically contain the distinguished name(s) of group object(s).
 
 ```php
-20 => array(
+20 => [
   'class' => 'core:PHP',
   'code' => '
-    $a = array();
+    $a = [];
     /* loop through group DNs */
     foreach ($attributes["groupMembership"] as $group) {
       /* simple pattern matching */
@@ -136,7 +136,7 @@ Many organisations use groups to record roles and affiliations. These are usuall
     }
     $attributes["eduPersonAffiliation"] = $a;
   ',
-),
+],
 ```
 
 # Case 3: Single attribute
@@ -149,11 +149,11 @@ You may have an attribute that reflects a user's role(s) in a single delimited s
  * containing a comma separated list.
  * e.g. ms-Exch-Extension-Attribute15 = student,convocation
  */
-20 => array(
+20 => [
   'class' => 'core:PHP',
   'code' => '
     $ourroles = preg_split("/\s*,\s*", $attributes["ms-Exch-Extension-Attribute15"][0]);
-    $a = array();
+    $a = [];
     foreach ($ourroles as $role) {
        switch (strtoupper($role)) {
          case "STUDENT":
@@ -170,7 +170,7 @@ You may have an attribute that reflects a user's role(s) in a single delimited s
     }
     $attributes["eduPersonAffiliation"] = array_unique($a);
   ',
-),
+],
 ```
 
 # Case 4: External source
@@ -182,15 +182,15 @@ You may store your roles in a separate database. How to deal with this is beyond
 The [ldap:AttributeAddFromLDAP](https://simplesamlphp.org/docs/stable/ldap:ldap#section_2) filter may assist if you need to get additional attributes from a separate LDAP directory. For example, to add an attribute from an AD global catalog, you may do something like this:
 
 ```php
-20 => array(
+20 => [
   'class' => 'ldap:AttributeAddFromLDAP',
   'ldap.hostname' => 'ldaps://ldap.example.ac.za:3269',
   'ldap.username' => 'simplesamlphp@example.ac.za',
   'ldap.password' => 'your password',
   'ldap.basedn' => 'ou=Users,dc=example,dc=ac,dc=za',
-  'attributes' => array('eduPersonAffiliation' => 'sourceAttribute'),
+  'attributes' => ['eduPersonAffiliation' => 'sourceAttribute'],
   'search.filter' => '(userPrincipalName =%eduPersonPrincipalName%)',
-),
+],
 ```
 
 ### 4.2: SQL database
@@ -198,18 +198,18 @@ The [ldap:AttributeAddFromLDAP](https://simplesamlphp.org/docs/stable/ldap:ldap#
 SAFIRE has developed a [sqlattribs:AttributeFromSQL](https://github.com/safire-ac-za/simplesamlphp-module-sqlattribs) module that may help, either as a code example for how to develop your own module or directly as an attribute source.
 
 ```php
-20 => array(
+20 => [
   'class' => 'sqlattribs:AttributeFromSQL',
   'attribute' => 'eduPersonPrincipalName',
-  'limit' => array('eduPersonAffiliation',),
+  'limit' => ['eduPersonAffiliation',],
   'replace' => false,
-  'database' => array(
+  'database' => [
     'dsn' => 'mysql:host=localhost;dbname=simplesamlphp',
     'username' => 'yourDbUsername',
     'password' => 'yourDbPassword',
     'table' => 'AttributeFromSQL',
-  ),
-),
+  ],
+],
 ```
 
 Which would allow you to store eduPersonAffiliation in an external SQL database, something like this:
@@ -225,19 +225,19 @@ INSERT INTO AttributeFromSQL (uid, sp, attribute, value) VALUES ('other@example.
 As noted above, even if you have _no_ information in your directory, you can probably still assert that everyone is a member. This, of course, assumes you only provide accounts to people who're in good standing with your institution ;-).
 
 ```php
-20 => array(
+20 => [
   'class' => 'core:AttributeAdd',
-  'eduPersonAffiliation' => array('member'),
-),
+  'eduPersonAffiliation' => ['member'],
+],
 ```
 
 Small organisations may be able to go further than that. For example, research agencies may be able to assert that all their members are also employees:
 
 ```php
-20 => array(
+20 => [
   'class' => 'core:AttributeAdd',
-  'eduPersonAffiliation' => array('member', 'employee'),
-),
+  'eduPersonAffiliation' => ['member', 'employee'],
+],
 ```
 
 # Generating eduPersonScopedAffiliation
@@ -246,17 +246,17 @@ Once you have a valid eduPersonAffiliation, it should be fairly straightforward 
 
 ```php
 /* add a static schacHomeOrganization attribute */
-10 => array(
+10 => [
   'class' => 'core:AttributeAdd',
-  'schacHomeOrganization' => array('example.ac.za'),
-),
+  'schacHomeOrganization' => ['example.ac.za'],
+],
 /* scope uid as eduPersonPrincipalName */
-11 => array(
+11 => [
   'class' => 'core:ScopeAttribute',
   'scopeAttribute' => 'schacHomeOrganization',
   'sourceAttribute' => 'eduPersonAffiliation',
   'targetAttribute' => 'eduPersonScopedAffiliation',
-),
+],
 
 ```
 

@@ -1,5 +1,5 @@
 ---
-date: 2017-11-03 07:47:32+00:00
+date: 2018-10-31 14:35:32+02:00
 slug: configuring-simplesamlphp-for-safire
 tags:
   - configuration
@@ -25,67 +25,67 @@ The first thing you need to do is configure the metarefresh module to fetch SAFI
 /*
  * Sample config-metarefresh.php for the South African Identity Federation
  */
-$config = array(
-    'sets' => array(
-        'safire' => array(
-            'cron' => array('hourly'),
-            'sources' => array(
+$config = [
+    'sets' => [
+        'safire' => [
+            'cron' => ['hourly'],
+            'sources' => [
                 /*
                  * 1: SAFIRE Federation Hub - this is needed on all Identity Providers, and
                  * on Service Providers that wish to make use of centralised discovery.
                  */
-                array(
+                [
                     'conditionalGET' => true,
                     'src' => 'https://metadata.safire.ac.za/safire-hub-metadata.xml',
-                    'certificates' => array('safire-metadata.crt'),
-                    'template' => array(
-                        'tags' => array('safire'),
-                        'authproc' => array(
-                            51 => array('class' => 'core:AttributeMap', 'oid2name'),
-                        ),
+                    'certificates' => ['safire-metadata.crt'],
+                    'template' => [
+                        'tags' => ['safire'],
+                        'authproc' => [
+                            51 => ['class' => 'core:AttributeMap', 'oid2name'],
+                        ],
                         /* adapt these for your own internal names and participation level */
-                        'attributes' => array(
+                        'attributes' => [
                           'eduPersonPrincipalName', 'givenName', 'sn', /* minimum */
                           'displayName', 'eduPersonAffiliation', 'mail', /* recommended */
                           'eduPersonEntitlement', 'eduPersonOrcid', 'eduPersonPrimaryAffiliation', 'eduPersonScopedAffiliation',
                           'employeeNumber', 'preferredLanguage', 'schacHomeOrganization',
-                        ),
+                        ],
                         /* SAFIRE federation hub handles consent/transfer notification */
                         'consent.disable' => true,
-                    ),
-                ),
+                    ],
+                ],
                 /*
                  * 2: SAFIRE IdP Proxies - this is only needed on Service Providers that
                  * wish to make use of their own local discovery.
                  */
-                array(
+                [
                     'conditionalGET' => true,
                     'src' => 'https://metadata.safire.ac.za/safire-idp-proxy-metadata.xml',
-                    'certificates' => array('safire-metadata.crt'),
-                    'template' => array(
-                        'tags'  => array('safire'),
-                        'authproc' => array(
-                            51 => array('class' => 'core:AttributeMap', 'oid2name'),
-                        ),
+                    'certificates' => ['safire-metadata.crt'],
+                    'template' => [
+                        'tags'  => ['safire'],
+                        'authproc' => [
+                            51 => ['class' => 'core:AttributeMap', 'oid2name'],
+                        ],
                         /* adapt these for your own internal names and participation level */
-                        'attributes' => array(
+                        'attributes' => [
                           'eduPersonPrincipalName', 'givenName', 'sn', /* minimum */
                           'displayName', 'eduPersonAffiliation', 'mail', /* recommended */
                           'eduPersonEntitlement', 'eduPersonOrcid', 'eduPersonPrimaryAffiliation', 'eduPersonScopedAffiliation',
                           'employeeNumber', 'preferredLanguage', 'schacHomeOrganization',
-                        ),
+                        ],
                         /* SAFIRE federation hub handles consent/transfer notification */
                         'consent.disable' => true,
-                    ),
-                ),
-            ),
-            'expireAfter' => 60*60*24*4, // Maximum 4 days cache time
+                    ],
+                ],
+            ],
+            'expireAfter' => 60 * 60 * 24 * 4, // Maximum 4 days cache time
             'outputDir' => 'metadata/safire-consuming/',
             'outputFormat' => 'flatfile',
-            'types' => array('saml20-sp-remote','saml20-idp-remote'),
-        ),
-    ),
-);
+            'types' => ['saml20-sp-remote','saml20-idp-remote'],
+        ],
+    ],
+];
 ```
 
 You'll note that there are two sources specified above. Only the first is necessary for identity providers (you can safely delete the second).
@@ -111,10 +111,10 @@ The data/ directory is necessary because we've set the 'conditionalGET' directiv
 Finally, you need to alter you config/config.php to use the new metadata. To do this, find the 'metadata.sources' directive, and add the metadata/safire-consuming/ directory to it, something like this:
 
 ```php
-'metadata.sources' => array(
-    array('type' => 'flatfile'),
-    array('type' => 'flatfile', 'directory' => 'metadata/safire-consuming'),
-),
+'metadata.sources' => [
+    ['type' => 'flatfile'],
+    ['type' => 'flatfile', 'directory' => 'metadata/safire-consuming'],
+],
 ```
 
 ## Download SAFIRE's signing cert
@@ -142,13 +142,13 @@ If you're using a SimpleSAMLphp [hosted IdP](https://simplesamlphp.org/docs/stab
  * Note that this is not a complete example!
  * It only shows options that must be set for SAFIRE
  */
-$metadata['__DYNAMIC:1__'] = array(
-    'scope' => array('yourrealm.example.net', 'yourotherrealm.example.net'),
+$metadata['__DYNAMIC:1__'] = [
+    'scope' => ['yourrealm.example.net', 'yourotherrealm.example.net'],
     'attributes.NameFormat' => 'urn:oasis:names:tc:SAML:2.0:attrname-format:uri',
-    'SingleSignOnServiceBinding' => array('urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'),
-    'SingleLogoutServiceBinding' => array('urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'),
+    'SingleSignOnServiceBinding' => ['urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'],
+    'SingleLogoutServiceBinding' => ['urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'],
     'signature.algorithm' => 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256',
-);
+];
 ```
 
 To produce better automated metadata, you should also configure the [MDUI options](https://simplesamlphp.org/docs/stable/simplesamlphp-metadata-extensions-ui) correctly. (There's a [sample saml20-idp-hosted.php](/wp-content/uploads/2017/02/saml20-idp-hosted.php.txt) file available to help you do this.)
@@ -164,12 +164,12 @@ If you're using SimpleSAMLphp as an identity provider, you need to configure an 
 If you're using SimpleSAMLphp as a service provider and you want to use SAFIRE's central discovery service, you need to add an 'idp' attribute to your [saml:SP configuration](https://simplesamlphp.org/docs/stable/saml:sp) in config/authsources.php:
 
 ```php
-$config = array(
-    'default-sp' => array(
+$config = [
+    'default-sp' => [
         'saml:SP',
         'idp' => 'https://iziko.safire.ac.za/',
-    ),
-);
+    ],
+];
 ```
 
 If you want to use local discovery, no SAFIRE-specific configuration should be required provided you got the metadata step correct.

@@ -1,5 +1,5 @@
 ---
-date: 2017-02-27 07:32:25+00:00
+date: 2018-10-31 14:49:32+02:00
 slug: generating-edupersonprincipalname
 tags:
   - eduPersonPrincipalName
@@ -38,10 +38,10 @@ To use a properly scoped userPrinicpalName, simply rename the attribute.
 
 ```php
 /* rename userPrinicpalName to eduPersonPrincipalName */
-10 => array(
+10 => [
  'class' => 'core:AttributeMap',
  'userPrinicpalName' => 'eduPersonPrincipalName',
-),
+],
 ```
 
 ## mail
@@ -52,10 +52,10 @@ If you use the mail attribute, you should _copy_ the attribute so that mail itse
 
 ```php
 /* copy mail to eduPersonPrincipalName */
-10 => array(
+10 => [
  'class' => 'core:AttributeCopy',
  'mail' => 'eduPersonPrincipalName',
-),
+],
 ```
 
 # Case 2: You have an incorrectly scoped user identifier
@@ -64,17 +64,17 @@ A problem that commonly afflicts Active Directory users is that their AD domain 
 
 ```php
 /* rename userPrinicpalName to eduPersonPrincipalName */
-10 => array(
+10 => [
  'class' => 'core:AttributeMap',
  'userPrinicpalName' => 'eduPersonPrincipalName',
-),
+],
 /* fix the scope to match DNS domain */
-11 => array(
+11 => [
   'class' => 'core:AttributeAlter',
   'subject' => 'eduPersonPrincipalName',
   'pattern' => '/\@example\.local/',
   'replacement' => '@example.ac.za',
-),
+],
 ```
 
 Note that if your AD name is a valid subdomain within your DNS domain, you do not necessarily have to do this --- it is okay to use subdomains provided they are properly reflected in the [`<md:Scope>` elements](/technical/saml2/idp-requirements/) within your metadata. (Or you could do the above if you'd prefer not to reflect your domain name outwards.)
@@ -87,17 +87,17 @@ There are a number of ways to scope an attribute. One is to use regex with core:
 
 ```php
 /* add a static schacHomeOrganization attribute */
-10 => array(
+10 => [
   'class' => 'core:AttributeAdd',
-  'schacHomeOrganization' => array('example.ac.za'),
-),
+  'schacHomeOrganization' => ['example.ac.za'],
+],
 /* scope uid as eduPersonPrincipalName */
-11 => array(
+11 => [
   'class' => 'core:ScopeAttribute',
   'scopeAttribute' => 'schacHomeOrganization',
   'sourceAttribute' => 'uid',
   'targetAttribute' => 'eduPersonPrincipalName',
-),
+],
 
 ```
 

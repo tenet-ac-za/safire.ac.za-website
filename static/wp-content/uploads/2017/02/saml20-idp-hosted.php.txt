@@ -4,16 +4,16 @@
  * to produce metadata that is reasonably complete and closely meets SAIFRE's
  * recommendations. You may need to hand-edit the result, but hopefully not much.
  */
-$metadata['__DYNAMIC:1__'] = array(
+$metadata['__DYNAMIC:1__'] = [
     'host' => '__DEFAULT__',
     'privatekey' => 'server.pem',
     'privatekey_pass' => 'YourPrivateKeyPassphrase', /* you encrypt your private key, right? */
     'certificate' => 'server.crt', /* see https://safire.ac.za/technical/resources/generating-certificates-for-safire/ */
     'auth' => 'example-userpass', /* from config/authsources.php */
-    'scope' => array('safire.ac.za', 'wf.safire.ac.za'), /* Scopes showing all possible valid right-hand-sides for eduPersonPrincipalName and mail */
+    'scope' => ['safire.ac.za', 'wf.safire.ac.za'], /* Scopes showing all possible valid right-hand-sides for eduPersonPrincipalName and mail */
     'signature.algorithm' => 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256', /* SHA1 not acceptable */
-    'SingleSignOnServiceBinding' => array('urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',), /* SAML2int only requires HTTP-Redirect, but could include HTTP-POST */
-    'SingleLogoutServiceBinding' => array('urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',), /* SAML2int only requires HTTP-Redirect, but could include HTTP-POST */
+    'SingleSignOnServiceBinding' => ['urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',], /* SAML2int only requires HTTP-Redirect, but could include HTTP-POST */
+    'SingleLogoutServiceBinding' => ['urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',], /* SAML2int only requires HTTP-Redirect, but could include HTTP-POST */
     'attributes.NameFormat' => 'urn:oasis:names:tc:SAML:2.0:attrname-format:uri',
 
     /*
@@ -22,53 +22,64 @@ $metadata['__DYNAMIC:1__'] = array(
      * eventually include is Zulu & isiXhosa support too. Where a
      * translation is not included, English will be used by default.
      */
-    'OrganizationName' => array( /* Legal Name */
+    'OrganizationName' => [ /* Legal Name */
         'en' => 'Example University',
         'af' => 'Byvorbeeld Universiteit',
-    ),
-    'OrganizationDisplayName' => array( /* Name your university is commonly known by */
+    ],
+    'OrganizationDisplayName' => [ /* Name your university is commonly known by */
         'en' => 'ExampleU',
         'af' => 'ByvorbeeldU',
-    ),
-    'OrganizationURL' => array('en' => 'https://example.ac.za/',), /* Your home page */
-    'UIInfo' => array(
-        'DisplayName' => array( /* usually same as OrganizationDisplayName */
+    ],
+    'OrganizationURL' => ['en' => 'https://example.ac.za/',], /* Your home page */
+    'UIInfo' => [
+        'DisplayName' => [ /* usually same as OrganizationDisplayName */
             'en' => 'Example Identity Provider',
             'af' => 'Byvorbeeld Identiteit Verskaffer',
-        ),
-        'Description' => array(
+        ],
+        'Description' => [
             'en' => 'Example Identity Provider',
             'af' => 'Byvorbeeld Identiteit Verskaffer',
-        ),
-        'PrivacyStatementURL' => array('en' => 'https://safire.ac.za/safire/policy/privacy',), /* STRONGLY RECOMMENDED */
-        'InformationURL' => array('en' => 'https://safire.ac.za/users/who-why-what',), /* suggested */
-        'Logo' => array(
-            array( /* Recommended by Shibboleth SP */
+        ],
+        'PrivacyStatementURL' => ['en' => 'https://safire.ac.za/safire/policy/privacy',], /* STRONGLY RECOMMENDED */
+        'InformationURL' => ['en' => 'https://safire.ac.za/users/who-why-what',], /* suggested */
+        'Logo' => [
+            [ /* Recommended by Shibboleth SP */
                 'url' => 'https://static.safire.ac.za/logos/safire-logo-16x16.png',
                 'height' => 16,
                 'width' => 16,
-            ),
-            array( /* Recommended by Shibboleth SP */
+            ],
+            [ /* Recommended by Shibboleth SP */
                 'url' => 'https://static.safire.ac.za/logos/safire-logo-80x60.png',
                 'height' => 60,
                 'width' => 80,
-            ),
-            array( /* This is the size recommended by SAFIRE (at least 150x150, square) */
+            ],
+            [ /* This is the size recommended by SAFIRE (at least 150x150, square) */
                 'url' => 'https://static.safire.ac.za/logos/safire-logo-300x300.png',
                 'height' => 300,
                 'width' => 300,
-            ),
-        ),
-    ),
-    'DiscoHints' => array( /* centre of your campus. u= radius in metres */
-        'GeolocationHint' => array('geo:-34.002972,18.467533;u=100'),
-    ),
-    'contacts' => array( /* technical contact is added automatically from config/config.php */
-        array(
+            ],
+        ],
+    ],
+    'DiscoHints' => [ /* centre of your campus. u= radius in metres */
+        'GeolocationHint' => ['geo:-34.002972,18.467533;u=100'],
+    ],
+    'contacts' => [ /* technical contact is added automatically from config/config.php */
+        [
             'contactType' => 'support',
             'emailAddress' => 'mailto:support@example.ac.za', /* role not person */
             'givenName' => 'Example University Help Desk',
             'telephoneNumber' => '+27.21.763.0000',
-        ),
-    ),
-);
+        ],
+        [
+            /* required for Sirtfi, but this is how to add a security contact if you have one */
+            'contactType' => 'other',
+            'emailAddress' => 'mailto:csirt@example.ac.za',
+            'givenName' => 'Example University CSIRT',
+            'telephoneNumber' => '+27.21.763.7156',
+            'attributes' => [
+                'xmlns:remd' => 'http://refeds.org/metadata',
+                'remd:contactType' => 'http://refeds.org/metadata/contactType/security',
+            ],
+        ],
+    ],
+];
