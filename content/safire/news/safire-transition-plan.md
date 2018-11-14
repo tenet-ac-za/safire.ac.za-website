@@ -44,9 +44,9 @@ As a first step, transitioning entities will need to complete and sign the SAFIR
 
 We anticipate that many organisations will need to put this document through their internal processes, and this may take time. In addition, these processes may slow or stall over the December/January period. For this reason, we invite all existing participants to begin this step immediately.
 
-Please sign and scan (or electronically sign) a copy of the Participation Agreement and [email it to us]({{< ref "/safire/contact.md" >}}). TENET is happy to [accept scanned documents and/or electronic signatures](https://www.michalsons.com/blog/spring-forest-trading-v-wilberry/14861), and will normally return an electronically signed copy to you.
+Please sign and scan (or electronically sign) a copy of the Participation Agreement and [email it to us]({{< ref "/safire/contact/_index.md" >}}). TENET is happy to [accept scanned documents and/or electronic signatures](https://www.michalsons.com/blog/spring-forest-trading-v-wilberry/14861), and will normally return an electronically signed copy to you.
 
-Should your processes require original handwritten signatures, please post or courier two copies of the signed agreement to [TENET's offices]({{< ref "/safire/contact.md" >}}) (one will ultimately be returned to you by post countersigned by TENET). In addition, to counteract postal delays, please send a scanned copy as above.
+Should your processes require original handwritten signatures, please post or courier two copies of the signed agreement to [TENET's offices]({{< ref "/safire/contact/_index.md" >}}) (one will ultimately be returned to you by post countersigned by TENET). In addition, to counteract postal delays, please send a scanned copy as above.
 
 Queries about the agreement can be directed to the same place.
 
@@ -109,6 +109,6 @@ To-date the costs of SAFIRE have been largely borne by the SCA and TENET. This i
 
 # Questions and updates
 
-Its likely that, in preparing this document, we've overlooked or not clearly stated something. Thus if you have specific questions about how things will work, please [feel free to ask]({{< ref "/safire/contact.md" >}}). We'll keep this document updated as this happens, so please check back here too.
+Its likely that, in preparing this document, we've overlooked or not clearly stated something. Thus if you have specific questions about how things will work, please [feel free to ask]({{< ref "/safire/contact/_index.md" >}}). We'll keep this document updated as this happens, so please check back here too.
 
 _Last updated: 2017-06-29_

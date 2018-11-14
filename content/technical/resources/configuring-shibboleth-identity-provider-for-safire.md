@@ -10,7 +10,7 @@ title: Configuring Shibboleth Identity Provider for SAFIRE
 url: /technical/resources/configuring-shibboleth-identity-provider-for-safire/
 ---
 
-These instructions are based on the Shibboleth documentation and have not been extensively tested. If you use Shibboleth IdPv3, please feel free to [submit revisions]({{< ref "/contact.md" >}}) if necessary.
+These instructions are based on the Shibboleth documentation and have not been extensively tested. If you use Shibboleth IdPv3, please feel free to [submit revisions]({{< ref "/safire/contact/_index.md" >}}) if necessary.
 
 The [Shibboleth Identity Provider](http://shibboleth.net/products/identity-provider.html) has [good documentation](https://wiki.shibboleth.net/confluence/display/IDP30), and so this is not a complete/worked example of how to configure it. Instead this provides the SAFIRE-specific snippets you may need when working through that documentation.
 

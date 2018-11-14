@@ -19,7 +19,7 @@ The Participation Agreement only needs to be completed once per juristic person,
 
 Please sign and scan (or electronically sign) a copy of the Participation Agreement and email it to {{< email "safire@tenet.ac.za" >}}. TENET is happy to accept [scanned documents and/or electronic signatures](https://www.michalsons.com/blog/spring-forest-trading-v-wilberry/14861), and will normally return an electronically signed copy to you.
 
-Should your processes require original handwritten signatures, please courier or post two copies of the signed agreement to [TENET's offices]({{< ref "/safire/contact.md" >}}) (one will ultimately be returned to you by post countersigned by TENET). In addition, to counteract the inevitable postal delays, please send a scanned copy as above.
+Should your processes require original handwritten signatures, please courier or post two copies of the signed agreement to [TENET's offices]({{< ref "/safire/contact/_index.md" >}}) (one will ultimately be returned to you by post countersigned by TENET). In addition, to counteract the inevitable postal delays, please send a scanned copy as above.
 
 # Register as a Service Provider
 

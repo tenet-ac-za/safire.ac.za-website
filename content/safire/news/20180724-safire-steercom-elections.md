@@ -12,6 +12,6 @@ The [term of reference for this election](/safire/policy/forum/) require that we
 
 Two of the existing Member Representatives have indicated that they would be willing to be re-nominated: Ashley Latchu (HSRC), Jeremy Main (SKA). In addition, Joe Smit (SUN) was co-opted when the third Member Representative became ineligible and has indicated that he would be willing to stand. I will happily accept nominations for these three, or any other person Participants feel may be a suitable representative.
 
-Nominations can be sent [via email]({{< ref "/safire/contact.md" >}}) before 12 August 2018.
+Nominations can be sent [via email]({{< ref "/safire/contact/_index.md" >}}) before 12 August 2018.
 
 Further details of the election will be circulated to the SAFIRE Participants Forum via the [safire-discuss mailing list](http://lists.tenet.ac.za/mailman/listinfo/safire-discuss).
