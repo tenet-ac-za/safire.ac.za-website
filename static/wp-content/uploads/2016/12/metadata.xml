@@ -24,9 +24,8 @@
   </md:SPSSODescriptor>
   <!--
     Feel free to include as many official translations as you have.
-    English & Afrikaans currently natively supported; want to
-    eventually include is Zulu & isiXhosa support too. Where a
-    translation is not included, English will be used by default.
+    English, IsiZulu, isiXhosa & Afrikaans currently natively supported.
+    Where a translation is not included, English will be used by default.
   -->
   <md:Organization>
     <md:OrganizationName xml:lang="en">Example University</md:OrganizationName><!-- Legal Name -->

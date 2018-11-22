@@ -18,9 +18,8 @@ $metadata['__DYNAMIC:1__'] = [
 
     /*
      * Feel free to include as many official translations as you have.
-     * English & Afrikaans currently natively supported; want to
-     * eventually include is Zulu & isiXhosa support too. Where a
-     * translation is not included, English will be used by default.
+     * English, IsiZulu, isiXhosa & Afrikaans currently natively supported.
+     * Where a translation is not included, English will be used by default.
      */
     'OrganizationName' => [ /* Legal Name */
         'en' => 'Example University',
