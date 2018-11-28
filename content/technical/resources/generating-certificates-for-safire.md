@@ -11,7 +11,7 @@ url: /technical/resources/generating-certificates-for-safire/
 
 # Types of certificates
 
-SAML installations typically use at least two different certificates: one of the public facing portions of a website, and one to establish a private trust relationship between providers. Whilst it is possible to use the same certificate for these two roles, this is not best practice nor is it recommended.
+SAML installations typically use at least two[^1] different certificates: one of the public facing portions of a website, and one to establish a private trust relationship between providers. Whilst it is possible to use the same certificate for these two roles, this is not best practice nor is it recommended.
 
 The technical requirements for [identity-](/technical/saml2/idp-requirements/) and [service-](/technical/saml2/sp-requirements/)providers definitively specify the requirements and recommendations for these two types of certificates. What's below will give you some ideas on how to obtain/generate certificates that meet these requirements.
 
@@ -66,3 +66,4 @@ To add it to the Shibboleth Native SP, [try something like this]({{< ref "/techn
 <CredentialResolver type="File" key="example_ac_za.pem" password="YourPrivateKeyPassphrase" certificate="example_ac_za.crt"/>
 ```
 
+[^1]: There are actually three: metadata is often signed with a separate certificate, which is also self-signed and uses the explicit key trust model. However in the context of federation, provider metadata is exchanged completely out-of-band and so you do not need to generate this certificate nor do you need to sign your metadata. (You should, however, verify the signature on [SAFIRE's metadata]({{< ref "/technical/metadata.md" >}}).)
