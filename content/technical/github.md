@@ -6,7 +6,7 @@ menu:
     parent: technical
     weight: 6
 slug: github
-title: GitHub Respositories
+title: GitHub Repositories
 url: /technical/github/
 ---
 
