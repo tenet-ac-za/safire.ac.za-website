@@ -11,20 +11,28 @@ title: Fees for Identity Providers
 url: /participants/idp/fees/
 ---
 
-Currently there is no additional cost for institutions that receive REN Services from TENET to participate in SAFIRE.
+TENET hereby gives notice that the following fees model for Identity Providers will apply from 1 May 2019:
 
-In most federations the general principal is that identity providers should contribute towards the costs of running
-the federation, and SAFIRE's [Participation Agreement](/safire/policy/participation/) was drafted with this in mind at
-a time when the costs of running the federation were not completely understood. However it is now likely that the
-fees the Agreement refers to will only be levied on institutions that wish to participate in SAFIRE but do not
-otherwise contribute towards the NREN.
+## Non-recurring costs
 
-It is our intention that participation in federation forms part of a [larger bundle of service](https://www.tenet.ac.za/services)
-available to the SA NREN's beneficiary institutions (which is most of the eligible identity providers). This model is
-still under discussion, and [pending approval]({{< ref "/safire/governance.md" >}}).
+A once-off take-on charge of ***R 2 400*** will be levied for new each production entity registered under the [SAML2 technology profile]({{< ref "/technical/saml2/_index.md" >}}) to cover the [administrative overheads]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) of processing a new identity provider registration.
 
-The [Participation Agreement](/safire/policy/participation/) requires that we give notice of any changes to the
-fee structure and allows participants to withdraw from the federation during the notice period without penality.
-Such a change would be disucssed with the [Participant's Forum](/safire/policy/forum/) and notice would be published here.
-As such, even if the above were to change, there is [little financial risk]({{< ref "/safire/policy/participation/practice-note.md#costs" >}})
-to participating in SAFIRE.
+## Annual recurring costs
+
+The annual recurring cost is calculated based on the technology profile as well as the number of [full-time equivalent](https://en.wikipedia.org/wiki/Full-time_equivalent) staff[^fte] and students at the participating institution.
+
+{{< fees "idp" >}}
+
+For public and private institutions recognised by the [Department of Higher Education and Training](http://www.dhet.gov.za), the FTE count from the the last published HEMIS[^HEMIS] submissions will be used. For other organisations, a mutually agreeable method for determining FTE count must be derived.
+
+All annual recurring costs are subject to an annual escalation to reflect the increasing costs of providing and maintaining the service.
+
+## Discounts and exemptions
+
+- ***All SAFIRE's fees are waived until 31 December 2019. IdPs joining before this date will not be charged retrospectively***
+- Institutions that are beneficiaries under TENET's REN Services Agreement at the time of their on-boarding are exempt from SAFIRE's fees provided that the sum of the preceeding 12 months' Agency Fee was greater than or equal to the equivalent SAFIRE fee.
+- Non-profit or public benefit organisations properly registered as such in South Africa may request a discount.
+- The [SAFIRE Steering Committee]({{< ref "/governance.md" >}}) may, at its sole discretion, elect to discount or exempt any organisation from paying SAFIRE's fees.
+
+[^fte]: For the avoidance of doubt, this covers the FTE count of all persons recognised as &quot;staff&quot; or &quot;student&quot; under the [eduPersonAffiliation]({{< ref "/technical/attributes/edupersonaffiliation.md" >}}) definition, but excludes those who are merely &quot;employee&quot; under that definition. In HEMIS terms, this means the &quot;trade/craft&quot; and &quot;service&quot; personnel categories are excluded.
+[^HEMIS]: DHET's Higher Education Management Information System, or its successor or equivalent government-mandated reporting system. Note that published HEMIS submissions usually lag by approximately two years.
