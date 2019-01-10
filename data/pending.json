@@ -28,22 +28,6 @@
     {
         "entityType": "idp",
         "ParticipationAgreement": true,
-        "OrganizationName": "University of Pretoria",
-        "OrganizationDisplayName": "University of Pretoria",
-        "OrganizationURL": "http:\/\/www.up.ac.za\/",
-        "TechnicalIntegration": true,
-        "mdui": {
-            "Logo": {
-                "URL": "https:\/\/wwwqa.up.ac.za\/cs\/groups\/public\/@public\/documents\/document\/mdaw\/mdq3\/~edisp\/047620.jpg"
-            }
-        },
-        "Scope": [ "up.ac.za" ],
-        "eduGAIN": true,
-        "Notes": "Currently in QA"
-    },
-    {
-        "entityType": "idp",
-        "ParticipationAgreement": true,
         "OrganizationName": "Cape Peninsula University of Technology",
         "OrganizationDisplayName": "Cape Peninsula University of Technology",
         "OrganizationURL": "https:\/\/www.cput.ac.za\/",
