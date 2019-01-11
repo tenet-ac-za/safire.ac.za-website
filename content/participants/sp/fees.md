@@ -17,7 +17,7 @@ TENET hereby gives notice that the following fees model for Service Providers wi
 
 A once-off take-on charge of ***R 2 400*** will be levied for new each production entity registered under the [SAML2 technology profile]({{< ref "/technical/saml2/_index.md" >}}) to cover the [administrative overheads]({{< ref "/technical/saml2/sp-requirements/_index.md" >}}) of processing a new service provider registration.
 
-Where service providers ask SAFIRE to assist with integration, and where SAFIRE [is able to provide such assistance,]({{< ref "/participants/support.md" >}}) we reserve the right to recover an additional costs we incur at our prevailing consulting rates. This would be negotiated in advance on a per-case basis.
+Where service providers ask SAFIRE to assist with integration, and where SAFIRE [is able to provide such assistance,]({{< ref "/participants/support.md" >}}) we reserve the right to recover any additional costs we incur at our prevailing consulting rates. This would be negotiated in advance on a per-case basis.
 
 ## Annual recurring costs
 
