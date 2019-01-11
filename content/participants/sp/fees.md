@@ -28,4 +28,4 @@ SAFIRE does not charge service providers a participation fee, and there are no r
 - ***All SAFIRE's fees are waived until 31 December 2019. SPs joining before this date will not be charged.***
 - Institutions that are beneficiaries under TENET's REN Services Agreement at the time of their on-boarding are exempt from SAFIRE's fees provided that the sum of the preceeding 12 months' Agency Fee was greater than or equal to the equivalent SAFIRE fee.
 - Non-profit or public benefit organisations properly registered as such in South Africa may request a discount.
-- The [SAFIRE Steering Committee]({{< ref "/governance.md" >}}) may, at its sole discretion, elect to discount or exempt any organisation from paying SAFIRE's fees. Such discretion may be applied on recommendation from a [Member]({{ ref "/participants/idp/list.md" >}}) or the operations staff.
+- The [SAFIRE Steering Committee]({{< ref "/governance.md" >}}) may, at its sole discretion, elect to discount or exempt any organisation from paying SAFIRE's fees. Such discretion may be applied on recommendation from a [Member]({{< ref "/participants/idp/list.md" >}}) or the operations staff.
