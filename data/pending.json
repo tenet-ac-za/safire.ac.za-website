@@ -37,18 +37,5 @@
                 "URL": "https:\/\/pbs.twimg.com\/profile_images\/906163233299542016\/n6CfkOjP_400x400.jpg"
             }
         }
-    },
-    {
-        "entityType": "idp",
-        "ParticipationAgreement": true,
-        "OrganizationName": "Central University of Technology, Free State",
-        "OrganizationDisplayName": "Central University of Technology, Free State",
-        "OrganizationURL": "https:\/\/www.cut.ac.za\/",
-        "TechnicalIntegration": false,
-        "mdui": {
-            "Logo": {
-                "URL": "https:\/\/pbs.twimg.com\/profile_images\/2167470859\/CUT_logo_v1_400x400.jpg"
-            }
-        }
     }
 ]
