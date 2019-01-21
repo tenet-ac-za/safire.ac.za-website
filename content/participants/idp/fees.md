@@ -23,7 +23,7 @@ The annual recurring cost is calculated based on the technology profile as well 
 
 {{< fees "idp" >}}
 
-For public and private institutions recognised by the [Department of Higher Education and Training](http://www.dhet.gov.za), the FTE count from the the last published HEMIS[^HEMIS] submissions will be used. For other organisations, a mutually agreeable method for determining FTE count must be derived.
+For public and private institutions recognised by the [Department of Higher Education and Training](http://www.dhet.gov.za), the FTE count from the last published HEMIS[^HEMIS] submissions will be used. For other organisations, a mutually agreeable method for determining FTE count must be derived.
 
 All annual recurring costs are subject to an annual escalation to reflect the increasing costs of providing and maintaining the service.
 
