@@ -15,7 +15,7 @@ TENET hereby gives notice that the following fees model for Identity Providers w
 
 ## Non-recurring costs
 
-A once-off take-on charge of ***R 2 400*** will be levied for new each production entity registered under the [SAML2 technology profile]({{< ref "/technical/saml2/_index.md" >}}) to cover the [administrative overheads]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) of processing a new identity provider registration.
+A once-off take-on charge of ***R 2 400*** will be levied for each new production entity registered under the [SAML2 technology profile]({{< ref "/technical/saml2/_index.md" >}}) to cover the [administrative overheads]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) of processing a new identity provider registration.
 
 ## Annual recurring costs
 
