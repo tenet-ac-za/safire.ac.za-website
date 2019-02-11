@@ -46,11 +46,11 @@ The [REFEDs ePSA usage comparison](https://www.terena.org/activities/refeds/docs
 </tr>
 <tr class="row-5 odd">
 <td class="column-1">Staff member (academic, lecturer or researcher)</td>
-<td class="column-2">member; employee; facility</td>
+<td class="column-2">member; employee; faculty</td>
 </tr>
 <tr class="row-6 even">
 <td class="column-1">Staff member (academic, unpaid)</td>
-<td class="column-2">member; facility</td>
+<td class="column-2">member; faculty</td>
 </tr>
 <tr class="row-7 odd">
 <td class="column-1">Staff member (administrative, professional or management)</td>
