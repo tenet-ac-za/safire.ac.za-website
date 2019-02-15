@@ -41,8 +41,8 @@ If you wish to use your own local discovery, your entry should be similar to the
 
 ```xml
 <MetadataProvider type="XML"
-    uri="https://metadata.safire.ac.za/safire-idp-proxies-metadata.xml"
-    backingFilePath="safire-idp-proxies-metadata.xml"
+    uri="https://metadata.safire.ac.za/safire-idp-proxy-metadata.xml"
+    backingFilePath="safire-idp-proxy-metadata.xml"
     verifyHost="true"
     reloadInterval="14400">
   <MetadataFilter type="RequireValidUntil" maxValidityInterval="2419200"/>
