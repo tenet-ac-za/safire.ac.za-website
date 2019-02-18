@@ -216,3 +216,14 @@ if ("urn:oid:1.3.6.1.4.1.5923.1.1.1.11" -notin @(Get-AdfsClaimDescription | fore
 	  -Notes "Set of URIs that assert compliance with specific standards for identity assurance."
 }
 
+# eduPersonUniqueId
+if ("urn:oid:1.3.6.1.4.1.5923.1.1.1.13" -notin @(Get-AdfsClaimDescription | foreach { $_.ClaimType }))
+{
+	Add-AdfsClaimDescription -ClaimType "urn:oid:1.3.6.1.4.1.5923.1.1.1.13" `
+	  -Name "eduPerson Unique Id (URN)" `
+	  -ShortName "eduPersonUniqueId" `
+	  -IsAccepted:$true `
+	  -IsOffered:$true `
+	  -IsRequired:$false `
+	  -Notes "A persistent, opaque, non-reassignable, omnidirectional identifier that uniquely identifies the subject."
+}
