@@ -138,8 +138,7 @@ Many organisations use groups to record roles and affiliations. These are usuall
   ',
 ],
 ```
-If you have run the [ADFS script](https://safire.ac.za/technical/resources/configuring-adfs-for-safire/) provided by SAFIRE, You may have noticed that a claims rule is created that will generate an affiliation of member, based on the "Domain Users" group in your Active Directory. In addition to this claims rule, you can refine what is asserted by your IdP if your Active Directory knows about the different roles that may exist at your institution by simply adding another
-custom claims rule based on the role you wish to assert.
+If you have run the [ADFS script](https://safire.ac.za/technical/resources/configuring-adfs-for-safire/) provided by SAFIRE, You may have noticed that a claims rule is created that will generate an affiliation of "member", based on the "Domain Users" group in your Active Directory. In addition to this claims rule, you can refine what is asserted by your IdP if your Active Directory groups know about the different roles that may exist at your institution by simply adding another custom claims rule based on the role you wish to assert.
 
 In this example, we are asserting an affiliation of "Staff" based on a Staff group:
 
