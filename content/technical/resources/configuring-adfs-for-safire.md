@@ -1,5 +1,5 @@
 ---
-date: 2016-12-14 13:25:53+00:00
+date: 2019-03-12 10:07:00+02:00
 slug: configuring-adfs-for-safire
 tags:
   - adfs
@@ -25,7 +25,7 @@ This script needs one piece of information from you --- your primary DNS domain
 
 The script creates a Claim Issuance Policy that generates as many of SAFIRE's attributes as possible from the default AD schema, including all the [recommended attributes](/technical/attributes/). If you have other values in your AD that map to other SAFIRE attributes, you should consider adding those mappings to.
 
-Without knowing about your internal structure, it is impossible for the script to [generate a complete eduPersonAffiliation]({{< ref "/technical/resources/generating-edupersonaffiliation.md" >}}). If you look through the script, you will find a  "Transform Group to eduPersonAffiliation" rule that adds all members of the Domain Users group as members of your organisation ([case 5]({{< ref "/technical/resources/generating-edupersonaffiliation.md#case-5-everyone-is-a-member" >}})). This rule can be expanded or adapted to better fit your situation. For instance, the "Domain Users" group can be changed to one that better fits your environment. Likewise, you may have groups that reflect the other values in the [eduPersonAffiliation vocabulary]({{< ref "/technical/attributes/edupersonaffiliation.md" >}}).
+Without knowing about your internal structure, it is impossible for the script to [generate a complete eduPersonAffiliation]({{< ref "/technical/resources/generating-edupersonaffiliation.md" >}}). If you look through the script, you will find a  "Transform Group to eduPersonAffiliation" rule that adds all members of the Domain Users group as members of your organisation ([case 5]({{< ref "/technical/resources/generating-edupersonaffiliation.md#case-5-everyone-is-a-member" >}})). This rule can be expanded or adapted to better fit your situation (cf [case 2]({{< ref "/technical/resources/generating-edupersonaffiliation.md#case-2-group-membership" >}})). For instance, the "Domain Users" group can be changed to one that better fits your environment. Likewise, you may have groups that reflect the other values in the [eduPersonAffiliation vocabulary]({{< ref "/technical/attributes/edupersonaffiliation.md" >}}).
 
 ## Claim Descriptions
 
