@@ -6,7 +6,6 @@ tags:
  - training
  - event
 title: SAFIRE/RCCPii Identity Management & Federation Workshop
-url: /safire/news/20190207-mrps-updated
 ---
 
 Under the auspices of the [RCCPii capacity development project](https://tenet-rccpii.github.io/rccpii-2018/), we
