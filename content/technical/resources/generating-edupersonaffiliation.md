@@ -138,6 +138,16 @@ Many organisations use groups to record roles and affiliations. These are usuall
   ',
 ],
 ```
+If you have run the [ADFS script](https://safire.ac.za/technical/resources/configuring-adfs-for-safire/) provided by SAFIRE, You may have noticed that a claims rule is created that will generate an affiliation of member, based on the "Do
+main Users" group in your Active Directory. In addition to this claims rule, you can refine what is asserted by your IdP if your Active Directory knows about the different roles that may exist at your institution by simply adding another
+custom claims rule based on the role you wish to assert.
+
+In this example, we are asserting an affiliation of "Staff" based on a Staff group:
+
+```php
+c:[Type == "http://schemas.xmlsoap.org/claims/Group", Value == "Staff"]
+ => issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.1", Value = "Staff", Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:attrname-format:uri");
+```
 
 # Case 3: Single attribute
 
