@@ -35,8 +35,8 @@ c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccou
 
 # This transform takes the left-hand side of the userPrincipalName and appends
 # the scope that we were given at the beginning of the script. This allows us
-# to handle UPNs of the form 'user@example.local' and rewrite them to
-# 'user@example.ac.za'. We've done this because the example.local form is
+# to handle UPNs of the form user@example.local and rewrite them to
+# user@example.ac.za. We have done this because the example.local form is
 # fairly common, and this gives us a "safe" default. Note that if your AD
 # already uses UPNs with a correct FQDN as the scope, you do not need this
 # transform -- rather just map your UPN directly to eduPersonPrincipalName
