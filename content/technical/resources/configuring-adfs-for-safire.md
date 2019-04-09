@@ -62,6 +62,7 @@ The [supplied PowerShell]({{< relref "#scripted-configuration" >}}) does not do 
 # Set certificate validty to ten years to match SAFIRE recommendations
 Set-AdfsProperties -CertificateDuration "3652"
 # Issue a new certificate
+# NB: this will immediately roll over your existing certificate - do not do this if your certificate is in production
 Update-AdfsCertificate -CertificateType Token-Signing –Urgent
 ```
 
