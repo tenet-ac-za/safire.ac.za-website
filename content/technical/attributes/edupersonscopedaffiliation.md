@@ -2,7 +2,7 @@
 attributeExample: |2
     * member@example.ac.za
     * employee@example.ac.za
-    * student@education.faculty.example.ac.za
+    * student@edu.faculty.example.ac.za
     * faculty@science.faculty.example.ac.za
 attributeFormat: |2
   Multi-valued, scoped, controlled vocabulary per [_eduPersonAffiliation_](/technical/attributes/edupersonaffiliation/). The intention of _eduPersonScopedAffiliation_ is to allow more granular affiliation information to be provided --- [_eduPersonAffiliation_](/technical/attributes/edupersonaffiliation/) describes the principal's relationship to an entire institution; _eduPersonScopedAffiliation_ can describe a relationship to a particular faculty, school, or division.
