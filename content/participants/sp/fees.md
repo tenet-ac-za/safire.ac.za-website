@@ -1,5 +1,5 @@
 ---
-date: 2019-01-10 12:44:38+02:00
+date: 2019-05-01 00:00:00+02:00
 menu:
   main:
     identifier: participants-sp-fees
@@ -10,8 +10,6 @@ slug: fees
 title: Fees for Service Providers
 url: /participants/sp/fees/
 ---
-
-TENET hereby gives notice that the following fees model for Service Providers will apply from 1 May 2019:
 
 ## Non-recurring costs
 
