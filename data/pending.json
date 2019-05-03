@@ -37,5 +37,18 @@
                 "URL": "https:\/\/upload.wikimedia.org\/wikipedia\/en\/thumb\/3\/3b\/Walter_Sisulu_University_logo.svg\/200px-Walter_Sisulu_University_logo.svg.png"
             }
         }
+    },
+        {
+        "entityType": "sp",
+        "ParticipationAgreement": true,
+        "OrganizationName": "Sabinet Online Ltd",
+        "OrganizationDisplayName": "Sabinet",
+        "OrganizationURL": "https:\/\/www.sabinet.co.za\/",
+        "TechnicalIntegration": false,
+        "mdui": {
+            "Logo": {
+                "URL": "https:\/\/pbs.twimg.com\/profile_images\/511425494349144064\/hSnyg9wc_400x400.jpeg"
+            }
+        }
     }
 ]

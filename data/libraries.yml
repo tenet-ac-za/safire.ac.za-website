@@ -1,6 +1,6 @@
 ---
 # Remember to change lastMod!
-lastMod: 2017-10-19T10:17:12Z
+lastMod: 2019-05-03T13:39:12Z
 Providers:
     - Name: ACM Digital Library
       LoginLink: Sign in via your Institution
@@ -126,7 +126,7 @@ Providers:
     - Name: Sabinet
       LoginLink: Not supported
       StatusColour: red
-      Notes: Sabinet is investigating joining SAFIRE.
+      Notes: Sabinet is in the process of joining SAFIRE (signed participation agreement).
 
     - Name: SAGE
       LoginLink: "[Institutional access: Shibboleth](http://journals.sagepub.com/action/ssostart?redirectUri=/)"
