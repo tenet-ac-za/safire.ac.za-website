@@ -12,7 +12,7 @@
     <meta name="creator" content="South African Identity Federation">
     <meta name="theme-color" content="#5da9dd">
     {{ with .Page.Keywords }}<meta name="keywords" content="{{.}}">{{ end -}}
-    <meta name="generator" content="{{ .Hugo.Generator}}">
+    {{ hugo.Generator }}
     <title>{{ if .IsPage }}{{ .Title }} &middot; {{ end }}{{ .Site.Title }}</title>
     {{ "<!--[if lt IE 9]>" | safeHTML }}
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
