@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 {{ if .GitInfo }}{{ "<!--"|safeHTML }}
   src: {{ .File.Path }}
-  unique id: {{ .Page.UniqueID }}
+  unique id: {{ .File.UniqueID }}
   commit: {{ .GitInfo.Hash }}
 {{ "-->"|safeHTML }}{{ end -}}
 <!-- partial: header -->
