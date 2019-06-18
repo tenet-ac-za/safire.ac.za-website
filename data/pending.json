@@ -26,19 +26,6 @@
         }
     },
     {
-        "entityType": "idp",
-        "ParticipationAgreement": true,
-        "OrganizationName": "Walter Sisulu University",
-        "OrganizationDisplayName": "Walter Sisulu University",
-        "OrganizationURL": "https:\/\/www.wsu.ac.za\/",
-        "TechnicalIntegration": false,
-        "mdui": {
-            "Logo": {
-                "URL": "https:\/\/upload.wikimedia.org\/wikipedia\/en\/thumb\/3\/3b\/Walter_Sisulu_University_logo.svg\/200px-Walter_Sisulu_University_logo.svg.png"
-            }
-        }
-    },
-        {
         "entityType": "sp",
         "ParticipationAgreement": true,
         "OrganizationName": "Sabinet Online Ltd",
