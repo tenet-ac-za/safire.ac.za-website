@@ -117,20 +117,20 @@ Many organisations use groups to record roles and affiliations. These are usuall
     $a = [];
     /* loop through group DNs */
     foreach ($attributes["groupMembership"] as $group) {
-      /* simple pattern matching */
+      /* simple pattern matching against the DNs from your groupMembership attribute */
       if (preg_match("/cn=(under|post)grads/", $group)) {
-        $a[] = "member"; $a[] = "student"
+        $a[] = "member"; $a[] = "student";
       } elseif (preg_match("/cn=staff/", $group)) {
-        a[] = "member"; $a[] = "employee";
+        $a[] = "member"; $a[] = "employee";
       } elseif (preg_match("/cn=teaching/", $group)) {
         $a[] = "faculty";
       }
     }
-    /* combinations of groups */
+    /* combinations of groups - in this example, "staff" are people who are not faculty */
     if (in_array("employee", $a) and !in_array("faculty", $a)) {
-      $a[] = "staff"
+      $a[] = "staff";
     }
-    /* default */
+    /* default if we haven't worked it out from a group */
     if (empty($a)) {
       $a[] = "library-walk-in";
     }
