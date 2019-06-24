@@ -19,7 +19,7 @@ This page contains links to more information and technical resources. It will be
 
 # SAML2 Implementations
 
-  * Shibboleth ([IdP](https://shibboleth.net/products/identity-provider.html) & [SP](https://shibboleth.net/products/service-provider.html))
+  * Shibboleth ([IdP](https://shibboleth.net/products/identity-provider) & [SP](https://shibboleth.net/products/service-provider))
   * [SimpleSAMLphp](https://simplesamlphp.org/)
   * [ADFS 2.0](https://technet.microsoft.com/en-us/windowsserver/dd448613.aspx)
   * [Google Apps for Education](https://support.google.com/a/topic/6194927)
