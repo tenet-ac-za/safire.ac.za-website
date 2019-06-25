@@ -100,6 +100,13 @@ Providers:
       Status: Not tested/can't find. Contacted customer support.
       StatusColour: red
 
+    - Name: Newsbank
+      Status: Not working. Engaged at SANLiC2019
+      StatusColour: red
+      Notes: |
+        Appears to require a WAYFless URL of the form http://infoweb.newsbank.com/shibboleth?wl={{idp_proxy_entityid}}, however doesn't send an AuthN request with South African entities.
+      AuthAttribute: eduPersonScopedAffiliation
+
     - Name: ORCID
       LoginLink: "[Institutional account](https://orcid.org/signin)"
       Status: Tested, working
@@ -113,8 +120,9 @@ Providers:
       Status: No SA institutions listed by default
 
     - Name: Oxford University Press
-      LoginLink: Access Management Federation login
+      LoginLink: "Sign in via your Institution"
       Status: No SA institutions listed by default
+      AuthAttribute: eduPersonScopedAffiliation
 
     - Name: ProQuest (RefWorks)
       LoginLink: My Institutions Credentials (Shibboleth)
@@ -122,6 +130,15 @@ Providers:
 
     - Name: Radiological Society of North America
       Status: Not tested
+
+    - Name: Royal Society of Chemistry
+      Status: Tested, needs to be enabled. Engaged at SANLiC2019
+      StatusColour: yellow
+      LoginLink: "[Log in via your home institution](https://pubs.rsc.org/en/content/federatedaccess?returnurl=https%3A%2F%2Fpubs.rsc.org)"
+      Documentation:
+       - https://www.rsc.org/journals-books-databases/librarians-information/librarians-portal-account/shibboleth/
+      Notes: |
+        Needs to be enabled by request to support. Supports a WAYFless URL of http://pubs.rsc.org/en/content/checkfederatedaccess?instituteurl={{idp_proxy_entityid}}&returnurl=http%3A%2F%2Fpubs.rsc.org%2Fen%2Fjournals%2Fjournalissues%2F
 
     - Name: Sabinet
       LoginLink: Not supported
