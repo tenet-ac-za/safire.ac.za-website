@@ -1,6 +1,6 @@
 ---
 # Remember to change lastMod!
-lastMod: 2019-05-03T13:39:12Z
+lastMod: 2019-06-26T09:17:12Z
 Providers:
     - Name: ACM Digital Library
       LoginLink: Sign in via your Institution
@@ -61,8 +61,8 @@ Providers:
 
     - Name: Emerald Insight
       LoginLink: "[Shibboleth login](https://www.emeraldinsight.com/action/ssostart?redirectUri=%2F)"
-      Status: Tested, discovery problem, contacted
-      StatusColour: yellow
+      Status: Tested, works
+      StatusColour: green
       Notes: |
         Libraries need to contact Emerald support and request Shibboleth
         access is enabled, after which logins via a WAYFless URL work. However,
@@ -121,12 +121,16 @@ Providers:
 
     - Name: Oxford University Press
       LoginLink: "Sign in via your Institution"
-      Status: No SA institutions listed by default
+      Status: Tested, discovery problem, engaged at SANLiC2019
+      StatusColour: yellow
+      Notes: WAYFless login works, not sure what else needs to be done.
       AuthAttribute: eduPersonScopedAffiliation
 
     - Name: ProQuest (RefWorks)
-      LoginLink: My Institutions Credentials (Shibboleth)
-      Status: Not tested
+      LoginLink: Use login from my institution
+      Status: Not tested, contacted at SANLiC2019
+      StatusColour: yellow
+      Notes: WAYFless login works, not sure what else needs to be done.
 
     - Name: Radiological Society of North America
       Status: Not tested
@@ -181,9 +185,9 @@ Providers:
       LoginLink: Not tested/can't find
 
     - Name: Wiley
-      LoginLink: "[Institutional Login](https://onlinelibrary.wiley.com/login-options)"
-      Status: Contacted
-      StatusColour: yellow
+      LoginLink: "[Institutional Login](https://onlinelibrary.wiley.com/action/ssostart?redirectUri=%2F)"
+      Status: Test, working
+      StatusColour: green
       Notes: Libraries need to contact Wiley support and complete a Shibboleth (Federated Access) Request Form.
       Documentation:
        - http://media.wiley.com/assets/2265/11/Wiley_Online_Library_Federated_Access_Dec_2013.pdf
