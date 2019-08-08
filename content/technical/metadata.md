@@ -1,5 +1,5 @@
 ---
-date: 2016-09-12 10:34:11+00:00
+date: 2019-08-08T13:21:00+02:00
 menu:
   main:
     identifier: technical-metadata
@@ -12,25 +12,25 @@ url: /technical/metadata/
 
 SAFIRE publishes various metadata feeds, at the locations shown below. All feeds are signed using SAFIRE's metadata signing key, and the signatures should be verified before using this metadata.
 
-# SAFIRE Federation Hub
+# Metadata for identity providers
 
-This is the basic metadata for the SAFIRE federation, and contains information about the hub. It is intended for use by SAFIRE participants.
+### SAFIRE Federation Hub
+
+This is the basic metadata for the SAFIRE federation, and contains information about the hub. It is intended for use by SAFIRE identity providers.
 
 {{< metadata url="https://metadata.safire.ac.za/safire-hub-metadata.xml" entityId="true" >}}
 
-# SAFIRE IdP Proxies
+The hub metadata can also be used by SAFIRE service providers who only wish to make use of central discovery services. However this mode of operation is **deprecated** as it is incompatible with current best practices for IdP discovery.
 
-This is metadata for identity providers in the SAFIRE federation, reached via an IdP proxy to avoid centralised discovery. It is intended for use by SAFIRE participants who wish to run their own local discovery services.
+# Metadata for service providers
+
+### SAFIRE IdP Proxies
+
+This is metadata for identity providers in the SAFIRE federation, reached via an IdP proxy to avoid centralised discovery. It is intended for use by SAFIRE participants who wish to run their own local discovery services (this is best practice).
 
 {{< metadata url="https://metadata.safire.ac.za/safire-idp-proxy-metadata.xml" >}}
 
-# Inter-federation Metadata
-
-#### SAFIRE Participants into eduGAIN
-
-This is a feed for eduGAIN containing only identity and service providers who wish to participate in inter-federation.
-
-{{< metadata url="https://metadata.safire.ac.za/safire-edugain.xml" >}}
+Service providers are strongly encouraged to also consume one of the eduGAIN IdP feeds in addtion to the IdP Proxies feed even if they have no immediate intention of using eduGAIN.
 
 #### SAFIRE Service Providers consuming eduGAIN IdPs
 
@@ -44,3 +44,10 @@ This is a re-publication of a subset of the eduGAIN metadata that only include
 
 {{< metadata url="https://metadata.safire.ac.za/edugain-sirtfi-consuming.xml" >}}
 
+# Inter-federation Metadata
+
+#### SAFIRE Participants into eduGAIN
+
+This is a feed for eduGAIN containing only identity and service providers who wish to participate in inter-federation.
+
+{{< metadata url="https://metadata.safire.ac.za/safire-edugain.xml" >}}
