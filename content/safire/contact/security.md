@@ -11,7 +11,7 @@ The following details contact information for emergency security incident respon
 
 # Federation operations staff
 
-During South African working hours (typically [Monday-Friday, 9AM-5PM UTC+2](https://www.timeanddate.com/worldclock/personal.html?cities=56,179,136,248,16&wch=3)), you can reach federation operations staff using the following contact details:
+During South African working hours (typically [Monday-Friday, 9AM-5PM UTC+2](https://www.timeanddate.com/worldclock/personal.html?cities=56,1440,136,16,26,125,170,47,196,248,22,44,33,64,137,179,220&wch=3)), you can reach federation operations staff using the following contact details:
 
 Email
 : {{< email "safire@tenet.ac.za" >}}
