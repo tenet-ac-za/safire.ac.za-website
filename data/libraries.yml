@@ -1,6 +1,6 @@
 ---
 # Remember to change lastMod!
-lastMod: 2019-06-26T09:17:12Z
+lastMod: 2019-08-16T09:17:12Z
 Providers:
     - Name: ACM Digital Library
       LoginLink: Sign in via your Institution
@@ -175,14 +175,19 @@ Providers:
       LoginLink: "[Shibboleth Login](https://profile.thieme.de/HTML/sso/ejournals/shibboleth.htm?hook_url=https://www.thieme-connect.de/products/all/home.html&rdeLocaleAttr=en)"
       Status: No SA institutions listed by default
 
-    - Name: Thomson-Reuters Web of Science
-      LoginLink: Institutional users sign in
+    - Name: Web of Science / Web of Knowledge (Clarivate Analytics)
+      LoginLink: Institutional sign in
       Status: Tested, discovery problem
       StatusColour: yellow
       Notes: Appears under UK Federation
 
-    - Name: Westlaw
-      LoginLink: Not tested/can't find
+    - Name: Westlaw UK (Thomson Reuters)
+      LoginLink: Access through academic federation
+      Status: Tested, working
+      StatusColour: green
+      Notes: Libraries need to contact their support representative and request Shibboleth access. They will need to provide their [proxied entity id](https://phph.safire.ac.za/mdfileview?type=published&fed=SAFIRE-BIRK-PUBLIC). No ARP because Thomson Reuters have not published a privacy policy.
+      AuthAttribute:
+       - eduPersonTargetedId
 
     - Name: Wiley
       LoginLink: "[Institutional Login](https://onlinelibrary.wiley.com/action/ssostart?redirectUri=%2F)"
