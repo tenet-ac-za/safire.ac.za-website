@@ -9,7 +9,7 @@ attributeFormat: |2
 attributeOid: urn:oid:1.3.6.1.4.1.5923.1.1.1.13
 attributeReferences:
   - Name: eduPerson
-    URL: https://www.internet2.edu/products-services/trust-identity/eduperson-eduorg/#service-features
+    URL: https://wiki.refeds.org/display/STAN/eduPerson
 date: 2019-02-18 16:16:16+02:00
 layout: attributelist
 slug: edupersonuniqueid

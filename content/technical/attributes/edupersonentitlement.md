@@ -9,7 +9,7 @@ attributeFormat: |2
 attributeOid: urn:oid:1.3.6.1.4.1.5923.1.1.1.7
 attributeReferences:
   - Name: eduPerson
-    URL: https://www.internet2.edu/products-services/trust-identity/eduperson-eduorg/#service-features
+    URL: https://wiki.refeds.org/display/STAN/eduPerson
   - Name: URN-MACE-DIR-Entitlement
     URL: https://www.internet2.edu/products-services/trust-identity/mace-registries/urnmace-namespace/urn-mace-dir-registry/urn-mace-dir-entitlement/
   - Name: SAFIRE Namespace

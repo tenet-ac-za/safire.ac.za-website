@@ -5,7 +5,7 @@ attributeFormat: |2
 attributeOid: urn:oid:1.3.6.1.4.1.5923.1.1.1.16
 attributeReferences:
   - Name: eduPerson
-    URL: https://www.internet2.edu/products-services/trust-identity/eduperson-eduorg/#service-features
+    URL: https://wiki.refeds.org/display/STAN/eduPerson
   - Name: ORCID
     URL: http://support.orcid.org/knowledgebase/articles/116780-structure-of-the-orcid-identifier
 date: 2017-11-06 12:30:11+00:00

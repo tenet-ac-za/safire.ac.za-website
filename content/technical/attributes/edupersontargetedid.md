@@ -4,7 +4,7 @@ attributeFormat: Single valued, guaranteed unique for a specific service provide
 attributeOid: urn:oid:1.3.6.1.4.1.5923.1.1.1.10
 attributeReferences:
   - Name: eduPerson
-    URL: https://www.internet2.edu/products-services/trust-identity/eduperson-eduorg/#service-features
+    URL: https://wiki.refeds.org/display/STAN/eduPerson
 date: 2016-09-12 12:52:27+00:00
 layout: attributelist
 slug: edupersontargetedid

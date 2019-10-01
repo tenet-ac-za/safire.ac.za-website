@@ -4,7 +4,7 @@ attributeFormat: Single-valued, using the same controlled vocabulary as [_eduPer
 attributeOid: urn:oid:1.3.6.1.4.1.5923.1.1.1.5
 attributeReferences:
   - Name: eduPerson
-    URL: https://www.internet2.edu/products-services/trust-identity/eduperson-eduorg/#service-features
+    URL: https://wiki.refeds.org/display/STAN/eduPerson
   - Name: ePSA usage comparison
     URL: https://www.terena.org/activities/refeds/docs/ePSAcomparison_0_13.pdf
   - Name: HEMIS Data Elements

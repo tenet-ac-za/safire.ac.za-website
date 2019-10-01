@@ -7,7 +7,7 @@ attributeFormat: |2
 attributeOid: urn:oid:1.3.6.1.4.1.5923.1.1.1.6
 attributeReferences: 
   - Name: eduPerson
-    URL: https://www.internet2.edu/products-services/trust-identity/eduperson-eduorg/#service-features
+    URL: https://wiki.refeds.org/display/STAN/eduPerson
   - Name: IdP Requirements
     URL: /technical/saml2/idp-requirements/
 date: 2016-09-12 12:32:49+00:00

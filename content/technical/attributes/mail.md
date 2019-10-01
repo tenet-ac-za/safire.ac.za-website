@@ -6,7 +6,7 @@ attributeReferences:
   - Name: RFC2798
     URL: https://tools.ietf.org/html/rfc2798
   - Name: eduPerson
-    URL: https://www.internet2.edu/products-services/trust-identity/eduperson-eduorg/#service-features
+    URL: https://wiki.refeds.org/display/STAN/eduPerson
   - Name: RFC5322
     URL: https://tools.ietf.org/html/rfc5322#section-3.4
 date: 2016-09-12 12:57:48+00:00
