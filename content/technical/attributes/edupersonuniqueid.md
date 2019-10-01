@@ -18,3 +18,5 @@ url: /technical/attributes/edupersonuniqueid/
 ---
 
 A persistent, opaque, non-reassignable, omnidirectional identifier that uniquely identifies the subject.
+
+**Use of this attribute is not officially supported by SAFIRE. In addition, its use has been deprecated by research federations globally**
