@@ -10,7 +10,7 @@ attributeOid: urn:oid:1.3.6.1.4.1.5923.1.1.1.13
 attributeReferences:
   - Name: eduPerson
     URL: https://wiki.refeds.org/display/STAN/eduPerson
-date: 2019-02-18 16:16:16+02:00
+date: 2019-10-02 09:30:00+02:00
 layout: attributelist
 slug: edupersonuniqueid
 title: eduPersonUniqueId
@@ -19,4 +19,5 @@ url: /technical/attributes/edupersonuniqueid/
 
 A persistent, opaque, non-reassignable, omnidirectional identifier that uniquely identifies the subject.
 
-**Use of this attribute is not officially supported by SAFIRE. In addition, its use has been deprecated by research federations globally**
+_Note: While this attribute is supported by SAFIRE's infrastructure, it is not included in the list of [officially supported attributes]({{< relref "_index.md" >}}). In addition, its use has been **deprecated** by research federations globally. It is likely to be **discontinued**._
+

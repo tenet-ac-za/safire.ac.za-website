@@ -12,11 +12,13 @@ attributeReferences:
     URL: https://wiki.refeds.org/display/STAN/eduPerson
   - Name: REFEDS Assurance
     URL: https://refeds.org/assurance/
-date: 2019-02-18 16:16:16+02:00
 layout: attributelist
+date: 2019-10-02 09:30:00+02:00
 slug: edupersonassurance
 title: eduPersonAssurance
 url: /technical/attributes/edupersonassurance/
 ---
 
 Represents identity assurance profiles (IAPs), which are the set of standards that are met by an identity assertion, based on the Identity Provider's identity management processes, the type of authentication credential used, the strength of its binding, etc. An example of such profiles is given in the [REFEDS Assurance Framework](https://refeds.org/assurance/).
+
+_Note: While this attribute is supported by SAFIRE's infrastructure, it is not included in the list of [officially supported attributes]({{< relref "_index.md" >}}). Participants wishing to make use of it are invited to [discuss their use-cases with us](https://lists.tenet.ac.za/sympa/info/safire-discuss)._

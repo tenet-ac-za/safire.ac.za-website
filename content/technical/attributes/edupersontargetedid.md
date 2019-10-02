@@ -5,11 +5,14 @@ attributeOid: urn:oid:1.3.6.1.4.1.5923.1.1.1.10
 attributeReferences:
   - Name: eduPerson
     URL: https://wiki.refeds.org/display/STAN/eduPerson
-date: 2016-09-12 12:52:27+00:00
 layout: attributelist
+date: 2019-10-02 09:30:00+02:00
 slug: edupersontargetedid
 title: eduPersonTargetedID
 url: /technical/attributes/edupersontargetedid/
 ---
 
-A persistent, service-specific pseudonym that opaquely but uniquely identifies the subject. **Use of this attribute is deprecated --- use the SAML2 Subject NameID instead**.
+A persistent, service-specific pseudonym that opaquely but uniquely identifies the subject.
+
+_Note: Direct use of this attribute is **deprecated** and it should not be consumed by new services --- please make use of the SAML2 Subject NameID instead (which contains exactly the same value subject to the same rules)._
+
