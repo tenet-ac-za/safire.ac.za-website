@@ -1,5 +1,5 @@
 ---
-date: 2016-12-14 09:16:16+00:00
+date: 2019-10-03 22:00:00+02:00
 slug: configuring-shibboleth-service-provider-for-safire
 tags:
   - configuration
@@ -22,37 +22,31 @@ Shibboleth Service Provider provides a [dynamic metadata provider](https://wiki.
 
 ## Configure Shibboleth
 
-Edit your shibboleth2.xml configuration file. In the default file, you will find an example <MetadataProvider>. At about that point in the file, you should add a new metadata provider for SAFIRE. These examples
+Edit your shibboleth2.xml configuration file. In the default file, you will find an example `<MetadataProvider>`. At about that point in the file, you should add a new metadata provider to consume [SAFIRE's metadata for service providers]({{< ref "/technical/metadata.md#metadata-for-service-providers" >}}).
 
-If you wish to use SAFIRE's central discovery, your entry should be similar to the following:
-
-```xml
-<MetadataProvider type="XML"
-    uri="https://metadata.safire.ac.za/safire-hub-metadata.xml"
-    backingFilePath="safire-hub-metadata.xml"
-    verifyHost="true"
-    reloadInterval="14400">
-  <MetadataFilter type="RequireValidUntil" maxValidityInterval="2419200"/>
-  <MetadataFilter type="Signature" certificate="safire-metadata.crt"/>
-</MetadataProvider>
-```
-
-If you wish to use your own local discovery, your entry should be similar to the following:
+If you are only interested in South African institutions, your entry be similar to the following:
 
 ```xml
 <MetadataProvider type="XML"
     uri="https://metadata.safire.ac.za/safire-idp-proxy-metadata.xml"
     backingFilePath="safire-idp-proxy-metadata.xml"
-    verifyHost="true"
     reloadInterval="14400">
   <MetadataFilter type="RequireValidUntil" maxValidityInterval="2419200"/>
   <MetadataFilter type="Signature" certificate="safire-metadata.crt"/>
 </MetadataProvider>
 ```
 
-Note that you do not need both entries. Instead, you need to choose between using SAFIRE's central discovery (keep the first, delete the second) or running your own local discovery (keep the second, delete the first) --- there are pros and cons to both approaches, and you need to work out which works best for your service.
+If your service provider is going to participate in eduGAIN (internationally), you additionally need to include the [eduGAIN IdP metadata]({{< ref "/technical/metadata.md#safire-service-providers-consuming-edugain-idps" >}}):
 
-If your service provider is going to participate in eduGAIN, you additionally need to include the [eduGAIN IdP metadata]({{< ref "/technical/metadata.md#safire-service-providers-consuming-edugain-idps" >}}). In this case, local discovery is the only option that makes sense as central discovery does not include eduGAIN identity providers.
+```xml
+<MetadataProvider type="XML"
+    uri="https://metadata.safire.ac.za/edugain-consuming.xml"
+    backingFilePath="safire-edugain-consuming.xml"
+    reloadInterval="14400">
+  <MetadataFilter type="RequireValidUntil" maxValidityInterval="2419200"/>
+  <MetadataFilter type="Signature" certificate="safire-metadata.crt" verifyBackup="false"/>
+</MetadataProvider>
+```
 
 ## Download SAFIRE's signing cert
 
@@ -62,13 +56,23 @@ Download a copy of [SAFIRE's signing certificate]({{< ref "/technical/metadata.m
 
 If you restart shibd, you should see an entry in /var/log/shibboleth/shibd.log similar to the following:
 
-INFO OpenSAML.MetadataProvider.XML : loaded XML resource (https://metadata.safire.ac.za/safire-hub-metadata.xml)
+INFO OpenSAML.MetadataProvider.XML : loaded XML resource (safire-idp-proxy-metadata.xml)
 
-# Configure SSO
+# Choose a Discovery Service
 
-To allow the Shibboleth SP to find an identity provider, you need to configure the <SSO> stanza in shibboleth2.xml. How you do this will depend on whether you've opted for centralised discovery or local discovery.
+To allow the Shibboleth SP to find a suitable identity provider for a user, you will need a discovery service. There are a number of options available:
 
-SAFIRE's central discovery service provides the simplest configuration since the federation hub merely looks like a single identity provider. To use central discovery, you need to configure SSO like this:
+ * The [Shibboleth Embedded Discovery Service](http://shibboleth.net/products/embedded-discovery-service.html) can be used as-is, or customised to create a discovery service that matches your site's look and feel.
+ * Both [eduTEAMS](https://wiki.geant.org/display/ED/Discovery+Service) and [Seamless Access](https://seamlessaccess.org/) provide Javascript-based discovery services that are served from a CDN.
+ * Anything else supporting the [SAML2 IdP Discovery Protocol](https://wiki.oasis-open.org/security/IdpDiscoSvcProtonProfile).
+
+The Shibboleth EDS is a good choice if all you're trying to do is authenticate South African institutions, but we'd recommend looking at Seamless Access for most use cases.
+
+Whatever discovery service you choose, you should follow it's documentation for installing it. Provided you got the metadata step right, there’s no SAFIRE-specific configuration required.
+
+#### Legacy central discovery
+
+It is possible configure Shibboleth SP to use SAFIRE's deprecated central discovery service, and previously this documentation covered it in detail. The gist is that you need to consume the [hub metadata]({{< ref "/technical/metadata.md#safire-federation-hub" >}}) and then configuring login as below. However, while marginally simpler, using this method does not comply with current user interface best practices and is therefore not recommended for new deployments.
 
 ```xml
 <SSO entityID="https://iziko.safire.ac.za/">
@@ -76,9 +80,18 @@ SAFIRE's central discovery service provides the simplest configuration since the
 </SSO>
 ```
 
-Note that references to SAML1 have been removed, because SAFIRE only supports SAML2.
+# Configure SSO
 
-If you want to use local discovery, you will need to install and configure a discovery service such as [Shibboleth Embedded Discovery Service](http://shibboleth.net/products/embedded-discovery-service.html) or [DiscoJuice](http://discojuice.org/). Provided you got the metadata step right, there's no SAFIRE-specific configuration required. Your <SSO> stanza just needs to point at your discovery service.
+Once you have a discovery service and you will need to configure the `<SSO>` stanza in shibboleth2.xml to point to it:
+```xml
+<SSO discoveryProtocol="SAMLDS"
+     discoveryURL="https://sp.example.ac.za/path/to/ds">
+    SAML2
+</SSO>
+```
+You should set the `discoveryURL` according the the documentation for your chosen discovery service.
+
+Note that you should remove references to SAML1 in the `<SSO>` and `<Logout>` stanzas because SAFIRE only supports SAML2.
 
 # Configure attribute mapping
 
