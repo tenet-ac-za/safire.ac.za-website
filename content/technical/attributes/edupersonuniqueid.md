@@ -13,11 +13,11 @@ attributeReferences:
 date: 2019-10-21 09:30:00+02:00
 layout: attributelist
 slug: edupersonuniqueid
-title: eduPersonUniqueId (UNSUPPORTED)
+title: eduPersonUniqueId (DISCONTINUED)
 url: /technical/attributes/edupersonuniqueid/
 ---
 
 A persistent, opaque, non-reassignable, omnidirectional identifier that uniquely identifies the subject.
 
-_Note: While this attribute is supported by SAFIRE's infrastructure, it is not included in the list of [officially supported attributes]({{< relref "_index.md" >}}). In addition, its use has been **deprecated** by research federations globally. It is likely to be **discontinued**._
+_Note: This attribute was briefly supported by SAFIRE's infrastructure but never included in the list of [officially supported attributes]({{< relref "_index.md" >}}). As its use has been **deprecated** by research federations globally, support for it was **discontinued** on 21 October 2019._
 
