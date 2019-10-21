@@ -1,5 +1,5 @@
 ---
-date: 2016-09-12 10:36:59+00:00
+date: 2016-10-21 09:30:00+02:00
 menu:
   main:
     identifier: technical-attributes
@@ -31,14 +31,12 @@ The following is a summary of the (SAML2) attributes supported by SAFIRE.
   * [eduPersonEntitlement]({{< ref "/technical/attributes/edupersonentitlement.md" >}}) [^supplied]
   * [eduPersonOrcid]({{< ref "/technical/attributes/edupersonorcid.md" >}})
   * [eduPersonPrimaryAffiliation]({{< ref "/technical/attributes/edupersonprimaryaffiliation.md" >}})
-  * [employeeNumber]({{< ref "/technical/attributes/employeenumber.md" >}})
   * [preferredLanguage]({{< ref "/technical/attributes/preferredlanguage.md" >}})
   * [schacHomeOrganization]({{< ref "/technical/attributes/schachomeorganization.md" >}}) [^eduGAIN] [^supplied]
 
 # SAFIRE supplied attributes
 
   * [eduPersonTargetedID]({{< ref "/technical/attributes/edupersontargetedid.md" >}}) [^eduGAIN] [^rns] [^depricated]
-  * [o]({{< ref "/technical/attributes/o.md" >}})
   * [schacHomeOrganizationType]({{< ref "/technical/attributes/schachomeorganizationtype.md" >}}) [^eduGAIN]
 
 [^eduGAIN]: Recommended for entities participating in eduGAIN.

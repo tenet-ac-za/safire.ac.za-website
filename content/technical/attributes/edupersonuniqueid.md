@@ -10,10 +10,10 @@ attributeOid: urn:oid:1.3.6.1.4.1.5923.1.1.1.13
 attributeReferences:
   - Name: eduPerson
     URL: https://wiki.refeds.org/display/STAN/eduPerson
-date: 2019-10-02 09:30:00+02:00
+date: 2019-10-21 09:30:00+02:00
 layout: attributelist
 slug: edupersonuniqueid
-title: eduPersonUniqueId
+title: eduPersonUniqueId (UNSUPPORTED)
 url: /technical/attributes/edupersonuniqueid/
 ---
 
