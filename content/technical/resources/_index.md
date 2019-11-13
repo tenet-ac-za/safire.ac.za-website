@@ -43,7 +43,7 @@ This page contains links to more information and technical resources. It will be
 # User Interface/Login pages/Discovery
 
   * [Seamless Access](https://seamlessaccess.org/) - the Seamless Access discovery service, building on the outcomes of [RA21](https://ra21.org/). _(This is the recommended approach for people deploying new services.)_
-  * [eduTEAMS embedded discovery](https://wiki.geant.org/display/ED/Discovery+Service)
+  * [eduGAIN DSX embedded discovery](https://wiki.geant.org/display/eduGAIN/Embedded+Discovery)
   * ~~[DiscoJuice](http://discojuice.org/) - user-friendly, JavaScript discovery service.~~
   * [Shibboleth embedded discovery service](http://shibboleth.net/products/embedded-discovery-service.html)
 
