@@ -10,6 +10,8 @@ title: Configuring ADFS for SAFIRE
 url: /technical/resources/configuring-adfs-for-safire/
 ---
 
+*Note: While it is possible to use ADFS with SAFIRE, it has known interoperatability problems with the [sort of multi-party federation used in the R&E world]({< ref "/technical/saml2/deployment-profiles.md" >}). SAFIRE's architecture shields you from some of these effects, but you do sacrifice some flexibility and control.*
+
 In order to configure Active Directory Federation Services (ADFS) as an identity provider for SAFIRE, you need to do four things:
 
   1. Create a Relying Party Trust that fetches the [federation hub's metadata](https://metadata.safire.ac.za/safire-hub-metadata.xml) from https://metadata.safire.ac.za/safire-hub-metadata.xml
