@@ -93,6 +93,13 @@ Providers:
        - https://shibboleth2sp.jstor.org/wayfless_url_generator.html
       AuthAttribute: eduPersonScopedAffiliation
 
+    - Name: kanopy
+      LoginLink: https://www.kanopy.com/signup/find/university
+      Status: Tested, working
+      StatusColour: green
+      Notes: |
+        Libraries need to ask kanopy to enable `Shibboleth` and send them their [proxied entity id](https://phph.safire.ac.za/mdfileview?type=published&fed=SAFIRE-BIRK-PUBLIC). It may help to mention that your metadata is already exported to the UK Access Federation via eduGAIN.
+
     - Name: LexisNexus Academic
       Status: Not tested/can't find
 
