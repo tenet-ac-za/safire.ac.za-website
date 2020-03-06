@@ -80,6 +80,7 @@ menu:
     Identifier: technical-saml2-validator
     URL: http://validator.safire.ac.za/
     Parent: technical-saml2
+    Weight: 6
 
 # Based on https://gohugo.io/news/http2-server-push-in-hugo/
 outputs:

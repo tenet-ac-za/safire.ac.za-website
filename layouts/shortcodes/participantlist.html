@@ -4,7 +4,7 @@
 <div id="participantList" class="ui-accordion ui-widget ui-helper-reset">
     <!-- display the participants from metadata -->
     {{- range $p := .Site.Data.safire.metadata }}
-    {{- if or (not $type) (eq $p.entityType $type) (and (eq $type "sirtfi") ($p.Sirtfi)) }}
+    {{- if or (not $type) (eq $p.entityType $type) (and (eq $type "sirtfi") ($p.Sirtfi)) (and (eq $type "coco") ($p.CoCo)) }}
         {{ template "listParticipant" (dict "p" $p "i" ($.Scratch.Get "i")) }}
         {{- $.Scratch.Add "i" 1 -}}
     {{- end }}
@@ -135,6 +135,12 @@
             {{ if $p.Sirtfi }}
             <dt><abbr title="entity has indicated it complies with https://refeds.org/sirtfi">Sirtfi</abbr></dt>
                 <dd>yes, {{ with $p.entityID }}<a href="/technical/saml2/sirtfi/{{ .|sha1 }}.pdf" target="_blank">{{ end -}}
+                    self-assertion of compliance received
+                    {{- with $p.entityID }}</a>{{ end }}</dd>
+            {{ end }}
+            {{ if $p.CoCo }}
+            <dt><abbr title="entity has indicated it complies with http://www.geant.net/uri/dataprotection-code-of-conduct/">Sirtfi</abbr></dt>
+                <dd>yes {{ $p.CoCo }}, {{ with $p.entityID }}<a href="/technical/saml2/coco/{{ .|sha1 }}.pdf" target="_blank">{{ end -}}
                     self-assertion of compliance received
                     {{- with $p.entityID }}</a>{{ end }}</dd>
             {{ end }}

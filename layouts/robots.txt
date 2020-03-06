@@ -2,7 +2,9 @@ Sitemap: /sitemap.xml
 
 User-agent: *
 Disallow: /technical/saml2/sirtfi/
+Disallow: /technical/saml2/coco/
 
 User-agent: GoogleBot
 Disallow: /technical/saml2/sirtfi/*.pdf
+Disallow: /technical/saml2/coco/*.pdf
 
