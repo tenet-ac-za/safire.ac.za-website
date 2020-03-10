@@ -1,5 +1,5 @@
 ---
-date: 2018-07-23 09:35:00+02:00
+date: 2020-03-10 11:39:00+02:00
 menu:
   main:
     identifier: technical-saml2-coco
@@ -20,7 +20,18 @@ You can use the following template:
 
   * [SAFIRE CoCo Compliance Template](./SAFIRE-CoCo-Compliance-Template.docx)
 
-This statement must be on institional letterhead, and should be signed by your institution's Information Officer (as defined in the Protection of Personal Information Act).
+This statement must be on institional letterhead, and should be signed by your institution's Information Officer (as defined in the Protection of Personal Information Act) or other executive officer.
+
+#### Privacy Statement updates
+
+In order to attest to CoCo compliance, you may need to update your service's privacy statement. In particular, your Privacy Statement MUST:
+
+ * include the name, address and jurisdiction of the Service Provider. Ideally contact details for your Information Officer should be provided.
+ * indicate a commitment to the Code of Conduct. The Privacy Statement should therefore include text about the Code and should link to the Code URL.
+
+#### Attribute updates
+
+You must review the attributes your service requires, and update your metadata to include `md:RequestedAttribute` elements to indicate all the attributes that the Service Provider will request. The `isRequired` flag MUST be used to indicate which attributes are required for the service to function and which are optional.
 
 ### CoCo-compliant entities
 
