@@ -1,12 +1,12 @@
 ---
-date: 2020-03-10 11:39:00+02:00
+date: 2020-03-10 11:43:00+02:00
 menu:
   main:
     identifier: technical-saml2-coco
     parent: technical-saml2
 slug: coco
 linkTitle: Code of Conduct (CoCo)
-title: GÉANT Code of Conduct (CoCo) for SAFIRE providers
+title: GÉANT Code of Conduct (CoCo) for SAFIRE service providers
 url: /technical/saml2/coco/
 ---
 
@@ -24,14 +24,16 @@ This statement must be on institional letterhead, and should be signed by your i
 
 #### Privacy Statement updates
 
-In order to attest to CoCo compliance, you may need to update your service's privacy statement. In particular, your Privacy Statement MUST:
+In order to attest to CoCo compliance, you may need to update your service's Privacy Statement. In particular, your Privacy Statement MUST:
 
  * include the name, address and jurisdiction of the Service Provider. Ideally contact details for your Information Officer should be provided.
  * indicate a commitment to the Code of Conduct. The Privacy Statement should therefore include text about the Code and should link to the Code URL.
 
 #### Attribute updates
 
-You must review the attributes your service requires, and update your metadata to include `md:RequestedAttribute` elements to indicate all the attributes that the Service Provider will request. The `isRequired` flag MUST be used to indicate which attributes are required for the service to function and which are optional.
+You must review the attributes your Service Provider requires, and update your metadata to include `md:RequestedAttribute` elements to indicate all the attributes that the Service Provider will request. The `isRequired` flag MUST be used to indicate which attributes are required for the service to function and which are optional.
+
+You should request any changes to your attributes prior to attesting to compliance.
 
 ### CoCo-compliant entities
 
