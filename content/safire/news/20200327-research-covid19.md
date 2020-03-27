@@ -11,7 +11,7 @@ title: "Call to Action: The international science community needs help respondin
 
 The international science community has asked for help in connecting researchers and scientists to collaborations that are rapidly forming in response to the COVID-19 pandemic.<!--more-->
 
-This call to help the science community is coming from a growing number of places, including our colleagues in [North America](https://www.incommon.org/news/international-science-community-seeks-help-from-incommon-participants/) and [Europe](https://www.egi.eu/news/egi-and-eosc-synergy-join-forces-to-tackle-covid-19/).
+This [call to help the science community](https://refeds.org/a/2430) is coming from a growing number of places, including our colleagues in [North America](https://www.incommon.org/news/international-science-community-seeks-help-from-incommon-participants/) and [Europe](https://www.egi.eu/news/egi-and-eosc-synergy-join-forces-to-tackle-covid-19/).
 
 One of the ways we do this is using federated access to resources: every day new clinical trials, grants, contracts, and research engagements are forming around the world. If institutions are not participating in federation, we are preventing researchers from accessing services they need to do their jobs quickly; conversely, by facilitating federation we enable access and immediate collaboration. Thus the request we're getting is to facilitate more federated access as quickly as possible.
 
