@@ -6,7 +6,7 @@ tags:
   - library
   - publishers
   - collaboration
-title: "Kortext textbook solutions accessible via your home instituton"
+title: "Kortext textbook solutions accessible via your home institution"
 ---
 While [Kortex](https://www.kortext.com/) have temporarily made limited free access available under their Free Student eTextbook Programme [FSTP](https://www.kortext.com/free-student-etextbook-programme/), federated authentication using institutional credentials is also now possible.<!--more-->
 
