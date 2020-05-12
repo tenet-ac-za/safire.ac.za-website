@@ -100,6 +100,14 @@ Providers:
       Notes: |
         Libraries need to ask kanopy to enable `Shibboleth` and send them their [proxied entity id](https://phph.safire.ac.za/mdfileview?type=published&fed=SAFIRE-BIRK-PUBLIC). It may help to mention that your metadata is already exported to the UK Access Federation via eduGAIN.
 
+    - Name: Kortext
+      LoginLink: "[Login](https://app.kortext.com/login)"
+      Status: Tested, Needs to be enabled
+      StatusColour: yellow
+      Notes: |
+        Libraries need to contact Kortext support and request Login access be enabled, using their [proxied entity id](https://phph.safire.ac.za/mdfileview?type=published&fed=SAFIRE-BIRK-PUBLIC). It may help to mention that your metadata is already exported to the UK Access Federation via eduGAIN
+      AuthAttribute: eduPersonScopedAffiliation
+
     - Name: LexisNexus Academic
       Status: Not tested/can't find
 
