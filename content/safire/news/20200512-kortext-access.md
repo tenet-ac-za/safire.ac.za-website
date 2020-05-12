@@ -12,6 +12,6 @@ While [Kortex](https://www.kortext.com/) have temporarily made limited free acce
 
 Based upon a request from our colleagues at [Nelson Mandela University](https://mandela.ac.za/), [Rhodes University](https://ru.ac.za/), and the [University of Cape Town](https://uct.ac.za/), SAFIRE have worked with Kortext, and these institutions thus simplifying integration into Kortext's online textbook solutions for all current [SAFIRE Participants](https://safire.ac.za/participants/idp/list/).
 
-For information on this, please visit our [library information provider page](https://safire.ac.za/technical/resources/library-services/#12).
+For information on this, please visit our [library information provider page]({{< ref "/technical/resources/library-services.md#kortext" >}}).
 
 If your institution is not yet a member of SAFIRE, you can find out how to go about [joining SAFIRE here](https://safire.ac.za/participants/idp/join/).
