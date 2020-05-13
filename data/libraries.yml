@@ -29,7 +29,7 @@ Providers:
       Status: Tested, working
       StatusColour: green
       Notes: |
-        Libraries need to generate a WAYFless URL of the form https://www.dawsonera.com/Shibboleth.sso/Login?entityID={{idp_proxy_entityid}}&target=https://www.dawsonera.com/depp/shibboleth/ShibbolethLogin.html?dest= using their [proxied entity id](https://phph.safire.ac.za/mdfileview?type=published&fed=SAFIRE-BIRK-PUBLIC) and send it to Dawson support to get themselves listed.
+        Libraries need to generate a WAYFless URL of the form https://www.dawsonera.com/Shibboleth.sso/Login?entityID={{idp_proxy_entityid}}&target=https://www.dawsonera.com/depp/shibboleth/ShibbolethLogin.html?dest= using their [proxied entity id](/participants/idp/list/?wayfless) and send it to Dawson support to get themselves listed.
 
     - Name: De Gruyter
       LoginLink: Connect via Institution
@@ -52,7 +52,7 @@ Providers:
       Status: Tested, working
       StatusColour: green
       Notes: |
-        Libraries need to generate a WAYFless URL of the form https://auth.elsevier.com/ShibAuth/institutionLogin?entityID={{idp_proxy_entityid}}&appReturnURL={{url-encoded-target}} using their [proxied entity id](https://phph.safire.ac.za/mdfileview?type=published&fed=SAFIRE-BIRK-PUBLIC) and send it to Elsevier support to get themselves listed.
+        Libraries need to generate a WAYFless URL of the form https://auth.elsevier.com/ShibAuth/institutionLogin?entityID={{idp_proxy_entityid}}&appReturnURL={{url-encoded-target}} using their [proxied entity id](/participant/idp/list/?wayfless) and send it to Elsevier support to get themselves listed.
       Documentation:
        - https://www.elsevier.com/solutions/scopus/support/federated-authentication-through-saml
       AuthAttribute:
@@ -87,7 +87,7 @@ Providers:
       Status: Tested, working
       StatusColour: green
       Notes: |
-        Libraries need to generate a [WAYFless URL](https://shibboleth2sp.jstor.org/wayfless_url_generator.html) using their [proxied entity id](https://phph.safire.ac.za/mdfileview?type=published&fed=SAFIRE-BIRK-PUBLIC) and send it to JSTOR support to get themselves listed. Can negotiate specific values of eduPersonScopedAffiliation.
+        Libraries need to generate a [WAYFless URL](https://support.jstor.org/hc/en-us/articles/115005162028-Access-Management-Shibboleth-OpenAthens-In-Depth-#wayflessurl) using their [proxied entity id](/participants/idp/list/?wayfless) and send it to JSTOR support to get themselves listed. Can negotiate specific values of eduPersonScopedAffiliation.
       Documentation:
        - http://support.jstor.org/access-management/2016/10/6/jstor-saml-information
        - https://shibboleth2sp.jstor.org/wayfless_url_generator.html
@@ -98,14 +98,14 @@ Providers:
       Status: Tested, working
       StatusColour: green
       Notes: |
-        Libraries need to ask kanopy to enable `Shibboleth` and send them their [proxied entity id](https://phph.safire.ac.za/mdfileview?type=published&fed=SAFIRE-BIRK-PUBLIC). It may help to mention that your metadata is already exported to the UK Access Federation via eduGAIN.
+        Libraries need to ask kanopy to enable `Shibboleth` and send them their [proxied entity id](/participants/idp/list/). It may help to mention that your metadata is already exported to the UK Access Federation via eduGAIN.
 
     - Name: Kortext
       LoginLink: "[Sign in to browse your university library](https://app.kortext.com/login)"
       Status: Tested, working
-      StatusColour: green 
+      StatusColour: green
       Notes: |
-        Libraries need to contact Kortext support and request Login access be enabled, using their [proxied entity id](https://phph.safire.ac.za/mdfileview?type=published&fed=SAFIRE-BIRK-PUBLIC). It may help to mention that your metadata is already exported to the UK Access Federation via eduGAIN
+        Libraries need to contact Kortext support and request Login access be enabled, using their [proxied entity id](/participants/idp/list/). It may help to mention that your metadata is already exported to the UK Access Federation via eduGAIN
       AuthAttribute: eduPersonScopedAffiliation
 
     - Name: LexisNexus Academic
@@ -200,7 +200,7 @@ Providers:
       LoginLink: Access through academic federation
       Status: Tested, working
       StatusColour: green
-      Notes: Libraries need to contact their support representative and request Shibboleth access. They will need to provide their [proxied entity id](https://phph.safire.ac.za/mdfileview?type=published&fed=SAFIRE-BIRK-PUBLIC). No ARP because Thomson Reuters have not published a privacy policy.
+      Notes: Libraries need to contact their support representative and request Shibboleth access. They will need to provide their [proxied entity id](/participants/idp/list/). No ARP because Thomson Reuters have not published a privacy policy.
       AuthAttribute:
        - eduPersonTargetedId
 
