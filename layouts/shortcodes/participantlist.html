@@ -110,11 +110,15 @@
             <dt><abbr title="Registration Instant (last substantive change to metadata)">Last updated</abbr></dt>
                 <dd>{{ dateFormat "2006-01-02T15:04Z" . }}</dd>
             {{- end }}
-            {{- with $p.entityID }}
-            <dt class="entityidfold" data-id="{{ $i }}"><abbr title="Unique identifier for this particular participant (entity).{{ if or $p.proxyEntityID $p.wayflessEntityID }} Click for other forms.{{end}}">Metadata entityID</abbr></dt>
-                <dd class="entityidfold" data-id="{{ $i }}"{{ if or $p.proxyEntityID $p.wayflessEntityID }} style="cursor: help" title="Click for other forms"{{end}}>{{ . }}</dd>
+            {{- with $p.proxyEntityID }}
+            <dt class="entityidfold" data-id="{{ $i }}"><abbr title="Unique identifier for this particular participant (entity). Click for other forms.">Metadata entityID</abbr></dt>
+                <dd class="entityidfold" data-id="{{ $i }}" style="cursor: help" title="Click for other forms">{{ . }}</dd>
+                {{- with $p.entityID }}
+            <dt class="entityidfold-{{ $i }}" hidden><abbr title="Original, untransformed entityID from source metadata. This is almost never used.">Source entityID</abbr></dt>
+                <dd class="entityidfold-{{ $i }}" hidden>{{ . }}</dd>
+                {{- end }}
                 {{- with $p.proxyEntityID }}
-            <dt class="entityidfold-{{ $i }}" hidden><abbr title="Proxied identifier for this particular participant (entity)">Proxied entityID</abbr></dt>
+            <dt class="entityidfold-{{ $i }}" hidden><abbr title="Proxied entityID, as used for most purposes.">Proxied entityID</abbr></dt>
                 <dd class="entityidfold-{{ $i }}" hidden>{{ . }}</dd>
                 {{- end }}
                 {{- with $p.wayflessEntityID }}
