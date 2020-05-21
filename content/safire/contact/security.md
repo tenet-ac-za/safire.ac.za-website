@@ -14,7 +14,7 @@ The following details contact information for emergency security incident respon
 During South African working hours (typically [Monday-Friday, 9AM-5PM UTC+2](https://www.timeanddate.com/worldclock/personal.html?cities=56,1440,136,16,26,125,170,47,196,248,22,44,33,64,137,179,220&wch=3)), you can reach federation operations staff using the following contact details:
 
 Email
-: {{< email "safire@tenet.ac.za" >}}
+: {{< email "safire-ops@lists.tenet.ac.za" >}}
 
 Telephone
 : [+27.21.763.7156](tel:+27.21.763.7156)
