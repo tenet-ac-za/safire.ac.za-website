@@ -12,6 +12,6 @@ In April 2020, SAFIRE was approached by the [Royal Society of Chemistry (RSC)](h
 
 Since SAFIRE is aware that RSC is widely used in South Africa, and following on from engagements at the [SANLiC](https://sanlic.org.za/) 2019 conference, we are pleased to announce that technical integration is now complete, and the RSC are now listed as a [Service Provider](https://safire.ac.za/participants/sp/list/).
 
-This now means federated authentication from SAFIRE's [participating Institutions](https://safire.ac.za/participants/idp/list/) is now possible. For information on this, please visit our  [library information provider page]({{< ref "/technical/resources/library-services.md#royal-society-of-chemistry" >}}).
+This means federated authentication from SAFIRE's [participating Institutions](https://safire.ac.za/participants/idp/list/) is now possible. For information on this, please visit our  [library information provider page]({{< ref "/technical/resources/library-services.md#royal-society-of-chemistry" >}}).
 
 Welcome RSC!
