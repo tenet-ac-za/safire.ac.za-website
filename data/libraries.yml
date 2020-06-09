@@ -151,8 +151,8 @@ Providers:
       Status: Not tested
 
     - Name: Royal Society of Chemistry
-      Status: Tested, needs to be enabled. Engaged at SANLiC2019
-      StatusColour: yellow
+      Status: Tested, Working 
+      StatusColour: green
       LoginLink: "[Log in via your home institution](https://pubs.rsc.org/en/content/federatedaccess?returnurl=https%3A%2F%2Fpubs.rsc.org)"
       Documentation:
        - https://www.rsc.org/journals-books-databases/librarians-information/librarians-portal-account/shibboleth/
