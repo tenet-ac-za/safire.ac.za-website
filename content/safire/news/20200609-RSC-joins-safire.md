@@ -3,7 +3,6 @@ date: 2020-06-09 11::05+02:00
 slug: 20200609-RSC-joins-safire
 tags:
   - Royal Society of Chemistry
-  - RSC
   - library
   - publishers
   - collaboration
