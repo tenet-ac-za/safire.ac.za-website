@@ -50,5 +50,18 @@
                 "URL": "https:\/\/pbs.twimg.com\/profile_images\/511425494349144064\/hSnyg9wc_400x400.jpeg"
             }
         }
+    },
+    {
+        "entityType": "sp",
+        "ParticipationAgreement": true,
+        "OrganizationName": "Varsity Vibe (Pty) Ltd",
+        "OrganizationDisplayName": "Varsity Vibe (Pty) Ltd",
+        "OrganizationURL": "https:\/\/varsityvibe.co.za\/",
+        "TechnicalIntegration": false,
+        "mdui": {
+            "Logo": {
+                "URL": "https:\/\/varsityvibe.co.za\/metadata.png"
+            }
+        }
     }
 ]
