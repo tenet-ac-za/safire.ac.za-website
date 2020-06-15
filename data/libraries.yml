@@ -157,7 +157,7 @@ Providers:
       Documentation:
        - https://www.rsc.org/journals-books-databases/librarians-information/librarians-portal-account/shibboleth/
       Notes: |
-        Needs to be enabled by request to support. Supports a WAYFless URL of http://pubs.rsc.org/en/content/checkfederatedaccess?instituteurl={{idp_proxy_entityid}}&returnurl=http%3A%2F%2Fpubs.rsc.org%2Fen%2Fjournals%2Fjournalissues%2F
+        Libraries need to contact RSC support to get access enabled.
       AuthAttribute: eduPersonScopedAffiliation
 
     - Name: Sabinet
