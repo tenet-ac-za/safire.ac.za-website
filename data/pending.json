@@ -15,19 +15,6 @@
     {
         "entityType": "idp",
         "ParticipationAgreement": true,
-        "OrganizationName": "University of the Free State",
-        "OrganizationDisplayName": "University of the Free State",
-        "OrganizationURL": "https:\/\/ufs.ac.za\/",
-        "TechnicalIntegration": false,
-        "mdui": {
-            "Logo": {
-                "URL": "https:\/\/www.ufs.ac.za\/UFSShortLogo.png"
-            }
-        }
-    },
-    {
-        "entityType": "idp",
-        "ParticipationAgreement": true,
         "OrganizationName": "University of the Witwatersrand",
         "OrganizationDisplayName": "University of the Witwatersrand",
         "OrganizationURL": "https:\/\/www.wits.ac.za\/",
