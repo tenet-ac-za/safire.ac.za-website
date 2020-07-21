@@ -24,9 +24,9 @@ This statement must be on institional letterhead, and should be signed by the pe
 
 A suitably redacted copy of this statement will be published as part of your entity's listing (see below for examples).
 
-### Annual review
+#### Annual review
 
-We undertake an annual review of Sirtfi-compliant entities, to ensure that the security contact details in metadata are still accurate, and to reaffirm the entity's Sirtfi compliance.
+We undertake an annual review of Sirtfi-compliant entities, to ensure that the security contact details in metadata are still accurate, and to reaffirm the entity's Sirtfi compliance. Entities that fail this review may have their assertion of compliance removed.
 
 ### Sirtfi-compliant entities
 

@@ -22,6 +22,8 @@ You can use the following template:
 
 This statement must be on institional letterhead, and should be signed by your institution's Information Officer (as defined in the Protection of Personal Information Act) or other executive officer.
 
+A suitably redacted copy of this statement will be published as part of your entity's listing (see below for examples).
+
 #### Privacy Statement updates
 
 In order to attest to CoCo compliance, you may need to update your service's Privacy Statement. In particular, your Privacy Statement MUST:
@@ -34,6 +36,10 @@ In order to attest to CoCo compliance, you may need to update your service's Pri
 You must review the attributes your Service Provider requires, and update your metadata to include `md:RequestedAttribute` elements to indicate all the attributes that the Service Provider will request. The `isRequired` flag MUST be used to indicate which attributes are required for the service to function and which are optional.
 
 You should request any changes to your attributes prior to attesting to compliance.
+
+#### Annual review
+
+We undertake an annual review of CoCo-compliant entities, to ensure that the Privacy Statement still exists and that the Information Officer is still reachable. Entities that fail this review may have their assertion of compliance removed.
 
 ### CoCo-compliant entities
 
