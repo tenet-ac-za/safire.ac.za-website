@@ -22,6 +22,12 @@ If you need to attest to your institution's Sirtfi compliance, in addition to a 
 
 This statement must be on institional letterhead, and should be signed by the person responsible for conducting the assessment (which may or may not be your technical contact). In large organisations it is typically signed by the head of an institutional CSIRT or equivelent information security function.
 
+A suitably redacted copy of this statement will be published as part of your entity's listing (see below for examples).
+
+### Annual review
+
+We undertake an annual review of Sirtfi-compliant entities, to ensure that the security contact details in metadata are still accurate, and to reaffirm the entity's Sirtfi compliance.
+
 ### Sirtfi-compliant entities
 
 The following entities in SAFIRE have already attested their Sirtfi compliance and have this asserted in metadata:
