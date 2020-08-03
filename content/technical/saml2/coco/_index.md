@@ -14,13 +14,13 @@ The [GÉANT Code of Conduct for Service Providers](https://wiki.refeds.org/displ
 
 ### Attesting CoCo compliance
 
-If you need to attest to your service provider's CoCo compliance, in addition to a [registration request]({{< ref "/technical/saml2/forms.md" >}}) you also need to supply a statement of your CoCo compliance. You should be aware that, unlike [Sirtfi]({{< relref "../sirtfi/_index.md" >}}), CoCo introduces binding obligations on the organisation attesting compliance and operating the service provider.
+If you need to attest to your service provider's CoCo compliance, in addition to a [registration request]({{< ref "/technical/saml2/forms.md" >}}) you also need to supply a statement of your CoCo compliance. You should be aware that, unlike [Sirtfi]({{< relref "../sirtfi/_index.md" >}}), CoCo introduces **binding obligations** on the organisation attesting compliance and operating the service provider.
 
-You can use the following template:
+You can use the following template or a suitable-worded alternative:
 
   * [SAFIRE CoCo Compliance Template](./SAFIRE-CoCo-Compliance-Template.docx)
 
-This statement must be on institional letterhead, and should be signed by your institution's Information Officer (as defined in the Protection of Personal Information Act) or other executive officer.
+This statement must be on institional letterhead, and should be signed by your institution's Information Officer or a suitably appointed Deputy Information Officer (as defined in the Protection of Personal Information Act, 2013).
 
 A suitably redacted copy of this statement will be published as part of your entity's listing (see below for examples).
 
@@ -36,6 +36,10 @@ In order to attest to CoCo compliance, you may need to update your service's Pri
 You must review the attributes your Service Provider requires, and update your metadata to include `md:RequestedAttribute` elements to indicate all the attributes that the Service Provider will request. The `isRequired` flag MUST be used to indicate which attributes are required for the service to function and which are optional.
 
 You should request any changes to your attributes prior to attesting to compliance.
+
+#### Security contact
+
+While not mandatory under CoCo, SAFIRE additionally requires you publish a [Sirtfi-style security contact]({{< relref "../sirtfi/_index.md" >}}) in metadata before we will assert compliance.
 
 #### Annual review
 
