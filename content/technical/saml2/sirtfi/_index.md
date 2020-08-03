@@ -18,7 +18,7 @@ It is **strongly recommended** that SAFIRE participants work towards Sirtfi comp
 
 If you need to attest to your institution's Sirtfi compliance, in addition to a [registration request]({{< ref "/technical/saml2/forms.md" >}}) you also need to supply a statement of your Sirtfi compliance. You can use the following template:
 
-  * [SAFIRE Sirtfi Compliance Template](./SAFIRE-Sirtfi-Compliance-Template.docx)
+  * [SAFIRE Sirtfi Compliance Template](./SAFIRE-Sirtfi-Compliance-Template.rtf)
 
 This statement must be on institional letterhead, and should be signed by the person responsible for conducting the assessment (which may or may not be your technical contact). In large organisations it is typically signed by the head of an institutional CSIRT or equivelent information security function.
 

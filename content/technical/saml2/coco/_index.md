@@ -18,7 +18,7 @@ If you need to attest to your service provider's CoCo compliance, in addition to
 
 You can use the following template or a suitable-worded alternative:
 
-  * [SAFIRE CoCo Compliance Template](./SAFIRE-CoCo-Compliance-Template.docx)
+  * [SAFIRE CoCo Compliance Template](./SAFIRE-CoCo-Compliance-Template.rtf)
 
 This statement must be on institional letterhead, and should be signed by your institution's Information Officer or a suitably appointed Deputy Information Officer (as defined in the Protection of Personal Information Act, 2013).
 
