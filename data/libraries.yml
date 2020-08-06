@@ -1,6 +1,6 @@
 ---
 # Remember to change lastMod!
-lastMod: 2019-08-16T09:17:12Z
+lastMod: 2020-08-06T09:17:12Z
 Providers:
     - Name: ACM Digital Library
       LoginLink: Sign in via your Institution
@@ -108,12 +108,21 @@ Providers:
         Libraries need to contact Kortext support and request Login access be enabled, using their [proxied entity id](/participants/idp/list/). It may help to mention that your metadata is already exported to the UK Access Federation via eduGAIN
       AuthAttribute: eduPersonScopedAffiliation
 
-    - Name: LexisNexus Academic
-      Status: Not tested/can't find
+    - Name: LexisNexus International
+      LoginLink: Use Academic Sign-in
+      Status: Tested, discovery problem
+      StatusColour: yellow
+      Notes: |
+        Metadata for South African institutions exists, and a WAYFless URL reaches the right identity provider. LexisNexus indicate support UK Fed and InCommon. Needs an institution using LexisNexus.com to engage with them about the next steps.
+      AuthAttribute: eduPersonScopedAffiliation
+      Documentation:
+       - http://help.lexisnexis.com/tabula-rasa/common/federatedaccess_ref-reference?lbu=GB&locale=en_GB&audience=all
 
-    - Name: LexisNexus SA
-      Status: Not tested/can't find. Contacted customer support.
+    - Name: LexisNexus South Africa
+      Status: No support, contacted
       StatusColour: red
+      Notes: |
+        Thus far, both SAFIRE & two universities have reached out to LexisNexus SA about this. If you'd like this to work, please add your voice to the call to LexisNexus SA. (TENET:4612)
 
     - Name: Newsbank
       Status: Not working. Engaged at SANLiC2019
