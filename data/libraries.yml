@@ -2,12 +2,18 @@
 # Remember to change lastMod!
 lastMod: 2020-08-06T09:17:12Z
 Providers:
-    - Name: ACM Digital Library
+    - Name: Association for Computing Machinery (ACM)
       LoginLink: Sign in via your Institution
       Status: No SA institutions listed by default
       Documentation:
        - http://libraries.acm.org/subscriptions-access/authentication
       AuthAttribute: eduPersonEntitlement
+
+    - Name: American Chemical Society
+      LoginLink: "[Find my institution](https://pubs.acs.org/action/ssostart?redirectUri=/page/remoteaccess/confirm)"
+      Status: Tested, Working
+      StatusColour: green
+      SeamlessAccess: true
 
     - Name: BioOne
       LoginLink: Login via your Institution (Shibboleth)
@@ -58,6 +64,7 @@ Providers:
       AuthAttribute:
        - eduPersonEntitlement
        - eduPersonScopedAffiliation
+      SeamlessAccess: true
 
     - Name: Emerald Insight
       LoginLink: "[Shibboleth login](https://www.emeraldinsight.com/action/ssostart?redirectUri=%2F)"
@@ -124,6 +131,14 @@ Providers:
       Notes: |
         Thus far, both SAFIRE & two universities have reached out to LexisNexus SA about this. If you'd like this to work, please add your voice to the call to LexisNexus SA. (TENET:4612)
 
+    - Name: Nature.com / SpringerNature
+      LoginLink: "[Access through your institution](https://idp.nature.com/login/natureuser?client_id=grover&redirect_uri=https%3A%2F%2Fwww.nature.com%2Fnature)"
+      Status: Tested, discovery problem
+      StatusColour: yellow
+      Notes: |
+        Metadata for South African institutions exists, and a WAYFless URL reaches the right identity provider. Needs an institution using this service to engage with them about the next steps.
+      SeamlessAccess: true
+
     - Name: Newsbank
       Status: Not working. Engaged at SANLiC2019
       StatusColour: red
@@ -168,11 +183,13 @@ Providers:
       Notes: |
         Libraries need to contact RSC support to get access enabled.
       AuthAttribute: eduPersonScopedAffiliation
+      SAFIRE: true
 
     - Name: Sabinet
       LoginLink: Not supported
       StatusColour: red
       Notes: Sabinet is in the process of joining SAFIRE (signed participation agreement).
+      SAFIRE: true
 
     - Name: SAGE
       LoginLink: "[Institutional access: Shibboleth](http://journals.sagepub.com/action/ssostart?redirectUri=/)"

@@ -6,15 +6,20 @@
 .library-status-yellow { background-color:#ffde00; }
 .library-status-red { background-color:#ff5b33; }
 .library-status.library-status-unknown { background:repeating-linear-gradient(45deg,transparent,transparent 3px,#f6f6f6 3px,#f6f6f6 6px),#cccccc; }
-.library-status { float:right; width:1em; }
+.library-status { float:right; width:1em; text-align: center; font-weight: bold; color: #1c77b7; }
+.library-member { text-align: center; font-style: italic; }
+.library-seamless { font-size: 80%; text-align: center; font-style: italic; }
 </style>
 <div id="participantList" class="ui-accordion ui-widget ui-helper-reset">
 {{- range $p := .Site.Data.libraries.Providers }}
     <h3 data-name="{{ $p.Name|urlize }}" data-tabindex="{{ ($.Scratch.Get "i") }}" class="ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons">
         {{ $p.Name }}
-    <span class="library-status library-status-{{ $p.StatusColour|default "unknown" }}">&nbsp;</span>
+    <span class="library-status library-status-{{ $p.StatusColour|default "unknown" }}">{{ if $p.SAFIRE }}&#x273B;{{else}}&nbsp;{{end}}</span>
     </h3>
     <div id="participantdetail-{{ printf "%03d" ($.Scratch.Get "i") }}" style="display:none;" class="ui-accordion-content ui-corner-bottom ui-helper-reset ui-widget-content">
+        {{- if $p.SAFIRE }}
+        <p class="library-member">This provider <a href="/participants/sp/list/">directly participates</a> in SAFIRE</p>
+        {{- end }}
         <dl class="participantDetail">
             {{- if $p.Status }}
             <dt>Status</dt>
@@ -41,6 +46,9 @@
                 <dd>{{ template "stringOrArray" $p.AuthAttribute }}</dd>
             {{- end }}
         </dl>
+        {{- if $p.SeamlessAccess }}
+        <p class="library-seamless">This provider appears to have adopted <a href="https://seamlessaccess.org/">SeamlessAccess</a> for login, which is a new standard that greatly improves the user experience.</p>
+        {{- end }}
     </div>
     {{- $.Scratch.Add "i" 1 -}}
 {{- end }}
