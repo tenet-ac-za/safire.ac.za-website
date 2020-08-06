@@ -39,10 +39,10 @@ Providers:
 
     - Name: EBSCO
       LoginLink: "[Shibboleth Login](http://search.ebscohost.com/login.aspx?profile=ehost)"
-      Status: Tested, working, discovery problem, contacted
-      StatusColour: yellow
+      Status: Tested, working
+      StatusColour: green
       Notes: |
-        Libraries need to set an appropriate value for eduPersonScopedAfilliation within the EBSCOadmin portal. However, the discovery service is confusing for end users: all of SAFIRE appears under "UK Higher Education", and institution names are not always in English (e.g. UCT is listed as "IYunivesithi yaseKapa"). EBSCO has been contacted to try and resolve this.
+        Libraries need to set an appropriate value for eduPersonScopedAfilliation within the EBSCOadmin portal.
       Documentation:
        - https://help.ebsco.com/interfaces/EBSCOadmin/Admin_User_Guide/set_up_Shibboleth_SAML_Authentication
       AuthAttribute: eduPersonScopedAffiliation
@@ -151,7 +151,7 @@ Providers:
       Status: Not tested
 
     - Name: Royal Society of Chemistry
-      Status: Tested, Working 
+      Status: Tested, Working
       StatusColour: green
       LoginLink: "[Log in via your home institution](https://pubs.rsc.org/en/content/federatedaccess?returnurl=https%3A%2F%2Fpubs.rsc.org)"
       Documentation:
