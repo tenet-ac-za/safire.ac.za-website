@@ -126,10 +126,10 @@ Providers:
        - http://help.lexisnexis.com/tabula-rasa/common/federatedaccess_ref-reference?lbu=GB&locale=en_GB&audience=all
 
     - Name: LexisNexus South Africa
-      Status: No support, contacted
+      Status: No support, contacted, on roadmap
       StatusColour: red
       Notes: |
-        Thus far, both SAFIRE & two universities have reached out to LexisNexus SA about this. If you'd like this to work, please add your voice to the call to LexisNexus SA. (TENET:4612)
+        Thus far, both SAFIRE & two universities have reached out to LexisNexus SA about this. LexisNexus SA have indicated that it is on their roadmap for investigation starting in September 2020. (TENET:4612)
 
     - Name: Nature.com / SpringerNature
       LoginLink: "[Access through your institution](https://idp.nature.com/login/natureuser?client_id=grover&redirect_uri=https%3A%2F%2Fwww.nature.com%2Fnature)"
