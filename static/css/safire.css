@@ -196,6 +196,15 @@ input[type="submit"]:active { background-color: #6d488c; }
 .featured-content .cat-links { font-size: smaller; font-weight: normal; }
 .featured-content .entry-title { font-size: 14px; }
 
+/* hover links from github */
+.entry-content .anchor { float: left; padding-right: 4px; margin-left: -20px; line-height: 1; }
+.entry-content .octicon-link { color: #1b1f23; vertical-align: middle; visibility: hidden; }
+.entry-content .octicon { display: inline-block; fill: currentColor; }
+.entry-content h1:hover .anchor .octicon-link,
+.entry-content h2:hover .anchor .octicon-link,
+.entry-content h3:hover .anchor .octicon-link,
+.entry-content h4:hover .anchor .octicon-link { visibility: visible; }
+
 @media screen and (min-width: 783px) {
 	.site-title a:hover {
 		font-size: 0;
