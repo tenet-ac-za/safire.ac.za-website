@@ -215,7 +215,7 @@
             <a target="_blank" href="{{.}}">
         {{- end -}}
         {{- with .mdui.Logo.URL -}}
-            <img src="{{.}}" style="max-width: 120px; max-height: 120px; width: auto; height: auto; margin: 0 0 8px 8px;">
+            <img src="{{.|safeURL}}" style="max-width: 120px; max-height: 120px; width: auto; height: auto; margin: 0 0 8px 8px;">
         {{- end -}}
         {{- if .OrganizationURL -}}</a>{{- end -}}
     {{- else -}}
