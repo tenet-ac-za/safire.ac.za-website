@@ -215,7 +215,7 @@
             <a target="_blank" href="{{.}}">
         {{- end -}}
         {{- with .mdui.Logo.URL -}}
-            <img src="{{.}}" style="max-width: 120px; max-height: 120px; width: auto; height: auto; margin: 0 0 8px 8px;" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f573.png';">
+            <img src="{{.|safeURL}}" style="max-width: 120px; max-height: 120px; width: auto; height: auto; margin: 0 0 8px 8px;" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f573.png';">
         {{- end -}}
         {{- if .OrganizationURL -}}</a>{{- end -}}
     {{- else -}}
