@@ -13,19 +13,6 @@
         }
     },
     {
-        "entityType": "idp",
-        "ParticipationAgreement": true,
-        "OrganizationName": "University of the Witwatersrand",
-        "OrganizationDisplayName": "University of the Witwatersrand",
-        "OrganizationURL": "https:\/\/www.wits.ac.za\/",
-        "TechnicalIntegration": false,
-        "mdui": {
-            "Logo": {
-                "URL": "https:\/\/pbs.twimg.com\/profile_images\/553068392874139649\/UagOekEh_400x400.png"
-            }
-        }
-    },
-    {
         "entityType": "sp",
         "ParticipationAgreement": true,
         "OrganizationName": "Sabinet Online Ltd",
