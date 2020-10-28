@@ -13,7 +13,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.2.0/languages/powershell.min.js" integrity="sha512-PwV5Q67iPMuWqs6aDWCmrGm7keyzorPmleIF2Qe27hvQIvwxL7RUSCR4ChRjTZYYMM60FxrGOOhudyNYhqTdYw==" crossorigin="anonymous"></script>
     <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
     <script type="text/javascript" src="{{ relURL "/js/functions.js" }}"></script>
-    {{ template "_internal/google_analytics.html" . }}
+    {{ template "_internal/google_analytics_async.html" . }}
     <script type="text/javascript">
       $(function(){$('.defusticate').each(function(i,v){$(this).text(atob($(this).text()));if(/^[^@]+@[^.]+\..+$/.test($(this).text())){$(this).html('<a href="mailto:'+$(this).text()+'">'+$(this).text()+'</a>');}});});
     </script>
