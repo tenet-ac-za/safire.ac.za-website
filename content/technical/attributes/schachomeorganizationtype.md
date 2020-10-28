@@ -1,22 +1,22 @@
---- 
+---
 attributeExample: urn:schac:homeOrganizationType:int:other
 attributeFormat: |2
   Single valued, controlled vocabulary:
-  
+
    * urn:schac:homeOrganizationType:int:university
    * urn:schac:homeOrganizationType:za:research-council
    * urn:schac:homeOrganizationType:int:NREN
    * urn:schac:homeOrganizationType:int:other
-   
+
   Other values may be considered in future.
 attributeOid: urn:oid:1.3.6.1.4.1.25178.1.2.10
-attributeReferences: 
+attributeReferences:
   - Name: SCHAC
     URL: https://wiki.refeds.org/display/STAN/SCHAC+Releases
   - Name: SCHAC URN Registry
     URL: https://wiki.refeds.org/display/STAN/SCHAC+URN+Registry
   - Name: ZA National Extensions
-    URL: /technical/namespaces/#urn-schac-homeorganizationtype-za
+    URL: /technical/namespaces/#urnschachomeorganizationtypeza
   - Name: schacHomeOrgType Usage
     URL: https://wiki.refeds.org/pages/viewpage.action?title=SchacHomeOrgType+usage&spaceKey=STAN
 date: 2016-09-12 13:05:32+00:00

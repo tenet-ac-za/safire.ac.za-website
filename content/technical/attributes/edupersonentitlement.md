@@ -1,7 +1,7 @@
 ---
 attributeExample: |2
     * urn:mace:dir:entitlement:common-lib-terms
-    * urn:mace:safire.ac.za:eduroam:admin
+    * urn:mace:safire.ac.za:entitlement:eduroam:admin
 attributeFormat: |2
   Multi-valued, valid URL or URI.
 
@@ -13,7 +13,7 @@ attributeReferences:
   - Name: URN-MACE-DIR-Entitlement
     URL: https://www.internet2.edu/products-services/trust-identity/mace-registries/urnmace-namespace/urn-mace-dir-registry/urn-mace-dir-entitlement/
   - Name: SAFIRE Namespace
-    URL: /technical/namespaces/#urn-mace-safire-ac-za
+    URL: /technical/namespaces/#urnmacesafireacza
 date: 2017-07-28 09:40:33+00:00
 layout: attributelist
 slug: edupersonentitlement
