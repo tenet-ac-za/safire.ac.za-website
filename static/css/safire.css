@@ -205,6 +205,15 @@ input[type="submit"]:active { background-color: #6d488c; }
 .entry-content h3:hover .anchor .octicon-link,
 .entry-content h4:hover .anchor .octicon-link { visibility: visible; }
 
+/* tables (ex tablepress) */
+.entry-content table { border-collapse: collapse; border-spacing: 0; width: 100%; margin-bottom: 1em; border: 1px solid #dddddd; }
+.entry-content th, .entry-content td { padding: 8px; text-align: left; border: 1px solid #dddddd;; background: none; float: none !important; vertical-align: top; }
+.entry-content th { background-color: #d9edf7; font-weight: bold; vertical-align: middle; }
+.entry-content tbody tr:nth-child(even) th { background-color: #e7f4fa }
+.entry-content tr:nth-child(even) { background-color: #ffffff }
+.entry-content tr:nth-child(odd) { background-color: #f9f9f9 }
+.entry-content tr:hover td { background-color: #f3f3f3; }
+
 @media screen and (min-width: 783px) {
 	.site-title a:hover {
 		font-size: 0;
