@@ -41,36 +41,14 @@ Configure the basic information for the Custom App. You want to add information 
 
 Add the federation hub's details, as derived from [metadata]({{< ref "/technical/metadata.md" >}}). The values you need to complete this step are:
 
-<table class="tablepress">
-
-<tbody class="row-hover">
-  <tr class="odd">
-    <th>ACS URL</th>
-    <td>https://iziko.safire.ac.za/module.php/saml/sp/saml2-acs.php/safire-sp</td>
-  </tr>
-  <tr class="even">
-    <th>Entity ID</th>
-    <td>https://iziko.safire.ac.za/</td>
-  </tr>
-  <tr class="odd">
-    <th>Start URL</th>
-    <td><em>leave empty</em></td>
-  </tr>
-  <tr class="even">
-    <th>Signed Response</th>
-    <td><em>unchecked</em></td>
-  </tr>
-  <tr class="odd">
-    <th>Name ID</th>
-    <td>Basic information / Primary Email</td>
-  </tr>
-  <tr class="even">
-    <th>Name ID Format</th>
-    <td>Persistent</td>
-  </tr>
-</tbody>
-
-</table>
+| Field | Value |
+|:----------------|:-|
+| ACS URL         | https://iziko.safire.ac.za/module.php/saml/sp/saml2-acs.php/safire-sp |
+| Entity ID       | https://iziko.safire.ac.za/ |
+| Start URL       | *leave empty* |
+| Signed Response | *unchecked* |
+| Name ID         | Basic information / Primary Email |
+| Name ID Format  | Persistent |
 
 Which should then look something like this:
 {{< figure src="/wp-content/uploads/2017/03/gapps_sso_step4.png" caption="Step 4" >}}
@@ -83,44 +61,12 @@ Add attribute mappings to map the G Suite directory attributes into SAML attribu
 
 Note that we've specified the mapping using urn:oid format, rather than the friendly names that get displayed. The four mappings shown above are as follows:
 
-<table class="tablepress">
-
-<thead class="odd">
-  <tr>
-    <th>Application attribute (OID)</th>
-    <th>Category</th>
-    <th>G Suite User Field</th>
-    <th>SAFIRE Name</th>
-  </tr>
-</thead>
-<tbody class="row-hover">
-  <tr class="even">
-    <td>urn:oid:1.3.6.1.4.1.5923.1.1.1.6</td>
-    <td>Basic information</td>
-    <td>Primary Email</td>
-    <td><a href="{{< ref "/technical/attributes/edupersonprincipalname.md" >}}">eduPersonPrincipalName</a></td>
-    </tr>
-  <tr class="odd">
-    <td>urn:oid:2.5.4.42</td>
-    <td>Basic information</td>
-    <td>First Name</td>
-    <td><a href="{{< ref "/technical/attributes/givenname.md" >}}">givenName</a></td>
-  </tr>
-  <tr class="even">
-    <td>urn:oid:2.5.4.4</td>
-    <td>Basic information</td>
-    <td>Last Name</td>
-    <td><a href="{{< ref "/technical/attributes/sn.md" >}}">sn</a></td>
-  </tr>
-  <tr class="odd">
-    <td>urn:oid:0.9.2342.19200300.100.1.3</td>
-    <td>Basic information</td>
-    <td>Primary Email</td>
-    <td><a href="{{< ref "/technical/attributes/mail.md" >}}">mail</a></td>
-  </tr>
-</tbody>
-
-</table>
+| Application attribute (OID)       | Category          | G Suite User Field | SAFIRE Name |
+|:----------------------------------|:------------------|:-------------------|:------------|
+| urn:oid:1.3.6.1.4.1.5923.1.1.1.6  | Basic information | Primary Email      | [eduPersonPrincipalName]({{< ref "/technical/attributes/edupersonprincipalname.md" >}}) |
+| urn:oid:2.5.4.42                  | Basic information | First Name         | [givenName]({{< ref "/technical/attributes/givenname.md" >}}) |
+| urn:oid:2.5.4.4                   | Basic information | Last Name          | [sn]({{< ref "/technical/attributes/sn.md" >}}) |
+| urn:oid:0.9.2342.19200300.100.1.3 | Basic information | Primary Email      | [mail]({{< ref "/technical/attributes/mail.md" >}}) |
 
 If you've [extended the schema](https://support.google.com/a/answer/6327792) in G Suite to store custom attributes, you may be able to make more mappings. (In particular, [eduPersonAffiliation]({{< ref "/technical/attributes/edupersonaffiliation.md" >}}) would be desirable)
 

@@ -74,7 +74,7 @@ AD FS also uses a second "token encryption" certificate to encrypt assertions. D
 
 By default, ADFS publishes its generated metadata at a well-known URL of:
 
-* https://<em>your-adfs-server.example.ac.za</em>/FederationMetadata/2007-06/FederationMetadata.xml
+* https://*your-adfs-server.example.ac.za*/FederationMetadata/2007-06/FederationMetadata.xml
 
 You can use this to obtain the copy of metadata you need to supply to SAFIRE. However, but default the auto-generated metadata does not include many of the [required elements](/technical/saml2/idp-requirements/).
 

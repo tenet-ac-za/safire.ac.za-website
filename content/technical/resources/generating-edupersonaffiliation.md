@@ -23,54 +23,17 @@ However, it is important to note that you do not need to be able to produce all 
 
 The [REFEDs ePSA usage comparison](https://www.terena.org/activities/refeds/docs/ePSAcomparison_0_13.pdf) provides guidance for mapping the controlled language. In South Africa, we've tied this language to the [data elements used in HEMIS]({{< ref "/technical/attributes/edupersonaffiliation.md" >}}). The table below summarises some common South Africa situations.
 
-<table class="tablepress">
-
-<thead>
-<tr class="row-1 odd">
-<th>Role</th>
-<th>Value(s)</th>
-</tr>
-</thead>
-<tbody class="row-hover">
-<tr class="row-2 even">
-<td class="column-1">Undergraduate student</td>
-<td class="column-2">member; student</td>
-</tr>
-<tr class="row-3 odd">
-<td class="column-1">Postgraduate student who did undergrad at same institution</td>
-<td class="column-2">member; student; alum</td>
-</tr>
-<tr class="row-4 even">
-<td class="column-1">Convocation/alumni</td>
-<td class="column-2">alum</td>
-</tr>
-<tr class="row-5 odd">
-<td class="column-1">Staff member (academic, lecturer or researcher)</td>
-<td class="column-2">member; employee; faculty</td>
-</tr>
-<tr class="row-6 even">
-<td class="column-1">Staff member (academic, unpaid)</td>
-<td class="column-2">member; faculty</td>
-</tr>
-<tr class="row-7 odd">
-<td class="column-1">Staff member (administrative, professional or management)</td>
-<td class="column-2">member; employee; staff</td>
-</tr>
-<tr class="row-8 even">
-<td class="column-1">Staff member (unskilled, trade or craft)</td>
-<td class="column-2">member; employee</td>
-</tr>
-<tr class="row-9 odd">
-<td class="column-1">Staff member at affiliated institute</td>
-<td class="column-2">affiliate (possibly also "member", depending on how close the ties are)</td>
-</tr>
-<tr class="row-10 even">
-<td class="column-1">Any other member of the institution in good standing</td>
-<td class="column-2">member</td>
-</tr>
-</tbody>
-
-</table>
+| Role | Value(s) |
+|:-----|:---------|
+| Undergraduate student | member; student |
+| Postgraduate student who did undergrad at same institution | member; student; alum |
+| Convocation/alumni |alum |
+| Staff member (academic, lecturer or researcher) | member; employee; faculty |
+| Staff member (academic, unpaid) | member; faculty |
+| Staff member (administrative, professional or management) | member; employee; staff |
+| Staff member (unskilled, trade or craft) | member; employee |
+| Staff member at affiliated institute |affiliate (possibly also "member", depending on how close the ties are) |
+| Any other member of the institution in good standing | member |
 
 ### Nesting of eduPersonAffiliation values
 

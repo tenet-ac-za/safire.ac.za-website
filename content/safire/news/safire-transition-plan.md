@@ -31,8 +31,7 @@ The intent is to migrate existing identity providers first, then to migrate exis
 
 Caveat: whilst transitional arrangements exist to ensure IdPs that have transitioned remain available in the full-mesh federations, no such arrangements exist for SPs. Thus once an SP is migrated, it will become inaccessible to IdPs who have not yet completed the transition.
 
-<del>New services and identity providers may only join the hub-and-spoke federation, and will only have their metadata added after the transition from full-mesh has been completed.
-</del>New providers are being taken on concomitantly.
+~~New services and identity providers may only join the hub-and-spoke federation, and will only have their metadata added after the transition from full-mesh has been completed.~~  New providers are being taken on concomitantly.
 
 ## 4. Individual transitions
 
@@ -104,8 +103,8 @@ To-date the costs of SAFIRE have been largely borne by the SCA and TENET. This i
 
 ## 7. New providers
 
-<del>We'll only take on </del>new<del> identity- and service providers once this transition is complete.
-</del>Information for new [service]({{< ref "/participants/sp/join.md" >}})- and [identity ]({{< ref "/participants/idp/join.md" >}})providers is available.
+~~We'll only take on new identity- and service providers once this transition is complete.~~
+Information for new [service]({{< ref "/participants/sp/join.md" >}})- and [identity ]({{< ref "/participants/idp/join.md" >}})providers is available.
 
 # Questions and updates
 
