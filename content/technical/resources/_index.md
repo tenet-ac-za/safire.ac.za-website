@@ -1,5 +1,5 @@
 ---
-date: 2019-10-03 22:00:00+02:00
+date: 2020-11-06 22:00:00+02:00
 menu:
   main:
     identifier: technical-resources
@@ -22,7 +22,6 @@ This page contains links to more information and technical resources. It will be
   * Shibboleth ([IdP](https://shibboleth.net/products/identity-provider) & [SP](https://shibboleth.net/products/service-provider))
   * [SimpleSAMLphp](https://simplesamlphp.org/)
   * [ADFS 2.0](https://technet.microsoft.com/en-us/windowsserver/dd448613.aspx)
-  * [ForgeRock](https://www.forgerock.com/platform/identity-gateway)
   * [Google Apps for Education](https://support.google.com/a/topic/6194927)
   * [Others](https://en.wikipedia.org/wiki/SAML-based_products_and_services)?
 
@@ -31,6 +30,7 @@ This page contains links to more information and technical resources. It will be
   * [IdP Installer](https://github.com/idp-installer-manager/idp-installer-global) - Federated identity Appliance developed by [CANARIE](http://www.canarie.ca/en/caf-service/about) (CA) /[SWAMID](http://www.swamid.se/) (SE).
   * [Step-by-step IdP installation](https://tuakiri.ac.nz/confluence/display/Tuakiri/Installing+a+Shibboleth+3.x+IdP) - written by Tuakiri (NZ), but many of the principles follow through.
   * [TestShib](http://www.testshib.org/) - Test service provider.
+  * [SAMLtest.id](https://samltest.id/) - test your IdP & SP
 
 # Service Provider deployment
 
@@ -43,8 +43,8 @@ This page contains links to more information and technical resources. It will be
 # User Interface/Login pages/Discovery
 
   * [Seamless Access](https://seamlessaccess.org/) - the Seamless Access discovery service, building on the outcomes of [RA21](https://ra21.org/). _(This is the recommended approach for people deploying new services.)_
-  * [eduGAIN DSX embedded discovery](https://wiki.geant.org/display/eduGAIN/Embedded+Discovery)
-  * ~~[DiscoJuice](http://discojuice.org/) - user-friendly, JavaScript discovery service.~~
+  * ~~[eduGAIN DSX embedded discovery](https://wiki.geant.org/display/eduGAIN/Embedded+Discovery)~~ *[will be decommissioned end 2020]*
+  * ~~[DiscoJuice](http://discojuice.org/) - user-friendly, JavaScript discovery service.~~ *[decomissioned]*
   * [Shibboleth embedded discovery service](http://shibboleth.net/products/embedded-discovery-service.html)
 
 ### Best Practices for UX
