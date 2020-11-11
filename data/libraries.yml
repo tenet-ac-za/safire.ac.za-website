@@ -44,7 +44,7 @@ Providers:
        - https://www.degruyter.com/page/286#Shibboleth
 
     - Name: EBSCO
-      LoginLink: "[Shibboleth Login](http://search.ebscohost.com/login.aspx?profile=ehost)"
+      LoginLink: "[Institutional Login](http://search.ebscohost.com/login.aspx?profile=ehost)"
       Status: Tested, working
       StatusColour: green
       Notes: |
