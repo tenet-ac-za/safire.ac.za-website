@@ -2,11 +2,12 @@
 date: 2020-11-13 08:56:00+02:00
 menu:
   main:
+    name: IdP Reachability
     identifier: participants-support-reachability
     parent: participants-support
     weight: 2
 slug: reachability
-title: IdP Reachability
+title: Institutional Identity Provider Reachability
 ---
 
 As a courtesy, we monitor the reachability of the various South African [identity providers]({{< ref "/participants/idp/list.md" >}}) and make that information available at [**monitor.safire.ac.za**](https://monitor.safire.ac.za/safire/thruk/cgi-bin/status.cgi?servicegroup=instidps&style=detail&title=Institutional+Identity+Provider+Reachability&nav=0&hidetop=1).
