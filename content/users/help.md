@@ -49,4 +49,4 @@ If you want to delete other cookies set by us, under your browser's advanced Int
 
 # Problems with SAFIRE itself
 
-If you believe there's a problem with SAFIRE itself, please let your home institution's IT helpdesk know. They should get your institution's authorised representative(s) to [log a call]({{< ref "/participants/support.md" >}}) with our service operations centre. (Unfortunately, for security and privacy reasons we can only accept reports from the authorised representative(s).)
+If you believe there's a problem with SAFIRE itself, please let your home institution's IT helpdesk know. They should get your institution's authorised representative(s) to [log a call]({{< ref "/participants/support/_index.md" >}}) with our service operations centre. (Unfortunately, for security and privacy reasons we can only accept reports from the authorised representative(s).)

@@ -47,11 +47,6 @@ menu:
     URL: https://monitor.safire.ac.za/safire/thruk/cgi-bin/bp.cgi?action=details&minimal=1&bp=1
     Parent: participants-support
     Weight: 1
-  - Name: "IdP Reachability"
-    Identifier: participants-support-reachability
-    URL: https://monitor.safire.ac.za/safire/thruk/cgi-bin/status.cgi?servicegroup=instidps&style=detail&title=Institutional+Identity+Provider+Reachability&nav=0&hidetop=1
-    Parent: participants-support
-    Weight: 2
   - Name: "eduGAIN Connectivity Check Service"
     Identifier: participants-support-eccs
     URL: https://technical.edugain.org/eccs/?registrationAuthority=https%3A%2F%2Fsafire.ac.za

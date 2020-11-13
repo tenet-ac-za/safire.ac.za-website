@@ -7,7 +7,7 @@ title: Security Contacts
 url: /safire/contact/security/
 ---
 
-The following details contact information for emergency security incident response involving the South African Identity Federation or one of its participants. Separate contact details are available for [participants looking for support]({{< ref "/participants/support.md" >}}) and for [general use]({{< relref "_index.md" >}}).
+The following details contact information for emergency security incident response involving the South African Identity Federation or one of its participants. Separate contact details are available for [participants looking for support]({{< ref "/participants/support/_index.md" >}}) and for [general use]({{< relref "_index.md" >}}).
 
 # Federation operations staff
 

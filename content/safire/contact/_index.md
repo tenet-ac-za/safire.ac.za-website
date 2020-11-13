@@ -12,7 +12,7 @@ title: Contact
 url: /safire/contact/
 ---
 
-This page provides general contact details for the South African Identity Federation (SAFIRE) project. If you are an end-user looking to report a problem with logging into a service, please see the [help page]({{< ref "/users/help.md" >}}). If you are an institution looking to report a problem with SAFIRE, please see the [support page]({{< ref "/participants/support.md" >}}). Security incident response information is [also available]({{< relref "security.md" >}}).
+This page provides general contact details for the South African Identity Federation (SAFIRE) project. If you are an end-user looking to report a problem with logging into a service, please see the [help page]({{< ref "/users/help.md" >}}). If you are an institution looking to report a problem with SAFIRE, please see the [support page]({{< ref "/participants/support/_index.md" >}}). Security incident response information is [also available]({{< relref "security.md" >}}).
 
 # SAFIRE - South African Identity Federation
 
