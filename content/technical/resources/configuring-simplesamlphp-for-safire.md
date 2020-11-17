@@ -1,5 +1,5 @@
 ---
-date: 2018-10-31 14:35:32+02:00
+date: 2020-11-17 12:59:32+02:00
 slug: configuring-simplesamlphp-for-safire
 tags:
   - configuration
@@ -79,9 +79,9 @@ $config = [
                     ],
                 ],
             ],
-            'expireAfter' => 60 * 60 * 24 * 4, // Maximum 4 days cache time
+            'expireAfter' => 60 * 60 * 24 * 7, // Maximum 7 days cache time
             'outputDir' => 'metadata/safire-consuming/',
-            'outputFormat' => 'flatfile',
+            'outputFormat' => 'serialize',
             'types' => ['saml20-sp-remote','saml20-idp-remote'],
         ],
     ],
@@ -113,7 +113,7 @@ Finally, you need to alter you config/config.php to use the new metadata. To do 
 ```php
 'metadata.sources' => [
     ['type' => 'flatfile'],
-    ['type' => 'flatfile', 'directory' => 'metadata/safire-consuming'],
+    ['type' => 'serialize', 'directory' => 'metadata/safire-consuming'],
 ],
 ```
 
