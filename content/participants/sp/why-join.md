@@ -24,10 +24,10 @@ The [NSRC](http://nsrc.org/), [REFEDS](http://refeds.org/) & [GÉANT](http://ge
 
 SAFIRE is the South African academic identity federation, meaning we're focused on South African needs within the broader global context. We took a specific decision to build a hub-and-spoke federation because we believed it was most suitable to the South African context. Among the benefits this decision offers are:
 
-  * Better, more standardised, [attribute release](/safire/policy/arp/) to service providers.
+  * Better, more standardised, [attribute release](/safire/policy/arp/) to service providers (you don't need to negotiate with individual identity providers).
   * Simplified integration --- service providers can integrate once with SAFIRE to gain access to multiple identity providers; you don't need to troubleshoot multiple identity providers when things go wrong. This should translate to lower startup costs.
   * Mandatory notification to end-users of personal information transfer, helping ease the burden of POPI Act compliance for both identity- and service providers.
 
 Commercial service providers could consider translating the potential integration savings into cost reductions for South African higher educational institutions. Cost has become increasingly important in the post 2015 #FeesMustFall era and thus may offer competitive advantage.
 
-Finally, apart from integration costs, use of SAFIRE is currently [free for service providers]({{< ref "/participants/sp/fees.md" >}}). Moreover, SAFIRE is run by a non-profit company, meaning we only ever aim to cost recover our input costs; we're not in this to make money, we're in it to make things easier for staff and students of our higher educational institutions.
+Finally, apart from integration costs, use of SAFIRE is [free for service providers]({{< ref "/participants/sp/fees.md" >}}). Moreover, SAFIRE is run by a non-profit company; we're not in this to make money, we're in it to make things easier for staff and students of our higher educational institutions.
