@@ -1,5 +1,5 @@
 ---
-date: 2017-07-24 13:47:06+00:00
+date: 2020-11-18 07:47:06+02:00
 slug: library-services
 tags:
   - collaboration
@@ -17,6 +17,8 @@ There is considerable interest in leveraging SAFIRE and eduGAIN to integrate wit
 The following documents the integration status of various providers in SAFIRE.
 
 {{< libraryproviders >}}
+
+If there's something missing from the above, the information is out of date (or you know something we don't), or you'd simply like to help us unlock one of the other information providers, please [contact us]({{< ref "/safire/contact/_index.md" >}})! Our experience is it takes one or two interested libraries to help make the first connection, and then the entire community benefits from improved access.
 
 # Values needed by information providers
 
