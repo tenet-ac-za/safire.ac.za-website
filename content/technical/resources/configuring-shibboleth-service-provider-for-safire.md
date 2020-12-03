@@ -62,7 +62,7 @@ INFO OpenSAML.MetadataProvider.XML : loaded XML resource (safire-idp-proxy-metad
 
 To allow the Shibboleth SP to find a suitable identity provider for a user, you will need a discovery service. There are a number of options available:
 
- * The [Shibboleth Embedded Discovery Service](http://shibboleth.net/products/embedded-discovery-service.html) can be used as-is, or customised to create a discovery service that matches your site's look and feel.
+ * The [Shibboleth Embedded Discovery Service](https://wiki.shibboleth.net/confluence/display/EDS10/Embedded+Discovery+Service) can be used as-is, or customised to create a discovery service that matches your site's look and feel.
  * Both [eduGAIN DSX](https://wiki.geant.org/display/eduGAIN/Embedded+Discovery) and [Seamless Access](https://seamlessaccess.org/) provide Javascript-based discovery services that are served from a CDN.
  * Anything else supporting the [SAML2 IdP Discovery Protocol](https://wiki.oasis-open.org/security/IdpDiscoSvcProtonProfile).
 
