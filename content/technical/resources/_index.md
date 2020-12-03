@@ -45,7 +45,7 @@ This page contains links to more information and technical resources. It will be
   * [Seamless Access](https://seamlessaccess.org/) - the Seamless Access discovery service, building on the outcomes of [RA21](https://ra21.org/). _(This is the recommended approach for people deploying new services.)_
   * ~~[eduGAIN DSX embedded discovery](https://wiki.geant.org/display/eduGAIN/Embedded+Discovery)~~ *[will be decommissioned end 2020]*
   * ~~[DiscoJuice](http://discojuice.org/) - user-friendly, JavaScript discovery service.~~ *[decomissioned]*
-  * [Shibboleth embedded discovery service](http://shibboleth.net/products/embedded-discovery-service.html)
+  * [Shibboleth embedded discovery service](https://wiki.shibboleth.net/confluence/display/EDS10/Embedded+Discovery+Service)
 
 ### Best Practices for UX
   * [RA21](https://ra21.org/): Resource Access for the 21st Century
