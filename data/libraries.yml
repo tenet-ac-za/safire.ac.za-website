@@ -89,6 +89,18 @@ Providers:
       Documentation:
        - https://supportcenter.ieee.org/app/answers/detail/a_id/162/~/does-ieee-support-shibboleth-or-athens-authentication-in-xplore%3F
 
+    - Name: IOP Science
+      LoginLink: "[Athens / Institution login](https://ticket.iop.org/inst_login?return=https%3A%2F%2Fiopscience.iop.org%2F)"
+      Status: Tested, works
+      StatusColour: green
+      Notes: |
+        Libraries need to supply IOP with their [proxied entity id](/participants/idp/list/?wayfless) to enable access. IOP recommends using a [WAYFless URL](https://myiopscience.iop.org/account/wayflessurl).
+      Documentation:
+       - https://iopscience.iop.org/page/remote-access-tutorial
+       - https://iopscience.iop.org/page/remote-access-guidelines
+       - https://myiopscience.iop.org/account/wayflessurl
+      AuthAttribute: eduPersonScopedAffiliation
+
     - Name: JSTOR
       LoginLink: "[Login via an institution](https://www.jstor.org/institutionSearch?redirectUri=%2F)"
       Status: Tested, working
