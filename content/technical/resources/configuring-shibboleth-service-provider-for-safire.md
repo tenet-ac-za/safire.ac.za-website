@@ -1,5 +1,5 @@
 ---
-date: 2019-10-03 22:00:00+02:00
+date: 2021-02-01 09:00:00+02:00
 slug: configuring-shibboleth-service-provider-for-safire
 tags:
   - configuration
@@ -63,7 +63,7 @@ INFO OpenSAML.MetadataProvider.XML : loaded XML resource (safire-idp-proxy-metad
 To allow the Shibboleth SP to find a suitable identity provider for a user, you will need a discovery service. There are a number of options available:
 
  * The [Shibboleth Embedded Discovery Service](https://wiki.shibboleth.net/confluence/display/EDS10/Embedded+Discovery+Service) can be used as-is, or customised to create a discovery service that matches your site's look and feel.
- * Both [eduGAIN DSX](https://wiki.geant.org/display/eduGAIN/Embedded+Discovery) and [Seamless Access](https://seamlessaccess.org/) provide Javascript-based discovery services that are served from a CDN.
+ * The [Seamless Access](https://seamlessaccess.org/) provides a Javascript-based discovery services that is served from a CDN.
  * Anything else supporting the [SAML2 IdP Discovery Protocol](https://wiki.oasis-open.org/security/IdpDiscoSvcProtonProfile).
 
 The Shibboleth EDS is a good choice if all you're trying to do is authenticate South African institutions, but we'd recommend looking at Seamless Access for most use cases.
