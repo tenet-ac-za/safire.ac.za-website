@@ -143,6 +143,14 @@ Providers:
       Notes: |
         Thus far, both SAFIRE & two universities have reached out to LexisNexus SA about this. LexisNexus SA have indicated that it is on their roadmap for investigation starting in September 2020. (TENET:4612)
 
+    - Name: McGraw-Hill Medical
+      Status: Tested, working
+      StatusColour: green
+      StatusDate: 2021-02-19
+      Notes: |
+        Libraries need to contact McGraw-Hill and request access be enabled, using the [proxied entity id](/participants/idp/list/) and the correct value of eduPersonScopedAffiliation.
+      AuthAttribute: eduPersonScopedAffiliation
+
     - Name: Nature.com / SpringerNature
       LoginLink: "[Access through your institution](https://idp.nature.com/login/natureuser?client_id=grover&redirect_uri=https%3A%2F%2Fwww.nature.com%2Fnature)"
       Status: Tested, discovery problem
