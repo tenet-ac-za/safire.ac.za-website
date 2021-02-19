@@ -257,6 +257,7 @@ Providers:
       AuthAttribute:
        - eduPersonScopedAffiliation
        - eduPersonEntitlement
+      SeamlessAccess: true
 
     - Name: Thieme Connect
       LoginLink: "[Shibboleth Login](https://profile.thieme.de/HTML/sso/ejournals/shibboleth.htm?hook_url=https://www.thieme-connect.de/products/all/home.html&rdeLocaleAttr=en)"
@@ -286,3 +287,4 @@ Providers:
       Documentation:
        - http://media.wiley.com/assets/2265/11/Wiley_Online_Library_Federated_Access_Dec_2013.pdf
       AuthAttribute: eduPersonScopedAffiliation
+      SeamlessAccess: true
