@@ -1,5 +1,5 @@
 ---
-date: 2020-11-18 07:47:06+02:00
+date: 2021-02-19 12:49:06+02:00
 slug: library-services
 tags:
   - collaboration
@@ -26,9 +26,10 @@ Publishers and information providers may ask for an entity ID or IdP identity. I
 
 You may also be asked to make use of a "Wayfless" URL. Different providers have different mechanisms for constructing these, so you will need to refer to the providers's documentation. However, they will always involve a [URL-encoded](https://en.wikipedia.org/wiki/Percent-encoding) version of your entity ID --- follow the instructions in the preceding paragraph and copy the `Wayfless entityID`.
 
-If you are asked for an entitlement value, you will most likely use `urn:mace:dir:entitlement:common-lib-terms` as described in the [common-lib-terms specification](https://www.internet2.edu/products-services/trust-identity-middleware/mace-registries/urnmace-namespace/urn-mace-dir-registry/urn-mace-dir-entitlement/) and [_eduPersonEntitlement_]({{< ref "/technical/attributes/edupersonentitlement.md" >}}).
+You may be asked for affiliation or scoped affiliation values. These are the values your institution sets for [_eduPersonScopedAffiliation_]({{< ref "/technical/attributes/edupersonscopedaffiliation.md" >}}) and will be a value like `member@example.ac.za`. You may be able to figure out the correct ones by logging into our [test service provider](https://testsp.safire.ac.za/), but generally you should confirm them with your own identity provider administrator or IT support staff.
 
-Finally, you may be asked for affiliation or scoped affiliation values. These are the values your institution sets for [_eduPersonScopedAffiliation_]({{< ref "/technical/attributes/edupersonscopedaffiliation.md" >}}) and will be a value like `member@example.ac.za`. You may be able to figure out the correct ones by logging into our [test service provider](https://testsp.safire.ac.za/), but generally you should confirm them with your own identity provider administrator or IT support staff.
+Finally, if you are asked for an entitlement value, you will most likely use `urn:mace:dir:entitlement:common-lib-terms` as described in the [common-lib-terms specification](https://www.internet2.edu/products-services/trust-identity-middleware/mace-registries/urnmace-namespace/urn-mace-dir-registry/urn-mace-dir-entitlement/) and [_eduPersonEntitlement_]({{< ref "/technical/attributes/edupersonentitlement.md" >}}). However, note that SAFIRE does [not release this by default]({{< ref "/safire/policy/arp/_index.md#default" >}}) so this will only work if we've explictly enabled it (which will be the case for ones marked as working that require this).
+
 
 # Hints from other federations
 
