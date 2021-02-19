@@ -9,6 +9,7 @@
 .library-status { float:right; width:1em; text-align: center; font-weight: bold; color: #1c77b7; }
 .library-member { text-align: center; font-style: italic; }
 .library-seamless { font-size: 80%; text-align: center; font-style: italic; }
+.library-status-date { float:right; font-size: 75%; font-style: italic; }
 </style>
 <div id="participantList" class="ui-accordion ui-widget ui-helper-reset">
 {{- range $p := .Site.Data.libraries.Providers }}
@@ -23,7 +24,9 @@
         <dl class="participantDetail">
             {{- if $p.Status }}
             <dt>Status</dt>
-                <dd class="library-status-{{ $p.StatusColour|default "unknown" }}">{{ $p.Status }}</dd>
+                <dd class="library-status-{{ $p.StatusColour|default "unknown" }}">
+                {{ $p.Status }}
+                </dd>
             {{- end }}
 
             {{- if $p.LoginLink }}
@@ -37,6 +40,10 @@
             {{- end }}
         </dl><hr class="participantSeparator">
         <dl class="participantTechnical">
+            {{- if $p.StatusDate }}
+            <dt>Status since</dt>
+                <dd>{{ $p.StatusDate|dateFormat "January 2006" }}</dd>
+            {{- end }}
             {{- if $p.Documentation }}
             <dt>Documentation</dt>
                 <dd>{{ template "stringOrArray" $p.Documentation }}</dd>
