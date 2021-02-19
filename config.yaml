@@ -2,7 +2,7 @@
 languageCode: en-ZA
 language: en
 title: SAFIRE
-theme: twentyfourteen
+theme: twentyfourteen-safire
 metaDataFormat: yaml
 canonifyURLs: true
 enableRobotsTXT: true
