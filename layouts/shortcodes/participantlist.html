@@ -30,6 +30,11 @@
             {
                 if (!$.isEmptyObject(ui.newHeader.offset())) {
                     $('html:not(:animated), body:not(:animated)').animate({scrollTop: ui.newHeader.offset().top - 50}, 'fast');
+                    if (ui.newHeader.data("name")) {
+                        window.location.hash = "#" + ui.newHeader.data("name");
+                    } else {
+                        window.location.hash = "";
+                    }
                 }
             });
         }
@@ -39,6 +44,8 @@
         if (window.location.hash) {
             if ($.isNumeric(window.location.hash.substring(1))) {
                 p.accordion('option', 'active', parseInt(window.location.hash.substring(1)));
+            } else if(t = $(this).find('[data-name="' + window.location.hash.substring(1) + '"]')) {
+                p.accordion('option', 'active', t.data('tabindex'));
             } else if(t = $(this).find('[data-entityid="' + window.location.hash.substring(1) + '"]')) {
                 p.accordion('option', 'active', t.data('tabindex'));
             }
@@ -68,7 +75,7 @@
     <!-- display a single participant $p with index $i -->
     {{- $i := .i }}
     {{- $p := .p }}
-    <h3 data-entityid="{{ $p.entityID }}" data-tabindex="{{ $i }}" class="ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons">
+    <h3 data-entityid="{{ $p.entityID }}" data-tabindex="{{ $i }}" {{ with $p.mdui.DisplayName }}data-name="{{ . | urlize}}"{{end}}} class="ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons">
     {{- template "displayServiceName" $p -}}
     <span style="float:right">
     {{- if or (not $p.ParticipationAgreement) (not $p.TechnicalIntegration) }}Pending {{ end -}}
