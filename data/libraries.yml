@@ -1,6 +1,6 @@
 ---
 # Remember to change lastMod!
-lastMod: 2021-02-19T06:38:00Z
+lastMod: 2021-02-19T10:12:00Z
 Providers:
     - Name: Association for Computing Machinery (ACM)
       LoginLink: Sign in via your Institution
@@ -153,11 +153,14 @@ Providers:
         Thus far, both SAFIRE & two universities have reached out to LexisNexus SA about this. LexisNexus SA have indicated that it is on their roadmap for investigation starting in September 2020. (TENET:4612)
 
     - Name: McGraw-Hill Medical
+      LoginLink: "[Sign in via Shibboleth](https://mhmedical.com/SignInShibboleth.aspx?view=signin&federationID=27&redirecturl=http%3a%2f%2fmhmedical.com%2fumbrella-index.aspx)"
       Status: Tested, working
       StatusColour: green
       StatusDate: 2021-02-19
       Notes: |
         Libraries need to contact McGraw-Hill and request access be enabled, using the [proxied entity id](/participants/idp/list/) and the correct value of eduPersonScopedAffiliation.
+
+        Supports wayfless URLs of the form  https://mhmedical.com/SignInShibboleth.aspx?view=handler&federationID=27&redirecturl=http%3a%2f%2fmhmedical.com%2fumbrella-index.aspx&entityId={{idp_proxy_entityid}} which can be customised for specific products (e.g. accesspharmacy.mhmedical.com)
       AuthAttribute: eduPersonScopedAffiliation
 
     - Name: Nature.com / SpringerNature
@@ -193,6 +196,16 @@ Providers:
       Status: Tested, discovery problem, engaged at SANLiC2019
       StatusColour: yellow
       Notes: WAYFless login works, not sure what else needs to be done.
+      AuthAttribute: eduPersonScopedAffiliation
+
+    - Name: ProQuest (Dissertations & Theses Global)
+      LoginLink: "[Use your institution's local login](https://search.proquest.com/shibbolethlogin)"
+      Status: Tested, working
+      StatusColour: green
+      StatusDate: 2021-02-19
+      Notes: Enable in the ProQuest Administrator Module
+      Documentation:
+       - https://support.proquest.com/articledetail?id=kA23r000000FVN3CAO&key=saml&pcat=All__c&icat=
       AuthAttribute: eduPersonScopedAffiliation
 
     - Name: ProQuest (RefWorks)
