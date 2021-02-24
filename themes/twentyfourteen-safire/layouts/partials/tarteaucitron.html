@@ -12,7 +12,7 @@
       "handleBrowserDNTRequest": false,
       "removeCredit": true,
       "readmoreLink": "{{ ref . "/users/who-why-what.md" }}",
-      "cookieDomain": "{{ replaceRE "^([^.])*" "" $url.Host }}",
+      "cookieDomain": "{{ lower $url.Host | replaceRE "^(.+\\.)?([^.]+\\.(ac\\.za|local))$" ".$2" }}",
       "mandatory": true
     });
     tarteaucitron.user.googleFonts = [ 'Lato:300,400,700,900,300italic,400italic,700italic;subset=latin,latin-ext' ];
