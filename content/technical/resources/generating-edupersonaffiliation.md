@@ -1,5 +1,5 @@
 ---
-date: 2019-03-12 10:02:00+02:00
+date: 2021-03-04 21:20:00+02:00
 slug: generating-edupersonaffiliation
 tags:
   - eduPersonAffiliation
@@ -21,7 +21,7 @@ The goal is to generate an attribute containing a series (array) of values that 
 
 However, it is important to note that you do not need to be able to produce all these categories to be able to assert eduPersonAffiliation. If you only have some of the information, you should **release as much as you have** as accurately as possible. At the very least, every IdP should be able to assert "_member_" for its members.
 
-The [REFEDs ePSA usage comparison](https://www.terena.org/activities/refeds/docs/ePSAcomparison_0_13.pdf) provides guidance for mapping the controlled language. In South Africa, we've tied this language to the [data elements used in HEMIS]({{< ref "/technical/attributes/edupersonaffiliation.md" >}}). The table below summarises some common South Africa situations.
+The [REFEDs ePSA usage comparison](https://refeds.org/wp-content/uploads/2015/05/ePSAcomparison_0_13.pdf) provides guidance for mapping the controlled language. In South Africa, we've tied this language to the [data elements used in HEMIS]({{< ref "/technical/attributes/edupersonaffiliation.md" >}}). The table below summarises some common South Africa situations.
 
 | Role | Value(s) |
 |:-----|:---------|
