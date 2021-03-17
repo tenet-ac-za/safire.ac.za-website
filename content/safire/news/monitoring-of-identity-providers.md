@@ -27,7 +27,7 @@ The monitoring output shows the hosts we passed through on the way to what we be
 
 The monitoring system emulates a web browser attempting to log into the [test service provider](https://testsp.safire.ac.za/), and uses [IdP proxies]({{< ref "/technical/metadata.md" >}})/scoping elements to preselect an identity provider. It derives all of its information from the[ federation metadata](https://phph.safire.ac.za/overview?filter=fed%3A%5Esafire-fed-registry%24) and reloads this daily during the normal metadata update cycle.
 
-The tests are implemented using a [Nagios-compatible plugin](https://github.com/safire-ac-za/monitoring-plugins) that makes use of LWP::UserAgent to implement a very minimal subset of the SAML2 protocol. The plugin could probably be improved significantly.
+The tests are implemented using a [Nagios-compatible plugin](https://github.com/tenet-ac-za/monitoring-plugins) that makes use of LWP::UserAgent to implement a very minimal subset of the SAML2 protocol. The plugin could probably be improved significantly.
 
 ## Identification
 

@@ -169,7 +169,7 @@ The [ldap:AttributeAddFromLDAP](https://simplesamlphp.org/docs/stable/ldap:ldap#
 
 ### 4.2: SQL database
 
-SAFIRE has developed a [sqlattribs:AttributeFromSQL](https://github.com/safire-ac-za/simplesamlphp-module-sqlattribs) module that may help, either as a code example for how to develop your own module or directly as an attribute source.
+SAFIRE has developed a [sqlattribs:AttributeFromSQL](https://github.com/tenet-ac-za/simplesamlphp-module-sqlattribs) module that may help, either as a code example for how to develop your own module or directly as an attribute source.
 
 ```php
 20 => [

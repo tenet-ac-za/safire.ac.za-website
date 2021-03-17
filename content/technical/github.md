@@ -10,6 +10,6 @@ title: GitHub Repositories
 url: /technical/github/
 ---
 
-From time to time, SAFIRE has to develop software to meet its operational requirements. It is committed to make as much of this software as is possible available to the broader community. For this reason it maintains some GitHub repositories at [https://github.com/safire-ac-za/](https://github.com/safire-ac-za/).
+From time to time, SAFIRE has to develop software to meet its operational requirements. It is committed to make as much of this software as is possible available to the broader community. For this reason it maintains some GitHub repositories at [https://github.com/tenet-ac-za/](https://github.com/safire-ac-za/).
 
 Most of SAFIRE's software is released under an [MIT License](https://opensource.org/licenses/MIT).

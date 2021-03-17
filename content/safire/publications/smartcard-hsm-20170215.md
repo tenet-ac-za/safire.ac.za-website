@@ -116,7 +116,7 @@ We make use of WAYF's [PHPH](https://github.com/wayf-dk/phph) as our [metadata 
 
 This is not an uncommon problem, and software exists to solve it. One example is [pyeleven](https://github.com/leifj/pyeleven), which provides a REST API. WAYF have a similar and largely compatible API written in Go, which they call [goeleven](https://github.com/wayf-dk/goeleven/).
 
-Because PHPH already had support for HSMs via goeleven, it was natural that we used this. It turned out that some [minor patches](https://github.com/safire-ac-za/goeleven/commit/395e4309493e1162d0e4d30256fd0714b1f64638) were required to support the Nitrokey HSM, largely to work around OpenSC's [virtual slot mechanism](https://github.com/OpenSC/OpenSC/wiki/PKCS11-Module#user-content-virtual-slots) in their PKCS#11 module.
+Because PHPH already had support for HSMs via goeleven, it was natural that we used this. It turned out that some [minor patches](https://github.com/tenet-ac-za/goeleven/commit/395e4309493e1162d0e4d30256fd0714b1f64638) were required to support the Nitrokey HSM, largely to work around OpenSC's [virtual slot mechanism](https://github.com/OpenSC/OpenSC/wiki/PKCS11-Module#user-content-virtual-slots) in their PKCS#11 module.
 
 Although we don't use it, pyeleven was written to integrate PKCS#11 with [pyFF](https://github.com/leifj/pyFF) and so this mechanism will almost certainly work for other aggregator software too.
 
