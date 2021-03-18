@@ -37,5 +37,18 @@
                 "URL": "https:\/\/varsityvibe.co.za\/metadata.png"
             }
         }
+    },
+    {
+        "entityType": "idp",
+        "ParticipationAgreement": true,
+        "OrganizationName": "Vaal University of Technology",
+        "OrganizationDisplayName": "Vaal University of Technology",
+        "OrganizationURL": "https:\/\/www.vut.ac.za\/",
+        "TechnicalIntegration": false,
+        "mdui": {
+            "Logo": {
+                "URL": "https://pbs.twimg.com/profile_images/877042547100721152/Sb5NKW8k_400x400.jpg"
+            }
+        }
     }
 ]
