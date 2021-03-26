@@ -52,6 +52,11 @@ menu:
     URL: https://technical.edugain.org/eccs/?registrationAuthority=https%3A%2F%2Fsafire.ac.za
     Parent: participants-support
     Weight: 3
+  - Name: "Mailing Lists"
+    Identifier: participants-support-lists
+    URL: https://lists.tenet.ac.za/sympa/lists/ti/safire
+    Parent: participants-support
+    Weight: 4
 
   - Name: "Technical Requirements"
     Identifier: technical-radius-policy

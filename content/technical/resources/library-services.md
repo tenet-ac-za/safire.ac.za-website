@@ -20,6 +20,8 @@ The following documents the integration status of various providers in SAFIRE.
 
 If there's something missing from the above, the information is out of date (or you know something we don't), or you'd simply like to help us unlock one of the other information providers, please [contact us]({{< ref "/safire/contact/_index.md" >}})! Our experience is it takes one or two interested libraries to help make the first connection, and then the entire community benefits from improved access.
 
+Systems librarians interested in such integrations might also want to consider [subscribing to the safire-libs@lists](https://lists.tenet.ac.za/sympa/lists/ti/safire) mailing list.
+
 # Values needed by information providers
 
 Publishers and information providers may ask for an entity ID or IdP identity. If they're accessing your identity provider via eduGAIN, the value they will need is your institution's proxied entity ID. You can get this by finding on your institution in [our list of identity providers]({{< ref "/participants/idp/list.md" >}}) and then clicking on the `Metadata entityID` field to expand it. This will display other forms of the entity ID, including the `Proxied entityID` for you to copy-and-paste.
