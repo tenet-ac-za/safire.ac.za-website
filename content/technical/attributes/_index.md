@@ -1,5 +1,5 @@
 ---
-date: 2016-10-21 09:30:00+02:00
+date: 2021-03-31 08:00:00+02:00
 menu:
   main:
     identifier: technical-attributes
@@ -15,7 +15,7 @@ The following is a summary of the (SAML2) attributes supported by SAFIRE.
 
 # Minimum attributes required for participation
 
-  * [displayName]({{< ref "/technical/attributes/displayname.md" >}}) [^1june] [^rns]
+  * [displayName]({{< ref "/technical/attributes/displayname.md" >}}) [^rns]
   * [eduPersonPrincipalName]({{< ref "/technical/attributes/edupersonprincipalname.md" >}}) [^rns]
   * [eduPersonScopedAffiliation]({{< ref "/technical/attributes/edupersonscopedaffiliation.md" >}}) [^1june] [^rns]
   * [givenName]({{< ref "/technical/attributes/givenname.md" >}}) [^rns]
@@ -45,5 +45,5 @@ The following is a summary of the (SAML2) attributes supported by SAFIRE.
 
 [^trial]: Early adopters by prior arrangement; not yet officially supported.
 
-[^1june]: Proposed from 31 March 2021. Only enforced for existing providers from 1 June 2021.
+[^1june]: Only enforced for existing providers from 1 June 2021.
 

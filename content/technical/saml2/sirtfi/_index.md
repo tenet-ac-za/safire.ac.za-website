@@ -1,5 +1,5 @@
 ---
-date: 2018-07-23 09:35:00+02:00
+date: 2021-03-31 08:00:00+02:00
 menu:
   main:
     identifier: technical-saml2-sirtfi
@@ -12,7 +12,7 @@ url: /technical/saml2/sirtfi/
 
 The [Security Incident Response Trust Framework for Federated Identity](https://refeds.org/sirtfi) (Sirtfi) aims to enable the coordination of incident response across federated organisations. The framework provides a structured way for providers to indicate that they follow current information security best practices, thus raising their level of assurance and improving trust within the federated community.
 
-It is **strongly recommended** that SAFIRE participants work towards Sirtfi compliance. In particular, identity providers need to be aware that a growing number of widely-used service providers --- such a CILogin --- require that identity providers are Sirtfi compliant before they will grant their users access to services.
+It is **strongly recommended** that SAFIRE participants work towards Sirtfi compliance, and inclusion of a security contact is [required for identity providers]({{< ref "../idp-requirements/_index.md" >}}). In particular, identity providers need to be aware that a growing number of widely-used service providers --- such a CILogin --- require that identity providers are Sirtfi compliant before they will grant their users access to services.
 
 ### Attesting Sirtfi compliance
 

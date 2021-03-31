@@ -23,7 +23,7 @@ attributeReferences:
     URL: /technical/saml2/idp-requirements/
   - Name: HEMIS Data Elements
     URL: http://www.heda.co.za/Valpac_Help/DED_031_040.htm#E039
-date: 2016-09-12 12:51:05+00:00
+date: 2021-03-31 08:00:00+02:00
 layout: attributelist
 slug: edupersonscopedaffiliation
 title: eduPersonScopedAffiliation
