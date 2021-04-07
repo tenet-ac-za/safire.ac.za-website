@@ -26,7 +26,7 @@ A suitably redacted copy of this statement will be published as part of your ent
 
 #### Annual review
 
-We undertake an annual review of Sirtfi-compliant entities, to ensure that the security contact details in metadata are still accurate, and to reaffirm the entity's Sirtfi compliance. Entities that fail this review may have their assertion of compliance removed.
+We undertake an annual review of entities that have published security contacts to ensure that the security contact details in metadata are still accurate. In the case of Sirtfi-complient entities this review is used as a basis to reaffirm the entity's Sirtfi compliance and entities that fail this review may have their assertion of compliance removed and may need to reattest compliance.
 
 ### Sirtfi-compliant entities
 
