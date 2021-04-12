@@ -1,6 +1,6 @@
 ---
 # Remember to change lastMod!
-lastMod: 2021-02-19T10:12:00Z
+lastMod: 2021-03-12T21:31:00+02:00
 Providers:
     - Name: Association for Computing Machinery (ACM)
       LoginLink: Sign in via your Institution
@@ -118,6 +118,16 @@ Providers:
        - http://support.jstor.org/access-management/2016/10/6/jstor-saml-information
        - https://shibboleth2sp.jstor.org/wayfless_url_generator.html
       AuthAttribute: eduPersonScopedAffiliation
+
+    - Name: JoVE (Journal of Visualized Experiments)
+      LoginLink: "[Continue with Shibboleth/OpenAthens](https://www.jove.com/discovery?return_page=https://www.jove.com/)"
+      Status: Tested, working
+      StatusColor: green
+      StatusDate: 2021-04-01
+      Notes: |
+        Libraries need to provide JoVE support with their [proxied entity id](/participants/idp/list/?wayfless) and the eduPersonScopedAffiliation they will use.
+      Documentation:
+       - https://www.jove.com/wp-content/uploads/2020/03/Remote-Access-V2.pdf
 
     - Name: kanopy
       LoginLink: https://www.kanopy.com/signup/find/university
