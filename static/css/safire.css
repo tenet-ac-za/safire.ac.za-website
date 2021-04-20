@@ -1,15 +1,15 @@
 /*
  *  Theme Name:   Twenty Fourteen Child
- *   Description:  Twenty Fourteen Child Theme
- *    Author:       Guy Halse
- *     Author URI:   http://orcid.org/0000-0002-9388-8592
- *      Template:     twentyfourteen
- *       Version:      1.0.0
- *        License:      GNU General Public License v2 or later
- *         License URI:  http://www.gnu.org/licenses/gpl-2.0.html
- *          Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
- *           Text Domain:  twenty-fourteen-child
- *           */
+ *  Description:  Twenty Fourteen Child Theme
+ *  Author:       Guy Halse
+ *  Author URI:   http://orcid.org/0000-0002-9388-8592
+ *  Template:     twentyfourteen
+ *  Version:      1.0.0
+ *  License:      GNU General Public License v2 or later
+ *  License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ *  Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ *  Text Domain:  twenty-fourteen-child
+ */
 
 .footnotes { font-size: 12px; margin-top: 18px; }
 
@@ -215,6 +215,12 @@ input[type="submit"]:active { background-color: #6d488c; }
 .entry-content tr:nth-child(even) { background-color: #ffffff }
 .entry-content tr:nth-child(odd) { background-color: #f9f9f9 }
 .entry-content tr:hover td { background-color: #f3f3f3; }
+
+/* make drafts more obvious */
+.status-draft .entry-title,
+.status-draft .entry-meta,
+.status-draft .entry-meta a { color: #6d488c !important; }
+.status-draft .entry-title::after { content: " [Draft]"; }
 
 @media screen and (min-width: 783px) {
 	.site-title a:hover {

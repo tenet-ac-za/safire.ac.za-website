@@ -1,5 +1,5 @@
 <!-- partial: content -->
-<article class="post type-post status-publish format-standard hentry">
+<article class="post type-post status-{{ if .Draft }}draft{{ else }}publish{{ end }} format-standard hentry">
     <!-- .entry-header -->
     <header class="entry-header">
         <h1 class="entry-title">{{ .Title }}</h1>
