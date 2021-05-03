@@ -15,7 +15,7 @@ attributeNotes: |2
    * not guarenteed to be unique (multiple users can share the same email address);
    * not persistant (a person's email address may change without warning);
    * may be reassigned (a new person may get the same email address as someone who has left);
-   * is not validated against the `<shibmd:Scope>` elements, and may have a right-hand side that is not in-baliwick (i.e. it may contain a user's personal @gmail.com address rather than an institutional address).
+   * is not validated against the `<shibmd:Scope>` elements, and may have a right-hand side that is not in-baliwick (i.e. it may contain a user's personal _example@gmail.com_ address rather than an institutional address).
 date: 2021-05-03 16:00:00+02:00
 layout: attributelist
 slug: mail
