@@ -17,7 +17,7 @@ attributeFormat: |2
     * member
     * staff _(implies employee, member)_
     * student _(implies member)_
-
+attributeNotes: |2
   The semantics of various affiliations is described in bold in the [ePSA usage comparison](https://refeds.org/wp-content/uploads/2015/05/ePSAcomparison_0_13.pdf).
 
   For South African universities, these should be interpreted so as to align with the Higher Education Management Information System (HEMIS) data elements. Thus the _eduPersonAffiliation_ definitions of "student", "faculty" &amp; "staff" should be aligned with the HEMIS definitions for "enrolled student" (both undergraduate and postgraduate) and the "instruction/research professional (academic)", and "executive/administrative/managerial professional + specialised/support professional + technical + non-professional administration (senior management, administrative & support staff)" personnel categories respectively. Staff in the "trade/craft + service" HEMIS personnel categories would typically only be an _eduPersonAffilliation_ "employee" (however depending on institutional policy they may additionally classify as "staff".
@@ -35,7 +35,7 @@ attributeReferences:
     URL: https://refeds.org/wp-content/uploads/2015/05/ePSAcomparison_0_13.pdf
   - Name: HEMIS Data Elements
     URL: http://www.heda.co.za/Valpac_Help/DED_031_040.htm#E039
-date: 2021-03-04 21:20:00+02:00
+date: 2021-05-03 16:00:00+02:00
 layout: attributelist
 slug: edupersonaffiliation
 title: eduPersonAffiliation

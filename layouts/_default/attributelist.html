@@ -44,6 +44,12 @@
                                 <th>Example</th>
                                 <td>{{ .Params.attributeexample|default "none given"|markdownify }}</td>
                             </tr>
+{{- with .Params.attributeNotes }}
+                            <tr>
+                                <th>Additional Notes</th>
+                                <td>{{ .|default "none"|markdownify }}</td>
+                            </tr>
+{{- end}}
                         </table>
                     </section>
                 </div><!-- .entry-content -->
