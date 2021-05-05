@@ -14,6 +14,8 @@ googleAnalytics: "UA-88766195-1"
 Privacy:
   googleAnalytics:
     RespectDoNotTrack: true
+  youtube:
+    privacyEnhanced: true
 
 # External menu links & crosslinks
 menu:
