@@ -1,5 +1,5 @@
 ---
-date: 2017-03-01 19:59:54+00:00
+date: 2021-05-07 13:00:00+02:00
 slug: configuring-g-suite-idp-for-safire
 tags:
   - configuration
@@ -7,11 +7,13 @@ tags:
   - gsuite
   - metadata
   - technical
-title: Configuring G Suite (Google Apps) as an IdP for SAFIRE
+title: Configuring Google Workspace (G Suite) as an IdP for SAFIRE
 url: /technical/resources/configuring-g-suite-idp-for-safire/
 ---
 
-[G Suite for Education](https://edu.google.com/products/productivity-tools/) (formally Google Apps) includes a limited [SAML identity provider](https://support.google.com/a/answer/6087519). Because SAFIRE is a hub-and-spoke federation, this can be configured to work as an identity provider within SAFIRE --- the federation will do the work of integrating service providers, avoiding the need to add each one individually.
+> As a result of the [baseline changes that occured in march 2021]({{< ref "/safire/news/20210331-baseline-changes.md" >}}), it is no longer possible to directly integrate Google Workspace (G Suite) with SAFIRE without making [schema changes](https://support.google.com/a/answer/6327792). In particular, you would need to add support for the [displayName]({{< ref "/technical/attributes/displayname.md" >}}) and [eduPersonScopedAffiliation]({{< ref "/technical/attributes/edupersonscopedaffiliation.md" >}}) attributes. As no current providers use Google Workspace, his document has not been updated to incorporate information on how to do that, nor has it been tested. It remains **theoretically** possible to integrate Google Workspace.
+
+[Google Workspace for Education](https://edu.google.com/products/productivity-tools/) (formally G Suite formerly Google Apps) includes a limited [SAML identity provider](https://support.google.com/a/answer/6087519). Because SAFIRE is a hub-and-spoke federation, this can potentially be configured to work as an identity provider within SAFIRE --- the federation will do the work of integrating service providers, avoiding the need to add each one individually.
 
 Note that we use G Suite's Primary Email for eduPersonPrincipalName (and Name ID) because it corresponds to the username people log in with. G Suite allows this to be reassigned after a delay. However, [to meet SAFIRE's requirements]({{< ref "/technical/resources/generating-edupersonprincipalname.md" >}}), please make sure ensure you never reassigned email addresses.
 
