@@ -1,14 +1,18 @@
-{{- $SAMLcostPerFTE := 6 -}}
-{{- $RADIUScostPerFTE := 0.5 -}}
+{{/* last fees update: May 2021 */}}
+{{- $SAMLcostPerFTE := 6.5 -}}
+{{- $RADIUScostPerFTE := 0.55 -}}
+{{- $HideRADIUS := true -}}
+{{ if $HideRADIUS }}
 <style>
 .fees-radius { display: none; }
 </style>
+{{ end }}
 <table class="fees idp" id="idp-fees">
     <caption>Annual fees for Identity Providers</caption>
     <thead>
         <tr>
             <th rowspan="2">FTE Band</th>
-            <th>Technology Profile</th>
+            <th colspan="{{ if $HideRADIUS }}1{{ else }}2{{ end }}">Technology Profile</th>
             <th rowspan="2">Effective Max Discount</th>
         </tr>
         <tr>

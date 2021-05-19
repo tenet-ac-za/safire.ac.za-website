@@ -1,5 +1,5 @@
 ---
-date: 2019-05-01 00:00:00+02:00
+date: 2021-05-19 00:00:00+02:00
 menu:
   main:
     identifier: participants-idp-fees
@@ -13,7 +13,7 @@ url: /participants/idp/fees/
 
 ## Non-recurring costs
 
-A once-off take-on charge of ***R 2 400*** will be levied for each new production entity registered under the [SAML2 technology profile]({{< ref "/technical/saml2/_index.md" >}}) to cover the [administrative overheads]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) of processing a new identity provider registration.
+A once-off take-on charge of ***R 2 550*** will be levied for each new production entity registered under the [SAML2 technology profile]({{< ref "/technical/saml2/_index.md" >}}) to cover the [administrative overheads]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) of processing a new identity provider registration.
 
 ## Annual recurring costs
 
@@ -27,8 +27,7 @@ All annual recurring costs are subject to an annual escalation to reflect the in
 
 ## Discounts and exemptions
 
-- ***All SAFIRE's fees are waived until 31 December 2019. IdPs joining before this date will not be charged retrospectively***
-- Institutions that are beneficiaries under TENET's REN Services Agreement at the time of their on-boarding are exempt from SAFIRE's fees provided that the sum of the preceeding 12 months' Agency Fee was greater than or equal to the equivalent SAFIRE fee.
+- **Institutions that subscribe to a bundle of NREN services from TENET are exempt from SAFIRE's fees** so long as they continue to receive that bundle.
 - Non-profit or public benefit organisations properly registered as such in South Africa may request a discount.
 - The [SAFIRE Steering Committee]({{< ref "/governance.md" >}}) may, at its sole discretion, elect to discount or exempt any organisation from paying SAFIRE's fees.
 
