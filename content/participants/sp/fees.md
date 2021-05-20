@@ -23,6 +23,7 @@ SAFIRE does not charge service providers a participation fee, and there are no r
 
 ## Discounts and exemptions
 
-- **Institutions that subscribe to a bundle of NREN services from TENET are exempt from SAFIRE's fees.**
+- **Institutions that subscribe to a bundle of NREN services from TENET receive a 100% discount on SAFIRE's fees.**
 - Non-profit or public benefit organisations properly registered as such in South Africa may request a discount.
 - The [SAFIRE Steering Committee]({{< ref "/governance.md" >}}) may, at its sole discretion, elect to discount or exempt any organisation from paying SAFIRE's fees. Such discretion may be applied on recommendation from a [Member]({{< ref "/participants/idp/list.md" >}}) or the operations staff.
+- All prices exclude value-added tax (VAT)
