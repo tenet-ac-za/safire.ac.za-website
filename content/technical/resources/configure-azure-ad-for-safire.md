@@ -35,17 +35,15 @@ Once saved, it is worthwhile double-checking that the information was imported p
 
 ## Configure Attribute claims rules
 
-You now need to configure your application's *User Attributes & Claims*. Azure sets up a few default User Attributes & Claims rules, but we need to change these to release the [Minimum attributes required for participation](https://safire.ac.za/technical/attributes/) for SAFIRE. 
+You now need to configure your application's *User Attributes & Claims*. Azure sets up a few default User Attributes & Claims rules, but we need to ensure these release the [Minimum attributes required for participation](https://safire.ac.za/technical/attributes/) for SAFIRE, by altering what has been pre-defined, or *Add new claim* 
 
-On each of the *Additional Claims*, you will need to change the *Name* to be the matching OID you will find at SAFIRE's Minimum attributes required for participation link above. 
+On each of the *Additional Claims*, you will need to ensure the *Name* matches the OID for the corresponding attribute you will find at SAFIRE's Minimum attributes required for participation link above. 
 
 e.g.: 
 
 emailaddress changes to urn:oid:0.9.2342.19200300.100.1.3
 
-*NOTE:* Azure defaults to using the identity Claims *Namespace* URI, and SAFIRE uses saml urn assertions. Thus you do not need to specify a Namespace for any of the asserted Additional Claims.
-
-You will also need to add *Additional claims* for [eduPersonPrincipalName](https://safire.ac.za/technical/attributes/edupersonprincipalname/), and [eduPersonScopedAffiliation](https://safire.ac.za/technical/attributes/edupersonscopedaffiliation/).
+*NOTE:* Azure defaults to using the identity Claims *Namespace* URI's, and SAFIRE uses SAML urn assertions. Thus you do not need to specify a Namespace for any of the asserted Additional Claims.
 
 ##### eduPersonPrincipalName
 
