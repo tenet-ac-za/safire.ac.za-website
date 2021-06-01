@@ -37,7 +37,7 @@ Once saved, it is worthwhile double-checking that the information was imported p
 
 ## Configure Attribute claims rules
 
-You need to configure now your application's *User Attributes & Claims*. Azure sets up a few default User Attributes & Claims rules, but we need to change these to release the [Minimum attributes required for participation](https://safire.ac.za/technical/attributes/) for SAFIRE. 
+You now need to configure your application's *User Attributes & Claims*. Azure sets up a few default User Attributes & Claims rules, but we need to change these to release the [Minimum attributes required for participation](https://safire.ac.za/technical/attributes/) for SAFIRE. 
 
 On each of the *Additional Claims*, you will need to change the *Name* to be the matching OID you will find at SAFIRE's Minimum attributes required for participation link above. 
 
