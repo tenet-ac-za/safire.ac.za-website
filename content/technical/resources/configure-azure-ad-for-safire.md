@@ -41,7 +41,7 @@ On each of the *Additional Claims*, you will need to ensure the *Name* matches t
 
 e.g.: 
 
-emailaddress changes to urn:oid:0.9.2342.19200300.100.1.3
+emailaddress = mail = urn:oid:0.9.2342.19200300.100.1.3
 
 *NOTE:* Azure defaults to using the identity Claims *Namespace* URI's, and SAFIRE uses SAML urn assertions. Thus you do not need to specify a Namespace for any of the asserted Additional Claims.
 
