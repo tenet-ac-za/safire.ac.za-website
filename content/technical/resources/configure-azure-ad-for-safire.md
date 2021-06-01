@@ -49,11 +49,11 @@ emailaddress changes to urn:oid:0.9.2342.19200300.100.1.3
 
 You will also need to add *Additional claims* for [eduPersonPrincipalName](https://safire.ac.za/technical/attributes/edupersonprincipalname/), and [eduPersonScopedAffiliation](https://safire.ac.za/technical/attributes/edupersonscopedaffiliation/).
 
-# eduPersonPrincipalName
+##### eduPersonPrincipalName
 
 It is recommended that you use the 'user.userprincipalname' attribute, as this meets the required attribute definition of 'Single valued, scoped to home organisation' (see above link for more details).
 
-# eduPersonScopedAffiliation
+##### eduPersonScopedAffiliation
 
 Per the definition of eduPersonScopedAffiliation, You will need to use what user attributes you have in your Azure AD to create a transform rule, to assert a users role at your institution correctly.
 
