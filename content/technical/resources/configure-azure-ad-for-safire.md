@@ -16,16 +16,14 @@ This documentation assumes that you already have an Azure Active Directory confi
 To configure Azure Active Directory as an identity provider for SAFIRE, you need to do 3 things:
 
 1.) Create your own, new *Enterprise Application*
-
 2.) Set up single sign-on
-
 3.) Configure Attribute claims rules
 
 ## Create your own new Enterprise Application
 
 In Federation terms, Identity Providers take on SAFIRE's metadata and configure SAFIRE as a 'Service Provider'. In Azure Active Directory, however, you need to change your thinking slightly, in that you need to think of SAFIRE as an *Enterprise application* that you need to create.
 
-You will need to create your own new Enterprise Application in your organisation's Azure Active Directory role. You can do so by adding a *New application* and create your *own application* under the 'Enterprise Applications' Management item.
+You will need to create your own new Enterprise Application in your organisation's Azure Active Directory role. You can do so by adding a *New application* and *Create your own application* under the 'Enterprise Applications' Management item.
 
 You can name the application whatever makes sense to you, but in this document, we have named our new application "SAFIRE - South African Identity Federation". This application is integrating with other applications that are not in the Azure Application gallery.
 
