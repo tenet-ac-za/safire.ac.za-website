@@ -53,9 +53,9 @@ It is recommended that you use the 'user.userprincipalname' attribute, as this m
 
 Per the definition of eduPersonScopedAffiliation, You will need to use what user attributes you have in your Azure AD to create a transform rule, to assert a users role at your institution correctly.
 
-eg. If 'user.extensionattribute1' contains 'staff' then output 'staff@example.ac.za'.​
+eg. If 'user.extensionattribute1' contains 'staff' then output 'staff@example.ac.za'.
 
-*NOTE:* eduPersonScopedAffiliation, is a scoped copy of [eduPersonAffiliation](https://safire.ac.za/technical/attributes/edupersonaffiliation/)'s format rules, and importantly, where an affiliation value says "implies…" the implied values must also be included in the returned set; This, however, is not currently possible in Azure, as Azure does not support multi-valued attributes, thus asserting e.g. 'staff@example.ac.za' is acceptable.
+*NOTE:* eduPersonScopedAffiliation, is a scoped copy of [eduPersonAffiliation](https://safire.ac.za/technical/attributes/edupersonaffiliation/)'s format rules, and importantly, where an affiliation value says "implies…" the implied values must also be included in the returned set; This, however, is not currently possible in Azure, as Azure does not support multi-valued attributes, and therefore does not fully meet the requirements for the [Research and Scholarship entity category](https://safire.ac.za/safire/policy/arp/#research--scholarship). Given this is a limitation on the Software provider side, and to maintain SAFIRE's commitment to minimising the barrier to entry, asserting a single valued eduPersonScopedAffiliation will be acceptable for now e.g. 'staff@example.ac.za'.
 
 SAFIRE are currently working on a workaround to this, and will contact affected Identity Providers with a solution soon.
 
