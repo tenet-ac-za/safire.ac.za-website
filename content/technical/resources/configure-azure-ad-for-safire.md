@@ -15,8 +15,8 @@ This documentation assumes that you already have an Azure Active Directory confi
 
 To configure Azure Active Directory as an identity provider for SAFIRE, you need to do 3 things:
 
-1.) Create your own, new *Enterprise Application*
-2.) Set up single sign-on
+1.) Create your own, new *Enterprise Application*\
+2.) Set up single sign-on\
 3.) Configure Attribute claims rules
 
 ## Create your own new Enterprise Application
