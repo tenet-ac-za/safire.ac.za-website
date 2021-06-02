@@ -117,7 +117,7 @@ Finally, you will also need to add your organisation details and contact address
 <md:ContactPerson contactType="support">
   <md:GivenName>Example University Help Desk</md:GivenName>
   <md:EmailAddress>support@example.ac.za</md:EmailAddress>
-  <md:TelephoneNumber>+27.21.763.0000</md:TelephoneNumber>
+  <md:TelephoneNumber>+27.21.114.0000</md:TelephoneNumber>
 </md:ContactPerson>
 <md:ContactPerson contactType="technical">
   <md:GivenName>Example University IdM</md:GivenName>

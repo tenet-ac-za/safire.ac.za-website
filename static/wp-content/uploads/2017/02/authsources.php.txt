@@ -65,7 +65,7 @@ $config['example-sp'] = [
             'contactType' => 'support',
             'emailAddress' => 'mailto:support@example.ac.za', /* role not person */
             'givenName' => 'Example University Help Desk',
-            'telephoneNumber' => '+27.21.763.0000',
+            'telephoneNumber' => '+27.21.114.0000',
         ],
     ],
 ];

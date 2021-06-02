@@ -67,14 +67,14 @@ $metadata['__DYNAMIC:1__'] = [
             'contactType' => 'support',
             'emailAddress' => 'mailto:support@example.ac.za', /* role not person */
             'givenName' => 'Example University Help Desk',
-            'telephoneNumber' => '+27.21.763.0000',
+            'telephoneNumber' => '+27.21.114.0000',
         ],
         [
             /* required for Sirtfi, but this is how to add a security contact if you have one */
             'contactType' => 'other',
             'emailAddress' => 'mailto:csirt@example.ac.za',
             'givenName' => 'Example University CSIRT',
-            'telephoneNumber' => '+27.21.763.7156',
+            'telephoneNumber' => '+27.21.114.9999',
             'attributes' => [
                 'xmlns:remd' => 'http://refeds.org/metadata',
                 'remd:contactType' => 'http://refeds.org/metadata/contactType/security',

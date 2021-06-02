@@ -41,7 +41,7 @@
   <md:ContactPerson contactType="support">
     <md:GivenName>Example University Help Desk</md:GivenName>
     <md:EmailAddress>mailto:support@example.ac.za</md:EmailAddress><!-- role not person -->
-    <md:TelephoneNumber>+27.21.763.0000</md:TelephoneNumber>
+    <md:TelephoneNumber>+27.21.114.0000</md:TelephoneNumber>
   </md:ContactPerson>
 </md:EntityDescriptor>
 
