@@ -15,7 +15,7 @@ url: /technical/resources/configure-azure-ad-for-safire/
 
 This documentation assumes that you already have an Azure Active Directory (Azure AD) tenant that is correctly configured and provisioned with your institution's user accounts.
 
-To configure Azure AD as an identity provider for SAFIRE, you need to configure [SAML-based SSO](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configure-saml-single-sign-on). This requires yout to do three things:
+To configure Azure AD as an identity provider for SAFIRE, you need to configure [SAML-based SSO](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configure-saml-single-sign-on). This requires you to do three things:
 
  1. Create your own, new *Enterprise Application*
  2. Set up single sign-on
@@ -25,7 +25,7 @@ To configure Azure AD as an identity provider for SAFIRE, you need to configure 
 
 In identity federation terminology, Identity Providers take on SAFIRE's metadata and configure SAFIRE as a 'Service Provider'. In Azure AD, however, you need to change your thinking slightly, in that you need to think of SAFIRE as an *Enterprise application* that you need to create.
 
-You will need to create your own new Enterprise Application in your organisation's Azure Active Directory role. You can do so by adding a *New application* and *Create your own application* under the 'Enterprise Applications' Management item.
+You will need to create your own new Enterprise Application in your organisation's Azure Active Directory Service. You can do so by adding a *New application* and *Create your own application* under the 'Enterprise Applications' Management item.
 
 You can name the application whatever makes sense to you, but in this document, we have named our new application "SAFIRE - South African Identity Federation". This application is integrating with other applications that are not in the Azure Application gallery.
 
@@ -51,13 +51,13 @@ emailaddress = mail = urn:oid:0.9.2342.19200300.100.1.3
 
 ##### eduPersonPrincipalName
 
-It is recommended that you use the 'user.userprincipalname' attribute, as this meets the required [eduPersonPrincipalName attribute definition](({{< ref "/technical/attributes/edupersonprincipalname.md" >}})) of 'Single valued, scoped to home organisation' (see above link for more details). However, not
+It is recommended that you use the 'user.userprincipalname' attribute, as this meets the required [eduPersonPrincipalName attribute definition](({{< ref "/technical/attributes/edupersonprincipalname.md" >}})) of 'Single valued, scoped to home organisation' (see above link for more details).
 
 ##### eduPersonScopedAffiliation
 
 Per the definition of [eduPersonScopedAffiliation](({{< ref "/technical/attributes/edupersonscopedaffiliation.md" >}})), You will need to use what user attributes you have in your Azure AD to create a transform rule, to assert a users role at your institution correctly.
 
-eg. If 'user.extensionattribute1' contains 'staff' then output 'staff@example.ac.za'.
+eg. If 'user.extensionattribute1' contains 'staff' then output 'member@example.ac.za'.
 
 *NOTE:* eduPersonScopedAffiliation, is a scoped copy of [eduPersonAffiliation]({{< ref "/technical/attributes/edupersonaffiliation.md" >}})'s format rules, and importantly, where an affiliation value says "implies…" the implied values must also be included in the returned set; This, however, is not  possible in Azure, as Azure does not currently support multi-valued attributes. As a result, the *only* permissible value for eduPersonScopedAffiliation with a single-valued attribute is `member@example.ac.za`.
 
