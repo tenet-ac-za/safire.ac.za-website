@@ -26,19 +26,6 @@
         }
     },
     {
-        "entityType": "sp",
-        "ParticipationAgreement": true,
-        "OrganizationName": "Varsity Vibe (Pty) Ltd",
-        "OrganizationDisplayName": "Varsity Vibe (Pty) Ltd",
-        "OrganizationURL": "https:\/\/varsityvibe.co.za\/",
-        "TechnicalIntegration": false,
-        "mdui": {
-            "Logo": {
-                "URL": "https:\/\/varsityvibe.co.za\/metadata.png"
-            }
-        }
-    },
-    {
         "entityType": "idp",
         "ParticipationAgreement": true,
         "OrganizationName": "Vaal University of Technology",
