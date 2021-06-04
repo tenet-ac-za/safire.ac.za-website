@@ -234,5 +234,3 @@ Once you have a valid eduPersonAffiliation, it should be fairly straightforward 
 
 ```
 
-The SAFIRE federation hub will automatically do the above if you don't supply eduPersonScopedAffiliation. However, doing it yourself gives you much greater control over the interpretation of the scope. This can be useful if you need to provide more [granular access control]({{< ref "/technical/attributes/edupersonscopedaffiliation.md" >}}).
-

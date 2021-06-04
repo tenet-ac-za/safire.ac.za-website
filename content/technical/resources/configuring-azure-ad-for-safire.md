@@ -1,6 +1,6 @@
 ---
 date: 2021-05-31 14:40:00+02:00
-slug: configure-azure-ad-for-safire
+slug: configuring-azure-ad-for-safire
 tags:
   - azure
   - configuration
@@ -8,7 +8,9 @@ tags:
   - technical
 draft: true
 title: Configuring Azure AD SAML-based SSO for SAFIRE
-url: /technical/resources/configure-azure-ad-for-safire/
+url: /technical/resources/configuring-azure-ad-for-safire/
+aliases:
+  - /technical/resources/configure-azure-ad-for-safire/
 ---
 
 > The recommended way to integrate Azure AD into SAFIRE is via a [SAML Proxy such as Shibboleth](https://wiki.shibboleth.net/confluence/display/KB/Using+SAML+Proxying+in+the+Shibboleth+IdP+to+connect+with+Azure+AD). While it is possible to connect Azure AD directly into SAFIRE, this has a number of caveats and cannot be guarenteed as a long-term solution.
