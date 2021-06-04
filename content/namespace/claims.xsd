@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  xmlns:safire="https://safire.ac.za/namespace/claims"
+  targetNamespace="https://safire.ac.za/namespace/claims"
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified"
+  blockDefault="substitution"
+  version="2.0">
+
+  <xs:simpleType name="AffiliationVocabularyType">
+    <xs:restriction base="xs:normalizedString">
+      <xs:whiteSpace value="collapse"/>
+      <xs:enumeration value="alum"/>
+      <xs:enumeration value="affiliate"/>
+      <xs:enumeration value="employee"/>
+      <xs:enumeration value="faculty"/>
+      <xs:enumeration value="library-walk-in"/>
+      <xs:enumeration value="member"/>
+      <xs:enumeration value="staff"/>
+      <xs:enumeration value="student"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ScopeType">
+    <xs:restriction base="xs:string" />
+  </xs:simpleType>
+
+  <!-- since XSD cannot represent string concatenation, we need to do safire:AffiliationVocabularyType as a regex pattern -->
+  <xs:simpleType name="ScopedAffiliationType">
+    <xs:restriction base="xs:normalizedString">
+      <xs:whiteSpace value="collapse"/>
+      <xs:pattern value="(alum|affiliate|employee|faculty|library-walk-in|member|staff|student)@[-_a-zA-Z0-9]{1,63}(\.[-_a-zA-Z0-9]{1,63})*"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:element name="primaryAffiliationSingleton" type="safire:AffiliationVocabularyType">
+    <xs:annotation>
+      <xs:documentation>Singleton representation of eduPersonPrimaryAffiliation</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+
+  <xs:element name="unscopedAffiliationSingleton">
+    <xs:annotation>
+      <xs:documentation>Space delimited singleton representation of eduPersonAffiliation</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:list itemType="safire:AffiliationVocabularyType"/>
+    </xs:simpleType>
+  </xs:element>
+
+  <xs:element name="scopedAffiliationSingleton">
+    <xs:annotation>
+      <xs:documentation>Space delimited singleton representation of eduPersonScopedAffiliation</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:list itemType="safire:ScopedAffiliationType"/>
+    </xs:simpleType>
+  </xs:element>
+
+</xs:schema>
