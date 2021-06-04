@@ -7,7 +7,7 @@ title: urn:schac:homeOrganizationType:za
 url: /namespace/urn-schac-homeorganization-type-za
 ---
 
-MACE has delegated the operation of **urn:schac:homeOrganizationType:za** namespace to the South African Identity Federation.
+The REFEDS SCHAC Editorial Board has delegated the operation of **urn:schac:homeOrganizationType:za** namespace to the South African Identity Federation.
 
   * [REFEDS SCHAC URN Registry](https://wiki.refeds.org/display/STAN/SCHAC+URN+Registry)
 
