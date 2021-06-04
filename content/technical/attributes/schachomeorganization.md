@@ -1,4 +1,4 @@
---- 
+---
 attributeExample: example.ac.za
 attributeFormat: |2
   Single valued, containing a well formed DNS domain name that belongs to the home organisation.
@@ -9,7 +9,7 @@ attributeFormat: |2
 attributeNotes: |2
   For greatest international interoperability, consider using [eduPersonScopedAffiliation](/technical/attributes/edupersonscopedaffiliation) to determine the home organisation.
 attributeOid: urn:oid:1.3.6.1.4.1.25178.1.2.9
-attributeReferences: 
+attributeReferences:
   - Name: SCHAC
     URL: https://wiki.refeds.org/display/STAN/SCHAC+Releases
   - Name: IdP Requirements
@@ -19,6 +19,8 @@ layout: attributelist
 slug: schachomeorganization
 title: schacHomeOrganization
 url: /technical/attributes/schachomeorganization/
+aliases:
+  - /technical/attributes/schachomeorganisation/
 ---
 
 Specifies the subject's home organisation in a machine-readable way.
