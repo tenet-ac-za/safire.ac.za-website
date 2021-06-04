@@ -1,10 +1,10 @@
 ---
 aliases:
-  - /namespace/urn-schac-homeorganisation-type-za
+  - /namespace/urn-schac-homeorganisationtype-za
 date: 2021-06-04 08:00:00+02:00
-slug: urn-schac-homeorganization-type-za
+slug: urn-schac-homeorganizationtype-za
 title: urn:schac:homeOrganizationType:za
-url: /namespace/urn-schac-homeorganization-type-za
+url: /namespace/urn-schac-homeorganizationtype-za
 ---
 
 The REFEDS SCHAC Editorial Board has delegated the operation of **urn:schac:homeOrganizationType:za** namespace to the South African Identity Federation.
