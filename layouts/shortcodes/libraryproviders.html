@@ -6,7 +6,9 @@
 .library-status-yellow { background-color:#ffde00; }
 .library-status-red { background-color:#ff5b33; }
 .library-status.library-status-unknown { background:repeating-linear-gradient(45deg,transparent,transparent 3px,#f6f6f6 3px,#f6f6f6 6px),#cccccc; }
-.library-status { float:right; width:1em; text-align: center; font-weight: bold; color: #1c77b7; }
+.library-status { float:right; width:1em; height:1em; text-align: center; font-weight: bold; margin-left: 10px; }
+.ui-state-active .library-status-icon-safire  { content:url(//static.safire.ac.za/logos/safire-icon-white.svg); }
+.ui-state-active .library-status-icon-seamless  { content:url(//service.seamlessaccess.org/sa-white.svg); }
 .library-member { text-align: center; font-style: italic; }
 .library-seamless { font-size: 80%; text-align: center; font-style: italic; }
 .library-status-date { float:right; font-size: 75%; font-style: italic; }
@@ -15,7 +17,13 @@
 {{- range $p := .Site.Data.libraries.Providers }}
     <h3 data-name="{{ $p.Name|urlize }}" data-tabindex="{{ ($.Scratch.Get "i") }}" class="ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons">
         {{ $p.Name }}
-    <span class="library-status library-status-{{ $p.StatusColour|default "unknown" }}">{{ if $p.SAFIRE }}&#x273B;{{else}}&nbsp;{{end}}</span>
+    <span class="library-status library-status-{{ $p.StatusColour|default "unknown" }}"></span>
+    {{- if $p.SAFIRE }}
+        <img class="library-status library-status-icon library-status-icon-safire" src="//static.safire.ac.za/logos/safire-icon.svg" title="SAFIRE Participant" alt="Part">
+    {{- end }}
+    {{- if $p.SeamlessAccess }}
+        <img class="library-status library-status-icon library-status-icon-seamless" src="//service.seamlessaccess.org/sa-black.svg" title="SeamlessAccess" alt="SA">
+    {{- end }}
     </h3>
     <div id="participantdetail-{{ printf "%03d" ($.Scratch.Get "i") }}" style="display:none;" class="ui-accordion-content ui-corner-bottom ui-helper-reset ui-widget-content">
         {{- if $p.SAFIRE }}
