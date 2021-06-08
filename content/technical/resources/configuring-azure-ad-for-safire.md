@@ -61,6 +61,12 @@ Per the definition of [eduPersonScopedAffiliation](({{< ref "/technical/attribut
 
 eg. If 'user.extensionattribute1' contains 'staff' then output 'member@example.ac.za'.
 
-*NOTE:* eduPersonScopedAffiliation, is a scoped copy of [eduPersonAffiliation]({{< ref "/technical/attributes/edupersonaffiliation.md" >}})'s format rules, and importantly, where an affiliation value says "implies…" the implied values must also be included in the returned set; This, however, is not  possible in Azure, as Azure does not currently support multi-valued attributes. As a result, the *only* permissible value for eduPersonScopedAffiliation with a single-valued attribute is `member@example.ac.za`.
+**NOTE:**  eduPersonScopedAffiliation, is a scoped copy of [eduPersonAffiliation]({{< ref "/technical/attributes/edupersonaffiliation.md" >}})'s format rules, and importantly, where an affiliation value says "implies…" the implied values must also be included in the returned set. This, however, is not possible in Azure, as Azure does not currently support multi-valued attributes. As a result, SAFIRE will add a multi-valued eduPersonScopedAffiliation attribute for you, provided your Azure IdP does the following:
 
-While meets the minimum requirements for participation, it does not allow for enriched uses of the affiliation attributes as envisioned by the [Research and Scholarship entity category]({{< ref "/safire/policy/arp/_index.md#research--scholarship" >}})) and as used by many [library information providers]({{< ref "/technical/resources/library-services.md" >}}).
+You will need to (re-)configure the Attribute claims rule for eduPersonScopedAffiliation to release an attribute *Named* "scopedAffiliationSingleton" in SAFIRE's custom *Namespace* of "https://safire.ac.za/namespace/claims" with attribute values that meet the format rules described in eduPersonAffiliation, scoped to your realm.
+
+e.g.:
+If 'user.extensionattribute4' contains 'staff' then output 'staff@example.ac.za member@example.ac.za employee@example.ac.za'
+**OR**
+e.g.:
+If 'user.extensionattribute4' contains 'student' then output 'student@example.ac.za member@example.ac.za'
