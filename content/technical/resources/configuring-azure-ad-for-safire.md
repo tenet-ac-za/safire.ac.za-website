@@ -58,7 +58,7 @@ It is recommended that you use the 'user.userprincipalname' attribute, as this m
 Per the definition of [eduPersonScopedAffiliation](({{< ref "/technical/attributes/edupersonscopedaffiliation.md" >}})), You will need to use what user attributes you have in your Azure AD to create a transform rule, to assert a users role at your institution correctly.
 
 e.g.
-```
+```lang-none
 If 'user.extensionattribute4' contains 'staff' then output 'member@example.ac.za'.
 ```
 
@@ -67,10 +67,10 @@ If 'user.extensionattribute4' contains 'staff' then output 'member@example.ac.za
 To solve this problem, you will need to (re-)configure the Attribute claims rule for eduPersonScopedAffiliation to release an attribute *Named* "scopedAffiliationSingleton" in SAFIRE's custom *Namespace* of "https://safire.ac.za/namespace/claims" with attribute values that meet the format rules described in eduPersonAffiliation, scoped to your realm. If your Azure IdP assers scopedAffiliationSingleton correctly, SAFIRE will reformat it into a multi-valued eduPersonScopedAffiliation attribute for you.
 
 e.g.
-```
+```lang-none
 If 'user.extensionattribute4' contains 'staff' then output 'staff@example.ac.za member@example.ac.za employee@example.ac.za'
-```
-**OR**
-```
+
+OR
+
 If 'user.extensionattribute4' contains 'student' then output 'student@example.ac.za member@example.ac.za'
 ```
