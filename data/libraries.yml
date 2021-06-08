@@ -1,6 +1,6 @@
 ---
 # Remember to change lastMod!
-lastMod: 2021-03-12T21:31:00+02:00
+lastMod: 2021-06-08T12:31:00+02:00
 Providers:
     - Name: Association for Computing Machinery (ACM)
       LoginLink: Sign in via your Institution
@@ -106,6 +106,7 @@ Providers:
        - https://iopscience.iop.org/page/remote-access-guidelines
        - https://myiopscience.iop.org/account/wayflessurl
       AuthAttribute: eduPersonScopedAffiliation
+      SeamlessAccess: true
 
     - Name: JSTOR
       LoginLink: "[Login via an institution](https://www.jstor.org/institutionSearch?redirectUri=%2F)"
@@ -118,6 +119,20 @@ Providers:
        - http://support.jstor.org/access-management/2016/10/6/jstor-saml-information
        - https://shibboleth2sp.jstor.org/wayfless_url_generator.html
       AuthAttribute: eduPersonScopedAffiliation
+
+    - Name: Intembeko ORCID Hub (TENET)
+      LoginLink: "[Log in / Access through your institution](https://intembeko.orcid.ac.za/saml/login)"
+      Status: Working
+      StatusColour: green
+      StatusDate: 2021-06-08
+      Notes: |
+        Institutions need to contact TENET's [Service Desk](https://www.tenet.ac.za/support) to enable this service.
+        The service also requires ORCID [member API](https://info.orcid.org/documentation/features/member-api/#easy-faq-2710) credentials.
+      Documentation:
+       - https://docs.orcid.ac.za/hub/institutions
+      AuthAttribute: eduPersonScopedAffiliation
+      SeamlessAccess: true
+      SAFIRE: true
 
     - Name: JoVE (Journal of Visualized Experiments)
       LoginLink: "[Continue with Shibboleth/OpenAthens](https://www.jove.com/discovery?return_page=https://www.jove.com/)"
@@ -270,13 +285,21 @@ Providers:
       SeamlessAccess: true
 
     - Name: Thieme Connect
-      LoginLink: "[Shibboleth Login](https://profile.thieme.de/HTML/sso/ejournals/shibboleth.htm?hook_url=https://www.thieme-connect.de/products/all/home.html&rdeLocaleAttr=en)"
-      Status: No SA institutions listed by default
+      LoginLink: "[OpenAthens/Shibboleth Login](https://profile.thieme.de/HTML/sso/ejournals/shibboleth.htm?hook_url=https://www.thieme-connect.de/products/all/home.html&rdeLocaleAttr=en)"
+      Status: Tested, working, discovery problem
+      StatusColour: yellow
+      StatusDate: 2021-06-08
+      AuthAttribute:
+       - eduPersonScopedAffiliation
+      Notes: |
+        Institutions need to contact their support representative to request access. They will need to provide their [proxied entity id](/participants/idp/list/).
+        At the moment, South African entities appear under "Great Britain (UK Federation)". Thieme is aware of this and working on a solution [TENET:0022281]. However, it can be worked around with a properly constructed WAYFless URL containing a Base64-encoded JSON object (SAFIRE can help you generate this).
 
     - Name: Web of Science / Web of Knowledge (Clarivate Analytics)
       LoginLink: Institutional sign in
       Status: Tested, discovery problem
       StatusColour: yellow
+      StatusDate: 2021-06-08
       Notes: Appears under UK Federation
 
     - Name: Westlaw UK (Thomson Reuters)
