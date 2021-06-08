@@ -65,7 +65,7 @@ IF 'user.extensionattribute4' CONTAINS 'staff' THEN
 
 **NOTE:**  eduPersonScopedAffiliation, is a scoped copy of [eduPersonAffiliation]({{< ref "/technical/attributes/edupersonaffiliation.md" >}})'s format rules, and importantly, where an affiliation value says "implies…" the implied values must also be included in the returned set. This, however, is not possible in Azure, as Azure does not currently support multi-valued attributes.
 
-To solve this problem, you will need to (re-)configure the Attribute claims rule for eduPersonScopedAffiliation to release an attribute *Named* "scopedAffiliationSingleton" in SAFIRE's custom *Namespace* of **https\://safire.ac.za/namespace/claims** with attribute values that meet the format rules described in eduPersonAffiliation, scoped to your realm. If your Azure IdP assers scopedAffiliationSingleton correctly, SAFIRE will reformat it into a multi-valued eduPersonScopedAffiliation attribute for you.
+To solve this problem, you will need to (re-)configure the Attribute claims rule for eduPersonScopedAffiliation to release an attribute *Named* "scopedAffiliationSingleton" in SAFIRE's custom *Namespace* of **https\://safire.ac.za/namespace/claims** with attribute values that meet the format rules described in eduPersonAffiliation, scoped to your realm. If your Azure IdP asserts scopedAffiliationSingleton correctly, SAFIRE will reformat it into a multi-valued eduPersonScopedAffiliation attribute for you.
 
 Pseudocode e.g.
 ```lang-none
