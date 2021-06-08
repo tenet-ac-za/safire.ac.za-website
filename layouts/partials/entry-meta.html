@@ -8,9 +8,16 @@
                 {{- $t.Local.Format "2006-01-02"  }}
             </time>
         {{- else if findRE "/technical/resources/library-services/" .RelPermalink }}
-        {{- $t := time .Site.Data.libraries.lastMod}}
-            <time class="entry-date" datetime="{{ $t.UTC.Format "2006-01-02T15:04:05Z" }}">
-                {{- $t.Local.Format "2006-01-02"  }}
+            {{- $.Scratch.Set "t" (time "2006-01-02") }}
+            {{- range $p := .Site.Data.libraries.Providers }}
+              {{- if $p.StatusDate }}
+                {{- if gt ((time $p.StatusDate).Unix) (($.Scratch.Get "t").Unix) }}
+                  {{- $.Scratch.Set "t" (time $p.StatusDate) }}
+                {{- end }}
+              {{- end }}
+            {{- end }}
+            <time class="entry-date" datetime="{{ ($.Scratch.Get "t").UTC.Format "2006-01-02T15:04:05Z" }}">
+                {{- ($.Scratch.Get "t").Local.Format "2006-01-02"  }}
             </time>
         {{- else }}
             <time class="entry-date" datetime="{{ (.PublishDate |default .Date).UTC.Format "2006-01-02T15:04:05Z" }}">

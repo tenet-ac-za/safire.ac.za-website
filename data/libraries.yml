@@ -1,6 +1,9 @@
+# If you add or substantively update any of the providers below,
+# consider making an annoucement to the <safire-libs@lists.tenet.ac.za>
+# mailing list so institutional libraries become aware.
+#
+# Remember also to update StatusDate
 ---
-# Remember to change lastMod!
-lastMod: 2021-06-08T12:31:00+02:00
 Providers:
     - Name: Association for Computing Machinery (ACM)
       LoginLink: Sign in via your Institution
