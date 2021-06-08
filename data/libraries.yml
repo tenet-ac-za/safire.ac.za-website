@@ -1,6 +1,6 @@
 ---
 # Remember to change lastMod!
-lastMod: 2021-03-12T21:31:00+02:00
+lastMod: 2021-06-08T12:31:00+02:00
 Providers:
     - Name: Association for Computing Machinery (ACM)
       LoginLink: Sign in via your Institution
@@ -119,6 +119,20 @@ Providers:
        - http://support.jstor.org/access-management/2016/10/6/jstor-saml-information
        - https://shibboleth2sp.jstor.org/wayfless_url_generator.html
       AuthAttribute: eduPersonScopedAffiliation
+
+    - Name: Intembeko ORCID Hub (TENET)
+      LoginLink: "[Log in / Access through your institution](https://intembeko.orcid.ac.za/saml/login)"
+      Status: Working
+      StatusColour: green
+      StatusDate: 2021-06-08
+      Notes: |
+        Institutions need to contact TENET's [Service Desk](https://www.tenet.ac.za/support) to enable this service.
+        The service also requires ORCID [member API](https://info.orcid.org/documentation/features/member-api/#easy-faq-2710) credentials.
+      Documentation:
+       - https://docs.orcid.ac.za/hub/institutions
+      AuthAttribute: eduPersonScopedAffiliation
+      SeamlessAccess: true
+      SAFIRE: true
 
     - Name: JoVE (Journal of Visualized Experiments)
       LoginLink: "[Continue with Shibboleth/OpenAthens](https://www.jove.com/discovery?return_page=https://www.jove.com/)"
