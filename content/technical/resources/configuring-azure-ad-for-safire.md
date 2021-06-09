@@ -54,7 +54,7 @@ e.g.
 
 ##### eduPersonPrincipalName
 
-It is recommended that you map the 'user.userprincipalname' attribute to eduPersonPrincipalName, as this meets the required [eduPersonPrincipalName attribute definition](({{< ref "/technical/attributes/edupersonprincipalname.md" >}})) of 'Single valued, scoped to home organisation' (see link for more details).
+It is recommended that you map the 'user.userprincipalname' to an attribute that is scoped to a realm that you are eligable to use. In most cases UPN serves this purpose and provides [eduPersonPrincipalName](({{< ref "/technical/attributes/edupersonprincipalname.md" >}})) with a 'Single valued, scoped to home organisation' value (see link for more details). It is, however, up to you to determine which atribute in your Azure AD best meets the required definition.
 
 ##### eduPersonScopedAffiliation
 
