@@ -98,4 +98,4 @@ e.g.
 
 | *User type* | *Scoped Groups* | *Source* | *Value* |
 |----------|----------|----------|----------|
-| Members | *Select groups* | Transformation | IF 'user.userprincipalname' NOT EMPTY THEN <br> OUTPUT 'student@safire.ac.za member@safire.ac.za' |
+| Members | *Select groups* | Transformation | IfNotEmpty (user.userprincipalname) output 'student@safire.ac.za member@safire.ac.za' |
