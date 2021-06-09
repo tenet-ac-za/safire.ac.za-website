@@ -44,13 +44,13 @@ Once saved, it is worthwhile double-checking that the information was imported p
 You now need to configure your application's *User Attributes & Claims*. Azure sets up a few default User Attributes & Claims rules, but you need to ensure these release the [Minimum attributes required for participation]({{< ref "/technical/attributes/_index.md" >}}) for SAFIRE, by altering what has been pre-defined, or *Add new claim*, depending on what attributs correspond to the attributes required for participation.
 
 e.g.
-| Claim name | Value |
+| *Claim name* | *Value* |
 |----------|----------|
-| http://schemas.xmlsoap.org/claims/CommonName  | user.displayname |
-| http://schemas.xmlsoap.org/claims/UPN  | user.userprincipalname  |
-| http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress | user.mail  |
-| http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname | user.givenname  |
-| http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname | user.surname |
+| http\://schemas.xmlsoap.org/claims/CommonName  | user.displayname |
+| http\://schemas.xmlsoap.org/claims/UPN  | user.userprincipalname  |
+| http\://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress | user.mail  |
+| http\://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname | user.givenname  |
+| http\://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname | user.surname |
 
 ##### eduPersonPrincipalName
 
