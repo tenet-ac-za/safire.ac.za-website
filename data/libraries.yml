@@ -136,6 +136,7 @@ Providers:
       AuthAttribute: eduPersonScopedAffiliation
       SeamlessAccess: true
       SAFIRE: true
+      RnSProvider: true
 
     - Name: JoVE (Journal of Visualized Experiments)
       LoginLink: "[Continue with Shibboleth/OpenAthens](https://www.jove.com/discovery?return_page=https://www.jove.com/)"
