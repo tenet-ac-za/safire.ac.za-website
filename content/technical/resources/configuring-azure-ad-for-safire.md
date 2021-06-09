@@ -41,17 +41,17 @@ Once saved, it is worthwhile double-checking that the information was imported p
 
 ## 3. Configure Attribute claims rules
 
-You now need to configure your application's *User Attributes & Claims*. Azure sets up a few default User Attributes & Claims rules, but we need to ensure these release the [Minimum attributes required for participation]({{< ref "/technical/attributes/_index.md" >}}) for SAFIRE, by altering what has been pre-defined, or *Add new claim*.
+You now need to configure your application's *User Attributes & Claims*. Azure sets up a few default User Attributes & Claims rules, but you need to ensure these release the [Minimum attributes required for participation]({{< ref "/technical/attributes/_index.md" >}}) for SAFIRE, by altering what has been pre-defined, or *Add new claim*, depending on what attributs correspond to the attributes required for participation.
 
-On each of the *Additional Claims*, you will need to ensure the *Name* matches the OID for the corresponding attribute you will find at SAFIRE's Minimum attributes required for participation link above.
-
-**i.e.** emailaddress = mail = urn:oid:0.9.2342.19200300.100.1.3
-
-**NOTE:** Azure defaults to using the identity Claims *Namespace* URI's, and SAFIRE uses SAML urn assertions. Thus you do not need to specify a Namespace for any of the asserted Additional Claims.
+e.g.
+| Header 1 | Header 2 | Header 3 |
+|----------|----------|----------|
+| Item 1   | Item 2   | Item 3   |
+| Item 1a  | Item 2a  | Item 3a  |
 
 ##### eduPersonPrincipalName
 
-It is recommended that you use the 'user.userprincipalname' attribute, as this meets the required [eduPersonPrincipalName attribute definition](({{< ref "/technical/attributes/edupersonprincipalname.md" >}})) of 'Single valued, scoped to home organisation' (see above link for more details).
+It is recommended that you map the 'user.userprincipalname' attribute to eduPersonPrincipalName, as this meets the required [eduPersonPrincipalName attribute definition](({{< ref "/technical/attributes/edupersonprincipalname.md" >}})) of 'Single valued, scoped to home organisation' (see link for more details).
 
 ##### eduPersonScopedAffiliation
 
