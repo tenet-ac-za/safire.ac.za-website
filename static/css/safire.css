@@ -242,3 +242,12 @@ input[type="submit"]:active { background-color: #6d488c; }
 	.site-description { padding-top: 0.5em; }
 }
 
+
+/* provider badges */
+.provider-badge { float:right; width:1em; height:1em; text-align: center; margin-left: 10px; }
+@media screen and (max-width: 782px) { .provider-badge { display: none; } }
+.ui-state-active .provider-badge-safire  { content:url(//static.safire.ac.za/logos/safire-icon-white.svg); }
+.ui-state-active .provider-badge-seamless  { content:url(../wp-content/provider-badges/seamless-white.svg); }
+.ui-state-active .provider-badge-rns  { content:url(../wp-content/provider-badges/rns-white.svg); }
+.ui-state-active .provider-badge-coco  { content:url(../wp-content/provider-badges/coco-white.svg); }
+.ui-state-active .provider-badge-sirtfi  { content:url(../wp-content/provider-badges/sirtfi-white.svg); }
