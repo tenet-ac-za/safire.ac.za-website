@@ -98,5 +98,5 @@ e.g.
 
 | *User type* | *Scoped Groups* | *Source* | *Value* |
 |----------|----------|----------|----------|
-| Members | *Select groups* | Transformation | IF 'user.extensionattribute4' CONTAINS 'student' THEN OUTPUT 'student@example.ac.za member@example.ac.za' |
+| Members | *Select groups* | Transformation | IF 'user.extensionattribute4' CONTAINS 'student' THEN <br> OUTPUT 'student@example.ac.za member@example.ac.za' |
  
