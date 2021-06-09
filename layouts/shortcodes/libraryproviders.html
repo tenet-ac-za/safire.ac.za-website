@@ -7,10 +7,6 @@
 .library-status-red { background-color:#ff5b33; }
 .library-status.library-status-unknown { background:repeating-linear-gradient(45deg,transparent,transparent 3px,#f6f6f6 3px,#f6f6f6 6px),#cccccc; }
 .library-status { float:right; width:1em; height:1em; text-align: center; font-weight: bold; margin-left: 10px; }
-@media screen and (max-width: 782px) { .library-status-icon { display: none; } }
-.ui-state-active .library-status-icon-safire  { content:url(//static.safire.ac.za/logos/safire-icon-white.svg); }
-.ui-state-active .library-status-icon-seamless  { content:url(//service.seamlessaccess.org/sa-white.svg); }
-.ui-state-active .library-status-icon-rns  { content:url({{ "wp-content/uploads/2021/06/rns-white.svg" | absURL }}); }
 .library-member { text-align: center; font-style: italic; }
 .library-seamless, .library-rns { font-size: 80%; text-align: center; font-style: italic; }
 .library-status-date { float:right; font-size: 75%; font-style: italic; }
@@ -21,13 +17,13 @@
         {{ $p.Name }}
     <span class="library-status library-status-{{ $p.StatusColour|default "unknown" }}"></span>
     {{- if $p.SAFIRE }}
-        <img class="library-status library-status-icon library-status-icon-safire" src="//static.safire.ac.za/logos/safire-icon.svg" title="SAFIRE Participant" alt="Part">
+        <img class="library-status provider-badge provider-badge-safire" src="//static.safire.ac.za/logos/safire-icon.svg" title="SAFIRE Participant" alt="Part">
     {{- end }}
     {{- if $p.SeamlessAccess }}
-        <img class="library-status library-status-icon library-status-icon-seamless" src="//service.seamlessaccess.org/sa-black.svg" title="SeamlessAccess" alt="SA">
+        <img class="provider-badge provider-badge-seamless" src="{{ "wp-content/provider-badges/seamless-black.svg" | absURL }}" title="SeamlessAccess" alt="SA">
     {{- end }}
     {{- if $p.RnSProvider }}
-        <img class="library-status library-status-icon library-status-icon-rns" src="{{ "wp-content/uploads/2021/06/rns-black.svg" | absURL }}" title="Research and Scholarship" alt="RnS">
+        <img class="provider-badge provider-badge-rns" src="{{ "wp-content/provider-badges/rns-black.svg" | absURL }}" title="Research and Scholarship" alt="RnS">
     {{- end }}
     </h3>
     <div id="participantdetail-{{ printf "%03d" ($.Scratch.Get "i") }}" style="display:none;" class="ui-accordion-content ui-corner-bottom ui-helper-reset ui-widget-content">

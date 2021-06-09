@@ -76,11 +76,21 @@
     {{- $i := .i }}
     {{- $p := .p }}
     <h3 data-entityid="{{ $p.entityID }}" data-tabindex="{{ $i }}" {{ with $p.mdui.DisplayName }}data-name="{{ . | urlize}}"{{end}}} class="ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons">
-    {{- template "displayServiceName" $p -}}
-    <span style="float:right">
-    {{- if or (not $p.ParticipationAgreement) (not $p.TechnicalIntegration) }}Pending {{ end -}}
-    {{- template "shortParticipantType" $p.entityType -}}
-    </span></h3>
+        {{- template "displayServiceName" $p -}}
+        <span style="float:right; margin-left:10px;">
+            {{- if or (not $p.ParticipationAgreement) (not $p.TechnicalIntegration) }}Pending {{ end -}}
+            {{- template "shortParticipantType" $p.entityType -}}
+        </span>
+        {{- if and ($p.RnS) (eq $p.entityType "sp") }}
+            <img class="provider-badge provider-badge-rns" src="{{ "wp-content/provider-badges/rns-black.svg" | absURL }}" title="Research and Scholarship" alt="RnS">
+        {{- end }}
+        {{- if $p.CoCo }}
+            <img class="provider-badge provider-badge-coco" src="{{ "wp-content/provider-badges/coco-black.svg" | absURL }}" title="GÉANT Code of Conduct" alt="CoCo">
+        {{- end }}
+        {{- if $p.Sirtfi }}
+            <img class="provider-badge provider-badge-sirtfi" src="{{ "wp-content/provider-badges/sirtfi-black.svg" | absURL }}" title="Sirtfi" alt="Sirtfi">
+        {{- end }}
+    </h3>
     <div id="participantdetail-{{ printf "%03d" $i }}" style="display:none;" class="ui-accordion-content ui-corner-bottom ui-helper-reset ui-widget-content">
         <div style="float: right">{{- template "displayLogo" $p -}}</div>
         <p>{{- template "displayServiceDescription" $p -}}</p>
