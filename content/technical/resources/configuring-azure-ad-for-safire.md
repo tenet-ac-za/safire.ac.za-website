@@ -78,7 +78,7 @@ e.g. Pseudocode
 
 ```lang-none
 
-IF 'user.extensionattribute4' CONTAINS 'staff' THEN 
+IF 'user.extensionattribute4' CONTAINS 'staff' THEN
   OUTPUT 'staff@example.ac.za member@example.ac.za employee@example.ac.za'
 
 ```
@@ -101,3 +101,22 @@ e.g.
 | Members | *Select groups e.g. students* | Transformation | IF 'user.userprincipalname' NOT EMPTY THEN OUTPUT 'student@example.ac.za member@example.ac.za' |
 | **OR**|
 | Members | *Select groups e.g. alumni* | Transformation | IF 'user.userprincipalname' NOT EMPTY THEN OUTPUT 'alum@example.ac.za' |
+
+##### eduPersonAffiliation
+
+eduPersonAffiliation has the same semantics as eduPersonScopedAffiliation, but lacks the scope (the `@` sign and what follows, e.g. `@example.ac.za`). Thus you can re-used the claim rules you created for eduPersonScopedAffiliation to generate eduPersonAffiliation as well, and simply omit your scope from the attribute you output.
+
+e.g. Pseudocode
+
+```lang-none
+
+IF 'user.extensionattribute4' CONTAINS 'staff' THEN
+  OUTPUT 'staff member employee'
+
+```
+
+As with eduPersonScopedAffiliation, you can work around Azure's multivalued attribute problem, you can release eduPersonAffiliation as an attribute named "unscopedAffiliationSingleton" in SAFIRE's https\://safire.ac.za/namespace/claims namespace.
+
+#### Other attributes
+
+What's shown here is only a subset of SAFIRE's [attribute set]({{< ref "/technical/attributes/_index.md" >}}. You're strongly encouraged to release others where you have the data available.
