@@ -1,5 +1,5 @@
 ---
-date: 2021-03-04 21:20:00+02:00
+date: 2021-06-10 09:00:00+02:00
 slug: generating-edupersonaffiliation
 tags:
   - eduPersonAffiliation
@@ -7,13 +7,15 @@ tags:
   - idp-requirements
   - simplesamlphp
   - technical
-title: Generating eduPersonAffiliation from your internal directory
+title: Generating eduPerson{Scoped}Affiliation from your internal directory
 url: /technical/resources/generating-edupersonaffiliation/
 ---
 
-This page is intended to give you some ideas about how to generate an [eduPersonAffiliation]({{< ref "/technical/attributes/edupersonaffiliation.md" >}}) attribute that is useful to SAFIRE by reusing existing information you may already have in your internal directory services.
+This page is intended to give you some ideas about how to generate [eduPersonAffiliation]({{< ref "/technical/attributes/edupersonaffiliation.md" >}}) and [eduPersonScopedAffiliation]({{< ref "/technical/attributes/edupersonaffiliation.md" >}})i attribute that are useful to SAFIRE by reusing existing information you may already have in your internal directory services.
 
 What’s shown below are [SimpleSAMLphp](https://simplesamlphp.org/) config snippets, but the ideas translate to pretty much all identity provider software. If you’re not using SimpleSAMLphp, hopefully the comments help you understand what is going on. All the authproc filters shown here are documented in [SimpleSAMLphp’s docs](https://simplesamlphp.org/docs/stable/simplesamlphp-authproc).
+
+This document starts by attempting to generate eduPersonAffiliation on the assumption that adding a scope to an existing attribute is a relatively easy transformation. However, note that eduPersonScopedAffiliation is the more useful of the two and one of the [minimum attributes required for participation]({{< ref "/technical/attributes/_index.md#minimum-attributes-required-for-participation" >}}) in SAFIRE.
 
 # eduPersonAffiliation
 
