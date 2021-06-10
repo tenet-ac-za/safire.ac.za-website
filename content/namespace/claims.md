@@ -17,4 +17,6 @@ A normative schema for the namespace is available at https://safire.ac.za/namesp
 | **https\://safire.ac.za/namespace/claims**… | Used for claims provider identifiers in AD FS or Azure AD |
 | https\://safire.ac.za/namespace/claims/unscopedAffiliationSingleton | Space delimited singleton representation of [eduPersonAffiliation]({{< ref "/technical/attributes/edupersonaffiliation.md" >}}), utilising the same limited vocabulary (defined here as `safire:AffiliationVocabularyType`). |
 | https\://safire.ac.za/namespace/claims/scopedAffiliationSingleton | Space delimited singleton representation of [eduPersonScopedAffiliation]({{< ref "/technical/attributes/edupersonscopedaffiliation.md" >}}), utilising the same limited vocabulary. |
+| https\://safire.ac.za/namespace/claims/primaryAffiliationSingleton | Singleton representation of [eduPersonPrimaryAffiliation]({{< ref "/technical/attributes/edupersonscopedaffiliation.md" >}}), utilising the same limited vocabulary. Not actually required, but here for completeness.|
+| https\://safire.ac.za/namespace/claims/entitlementSingleton | Space delimited singleton representation of [eduPersonEntitlement]({{< ref "/technical/attributes/edupersonentitlement.md" >}}). |
 

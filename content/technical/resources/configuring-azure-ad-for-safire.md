@@ -77,7 +77,7 @@ IF 'user.extensionattribute4' CONTAINS 'staff' THEN
 
 > Azure AD as it does not currently support multi-valued user extension attributes
 
-As many institutions use user extension attributes to store affiliation information, you can work around this problem by (re-)configuring the Attribute claims *transform* rule for eduPersonScopedAffiliation to release an attribute *Named* `scopedAffiliationSingleton` in SAFIRE's custom *Namespace* of `https://safire.ac.za/namespace/claims` with attribute values that are separated by a space, and meet the format rules described in eduPersonAffiliation, scoped to your realm. If your Azure IdP asserts `scopedAffiliationSingleton` correctly, the SAFIRE federation hub will reformat it into a multi-valued eduPersonScopedAffiliation attribute for you.
+As many institutions use user extension attributes to store affiliation information, you can work around this problem by (re-)configuring the Attribute claims *transform* rule for eduPersonScopedAffiliation to release an attribute *Named* `scopedAffiliationSingleton` in SAFIRE's custom *Namespace* of [`https://safire.ac.za/namespace/claims`]({{< ref "/namespace/claims.md" >}}) with attribute values that are separated by a space, and meet the format rules described in eduPersonAffiliation, scoped to your realm. If your Azure IdP asserts `scopedAffiliationSingleton` correctly, the SAFIRE federation hub will reformat it into a multi-valued eduPersonScopedAffiliation attribute for you.
 
 e.g. pseudocode
 
@@ -115,8 +115,10 @@ IF 'user.extensionattribute4' CONTAINS 'staff' THEN
 
 ```
 
-As with eduPersonScopedAffiliation, you can work around Azure's multivalued attribute problem, you can release eduPersonAffiliation as an attribute named `unscopedAffiliationSingleton` in SAFIRE's `https://safire.ac.za/namespace/claims` namespace.
+As with eduPersonScopedAffiliation, you can work around Azure's multivalued attribute problem, you can release eduPersonAffiliation as an attribute named `unscopedAffiliationSingleton` in SAFIRE's [claims namespace]({{< ref "/namespace/claims.md" >}}).
 
 ### Other attributes
 
 What's shown here is only a subset of SAFIRE's [attribute set]({{< ref "/technical/attributes/_index.md" >}}). You're strongly encouraged to release others where you have the data available.
+
+In particular, your library or researchers may require you to assert [eduPersonEntitlement]({{< ref "/technical/attributes/edupersonentitlement.md" >}}). This suffers similar multivalued limitations, and can be mapped using the `entitlementSingleton` claim in SAFIRE's [claims namespace]({{< ref "/namespace/claims.md" >}}). See our [notes on generating eduPersonEntitlement]({{< ref "generating-edupersonentitlement.md" >}}).

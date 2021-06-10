@@ -34,9 +34,13 @@
     </xs:restriction>
   </xs:simpleType>
 
+  <xs:simpleType name="EntitlementType">
+    <xs:restriction base="xs:anyURI"/>
+  </xs:simpleType>
+
   <xs:element name="primaryAffiliationSingleton" type="safire:AffiliationVocabularyType">
     <xs:annotation>
-      <xs:documentation>Singleton representation of eduPersonPrimaryAffiliation</xs:documentation>
+      <xs:documentation>Singleton representation of eduPersonPrimaryAffiliation. Not actually required, but here for completeness</xs:documentation>
     </xs:annotation>
   </xs:element>
 
@@ -58,4 +62,12 @@
     </xs:simpleType>
   </xs:element>
 
+  <xs:element name="entitlementSingleton">
+    <xs:annotation>
+      <xs:documentation>Space delimited singleton representation of eduEntitlement</xs:documentation>
+    </xs:annotation>
+    <xs:simpleType>
+      <xs:list itemType="safire:EntitlementType"/>
+    </xs:simpleType>
+  </xs:element>
 </xs:schema>
