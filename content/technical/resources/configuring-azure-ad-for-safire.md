@@ -1,5 +1,5 @@
 ---
-date: 2021-05-31 14:40:00+02:00
+date: 2021-06-10 09:15:00+02:00
 slug: configuring-azure-ad-for-safire
 tags:
   - azure
@@ -17,31 +17,32 @@ aliases:
 
 This documentation assumes that you already have an Azure Active Directory (Azure AD) tenant correctly configured and provisioned with your institution's user accounts.
 
-To configure Azure AD as an identity provider for SAFIRE, you need to configure [SAML-based SSO](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configure-saml-single-sign-on). This requires you to do three things:
+To configure Azure AD as an identity provider for SAFIRE, you need to configure [SAML-based SSO](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/configure-saml-single-sign-on). Doing so requires you do three things:
 
- 1. Create your own, new *Enterprise Application*
+ 1. Create a new *Enterprise Application*
  2. Set up single sign-on
  3. Configure Attribute claims rules
 
-## 1. Create your own new Enterprise Application
+# 1. Create an Enterprise Application
 
-In identity federation terminology, Identity Providers take on SAFIRE's metadata and configure SAFIRE as a 'Service Provider'. In Azure AD, however, you need to change your thinking slightly, in that you need to think of SAFIRE as an *Enterprise application* that you need to create.
+In identity federation terminology, Identity Providers take on SAFIRE's metadata and configure SAFIRE as a service provider. In Azure AD, however, you need to change your thinking slightly, in that you need to think of SAFIRE as an *Enterprise application* that you need to create.
 
-You will need to create your own new *Enterprise Application* in your organisation's Azure Active Directory Service. You can do so by adding a *New application* and *Create your own application* under the *'Enterprise Applications'* Management item.
+You will need to create a new *Enterprise Application* in your organisation's Azure Active Directory Service. You can do so by adding a *New application* and then *Create your own application* under the *Enterprise Applications* Management item.
 
-You can name the application whatever makes sense to you, but in this document, we have named our new application "SAFIRE - South African Identity Federation". This application is integrating with other applications that are not in the Azure Application gallery.
+You can name the application whatever makes sense to you and your users. Your new SAFIRE application is integrating with other applications that are not in the Azure Application gallery.
 
-## 2. Set up single sign-on
+# 2. Set up single sign-on
 
-Now that you have created your own application, you need to enable *SAML* based single sign-on and *Upload* SAFIRE's [Federation Hub metadata]({{< ref "/technical/metadata.md#safire-federation-hub" >}}) *file*. Azure's metadata Upload utility should pre-populate the *Basic SAML Configuration* from what it finds in the uploaded metadata file.
+Now that you have created your application, you need to enable *SAML* based single sign-on and *Upload* SAFIRE's [Federation Hub metadata]({{< ref "/technical/metadata.md#safire-federation-hub" >}}) *file*. Azure AD's metadata Upload utility should pre-populate the *Basic SAML Configuration* from what it finds in the uploaded metadata file.
 
-Once saved, it is worthwhile double-checking that the information was imported properly by the Upload utility.
+Once saved, it is worthwhile double-checking that the information was correctly imported by the Upload utility and that you understand what each of the fields is doing.
 
-**NOTE:** SAFIRE's metadata changes periodically and the [IdP Requirements]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) puts **the onus on you to keep this up-to-date**. Unfortunately, Azure AD cannot do this automatically, and so you will make these changes manually.
+> SAFIRE's metadata changes periodically, and can do so without warning. The [IdP Requirements]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) put **the onus on you to keep this up-to-date** and expects this process to be automated. Unfortunately Azure AD cannot currently update metadata automatically which is partly why it remains only partially supported in SAFIRE. However, SAFIRE's metadata is stable enough that you can probably get away with this if you create a manual process to periodically ensure you re-upload the metadata or merge any changes.
 
-## 3. Configure Attribute claims rules
 
-You now need to configure your application's *User Attributes & Claims*. Azure sets up a few default User Attributes & Claims rules. Still, you need to ensure these release the [Minimum attributes required for participation]({{< ref "/technical/attributes/_index.md" >}}) for SAFIRE by altering what has been pre-defined, or *Add new claim*, depending on what attributes correspond to the attributes required for participation.
+# 3. Configure Attribute claims rules
+
+You now need to configure your application's *User Attributes & Claims*. Azure sets up a few default User Attributes & Claims rules. However, you need to ensure these release the at least the [Minimum attributes required for participation]({{< ref "/technical/attributes/_index.md" >}}) for SAFIRE. This requires altering what has been pre-defined or *Add new claim*. Depending on your exact use case, you may also need to release some additional attributes.
 
 e.g.
 
@@ -53,15 +54,17 @@ e.g.
 | http\://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname | user.givenname  |
 | http\://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname | user.surname |
 
-##### eduPersonPrincipalName
+### eduPersonPrincipalName
 
-It is recommended that you map the 'user.userprincipalname' to an attribute that is scoped to a realm you are eligible to use. UPN serves this purpose in most cases and provides [eduPersonPrincipalName](({{< ref "/technical/attributes/edupersonprincipalname.md" >}})) with a 'Single valued, scoped to home organisation' value (see link for more details). It is, however, up to you to determine which attribute in your Azure AD best meets the required definition.
+You need to map the UPN claim to a username-like user attribute that is scoped to a realm you are [eligible to use]({{< ref "/safire/policy/mrps/_index.md#scope-format" >}}). The `user.userprincipalname` attribute exists by default and meets the definition of [eduPersonPrincipalName](({{< ref "/technical/attributes/edupersonprincipalname.md" >}})) for most organisations. However, you need to be careful it is not reassigned (see the link for more details).
 
-##### eduPersonScopedAffiliation
+eduPersonPrincipalName is perhaps the most important attribute you release, and it is up to you to determine which attribute in your Azure AD best meets the required definition. See our [notes on generating eduPersonPrincipalName]({{< ref "generating-edupersonprincipalname.md" >}}) for more detail.
 
-Per the definition of [eduPersonScopedAffiliation](({{< ref "/technical/attributes/edupersonscopedaffiliation.md" >}})), You will need to use what user attributes you have in your Azure AD to create a *transform* rule, to assert a users role at your institution correctly.
+### eduPersonScopedAffiliation
 
-e.g. Pseudocode
+[eduPersonScopedAffiliation](({{< ref "/technical/attributes/edupersonscopedaffiliation.md" >}})) provides a controlled vocabulary for asserting a users role in the institution. You will need to use what user attributes you have in your Azure AD to create a *transform* rule to assert a users role at your institution correctly.
+
+e.g. pseudocode
 
 ```lang-none
 
@@ -70,24 +73,19 @@ IF 'user.extensionattribute4' CONTAINS 'staff' THEN
 
 ```
 
-**NOTE:**  eduPersonScopedAffiliation, is a scoped copy of [eduPersonAffiliation]({{< ref "/technical/attributes/edupersonaffiliation.md" >}})'s format rules, and importantly, where an affiliation value says "implies…" the implied values must also be included in the returned set. This, however, is not possible in Azure, as Azure does not currently support multi-valued attributes.
+**NOTE:**  eduPersonScopedAffiliation is a multi-valued attribute with a controlled vocabulary and, importantly, where an the [vocabulary definition]({{< ref "/technical/attributes/edupersonaffiliation.md" >}}) says "implies…" the implied values must also be included in the returned set.
 
-To solve this problem, you will need to (re-)configure the Attribute claims *transform* rule for eduPersonScopedAffiliation to release an attribute *Named* "scopedAffiliationSingleton" in SAFIRE's custom *Namespace* of **https\://safire.ac.za/namespace/claims** with attribute values that are separated by a space, and meet the format rules described in eduPersonAffiliation, scoped to your realm. If your Azure IdP asserts scopedAffiliationSingleton correctly, SAFIRE will reformat it into a multi-valued eduPersonScopedAffiliation attribute for you.
+> Azure AD as it does not currently support multi-valued user extension attributes
 
-e.g. Pseudocode
+As many institutions use user extension attributes to store affiliation information, you can work around this problem by (re-)configuring the Attribute claims *transform* rule for eduPersonScopedAffiliation to release an attribute *Named* `scopedAffiliationSingleton` in SAFIRE's custom *Namespace* of `https://safire.ac.za/namespace/claims` with attribute values that are separated by a space, and meet the format rules described in eduPersonAffiliation, scoped to your realm. If your Azure IdP asserts `scopedAffiliationSingleton` correctly, the SAFIRE federation hub will reformat it into a multi-valued eduPersonScopedAffiliation attribute for you.
+
+e.g. pseudocode
 
 ```lang-none
 
 IF 'user.extensionattribute4' CONTAINS 'staff' THEN
   OUTPUT 'staff@example.ac.za member@example.ac.za employee@example.ac.za'
-
-```
-
-**OR**
-
-```lang-none
-
-IF 'user.extensionattribute4' CONTAINS 'student' THEN
+ELSE IF 'user.extensionattribute4' CONTAINS 'student' THEN
   OUTPUT 'student@example.ac.za member@example.ac.za'
 
 ```
@@ -102,11 +100,13 @@ e.g.
 | **OR**|
 | Members | *Select groups e.g. alumni* | Transformation | IF 'user.userprincipalname' NOT EMPTY THEN OUTPUT 'alum@example.ac.za' |
 
-##### eduPersonAffiliation
+See our [notes on generating eduPerson{Scoped}Affiliation]({{< ref "generating-edupersonaffiliation.md" >}}) for more ideas.
 
-eduPersonAffiliation has the same semantics as eduPersonScopedAffiliation, but lacks the scope (the `@` sign and what follows, e.g. `@example.ac.za`). Thus you can re-used the claim rules you created for eduPersonScopedAffiliation to generate eduPersonAffiliation as well, and simply omit your scope from the attribute you output.
+### eduPersonAffiliation
 
-e.g. Pseudocode
+eduPersonAffiliation has the same semantics as eduPersonScopedAffiliation, but lacks the scope (the '@' sign and what follows, e.g. '@example.ac.za'). Thus you can re-used the claim rules you created for eduPersonScopedAffiliation to generate eduPersonAffiliation as well, and simply omit your scope from the attribute you output.
+
+e.g. pseudocode
 
 ```lang-none
 
@@ -115,8 +115,8 @@ IF 'user.extensionattribute4' CONTAINS 'staff' THEN
 
 ```
 
-As with eduPersonScopedAffiliation, you can work around Azure's multivalued attribute problem, you can release eduPersonAffiliation as an attribute named "unscopedAffiliationSingleton" in SAFIRE's https\://safire.ac.za/namespace/claims namespace.
+As with eduPersonScopedAffiliation, you can work around Azure's multivalued attribute problem, you can release eduPersonAffiliation as an attribute named `unscopedAffiliationSingleton` in SAFIRE's `https://safire.ac.za/namespace/claims` namespace.
 
-#### Other attributes
+### Other attributes
 
-What's shown here is only a subset of SAFIRE's [attribute set]({{< ref "/technical/attributes/_index.md" >}}. You're strongly encouraged to release others where you have the data available.
+What's shown here is only a subset of SAFIRE's [attribute set]({{< ref "/technical/attributes/_index.md" >}}). You're strongly encouraged to release others where you have the data available.
