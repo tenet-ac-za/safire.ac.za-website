@@ -90,15 +90,15 @@ ELSE IF 'user.extensionattribute4' CONTAINS 'student' THEN
 
 ```
 
-If you do not have a single attribute to use as in the above examples and you distinguish users based on group membership, you can look at creating Claim conditions Transformations.
+If you do not have a single attribute to use as in the above examples and you distinguish users based on group membership, you can look at creating *Claim conditions Transformations*.
 
 e.g.
 
 | *User type* | *Scoped Groups* | *Source* | *Value* |
 |----------|----------|----------|----------|
-| Members | *Select groups e.g. students* | Transformation | IF 'user.userprincipalname' NOT EMPTY THEN OUTPUT 'student@example.ac.za member@example.ac.za' |
+| Members | *Select groups e.g. **students*** | Transformation | IF 'user.userprincipalname' NOT EMPTY THEN OUTPUT 'student@example.ac.za member@example.ac.za' |
 | **OR**|
-| Members | *Select groups e.g. alumni* | Transformation | IF 'user.userprincipalname' NOT EMPTY THEN OUTPUT 'alum@example.ac.za' |
+| Members | *Select groups e.g. **alumni*** | Transformation | IF 'user.userprincipalname' NOT EMPTY THEN OUTPUT 'alum@example.ac.za' |
 
 See our [notes on generating eduPerson{Scoped}Affiliation]({{< ref "generating-edupersonaffiliation.md" >}}) for more ideas.
 
