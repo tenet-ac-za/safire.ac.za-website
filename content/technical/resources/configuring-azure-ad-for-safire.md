@@ -104,7 +104,7 @@ See our [notes on generating eduPerson{Scoped}Affiliation]({{< ref "generating-e
 
 ### eduPersonAffiliation
 
-eduPersonAffiliation has the same semantics as eduPersonScopedAffiliation, but lacks the scope (the '@' sign and what follows, e.g. '@example.ac.za'). Thus you can re-used the claim rules you created for eduPersonScopedAffiliation to generate eduPersonAffiliation as well, and simply omit your scope from the attribute you output.
+eduPersonAffiliation has the same semantics as eduPersonScopedAffiliation, but lacks the scope (the '@' sign and what follows, e.g. '@example.ac.za'). Thus you can re-use the claim rules you created for eduPersonScopedAffiliation to generate eduPersonAffiliation as well, and simply omit your scope from the attribute you output.
 
 e.g. pseudocode
 
@@ -115,10 +115,10 @@ IF 'user.extensionattribute4' CONTAINS 'staff' THEN
 
 ```
 
-As with eduPersonScopedAffiliation, you can work around Azure's multivalued attribute problem, you can release eduPersonAffiliation as an attribute named `unscopedAffiliationSingleton` in SAFIRE's [claims namespace]({{< ref "/namespace/claims.md" >}}).
+As with eduPersonScopedAffiliation, you can work around Azure's multi-valued attribute problem, you can release eduPersonAffiliation as an attribute named `unscopedAffiliationSingleton` in SAFIRE's [claims namespace]({{< ref "/namespace/claims.md" >}}).
 
 ### Other attributes
 
 What's shown here is only a subset of SAFIRE's [attribute set]({{< ref "/technical/attributes/_index.md" >}}). You're strongly encouraged to release others where you have the data available.
 
-In particular, your library or researchers may require you to assert [eduPersonEntitlement]({{< ref "/technical/attributes/edupersonentitlement.md" >}}). This suffers similar multivalued limitations, and can be mapped using the `entitlementSingleton` claim in SAFIRE's [claims namespace]({{< ref "/namespace/claims.md" >}}). See our [notes on generating eduPersonEntitlement]({{< ref "generating-edupersonentitlement.md" >}}).
+In particular, your library or researchers may require you to assert [eduPersonEntitlement]({{< ref "/technical/attributes/edupersonentitlement.md" >}}). This suffers similar multi-valued limitations, and can be mapped using the `entitlementSingleton` claim in SAFIRE's [claims namespace]({{< ref "/namespace/claims.md" >}}). See our [notes on generating eduPersonEntitlement]({{< ref "generating-edupersonentitlement.md" >}}).
