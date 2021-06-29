@@ -6,7 +6,6 @@ tags:
   - configuration
   - metadata
   - technical
-draft: true
 title: Configuring Azure AD SAML-based SSO for SAFIRE
 url: /technical/resources/configuring-azure-ad-for-safire/
 aliases:
