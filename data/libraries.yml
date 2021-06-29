@@ -258,10 +258,28 @@ Providers:
       AuthAttribute: eduPersonScopedAffiliation
       SAFIRE: true
 
-    - Name: Sabinet
+    - Name: Sabinet African journals
+      LoginLink: "[Institutional Access](https://journals.co.za/action/ssostart?viaFederation=true&redirectUri=%2F)"
+      Status: Tested, working
+      StatusColour: green
+      StatusDate: 2021-06-14
+      Notes: While Sabinet is a direct participant in SAFIRE, Sabinet African journals uses Atypon SP and is learnt via interfederation. To enable, contact Sabinet Client Support
+      Documentation:
+        - https://journals.co.za/faq
+      SAFIRE: true
+
+    - Name: Sabinet Reference
       LoginLink: Not supported
       StatusColour: red
-      Notes: Sabinet is in the process of joining SAFIRE (signed participation agreement).
+      StatusDate: 2021-06-14
+      Notes: Sabinet is in the process of joining SAFIRE (signed participation agreement). [TENET:23854]
+      SAFIRE: true
+
+    - Name: Sabinet Legal
+      LoginLink: Not supported
+      StatusColour: red
+      StatusDate: 2021-06-14
+      Notes: Sabinet is in the process of joining SAFIRE (signed participation agreement). [TENET:23854]
       SAFIRE: true
 
     - Name: SAGE
