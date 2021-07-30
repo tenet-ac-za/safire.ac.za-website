@@ -109,3 +109,14 @@ You can improve the generated metadata (and thus require less editing) by provid
 
 Then create metadata.xml as a stub containing those elements you wish to add to the generated metadata ([an example is available](/wp-content/uploads/2016/12/metadata.xml)). Save it in your Shibboleth config directory.
 
+# Other technical requirements
+
+There are two additional [technical requirements]({{< ref "/technical/saml2/sp-requirements/_index.md" >}}) that are not directly related to SimpleSAMLphp that you nevertheless need to meet.
+
+## Logging requirements
+
+You need to ensure that you configure log rotation of [Shibboleth SP's logs](https://shibboleth.atlassian.net/wiki/spaces/SP3/pages/2065334602/Logging) to meet the minimum retention period specified in the technical requirements. How you do this depends on your operating system.
+
+## Time synchronisation
+
+Most modern operating systems do syncronise time, but you should verify that your server is set to synchronise time against a reliable timesource (such as [za.pool.ntp.org](https://www.ntppool.org/zone/za)).

@@ -118,3 +118,15 @@ Once you've done that, you need an attribute filter that will release the attrib
 </AttributeFilterPolicy>
 ```
 
+# Other technical requirements
+
+There are two additional [technical requirements]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) that are not directly related to Shibboleth that you nevertheless need to meet.
+
+## Logging requirements
+
+You need to ensure that you configure log rotation of [Shibboleth IdP's logs](https://shibboleth.atlassian.net/wiki/spaces/IDP30/pages/2497773826/LoggingConfiguration) to meet the minimum retention period specified in the technical requirements. How you do this depends on your operating system.
+
+## Time synchronisation
+
+Most modern operating systems do syncronise time, but you should verify that your server is set to synchronise time against a reliable timesource (such as [za.pool.ntp.org](https://www.ntppool.org/zone/za)).
+
