@@ -1,5 +1,5 @@
 ---
-date: 2021-06-10 09:15:00+02:00
+date: 2021-07-30 11:47:00+02:00
 slug: configuring-azure-ad-for-safire
 tags:
   - azure
@@ -121,3 +121,9 @@ As with eduPersonScopedAffiliation, you can work around Azure's multi-valued att
 What's shown here is only a subset of SAFIRE's [attribute set]({{< ref "/technical/attributes/_index.md" >}}). You're strongly encouraged to release others where you have the data available.
 
 In particular, your library or researchers may require you to assert [eduPersonEntitlement]({{< ref "/technical/attributes/edupersonentitlement.md" >}}). This suffers similar multi-valued limitations, and can be mapped using the `entitlementSingleton` claim in SAFIRE's [claims namespace]({{< ref "/namespace/claims.md" >}}). See our [notes on generating eduPersonEntitlement]({{< ref "generating-edupersonentitlement.md" >}}).
+
+# Other technical requirements
+There is an additional [technical requirement]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) that you should ensure your Azure AD tenant complies with which is not part of the above documentation, that you nevertheless need to meet.
+
+## Logging requirements
+By default Azure AD stores audit, and sign-in logs for [30 days] (https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/reference-reports-data-retention#how-long-does-azure-ad-store-the-data). You need to ensure that you configure Azure AD to [archive it's logs](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account) to meet the minimum retention period specified in the technical requirements.
