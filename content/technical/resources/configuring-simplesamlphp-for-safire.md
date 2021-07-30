@@ -14,7 +14,7 @@ url: /technical/resources/configuring-simplesamlphp-for-safire/
 
 # Configuring metarefresh to fetch SAFIRE metadata
 
-You should use the metarefresh and cron modules to manage SAFIRE's metadata automatically. SimpleSAMLphp provides documentation on [automated metadata management](https://simplesamlphp.org/docs/stable/simplesamlphp-automated_metadata) which explains the basics of how you set this up. This document assumes you have a [working cron module](https://simplesamlphp.org/docs/stable/simplesamlphp-automated_metadata#section_5) and have [enabled metarefresh](https://simplesamlphp.org/docs/stable/simplesamlphp-automated_metadata#section_2).
+You should use the metarefresh and cron modules to manage SAFIRE's metadata automatically. SimpleSAMLphp provides documentation on [automated metadata management](https://github.com/simplesamlphp/simplesamlphp-module-metarefresh/blob/master/docs/simplesamlphp-automated_metadata.md) which explains the basics of how you set this up. This document assumes you have a [working cron module](https://simplesamlphp.org/docs/stable/cron:cron) and have [enabled metarefresh](https://github.com/simplesamlphp/simplesamlphp-module-metarefresh/blob/master/docs/simplesamlphp-automated_metadata.md#preparations).
 
 ## Configure metarefresh
 
@@ -155,13 +155,30 @@ To produce better automated metadata, you should also configure the [MDUI option
 
 ## Configure attribute release
 
-If you're using SimpleSAMLphp as an identity provider, you need to configure an internal authentication source (e.g. [ldap:LDAP](https://simplesamlphp.org/docs/stable/ldap:ldap)) to provide [all of the attributes required by SAFIRE](/technical/attributes/). You may also need to configure [authentication processing filters](https://simplesamlphp.org/docs/stable/simplesamlphp-authproc) to map your internal attributes into the correct OID format. How you do this is site-specific and beyond the scope of this document.
+If you're using SimpleSAMLphp as an identity provider, you need to configure an internal authentication source (e.g. [ldap:LDAP](https://simplesamlphp.org/docs/stable/ldap:ldap)) to provide [all of the attributes required by SAFIRE]({{< ref "/technical/attributes/_index.md" >}}). You may also need to configure [authentication processing filters](https://simplesamlphp.org/docs/stable/simplesamlphp-authproc) to map your internal attributes into the correct OID format. How you do this is site-specific and beyond the scope of this document.
 
 # Configuring a Service Provider
 
 ## Configure SSO
 
-If you're using SimpleSAMLphp as a service provider and you want to use SAFIRE's central discovery service, you need to add an 'idp' attribute to your [saml:SP configuration](https://simplesamlphp.org/docs/stable/saml:sp) in config/authsources.php:
+If you're using SimpleSAMLphp as a service provider, you'll need to choose a discovery service to allow it to find a suitable identity provider for a user. SimpleSAMLphp comes with a number of built-in options, but it may be better to use [Seamless Access](https://seamlessaccess.org/).
+
+Whatever discovery service you choose, you should follow it's documentation for installing it. or Seamless Access's [standard integration](https://seamlessaccess.atlassian.net/wiki/spaces/DOCUMENTAT/pages/84738148/Standard+Integration), that means:
+
+```php
+$config = [
+    'default-sp' => [
+        'saml:SP',
+        'discoURL' => 'https://service.seamlessaccess.org/ds',
+    ],
+];
+```
+
+Provided you got the metadata step right, there’s no SAFIRE-specific configuration required.
+
+### Legacy central discovery
+
+It is possible configure SimpleSAMLphp to use SAFIRE's deprecated central discovery service, and previously this documentation covered it in detail. The gist is that you need to consume the [hub metadata]({{< ref "/technical/metadata.md#safire-federation-hub" >}}) and then configuring login in your [saml:SP configuration](https://simplesamlphp.org/docs/stable/saml:sp) as below. However, while marginally simpler, using this method does not comply with current user interface best practices and is therefore not recommended for new deployments.
 
 ```php
 $config = [
@@ -172,17 +189,17 @@ $config = [
 ];
 ```
 
-If you want to use local discovery, no SAFIRE-specific configuration should be required provided you got the metadata step correct.
+## Improve SP metadata
 
 To produce better automated metadata, you should also configure the [MDUI options](https://simplesamlphp.org/docs/stable/simplesamlphp-metadata-extensions-ui) correctly. (There's a [sample authsources.php](/wp-content/uploads/2017/02/authsources.php.txt)  file available to help you do this.)
 
 ## Configure attribute mapping
 
-SimpleSAMLphp's default attribute map contains almost all of SAFIRE's attributes. Depending on what version you're using, you [may need to add eduPersonOrcid](https://github.com/simplesamlphp/simplesamlphp/commit/63c7abf68deb670f85c6567366c7df83d1a43b67) if you need it.
+SimpleSAMLphp's default `oid2name` attribute map now contains all of SAFIRE's attributes.
 
 # Other technical requirements
 
-There are two additional [technical requirements]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) that are not directly related to SimpleSAMLphp that you nevertheless need to meet.
+There are two additional [technical requirements]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) that are not directly related to SimpleSAMLphp that you nevertheless need to meet for both [identity providers]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) and [service providers]({{< ref "/technical/saml2/sp-requirements/_index.md" >}}).
 
 ## Logging requirements
 
