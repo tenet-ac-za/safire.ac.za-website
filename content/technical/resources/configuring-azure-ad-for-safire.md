@@ -1,5 +1,5 @@
 ---
-date: 2021-07-30 11:47:00+02:00
+date: 2021-07-30 11:27:00+02:00
 slug: configuring-azure-ad-for-safire
 tags:
   - azure
