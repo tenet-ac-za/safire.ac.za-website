@@ -1,5 +1,5 @@
 ---
-date: 2019-04-09 08:07:00+02:00
+date: 2021-07-30 09:46:00+02:00
 slug: configuring-adfs-for-safire
 tags:
   - adfs
@@ -82,3 +82,16 @@ You can improve the generated metadata (and thus require less editing) by provid
 
 Note that you'll still need to add your contacts and some of the MDUI elements (such as your logo URL and privacy statement) by hand before sending your metadata to SAFIRE. We're not aware of any way to get ADFS to add these automatically.
 
+# Other technical requirements
+
+There are two additional [technical requirements]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) that the [supplied PowerShell]({{< relref "#scripted-configuration" >}}) script does not configure.
+
+## Logging requirements
+
+By default, Windows rotates the event log based on size whereas the technical requirements specify a minimum retention period. Thus it is possible that you will delete logs earlier than you're supposed to. You will need to adjust the event logging properties for your server to ensure you retain logs as specified in the technical requirements.
+
+You should change your Log retention policy to "Archive the log when full, do not overwrite events." and set a suitable maximum log size to ensure you retain the full period required. You may need to make sure you've allocated sufficient disk space for logging to store this.
+
+## Time synchronisation
+
+Modern versions of Windows server do syncronise time, but this may be changed by your local group policy. Please ensure your server is set to synchronise time against a reliable timesource (such as [za.pool.ntp.org](https://www.ntppool.org/zone/za)).

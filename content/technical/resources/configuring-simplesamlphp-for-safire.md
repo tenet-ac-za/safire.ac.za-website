@@ -1,5 +1,5 @@
 ---
-date: 2020-11-17 12:59:32+02:00
+date: 2021-07-30 09:47:00+02:00
 slug: configuring-simplesamlphp-for-safire
 tags:
   - configuration
@@ -179,3 +179,15 @@ To produce better automated metadata, you should also configure the [MDUI option
 ## Configure attribute mapping
 
 SimpleSAMLphp's default attribute map contains almost all of SAFIRE's attributes. Depending on what version you're using, you [may need to add eduPersonOrcid](https://github.com/simplesamlphp/simplesamlphp/commit/63c7abf68deb670f85c6567366c7df83d1a43b67) if you need it.
+
+# Other technical requirements
+
+There are two additional [technical requirements]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) that are not directly related to SimpleSAMLphp that you nevertheless need to meet.
+
+## Logging requirements
+
+You need to ensure that you configure log rotation of [SimpleSAMLphp's logs](https://simplesamlphp.org/docs/stable/simplesamlphp-maintenance#section_4) to meet the minimum retention period specified in the technical requirements. How you do this depends on your operating system.
+
+## Time synchronisation
+
+Most modern operating systems do syncronise time, but you should verify that your server is set to synchronise time against a reliable timesource (such as [za.pool.ntp.org](https://www.ntppool.org/zone/za)).
