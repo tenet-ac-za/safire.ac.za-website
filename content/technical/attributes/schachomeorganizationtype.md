@@ -16,7 +16,7 @@ attributeReferences:
   - Name: SCHAC URN Registry
     URL: https://wiki.refeds.org/display/STAN/SCHAC+URN+Registry
   - Name: ZA National Extensions
-    URL: /namespaces/urn-schac-homeorganizationtype-za
+    URL: /namespace/urn-schac-homeorganizationtype-za
   - Name: schacHomeOrgType Usage
     URL: https://wiki.refeds.org/pages/viewpage.action?title=SchacHomeOrgType+usage&spaceKey=STAN
 date: 2016-09-12 13:05:32+00:00

@@ -29,7 +29,7 @@ G Suite will offer you the choice of a number of service providers, but you shou
 
 ## Step 2
 
-Download G Suite's IdP metadata (Option 2) and save this for later. You'll need to hand-edit the XML in order to comply with SAFIRE's [metadata requirements](/technical/saml2/idp-requirements/) and pass [validation](https://validator.safire.ac.za/). However what you get from this stage is a useful starting point.
+Download G Suite's IdP metadata (Option 2) and save this for later. You'll need to hand-edit the XML in order to comply with SAFIRE's [metadata requirements]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) and pass [validation](https://validator.safire.ac.za/). However what you get from this stage is a useful starting point.
 
 {{< figure src="/wp-content/uploads/2017/03/gapps_sso_step2.png" caption="Step 2" >}}
 
@@ -57,7 +57,7 @@ Which should then look something like this:
 
 ## Step 5
 
-Add attribute mappings to map the G Suite directory attributes into SAML attributes [SAFIRE understands](/technical/attributes/). The mappings available are quite limited, but you should be able to map at least the required attributes.
+Add attribute mappings to map the G Suite directory attributes into SAML attributes [SAFIRE understands]({{< ref "/technical/attributes/_index.md" >}}). The mappings available are quite limited, but you should be able to map at least the required attributes.
 
 {{< figure src="/wp-content/uploads/2017/03/gapps_sso_step5.png" caption="Step 5" >}}
 

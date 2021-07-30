@@ -10,8 +10,8 @@ title: SAML2 Technology Profile
 url: /technical/saml2/
 ---
 
-The [Participation Agreement](/safire/policy/participation/) allows for various technology profiles that allow the federation to evolve over time. This section of the website describes the current SAML2 Technology Profile.
+The [Participation Agreement]({{< ref "/safire/policy/participation/_index.md" >}}) allows for various technology profiles that allow the federation to evolve over time. This section of the website describes the current SAML2 Technology Profile.
 
-  * [Attribute Release Policy](/safire/policy/arp/)
+  * [Attribute Release Policy]({{< ref "/safire/policy/arp/_index.md" >}})
   * [Metadata validation tool](https://validator.safire.ac.za/)
 

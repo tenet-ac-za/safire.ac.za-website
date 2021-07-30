@@ -10,7 +10,7 @@ title: "Practice Note: Participation Agreement"
 url: /safire/policy/participation/practice-note/
 ---
 
-Federation is a complex space, and South Africa is grappling with the implication of new privacy legislation. Whilst we've tried to make SAFIRE's Participation Agreement easy for the likely signatory --- a federation layman --- to understand, experience has shown that there are sometimes misunderstandings of the technology and gaps in interpretation. This document is intended to consolidate that experience into a practice note for legal departments and other people trying to make sense of the [SAFIRE Participation Agreement](/safire/policy/participation/).<!--more-->
+Federation is a complex space, and South Africa is grappling with the implication of new privacy legislation. Whilst we've tried to make SAFIRE's Participation Agreement easy for the likely signatory --- a federation layman --- to understand, experience has shown that there are sometimes misunderstandings of the technology and gaps in interpretation. This document is intended to consolidate that experience into a practice note for legal departments and other people trying to make sense of the [SAFIRE Participation Agreement]({{< ref "/safire/policy/participation/_index.md" >}}).<!--more-->
 
 # Preamble section
 
@@ -36,23 +36,23 @@ Some people would like SAFIRE to impose various binding obligations on _all_ Ser
 
 It is impossible for a South African federation to impose binding obligations on service providers who are members of another federation and subject to other jurisdictions. Quite simply, no signatory to the Participation Agreement has any form of lien over them.
 
-This is taken into consideration when applying [attribute release policies](/safire/policy/arp/). The default policy is necessarily very conservative, and variations must be explicitly motivated for.
+This is taken into consideration when applying [attribute release policies]({{< ref "/safire/policy/arp/_index.md" >}}). The default policy is necessarily very conservative, and variations must be explicitly motivated for.
 
 # Default attribute release policy releases too much personal information
 
-Both the [default attribute release policy](/safire/policy/arp/#default) and the [Research & Scholarship one](/safire/policy/arp/#research-scholarship) release no more information than an average email. If your organisation is happy for an outgoing email to include both an email address and the name of the sender, you should be happy for this information to be released via other technologies. Alternatively, you should consider applying similar prohibitions to email.
+Both the [default attribute release policy]({{< ref "/safire/policy/arp/_index.md#default" >}}) and the [Research & Scholarship one]({{< ref "/safire/policy/arp/_index.md#research-scholarship" >}}) release no more information than an average email. If your organisation is happy for an outgoing email to include both an email address and the name of the sender, you should be happy for this information to be released via other technologies. Alternatively, you should consider applying similar prohibitions to email.
 
 # Consent for personal information release
 
-SAFIRE's understanding of consent is that it must be given by a data subject (end user), and it must be informed, freely given, and for a specific purpose. It must also be [withdrawable at any point]({{< ref "/users/help.md#changed-your-mind-about-sending-information-to-a-service-provider" >}}). Irrespective of whether consent is actually required for lawful processing, these principles are applied throughout SAFIRE's operations and the data subject is always informed about data transfers and given the opportunity to abort the transaction. Likewise, the principle of minimality is observed when negotiating [attribute release policies](/safire/policy/arp/).
+SAFIRE's understanding of consent is that it must be given by a data subject (end user), and it must be informed, freely given, and for a specific purpose. It must also be [withdrawable at any point]({{< ref "/users/help.md#changed-your-mind-about-sending-information-to-a-service-provider" >}}). Irrespective of whether consent is actually required for lawful processing, these principles are applied throughout SAFIRE's operations and the data subject is always informed about data transfers and given the opportunity to abort the transaction. Likewise, the principle of minimality is observed when negotiating [attribute release policies]({{< ref "/safire/policy/arp/_index.md" >}}).
 
 Our understanding of consent and other bases for lawful processing will continue to evolve as regulation is gazetted in South Africa.
 
-The European GDPR has significant impact on inter-federation and cross-border operations, and is in some senses more evolved than South African's own legislation. A great deal of work is being done by other NRENs, both within Europe and outside, on the applicability of the GDPR on their operations. We full expect that the GDPR will impact South African researchers, our NREN and SAFIRE in particular. We are thus following these developments --- and specifically those that relate to the [lawful basis for data processing](https://wiki.refeds.org/display/ENT/Guidance+on+justification+for+attribute+release) --- with interest.
+The European GDPR has significant impact on inter-federation and cross-border operations, and is in some senses more evolved than South African's own legislation. A great deal of work is being done by other NRENs, both within Europe and outside, on the applicability of the GDPR on their operations. We full expect that the GDPR will impact South African researchers, our NREN and SAFIRE in particular. We are thus following these developments --- and specifically those that relate to the [lawful basis for data processing](https://wiki.refeds.org/display/ENT/Guidance+on+justification+for+attribute+release+for+RandS) --- with interest.
 
 # Display of policy documents
 
-SAFIRE's information release notification page for SAML transactions provides links to both [SAFIRE's Privacy Statement](/safire/policy/privacy/) and to the privacy policy or statement of the specific service provider that's being visited. Moreover, the information release notification page displays the post-processed attributes, exactly as they will be onward released. No further processing is done after this notification. All of this is important to allow people to make an informed decision about whether they wish to continue with the transaction.
+SAFIRE's information release notification page for SAML transactions provides links to both [SAFIRE's Privacy Statement]({{< ref "/safire/policy/privacy/_index.md" >}}) and to the privacy policy or statement of the specific service provider that's being visited. Moreover, the information release notification page displays the post-processed attributes, exactly as they will be onward released. No further processing is done after this notification. All of this is important to allow people to make an informed decision about whether they wish to continue with the transaction.
 
 Should individual SAML identity- or service providers wish to display other policies or terms, they may build those into their own systems.
 
@@ -90,19 +90,19 @@ SAFIRE is an _academic_ identity federation. Whilst there certainly are other pr
 
 The defining feature is that, unlike commercial ventures, SAFIRE exists solely to serve the needs of its beneficiary community and provides for a [high level of input]({{< ref "/safire/governance.md" >}}) from that community. The service provided by SAFIRE is tailored to the specific needs of the research and education community and is intended to allow South Africa to more effectively participate in global academic research endeavours.
 
-Moreover, SAFIRE is operated by a non-profit company (TENET) who's [memorandum of incorporation espouses these ideals](http://www.tenet.ac.za/about/about-tenet-1). As an NPC, TENET does not charge for its services in amounts exceeding what is required to recover the costs of delivering services.
+Moreover, SAFIRE is operated by a non-profit company (TENET) who's [memorandum of incorporation espouses these ideals](https://www.tenet.ac.za/about/our-purpose-and-constitution). As an NPC, TENET does not charge for its services in amounts exceeding what is required to recover the costs of delivering services.
 
 # REN Service Agreement
 
 Section 11.3 makes reference to TENET's REN Services Agreement as containing the processes for dispute resolution. In the case where a Participant in SAFIRE is also a signatory of the REN Services Agreement (most universities, for instance), the prevailing version is the one most recently concluded between TENET and the Participant (we can supply a copy of this if necessary).
 
-In cases where the Participant is not also a signatory, the prevailing version is the one [published on TENET's website](http://www.tenet.ac.za/doc/tenet-ren-service-agreement-redistributable/view) and updated from time to time. However, if necessary to allay concerns about this, we can annexure the relevant sections from the REN Service Agreement to the Participation Agreement at the time of signature.
+In cases where the Participant is not also a signatory, the prevailing version is the one distributed to our SLA Reference Group from time to time. However, if necessary to allay concerns about this, we can annexure the relevant sections from the REN Service Agreement to the Participation Agreement at the time of signature.
 
 # Variations
 
 Some legal departments have asked for organisation-specific variations to the Participation Agreement. Unfortunately, we're not able to do this, for two reasons:-
 
-Firstly (and most importantly), the trust model of a federation is based on transparency and ensuring that every Participant (including those participating via inter-federation) knows and understands the roles of other participants. This is why the Participation Agreement and all associated policies [are public documents on our website](/safire/policy/). Individualising the agreements would break this model --- and would thus further imply that SAFIRE was unable to publish that organisation's metadata to inter-federation partners like eduGAIN.
+Firstly (and most importantly), the trust model of a federation is based on transparency and ensuring that every Participant (including those participating via inter-federation) knows and understands the roles of other participants. This is why the Participation Agreement and all associated policies [are public documents on our website]({{< ref "/safire/policy/_index.md" >}}). Individualising the agreements would break this model --- and would thus further imply that SAFIRE was unable to publish that organisation's metadata to inter-federation partners like eduGAIN.
 
 Secondly, as a small non-profit, TENET simply doesn't have the resources to manage individualised versions of contracts.
 

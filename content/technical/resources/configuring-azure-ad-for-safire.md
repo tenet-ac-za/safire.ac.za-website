@@ -55,13 +55,13 @@ e.g.
 
 ### eduPersonPrincipalName
 
-You need to map the UPN claim to a username-like user attribute that is scoped to a realm you are [eligible to use]({{< ref "/safire/policy/mrps/_index.md#scope-format" >}}). The `user.userprincipalname` attribute exists by default and meets the definition of [eduPersonPrincipalName](({{< ref "/technical/attributes/edupersonprincipalname.md" >}})) for most organisations. However, you need to be careful it is not reassigned (see the link for more details).
+You need to map the UPN claim to a username-like user attribute that is scoped to a realm you are [eligible to use]({{< ref "/safire/policy/mrps/_index.md#scope-format" >}}). The `user.userprincipalname` attribute exists by default and meets the definition of [eduPersonPrincipalName]({{< ref "/technical/attributes/edupersonprincipalname.md" >}}) for most organisations. However, you need to be careful it is not reassigned (see the link for more details).
 
 eduPersonPrincipalName is perhaps the most important attribute you release, and it is up to you to determine which attribute in your Azure AD best meets the required definition. See our [notes on generating eduPersonPrincipalName]({{< ref "generating-edupersonprincipalname.md" >}}) for more detail.
 
 ### eduPersonScopedAffiliation
 
-[eduPersonScopedAffiliation](({{< ref "/technical/attributes/edupersonscopedaffiliation.md" >}})) provides a controlled vocabulary for asserting a users role in the institution. You will need to use what user attributes you have in your Azure AD to create a *transform* rule to assert a users role at your institution correctly.
+[eduPersonScopedAffiliation]({{< ref "/technical/attributes/edupersonscopedaffiliation.md" >}}) provides a controlled vocabulary for asserting a users role in the institution. You will need to use what user attributes you have in your Azure AD to create a *transform* rule to assert a users role at your institution correctly.
 
 e.g. pseudocode
 

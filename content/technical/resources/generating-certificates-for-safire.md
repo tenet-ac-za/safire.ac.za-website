@@ -13,7 +13,7 @@ url: /technical/resources/generating-certificates-for-safire/
 
 SAML installations typically use at least two[^1] different certificates: one of the public facing portions of a website, and one to establish a private trust relationship between providers. Whilst it is possible to use the same certificate for these two roles, this is not best practice nor is it recommended.
 
-The technical requirements for [identity-](/technical/saml2/idp-requirements/) and [service-](/technical/saml2/sp-requirements/)providers definitively specify the requirements and recommendations for these two types of certificates. What's below will give you some ideas on how to obtain/generate certificates that meet these requirements.
+The technical requirements for [identity-]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) and [service-]({{< ref "/technical/saml2/sp-requirements/_index.md" >}})providers definitively specify the requirements and recommendations for these two types of certificates. What's below will give you some ideas on how to obtain/generate certificates that meet these requirements.
 
 # Web server certificate
 
@@ -29,7 +29,7 @@ It is not for SAFIRE to recommend a CA --- you can use [any commercial certifica
 
 Your SAML signing certificate should **not** use public key infrastructure. This certificate is never presented to an end user's browser, it is only used to sign SAML messages between providers.
 
-SAFIRE uses the [explicit key trust model](https://spaces.internet2.edu/display/InCFederation/Metadata+Trust+Models), which is defined in the [deployment profile]({{< ref "/technical/saml2/deployment-profiles.md" >}}). The trust relationship here is set up by explicitly specifying the keys in metadata exchange. The metadata itself forms the trust anchor, and thus there is no need for a trusted root certificate.
+SAFIRE uses the [explicit key trust model](https://spaces.at.internet2.edu/display/InCFederation/Managing+Trust+in+Keys+Used+for+Metadata), which is defined in the [deployment profile]({{< ref "/technical/saml2/deployment-profiles.md" >}}). The trust relationship here is set up by explicitly specifying the keys in metadata exchange. The metadata itself forms the trust anchor, and thus there is no need for a trusted root certificate.
 
 At the most simple level, using PKI for this certificate is a waste of money. However, there are a number of good reasons to prefer a self-signed certificate.
 

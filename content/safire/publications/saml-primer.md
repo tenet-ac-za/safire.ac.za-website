@@ -32,7 +32,7 @@ Stripped to the bare essentials, a SAML transaction consists of three parts:
 
  1. An authentication (AuthN) request
  2. An authentication response
- 3. Some [assertions](https://www.collinsdictionary.com/dictionary/english/assertion) about the subject of the authentication, usually expressed as [attributes](/technical/attributes/).
+ 3. Some [assertions](https://www.collinsdictionary.com/dictionary/english/assertion) about the subject of the authentication, usually expressed as [attributes]({{< ref "/technical/attributes/_index.md" >}}).
 
 Importantly SAML does **not** perform authorisation (AuthZ), although the information gleaned from the assertions may provide entitlement information that assists with this.
 
@@ -136,7 +136,7 @@ In order for the protocol to work, both parties need to know stuff about each ot
 
 Like the messages, SAML metadata is XML and has lots of options. Fortunately we only need to care about the subset defined in the [metadata interoperablity profile](https://wiki.oasis-open.org/security/SAML2MetadataIOP) (**MetaIOP**) and a very small set of metadata extensions.
 
-Unlike the messages, it does pay to have some understanding of the basic structure of metadata. Fortunately, however, many federations provide [documentation](/technical/saml2/) on their metadata requirements and often a [metadata template](/wp-content/uploads/2016/12/metadata.xml) too.
+Unlike the messages, it does pay to have some understanding of the basic structure of metadata. Fortunately, however, many federations provide [documentation]({{< ref "/technical/saml2/_index.md" >}}) on their metadata requirements and often a [metadata template](/wp-content/uploads/2016/12/metadata.xml) too.
 
 In a federated environment, you supply your metadata to the federation and get metadata for other participants from the federation.
 
@@ -198,9 +198,9 @@ Because it does not rely on PKI, certificates for SAML [do not need to be signed
 
 ## 7. Attributes
 
-Arguably the most useful part of SAML is its ability to transport rich information about a data subject (user). This is done by means of attributes, and both parties need to [agree on what these mean](/technical/attributes/) before they're useful.
+Arguably the most useful part of SAML is its ability to transport rich information about a data subject (user). This is done by means of attributes, and both parties need to [agree on what these mean]({{< ref "/technical/attributes/_index.md" >}}) before they're useful.
 
-The SAML metadata defines what attributes a service provider would like, and where the identity provider should send them. An identity provider is free to send whatever attributes it wants, although federations typically have [standards that identity providers must comply with](/technical/saml2/idp-requirements/).
+The SAML metadata defines what attributes a service provider would like, and where the identity provider should send them. An identity provider is free to send whatever attributes it wants, although federations typically have [standards that identity providers must comply with]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}).
 
 ### Attribute naming
 
@@ -224,7 +224,7 @@ Note that the naming format used in the R&E space is different from the standard
 
 The structure of an attribute's values depends on the specific definition of the attribute, and may vary from provider to provider. Some are well defined and can be easily validated whereas others, like the *givenName* above, are free-form. Likewise, some attributes can only contain a single value whereas others may contain many related values.
 
-Most federations [provide strict guidelines](/technical/attributes/) on both attribute naming and their corresponding values. This ensures a common understanding and interoperability.
+Most federations [provide strict guidelines]({{< ref "/technical/attributes/_index.md" >}}) on both attribute naming and their corresponding values. This ensures a common understanding and interoperability.
 
 ### NameIDs
 

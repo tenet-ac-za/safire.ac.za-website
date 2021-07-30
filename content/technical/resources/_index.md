@@ -27,7 +27,7 @@ This page contains links to more information and technical resources. It will be
 
 # Identity provider deployment
 
-  * [IdP Installer](https://github.com/idp-installer-manager/idp-installer-global) - Federated identity Appliance developed by [CANARIE](http://www.canarie.ca/en/caf-service/about) (CA) /[SWAMID](http://www.swamid.se/) (SE).
+  * [IdP Installer](https://github.com/idp-installer-manager/idp-installer-global) - Federated identity Appliance developed by [CANARIE](https://www.canarie.ca/identity/) (CA) /[SWAMID](http://www.swamid.se/) (SE).
   * [Step-by-step IdP installation](https://tuakiri.ac.nz/confluence/display/Tuakiri/Installing+a+Shibboleth+3.x+IdP) - written by Tuakiri (NZ), but many of the principles follow through.
   * [TestShib](http://www.testshib.org/) - Test service provider.
   * [SAMLtest.id](https://samltest.id/) - test your IdP & SP
@@ -36,7 +36,6 @@ This page contains links to more information and technical resources. It will be
 
   * [AARC Blueprint Architecture](https://aarc-project.eu/architecture/) - a set of software building blocks that can be used to implement federated access management solutions for international research collaborations.
   * [Research & Scholarship](https://wiki.refeds.org/display/ENT/Research+and+Scholarship+FAQ) entity category
-  * [How to turn web-based services into Service Providers of Identity Federation](http://courses.sci-gaia.eu/courses/GARR/SP101/2015_T4/about) (Sci-GaIA free online course)
   * [Wordpress](https://wordpress.org/plugins/shibboleth/)
   * [Moodle](https://docs.moodle.org/31/en/Shibboleth)
 

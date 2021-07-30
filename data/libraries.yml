@@ -66,7 +66,7 @@ Providers:
       StatusColour: green
       StatusDate: 2017-10-23
       Notes: |
-        Libraries need to generate a WAYFless URL of the form https://auth.elsevier.com/ShibAuth/institutionLogin?entityID={{idp_proxy_entityid}}&appReturnURL={{url-encoded-target}} using their [proxied entity id](/participant/idp/list/?wayfless) and send it to Elsevier support to get themselves listed.
+        Libraries need to generate a WAYFless URL of the form https://auth.elsevier.com/ShibAuth/institutionLogin?entityID={{idp_proxy_entityid}}&appReturnURL={{url-encoded-target}} using their [proxied entity id](/participants/idp/list/?wayfless) and send it to Elsevier support to get themselves listed.
       Documentation:
        - https://www.elsevier.com/solutions/scopus/support/federated-authentication-through-saml
       AuthAttribute:

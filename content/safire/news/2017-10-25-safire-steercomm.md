@@ -6,7 +6,7 @@ tags:
   - steercomm
 ---
 
-We're please to announce the completion of an [election process](https://foodl.org/foodle/SAFIRE-Steering-Committee-59e9c) to appoint the inaugral SAFIRE Steering Commitee in terms of the [new terms of reference](/safire/policy/steercomm/).<!--more-->
+We're please to announce the completion of an [election process](https://foodl.org/foodle/SAFIRE-Steering-Committee-59e9c) to appoint the inaugral SAFIRE Steering Commitee in terms of the [new terms of reference]({{< ref "/safire/policy/steercomm/_index.md" >}}).<!--more-->
 
 The Steering Committee for 2017 / 2018 consists of:
 

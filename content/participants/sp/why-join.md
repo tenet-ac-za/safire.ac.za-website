@@ -24,7 +24,7 @@ The [NSRC](http://nsrc.org/), [REFEDS](http://refeds.org/) & [GÉANT](http://ge
 
 SAFIRE is the South African academic identity federation, meaning we're focused on South African needs within the broader global context. We took a specific decision to build a hub-and-spoke federation because we believed it was most suitable to the South African context. Among the benefits this decision offers are:
 
-  * Better, more standardised, [attribute release](/safire/policy/arp/) to service providers (you don't need to negotiate with individual identity providers).
+  * Better, more standardised, [attribute release]({{< ref "/safire/policy/arp/_index.md" >}}) to service providers (you don't need to negotiate with individual identity providers).
   * Simplified integration --- service providers can integrate once with SAFIRE to gain access to multiple identity providers; you don't need to troubleshoot multiple identity providers when things go wrong. This should translate to lower startup costs.
   * Mandatory notification to end-users of personal information transfer, helping ease the burden of POPI Act compliance for both identity- and service providers.
 

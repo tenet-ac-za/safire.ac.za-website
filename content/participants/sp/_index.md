@@ -10,7 +10,7 @@ title: Service Providers
 url: /participants/sp/
 ---
 
-Service providers (or SPs) are responsible for offering users a (usually web-based) service they desire to use. Service providers rely on the authentication outcome and attributes that an [identity provider](/participants/idp/) asserts for its users. For this reason they are sometimes known as the visited organisation.
+Service providers (or SPs) are responsible for offering users a (usually web-based) service they desire to use. Service providers rely on the authentication outcome and attributes that an [identity provider]({{< ref "/participants/idp/_index.md" >}}) asserts for its users. For this reason they are sometimes known as the visited organisation.
 
 Below is information of relevance to service providers in SAFIRE:
 

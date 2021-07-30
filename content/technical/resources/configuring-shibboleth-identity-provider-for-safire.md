@@ -10,13 +10,13 @@ title: Configuring Shibboleth Identity Provider for SAFIRE
 url: /technical/resources/configuring-shibboleth-identity-provider-for-safire/
 ---
 
-These instructions are based on the Shibboleth documentation and have not been extensively tested. If you use Shibboleth IdPv3, please feel free to [submit revisions]({{< ref "/safire/contact/_index.md" >}}) if necessary.
+These instructions are based on the Shibboleth documentation and have not been extensively tested. If you use Shibboleth IdPv4, please feel free to [submit revisions]({{< ref "/safire/contact/_index.md" >}}) if necessary.
 
-The [Shibboleth Identity Provider](http://shibboleth.net/products/identity-provider.html) has [good documentation](https://wiki.shibboleth.net/confluence/display/IDP30), and so this is not a complete/worked example of how to configure it. Instead this provides the SAFIRE-specific snippets you may need when working through that documentation.
+The [Shibboleth Identity Provider](http://shibboleth.net/products/) has [good documentation](https://wiki.shibboleth.net/confluence/display/IDP30), and so this is not a complete/worked example of how to configure it. Instead this provides the SAFIRE-specific snippets you may need when working through that documentation.
 
 # Configuring a metadata provider to fetch SAFIRE metadata
 
-The Shibboleth Identity Provider provides a [FileBackedHTTPMetadataProvider](https://wiki.shibboleth.net/confluence/display/IDP30/HTTPMetadataProviders) that allows you to periodically fetch metadata. You should use this to keep SAFIRE's metadata up-to-date, checking for new metadata at least once a day (the example below checks every four hours).
+The Shibboleth Identity Provider provides a [FileBackedHTTPMetadataProvider](https://shibboleth.atlassian.net/wiki/spaces/IDP4/pages/1265631639/FileBackedHTTPMetadataProvider) that allows you to periodically fetch metadata. You should use this to keep SAFIRE's metadata up-to-date, checking for new metadata at least once a day (the example below checks every four hours).
 
 ## Configure a provider
 
@@ -59,7 +59,7 @@ If you have consent enabled (on by default), you need to disable it for the SAFI
 
 # Configure attribute release
 
-You will need to configure Shibboleth Identity Provider to make use of an internal authentication source (e.g. [LDAP](https://wiki.shibboleth.net/confluence/display/IDP30/LDAPAuthnConfiguration)), and you make use of an [attribute resolver](https://wiki.shibboleth.net/confluence/display/IDP30/AttributeResolverConfiguration) to provide [all of the attributes required by SAFIRE](/technical/attributes/). How you do this is site-specific and beyond the scope of this document.
+You will need to configure Shibboleth Identity Provider to make use of an internal authentication source (e.g. [LDAP](https://shibboleth.atlassian.net/wiki/spaces/IDP4/pages/1265631612/LDAPAuthnConfiguration), and you make use of an [attribute resolver](https://shibboleth.atlassian.net/wiki/spaces/IDP4/pages/1265631549/AttributeResolverConfiguration) to provide [all of the attributes required by SAFIRE]({{< ref "/technical/attributes/_index.md" >}}). How you do this is site-specific and beyond the scope of this document.
 
 Once you've done that, you need an attribute filter that will release the attributes to SAFIRE:
 
@@ -124,7 +124,7 @@ There are two additional [technical requirements]({{< ref "/technical/saml2/idp-
 
 ## Logging requirements
 
-You need to ensure that you configure log rotation of [Shibboleth IdP's logs](https://shibboleth.atlassian.net/wiki/spaces/IDP30/pages/2497773826/LoggingConfiguration) to meet the minimum retention period specified in the technical requirements. How you do this depends on your operating system.
+You need to ensure that you configure log rotation of [Shibboleth IdP's logs](https://shibboleth.atlassian.net/wiki/spaces/IDP4/pages/1265631710/LoggingConfiguration) to meet the minimum retention period specified in the technical requirements. How you do this depends on your operating system.
 
 ## Time synchronisation
 

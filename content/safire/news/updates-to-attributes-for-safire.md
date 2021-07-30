@@ -10,4 +10,4 @@ url: /safire/news/updates-to-attributes-for-safire/
 
 At the SAFIRE Planning meeting, a set of core attributes for SAFIRE were discussed and decided upon. These may see minor updates as the project implementation progresses, but they represent rough consensus as to what's needed.
 
-A list of attributes that SAFIRE supports [is available](/technical/attributes/).
+A list of attributes that SAFIRE supports [is available]({{< ref "/technical/attributes/_index.md" >}}).

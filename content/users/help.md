@@ -40,7 +40,7 @@ If you want to delete other cookies set by us, under your browser's advanced Int
  * [Delete cookies in Mozilla Firefox](https://support.mozilla.org/en-US/kb/delete-cookies-remove-info-websites-stored)
  * [Clear cookies in Microsoft Edge](https://privacy.microsoft.com/en-us/windows-10-microsoft-edge-and-privacy)
  * [Delete cookies in Internet Explorer](https://support.microsoft.com/en-za/help/17442/windows-internet-explorer-delete-manage-cookies)
- * [Remove cookies in Safari](https://support.apple.com/kb/PH5049?locale=en_ZA)
+ * [Remove cookies in Safari](https://support.apple.com/en-us/HT201265)
  * [Delete cookies in Opera](http://help.opera.com/Mac/11.60/en/cookies.html)
  * [Clear cookies on iPad, iPhone or iPod touch](https://support.apple.com/en-gb/HT201265)
  * [Delete cookies on Android mobile](https://hubpages.com/technology/How-to-delete-internet-cookies-on-your-Droid-or-any-Android-device)

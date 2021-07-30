@@ -100,11 +100,11 @@ Note that you should remove any legacy references to SAML1 in the `<SSO>` and `<
 
 # Configure attribute mapping
 
-To take full advantage of SAFIRE, you need to configure an attribute map to support all of SAFIRE's [attributes](/technical/attributes/). The default attribute-map.xml will support the basics, and you can use our [sample attribute map](https://testsp.safire.ac.za/attribute-map.xml) to construct a more complete version.
+To take full advantage of SAFIRE, you need to configure an attribute map to support all of SAFIRE's [attributes]({{< ref "/technical/attributes/_index.md" >}}). The default attribute-map.xml will support the basics, and you can use our [sample attribute map](https://testsp.safire.ac.za/attribute-map.xml) to construct a more complete version.
 
 # Improving generated metadata
 
-By default, Shibboleth publishes its generated metadata at a well-known URL (https://your.shib.server/Shibboleth.sso/Metadata). You can use this to obtain the copy of metadata you need to supply to SAFIRE. However, but default the auto-generated metadata does not include many of the [required elements](/technical/saml2/idp-requirements/).
+By default, Shibboleth publishes its generated metadata at a well-known URL (https://your.shib.server/Shibboleth.sso/Metadata). You can use this to obtain the copy of metadata you need to supply to SAFIRE. However, but default the auto-generated metadata does not include many of the [required elements]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}).
 
 You can improve the generated metadata (and thus require less editing) by providing Shibboleth with a template containing the additional elements you wish to include in your metadata. To do this, you need to find and edit the MetadataGenerator handler stanza in your config file to match this:
 

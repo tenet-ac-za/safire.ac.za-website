@@ -10,7 +10,7 @@ title: Logos & Branding
 url: /technical/logos/
 ---
 
-Both the SAFIRE logo and word mark are registered trademarks[^reg]. Permission is granted to [Participants](/participants/) to make use of the SAFIRE name and logo in appropriate places on their web sites, identity management systems and documentation, subject to the terms of the [Participation Agreement](/safire/policy/participation/) and within the bounds of the [SAFIRE Logo Brand Guide](/wp-content/uploads/2016/09/TENET-D002-Safire-Logo-Brand-Guide.pdf).
+Both the SAFIRE logo and word mark are registered trademarks[^reg]. Permission is granted to [Participants]({{< ref "/participants/_index.md" >}}) to make use of the SAFIRE name and logo in appropriate places on their web sites, identity management systems and documentation, subject to the terms of the [Participation Agreement]({{< ref "/safire/policy/participation/_index.md" >}}) and within the bounds of the [SAFIRE Logo Brand Guide](/wp-content/uploads/2016/09/TENET-D002-Safire-Logo-Brand-Guide.pdf).
 
 A number of versions of this logo are available in both Scalar Vector Graphics (SVG) and Portable Network Graphics (PNG) format. In all cases, use of the SVG format is preferred and should be supported by all modern web browsers.
 

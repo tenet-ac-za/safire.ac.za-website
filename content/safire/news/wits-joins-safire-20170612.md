@@ -7,4 +7,4 @@ title: Wits joins SAFIRE
 url: /safire/news/wits-joins-safire-20170612/
 ---
 
-The [University of the Witwatersrand](http://www.wits.ac.za/) has signed the Participation Agreement and joined SAFIRE. They have not yet completed the [SAML technical integration](/technical/saml2/), but we hope to welcome them on board as a fully functioning identity provider in the near future.
+The [University of the Witwatersrand](http://www.wits.ac.za/) has signed the Participation Agreement and joined SAFIRE. They have not yet completed the [SAML technical integration]({{< ref "/technical/saml2/_index.md" >}}), but we hope to welcome them on board as a fully functioning identity provider in the near future.

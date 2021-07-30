@@ -18,5 +18,5 @@ It also means that the old "consent admin" interface (consentadmin.safire.ac.za)
 
 Likewise we've removed many references to the word "consent" from the interface and from our end-user documentation, to reflect the fact that consent is not the only basis for lawful processing (and indeed, many service providers rely on legitimate interest as their basis rather than consent). We hope this will be less confusing to end-users.
 
-An update to the [privacy statement](/safire/policy/privacy/) will follow in due course.
+An update to the [privacy statement]({{< ref "/safire/policy/privacy/_index.md" >}}) will follow in due course.
 

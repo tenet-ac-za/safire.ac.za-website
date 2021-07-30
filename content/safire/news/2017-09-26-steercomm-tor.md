@@ -7,7 +7,7 @@ tags:
  - policy
 ---
 
-At its 26 September 2017 meeting, TENET's Board of Directors approved [terms of reference](/safire/policy/steercomm/) for a SAFIRE Steering Committee.
+At its 26 September 2017 meeting, TENET's Board of Directors approved [terms of reference]({{< ref "/safire/policy/steercomm/_index.md" >}}) for a SAFIRE Steering Committee.
 <!--more-->
 
 During the pilot phase of the federation, a steering committee was [elected]({{< ref "/safire/news/2015-safire-workshop.md" >}}) on a mandate from those institutions that had been present during the inaugral discussions.  This steering committee's mandate expired when the project transitioned from a pilot running at the SANReN Competency Area to a service supported by TENET, and it consequently disbanded itself.

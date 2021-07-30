@@ -11,7 +11,7 @@ from logging into federated services. <!--more-->
 
 The cause of the failure was some invalid metadata imported from
 another federation via eduGAIN. The faulty metadata was [imported by our
-aggregator at about 10AM on 9 May](/safire/policy/maps/)
+aggregator at about 10AM on 9 May]({{< ref "/safire/policy/maps/_index.md" >}})
 and shortly afterwards, SAFIRE's hub to refuse to load it. Transient
 failures like this are not uncommon in a system that depends on metadata
 from may other places, and the hub automatically relied on cached copies

@@ -12,11 +12,11 @@ url: /users/how/
 
 # How does this work?
 
-SAFIRE has been [contracted](/safire/policy/participation/) by your university to negotiate with other education-related organisations ([service providers]({{< ref "/users/where.md" >}})) about the personal information that needs to be shared to confirm your rights when accessing their resources.
+SAFIRE has been [contracted]({{< ref "/safire/policy/participation/_index.md" >}}) by your university to negotiate with other education-related organisations ([service providers]({{< ref "/users/where.md" >}})) about the personal information that needs to be shared to confirm your rights when accessing their resources.
 
 When visiting a participating service, you’ll typically see SAFIRE markings. To gain access to these external resources, you’ll need to log in and select your [home institution]({{< ref "/users/where.md" >}}) from a drop-down list. You'll then be redirected to your institutional log-in page where your username and password will then be confirmed.
 
-Once you're authenticated you’ll be shown a transfer notice with a summary of the information that will be shared with the service provider; we operate on a principle of minimality, which means that it’s kept to the bare essentials. And to put your mind further at ease --- [SAFIRE doesn’t store any of this information](/safire/policy/privacy/).
+Once you're authenticated you’ll be shown a transfer notice with a summary of the information that will be shared with the service provider; we operate on a principle of minimality, which means that it’s kept to the bare essentials. And to put your mind further at ease --- [SAFIRE doesn’t store any of this information]({{< ref "/safire/policy/privacy/_index.md" >}}).
 
 Click Yes or Continue and off you go --- disagree, and the process automatically aborts. Unless you choose the "only this time" button, you only need to do this once per service provider (we use a cookie to remember that you've seen the notice, which you can [clear at any stage]({{< ref "/users/help.md#changed-your-mind-about-sending-information-to-a-service-provider" >}}) if you change your mind).
 

@@ -16,7 +16,7 @@ TENET act as the juristic person of record for SAFIRE. As a result, SAFIRE's ass
 
 SAFIRE recognises two categories of beneficiaries: members and participants. Members are identity providers that contribute financially towards SAFIRE. Participants are identity providers and service providers who make use of SAFIRE's services. Members have voting rights; participants do not.
 
-Strategic oversight of the project has been delegated to a Steering Committee which is a [formal committee of TENET's Board](/safire/policy/steercomm/) that consists of nominated representatives of the original stakeholders (TENET, SCA, ASAUDIT), the SAFIRE Project Director, and some representatives elected by the Members of the Federation.
+Strategic oversight of the project has been delegated to a Steering Committee which is a [formal committee of TENET's Board]({{< ref "/safire/policy/steercomm/_index.md" >}}) that consists of nominated representatives of the original stakeholders (TENET, SCA, ASAUDIT), the SAFIRE Project Director, and some representatives elected by the Members of the Federation.
 
 In addition, there exists a larger SAFIRE Participants' Forum. All identity and service providers are entitled to participate in this forum, which serves to facilitate community consultation. It feeds recommendations on strategy, operations, and service levels back to to the Steering Committee for their consideration. It is also the forum at which Members elect representatives to the Steering Committee.
 

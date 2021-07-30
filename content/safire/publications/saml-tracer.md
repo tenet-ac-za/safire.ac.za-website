@@ -11,7 +11,7 @@ keywords:
   - lesson
 ---
 
-When asking for [support](/users/help.md), you may be asked to share a SAML trace to assist the support team in understanding your problem. This document gives step-by-step instructions on how to create one.
+When asking for [support]({{< ref "/users/help.md" >}}>), you may be asked to share a SAML trace to assist the support team in understanding your problem. This document gives step-by-step instructions on how to create one.
 <!--more-->
 
 ## _The 3 minute video version_
