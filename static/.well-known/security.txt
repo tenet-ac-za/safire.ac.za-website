@@ -1,0 +1,9 @@
+#
+# Security contacts for the South African Identity Federation
+#
+Contact: https://safire.ac.za/safire/contact/security/
+Contact: https://www.tenet.ac.za/.well-known/security.txt
+Expires: 2022-12-31T21:59:00.000Z
+Canonical: https://safire.ac.za/.well-known/security.txt
+Preferred-Languages: en, af
+
