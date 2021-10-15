@@ -14,7 +14,7 @@ The [GÉANT Code of Conduct for Service Providers](https://wiki.refeds.org/displ
 
 ### Attesting CoCo compliance
 
-If you need to attest to your service provider's CoCo compliance, in addition to a [registration request]({{< ref "/technical/saml2/forms.md" >}}) you also need to supply a statement of your CoCo compliance. You should be aware that, unlike [Sirtfi]({{< relref "../sirtfi/_index.md" >}}), CoCo introduces **binding obligations** on the organisation attesting compliance and operating the service provider.
+If you need to attest to your service provider's CoCo compliance, in addition to a [registration request]({{< ref "/technical/saml2/forms/_index.md" >}}) you also need to supply a statement of your CoCo compliance. You should be aware that, unlike [Sirtfi]({{< relref "../sirtfi/_index.md" >}}), CoCo introduces **binding obligations** on the organisation attesting compliance and operating the service provider.
 
 You can use the following template or a suitable-worded alternative:
 

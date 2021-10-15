@@ -59,7 +59,7 @@ To aid with preparing metadata, a SAML2 metadata validator  is available at [ht
 
 #### Identity Providers
 
-The [new requirements]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) for identity providers are documented. Identity providers will need to complete the [SAML2 IdP Registration Request form.]({{< ref "/technical/saml2/forms.md" >}}) The completed form can be emailed together with the proposed metadata to {{< email "safire@tenet.ac.za" >}}.
+The [new requirements]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) for identity providers are documented. Identity providers will need to complete the [SAML2 IdP Registration Request form.]({{< ref "/technical/saml2/forms/_index.md" >}}) The completed form can be emailed together with the proposed metadata to {{< email "safire@tenet.ac.za" >}}.
 
 #### Service Providers
 
@@ -71,7 +71,7 @@ The [new requirements]({{< ref "/technical/saml2/sp-requirements/_index.md" >}})
 
 Metadata that does not contain the mandatory elements will **not** be added to the registry. We will work with you to ensure you have valid metadata.
 
-Service providers will need to complete the [SAML2 SP Registration Request form.]({{< ref "/technical/saml2/forms.md" >}}) The completed form can be emailed together with a copy of the proposed metadata to {{< email "safire@tenet.ac.za" >}}.
+Service providers will need to complete the [SAML2 SP Registration Request form.]({{< ref "/technical/saml2/forms/_index.md" >}}) The completed form can be emailed together with a copy of the proposed metadata to {{< email "safire@tenet.ac.za" >}}.
 
 ### 4.3 Provider configuration
 

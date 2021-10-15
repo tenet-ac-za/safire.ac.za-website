@@ -16,7 +16,7 @@ It is **strongly recommended** that SAFIRE participants work towards Sirtfi comp
 
 ### Attesting Sirtfi compliance
 
-If you need to attest to your institution's Sirtfi compliance, in addition to a [registration request]({{< ref "/technical/saml2/forms.md" >}}) you also need to supply a statement of your Sirtfi compliance. You can use the following template:
+If you need to attest to your institution's Sirtfi compliance, in addition to a [registration request]({{< ref "/technical/saml2/forms/_index.md" >}}) you also need to supply a statement of your Sirtfi compliance. You can use the following template:
 
   * [SAFIRE Sirtfi Compliance Template](./SAFIRE-Sirtfi-Compliance-Template.rtf)
 

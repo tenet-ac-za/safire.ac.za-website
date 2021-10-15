@@ -66,7 +66,7 @@ However, it is likely that a RADIUS/EAP one will be developed to subsume the cur
 
 # Costs
 
-Signing the Participation Agreement does not in and of itself imply that a Participant will pay fees. The clauses in §3 only kick in when a Participant further registers an identity- or service-provider in one of the technology profiles (this requires explicit action --- submitting a [registration request form]({{< ref "/technical/saml2/forms.md" >}})).
+Signing the Participation Agreement does not in and of itself imply that a Participant will pay fees. The clauses in §3 only kick in when a Participant further registers an identity- or service-provider in one of the technology profiles (this requires explicit action --- submitting a [registration request form]({{< ref "/technical/saml2/forms/_index.md" >}})).
 
 **The costs associated with the SAML technology profile [are now known]({{< ref "/safire/news/20190110-safire-price-structure-may-2019.md" >}}), and have been published in accordance with §3.3.2 of the Participation Agreement.**
 
@@ -78,7 +78,7 @@ Something that is implicit, but seems to cause confusion is that this means that
 
 ## Service Providers
 
-Participants who only wish to (or are only able to) register service providers still need to sign the Participation Agreement, but --- per §3.1.1 --- are not charged an annual recurring fee and may only be invoiced a once-off setup fee (cf [SP fees]({{< ref "/participants/sp/fees.md" >}})). (§3.2 only applies once a Participant further submits an [IdP Registration Request form]({{< ref "/technical/saml2/forms.md" >}}) and is accepted as an identity provider.)
+Participants who only wish to (or are only able to) register service providers still need to sign the Participation Agreement, but --- per §3.1.1 --- are not charged an annual recurring fee and may only be invoiced a once-off setup fee (cf [SP fees]({{< ref "/participants/sp/fees.md" >}})). (§3.2 only applies once a Participant further submits an [IdP Registration Request form]({{< ref "/technical/saml2/forms/_index.md" >}}) and is accepted as an identity provider.)
 
 # Sanctions
 
