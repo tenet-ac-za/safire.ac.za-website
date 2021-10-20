@@ -1,5 +1,5 @@
 ---
-date: 2021-07-30 09:47:00+02:00
+date: 2021-10-20 10:00:00+02:00
 slug: configuring-simplesamlphp-for-safire
 tags:
   - configuration
@@ -45,10 +45,13 @@ $config = [
                         ],
                         /* adapt these for your own internal names and participation level */
                         'attributes' => [
-                          'eduPersonPrincipalName', 'givenName', 'sn', /* minimum */
-                          'displayName', 'eduPersonAffiliation', 'mail', /* recommended */
-                          'eduPersonEntitlement', 'eduPersonOrcid', 'eduPersonPrimaryAffiliation', 'eduPersonScopedAffiliation',
-                          'employeeNumber', 'preferredLanguage', 'schacHomeOrganization',
+                          /* minimum attributes required for participation */
+                          'displayName', 'eduPersonPrincipalName', 'eduPersonScopedAffiliation',
+                          'givenName', 'mail', 'sn',
+                          /* optional attributes (send as many as you can) */
+                          'eduPersonAffiliation', 'eduPersonAssurance', 'eduPersonEntitlement',
+                          'eduPersonOrcid', 'eduPersonPrimaryAffiliation', 'preferredLanguage',
+                          'schacHomeOrganization',
                         ],
                         /* SAFIRE federation hub handles consent/transfer notification */
                         'consent.disable' => true,
@@ -69,10 +72,13 @@ $config = [
                         ],
                         /* adapt these for your own internal names and participation level */
                         'attributes' => [
-                          'eduPersonPrincipalName', 'givenName', 'sn', /* minimum */
-                          'displayName', 'eduPersonAffiliation', 'mail', /* recommended */
-                          'eduPersonEntitlement', 'eduPersonOrcid', 'eduPersonPrimaryAffiliation', 'eduPersonScopedAffiliation',
-                          'employeeNumber', 'preferredLanguage', 'schacHomeOrganization',
+                          /* minimum attributes required for participation */
+                          'displayName', 'eduPersonPrincipalName', 'eduPersonScopedAffiliation',
+                          'givenName', 'mail', 'sn',
+                          /* optional attributes (send as many as you can) */
+                          'eduPersonAffiliation', 'eduPersonAssurance', 'eduPersonEntitlement',
+                          'eduPersonOrcid', 'eduPersonPrimaryAffiliation', 'preferredLanguage',
+                          'schacHomeOrganization',
                         ],
                         /* SAFIRE federation hub handles consent/transfer notification */
                         'consent.disable' => true,
