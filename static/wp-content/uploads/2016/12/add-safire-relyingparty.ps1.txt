@@ -28,14 +28,14 @@ Set-AdfsRelyingPartyTrust -TargetIdentifier $sp_entityid -AccessControlPolicyNam
 
 # This portion is derived from the work of Matthew Economou, NIH/NIAID
 
-# The Transform UPN to eduPersonPrincipalName rule below takes the left-hand 
-# side of the userPrincipalName and appends the scope that we were given at 
-# the beginning of the script. This allows us to handle UPNs of the form 
+# The Transform UPN to eduPersonPrincipalName rule below takes the left-hand
+# side of the userPrincipalName and appends the scope that we were given at
+# the beginning of the script. This allows us to handle UPNs of the form
 # user@example.local and rewrite them to user@example.ac.za. We have done
-# this because the example.local form is fairly common, and this gives us 
-# a "safe" default. Note that if your AD already uses UPNs with a correct 
+# this because the example.local form is fairly common, and this gives us
+# a "safe" default. Note that if your AD already uses UPNs with a correct
 # FQDN as the scope, you do not need this transform -- rather just map your
-# UPN directly to eduPersonPrincipalName as part of the previous "Get LDAP 
+# UPN directly to eduPersonPrincipalName as part of the previous "Get LDAP
 # Attributes from AD" claim rule.
 
 $issuance_transform_rules_template = '
@@ -62,6 +62,9 @@ $issuance_transform_rules = $issuance_transform_rules_template -replace 'IDP_SCO
 
 Write-Host "Creating Claim Issuance Policy for SAFIRE Relying Party"
 Set-AdfsRelyingPartyTrust -TargetIdentifier $sp_entityid -IssuanceTransformRules $issuance_transform_rules
+
+Write-Host "Disable unnecessary claim encryption for SAFIRE Relying Party"
+Set-AdfsRelyingPartyTrust -TargetIdentifier $sp_entityid -EncryptClaims $false
 
 # 4.3.2 The Service Provider claims to refresh federation metadata at least daily
 $MonitoringInterval = Get-AdfsProperties | select -ExpandProperty MonitoringInterval
