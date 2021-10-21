@@ -110,9 +110,12 @@ If you have run the [ADFS script]({{< relref "configuring-adfs-for-safire.md#scr
 
 In this example, we are asserting an affiliation of "staff" based on a Staff group:
 
-```php
-c:[Type == "http://schemas.xmlsoap.org/claims/Group", Value == "Staff"]
- => issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.1", Value = "staff", Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:attrname-format:uri");
+```ps
+@RuleName = "Transform Group to eduPersonScopedAffiliation"
+c:[Type == "http://schemas.xmlsoap.org/claims/Group", Value == "Staff"] => issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.9", Value = "staff@scope.example.ac.za", Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:attrname-format:uri")
+
+@RuleName = "Transform Group to eduPersonAffiliation"
+c:[Type == "http://schemas.xmlsoap.org/claims/Group", Value == "Staff"] => issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.1", Value = "staff", Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:attrname-format:uri")
 ```
 
 # Case 3: Single attribute
