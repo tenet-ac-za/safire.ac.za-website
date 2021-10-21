@@ -46,6 +46,9 @@ c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccou
 @RuleName = "Transform UPN to eduPersonPrincipalName"
 c:[Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn", Value =~ "^(?<user>[^@]+)@(.+)$"] => issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.6", Issuer = c.Issuer, OriginalIssuer = c.OriginalIssuer, Value = regexreplace(c.Value, "^(?<user>[^@]+)@(.+)$", "${user}@IDP_SCOPE"), ValueType = c.ValueType, Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:attrname-format:uri");
 
+@RuleName = "Transform Group to eduPersonScopedAffiliation"
+c:[Type == "http://schemas.xmlsoap.org/claims/Group", Value == "Domain Users"] => issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.9", Value = "member@IDP_SCOPE", Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:attrname-format:uri");
+
 @RuleName = "Transform Group to eduPersonAffiliation"
 c:[Type == "http://schemas.xmlsoap.org/claims/Group", Value == "Domain Users"] => issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.1", Value = "member", Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:attrname-format:uri");
 
