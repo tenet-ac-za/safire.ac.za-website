@@ -108,14 +108,20 @@ Many organisations use groups to record roles and affiliations. These are usuall
 
 If you have run the [ADFS script]({{< relref "configuring-adfs-for-safire.md#scripted-configuration" >}}) provided by SAFIRE, you should have noticed that a claim rule is created that will generate an affiliation of "member" based on the "Domain Users" group in your Active Directory. In addition to this claim rule, you can refine what is asserted by your IdP if your Active Directory groups know about the different roles that may exist at your institution by simply adding other custom claim rule(s) based on the role(s) you wish to assert.
 
-In this example, we are asserting an affiliation of "staff" based on a Staff group:
+In this example, we are asserting an affiliation of "staff" based on a Staff group and "student" based on a Student group:
 
 ```ps
-@RuleName = "Transform Group to eduPersonScopedAffiliation"
-c:[Type == "http://schemas.xmlsoap.org/claims/Group", Value == "Staff"] => issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.9", Value = "staff@scope.example.ac.za", Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:attrname-format:uri")
+@RuleName = eduPersonScopedAffiliation (staff) for Staff"
+c:[Type == "http://schemas.xmlsoap.org/claims/Group", Value == "Staff"] => issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.9", Value = "staff@example.ac.za", Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:attrname-format:uri");
 
-@RuleName = "Transform Group to eduPersonAffiliation"
-c:[Type == "http://schemas.xmlsoap.org/claims/Group", Value == "Staff"] => issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.1", Value = "staff", Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:attrname-format:uri")
+@RuleName = "eduPersonAffiliation (staff) for Staff"
+c:[Type == "http://schemas.xmlsoap.org/claims/Group", Value == "Staff"] => issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.1", Value = "staff", Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:attrname-format:uri");
+
+@RuleName = "eduPersonScopedAffiliation (student) for Student"
+c:[Type == "http://schemas.xmlsoap.org/claims/Group", Value == "Student"] => issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.9", Value = "student@IDP_SCOPE", Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:attrname-format:uri");
+
+@RuleName = "eduPersonAffiliation (student) for Student"
+c:[Type == "http://schemas.xmlsoap.org/claims/Group", Value == "Student"] => issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.1", Value = "student", Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:attrname-format:uri");
 ```
 
 # Case 3: Single attribute
