@@ -21,6 +21,8 @@ In order to configure Active Directory Federation Services (ADFS) as an identity
 
 ## Scripted configuration
 
+> Ensure you [make adequate backups](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool) before executing any script from this site
+
 You can use PowerShell to configure ADFS, and there is a sample [add-safire-relyingparty.ps1](/wp-content/uploads/2016/12/add-safire-relyingparty.ps1.txt) script to automatically add SAFIRE as a relying party.
 
 This script needs one piece of information from you --- your primary DNS domain name, which will be used to configure scopes on those attributes that require it. It can be specified as -idpScope or you will be prompted for it.
@@ -30,6 +32,7 @@ The script creates a Claim Issuance Policy that generates as many of SAFIRE's at
 Without knowing about your internal structure, it is impossible for the script to [generate a complete eduPersonAffiliation]({{< ref "/technical/resources/generating-edupersonaffiliation.md" >}}). If you look through the script, you will find a  "Transform Group to eduPersonAffiliation" rule that adds all members of the Domain Users group as members of your organisation ([case 5]({{< ref "/technical/resources/generating-edupersonaffiliation.md#case-5-everyone-is-a-member" >}})). This rule can be expanded or adapted to better fit your situation (cf [case 2]({{< ref "/technical/resources/generating-edupersonaffiliation.md#case-2-group-membership" >}})). For instance, the "Domain Users" group can be changed to one that better fits your environment. Likewise, you may have groups that reflect the other values in the [eduPersonAffiliation vocabulary]({{< ref "/technical/attributes/edupersonaffiliation.md" >}}).
 
 Note the script does not handle the [certificate considerations]({{< relref "#certificate-considerations" >}})
+
 
 ## Claim Descriptions
 
