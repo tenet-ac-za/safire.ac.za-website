@@ -10,7 +10,9 @@ title: Support
 url: /participants/support/
 ---
 
-Routine operational support for SAFIRE's infrastructure is managed by TENET's service support centre (SSC). The technical staff of existing identity and service providers can report a problem or request updates to metadata by contacting the SSC on [+27.21.763.7147](tel:+27.21.763.7147) during their standard support hours. However, operational support for SAFIRE is typically only available during normal working hours.
+Routine operational support for SAFIRE's infrastructure is managed by TENET's [service support centre (SSC)](https://www.tenet.ac.za/support). The technical staff of existing identity and service providers can report a problem or request updates to metadata by [contacting the SSC](https://www.tenet.ac.za/support#log-a-fault) during their standard support hours. However, operational support for SAFIRE is typically only available during normal working hours.
+
+To aid with more efficient call routing, a [service-specific email address](https://www.tenet.ac.za/support#other-requests) exists. However, email to our general support address will also reach the SAFIRE team.
 
 Prospective identity and service providers are advised to read the respective "how to join" sections for information on what's required and who to contact. It is worth noting that, whilst the SAFIRE project office may attempt to provide some support to institutions who are establishing new identity or service providers, its capacity to do so is very limited. Thus, in general, this will not be on a one-on-one basis; it will be through road shows and events.
 
