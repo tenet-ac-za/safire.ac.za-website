@@ -1,5 +1,5 @@
 ---
-date: 2021-07-30 11:27:00+02:00
+date: 2021-12-13 12:24:00+02:00
 slug: configuring-azure-ad-for-safire
 tags:
   - azure
@@ -127,3 +127,17 @@ There is an additional [technical requirement]({{< ref "/technical/saml2/idp-req
 
 ## Logging requirements
 By default Azure AD stores audit, and sign-in logs for [30 days](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/reference-reports-data-retention#how-long-does-azure-ad-store-the-data). You need to ensure that you configure Azure AD to [archive it's logs](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account) to meet the minimum retention period specified in the technical requirements.
+
+## Tenant Validation
+In order to meet the requirements of SAFIRE's [metadata registration practice statement]({{< ref "/safire/policy/mrps/_index.md#entity-eligibility-and-validation" >}}), we need to validate your right-to-use a particular tenant in Azure AD.  This typically involves a live video call during which the person responsible demonstrates active control of a particular tenant. Depending on the scopes in use, it may further require domain control validation of those scopes.
+
+# Improving generated metadata
+
+By default, Azure AD publishes its generated metadata at a well-known URL of:
+
+* https://login.microsoftonline.com/*your-azure-ad-tenant-id*/federationmetadata/2007-06/federationmetadata.xml?appid=*your-enterprise-application-id*
+
+This URL is displayed in the SAML Signing Certificate block of the Single sign-on properties of your Enterprise Application, along with a download link. You can use this to obtain the copy of metadata you need to supply to SAFIRE.
+
+However, but default the auto-generated metadata does not include many of the [required elements]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) and will need to be hand-edited to include your organisation information, contacts and some of the MDUI elements (such as your logo URL and privacy statement) by before sending your metadata to SAFIRE.
+
