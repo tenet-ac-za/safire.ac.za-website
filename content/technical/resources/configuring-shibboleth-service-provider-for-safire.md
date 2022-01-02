@@ -1,5 +1,5 @@
 ---
-date: 2021-07-30 12:30:00+02:00
+date: 2022-02-01 19:20:00+02:00
 slug: configuring-shibboleth-service-provider-for-safire
 tags:
   - configuration
@@ -37,6 +37,10 @@ If you are only interested in South African institutions, your entry be similar 
     maxRefreshDelay="14400">
   <MetadataFilter type="RequireValidUntil" maxValidityInterval="2419200"/>
   <MetadataFilter type="Signature" certificate="safire-metadata.crt"/>
+  <DiscoveryFilter type="Blacklist" matcher="EntityAttributes" trimTags="true"
+    attributeName="http://macedir.org/entity-category"
+    attributeNameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
+    attributeValue="http://refeds.org/category/hide-from-discovery" />
 </MetadataProvider>
 ```
 
@@ -49,6 +53,10 @@ If your service provider is going to participate in eduGAIN (internationally), y
     maxRefreshDelay="14400">
   <MetadataFilter type="RequireValidUntil" maxValidityInterval="2419200"/>
   <MetadataFilter type="Signature" certificate="safire-metadata.crt" verifyBackup="false"/>
+  <DiscoveryFilter type="Blacklist" matcher="EntityAttributes" trimTags="true"
+    attributeName="http://macedir.org/entity-category"
+    attributeNameFormat="urn:oasis:names:tc:SAML:2.0:attrname-format:uri"
+    attributeValue="http://refeds.org/category/hide-from-discovery" />
 </MetadataProvider>
 ```
 
