@@ -1,5 +1,5 @@
 ---
-date: 2021-12-13 12:24:00+02:00
+date: 2022-01-04 15:22:00+02:00
 slug: configuring-azure-ad-for-safire
 tags:
   - azure
@@ -130,6 +130,10 @@ By default Azure AD stores audit, and sign-in logs for [30 days](https://docs.mi
 
 ## Tenant Validation
 In order to meet the requirements of SAFIRE's [metadata registration practice statement]({{< ref "/safire/policy/mrps/_index.md#entity-eligibility-and-validation" >}}), we need to validate your right-to-use a particular tenant in Azure AD.  This typically involves a live video call during which the person responsible demonstrates active control of a particular tenant. Depending on the scopes in use, it may further require domain control validation of those scopes.
+
+## Multi-factor authentication
+
+To enable support multi-factor authentication for your users, you will need to explicitly confirm that the authentication methods you've enabled are compatible with academic federation. See [authnmethodsreferences]({{< ref "/technical/attributes/authnmethodsreferences.md" >}}) for details.
 
 # Improving generated metadata
 

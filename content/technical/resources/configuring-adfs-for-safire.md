@@ -1,5 +1,5 @@
 ---
-date: 2021-07-30 09:46:00+02:00
+date: 2022-01-04 15:18:00+02:00
 slug: configuring-adfs-for-safire
 tags:
   - adfs
@@ -98,3 +98,7 @@ You should change your Log retention policy to "Archive the log when full, do no
 ## Time synchronisation
 
 Modern versions of Windows server do syncronise time, but this may be changed by your local group policy. Please ensure your server is set to synchronise time against a reliable timesource (such as [za.pool.ntp.org](https://www.ntppool.org/zone/za)).
+
+## Multi-factor authentication
+
+To enable support multi-factor authentication for your users, you will need to explicitly confirm that the authentication methods you've enabled are compatible with academic federation. See [authnmethodsreferences]({{< ref "/technical/attributes/authnmethodsreferences.md" >}}) for details.
