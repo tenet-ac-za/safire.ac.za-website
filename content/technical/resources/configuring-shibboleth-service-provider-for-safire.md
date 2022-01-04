@@ -1,5 +1,5 @@
 ---
-date: 2022-02-01 19:20:00+02:00
+date: 2021-02-01 19:20:00+02:00
 slug: configuring-shibboleth-service-provider-for-safire
 tags:
   - configuration
