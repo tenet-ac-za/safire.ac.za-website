@@ -16,7 +16,7 @@ attributeNotes: |2
   It is possible for the Federation hub to translate a _authnmethodsreferences_
   claims asserting Microsoft's multi-factor authentication method
   (`http://schemas.microsoft.com/claims/multipleauthn`) into a corresponding
-  `<saml:AuthnContextClassRef>` element asserting the [REFEDS MFA](https://refeds.org/profile/mfa)
+  `<samlp:AuthnContextClassRef>` element asserting the [REFEDS MFA](https://refeds.org/profile/mfa)
   profile of `https://refeds.org/profile/mfa`. However, because not all
   multi-factor authentication methods supported by Microsoft are compatible
   with REFEDS MFA, this quirk is **not enabled by default**.
