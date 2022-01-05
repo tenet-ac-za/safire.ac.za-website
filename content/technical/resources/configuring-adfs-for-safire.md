@@ -1,5 +1,5 @@
 ---
-date: 2022-01-04 15:18:00+02:00
+date: 2022-01-05 12:54:00+02:00
 slug: configuring-adfs-for-safire
 tags:
   - adfs
@@ -101,4 +101,4 @@ Modern versions of Windows server do syncronise time, but this may be changed by
 
 ## Multi-factor authentication
 
-To enable support multi-factor authentication for your users, you will need to explicitly confirm that the authentication methods you've enabled are compatible with academic federation. See [authnmethodsreferences]({{< ref "/technical/attributes/authnmethodsreferences.md" >}}) for details.
+To enable support multi-factor authentication for your users, you may need to alter your claim issuance policy and add a rule to pass the Authentication Methods References claim.  You will also need to explicitly confirm that the authentication methods you've enabled are compatible with academic federation. See [authnmethodsreferences]({{< ref "/technical/attributes/authnmethodsreferences.md" >}}) for details.
