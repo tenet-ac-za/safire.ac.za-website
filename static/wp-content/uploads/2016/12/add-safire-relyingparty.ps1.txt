@@ -46,30 +46,39 @@ c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccou
 @RuleName = "Transform UPN to eduPersonPrincipalName"
 c:[Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn", Value =~ "^(?<user>[^@]+)@(.+)$"] => issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.6", Issuer = c.Issuer, OriginalIssuer = c.OriginalIssuer, Value = regexreplace(c.Value, "^(?<user>[^@]+)@(.+)$", "${user}@IDP_SCOPE"), ValueType = c.ValueType, Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:attrname-format:uri");
 
+@RuleTemplate = "EmitGroupClaims"
 @RuleName = "eduPersonScopedAffiliation (member) for Domain Users"
 c:[Type == "http://schemas.xmlsoap.org/claims/Group", Value == "Domain Users"] => issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.9", Value = "member@IDP_SCOPE", Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:attrname-format:uri");
 
+@RuleTemplate = "EmitGroupClaims"
 @RuleName = "eduPersonAffiliation (member) for Domain Users"
 c:[Type == "http://schemas.xmlsoap.org/claims/Group", Value == "Domain Users"] => issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.1", Value = "member", Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:attrname-format:uri");
 
-@RuleName = eduPersonScopedAffiliation (employee) for MyStaffGroup"
+@RuleTemplate = "EmitGroupClaims"
+@RuleName = "eduPersonScopedAffiliation (employee) for MyStaffGroup"
 c:[Type == "http://schemas.xmlsoap.org/claims/Group", Value == "MyStaffGroup"] => issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.9", Value = "employee@IDP_SCOPE", Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:attrname-format:uri");
 
+@RuleTemplate = "EmitGroupClaims"
 @RuleName = "eduPersonAffiliation (employee) for MyStaffGroup"
 c:[Type == "http://schemas.xmlsoap.org/claims/Group", Value == "MyStaffGroup"] => issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.1", Value = "employee", Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:attrname-format:uri");
 
+@RuleTemplate = "EmitGroupClaims"
 @RuleName = "eduPersonScopedAffiliation (staff) for MyStaffGroup"
 c:[Type == "http://schemas.xmlsoap.org/claims/Group", Value == "MyStaffGroup"] => issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.9", Value = "staff@IDP_SCOPE", Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:attrname-format:uri");
 
+@RuleTemplate = "EmitGroupClaims"
 @RuleName = "eduPersonAffiliation (staff) for MyStaffGroup"
 c:[Type == "http://schemas.xmlsoap.org/claims/Group", Value == "MyStaffGroup"] => issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.1", Value = "staff", Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:attrname-format:uri");
 
+@RuleTemplate = "EmitGroupClaims"
 @RuleName = "eduPersonScopedAffiliation (student) for MyStudentGroup"
 c:[Type == "http://schemas.xmlsoap.org/claims/Group", Value == "MyStudentGroup"] => issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.9", Value = "student@IDP_SCOPE", Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:attrname-format:uri");
 
+@RuleTemplate = "EmitGroupClaims"
 @RuleName = "eduPersonAffiliation (student) for MyStudentGroup"
 c:[Type == "http://schemas.xmlsoap.org/claims/Group", Value == "MyStudentGroup"] => issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.1", Value = "student", Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:attrname-format:uri");
 
+@RuleTemplate = "EmitGroupClaims"
 @RuleName = "eduPersonEntitlement (common-lib-terms) for Domain Users"
 c:[Type == "http://schemas.xmlsoap.org/claims/Group", Value == "Domain Users"] => issue(Type = "urn:oid:1.3.6.1.4.1.5923.1.1.1.7", Value = "urn:mace:dir:entitlement:common-lib-terms", Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/attributename"] = "urn:oasis:names:tc:SAML:2.0:attrname-format:uri");
 
@@ -80,6 +89,7 @@ c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsacco
 @RuleName = "Transform Per-Session ID into Name ID"
 c:[Type == "https://federation.IDP_SCOPE/internal/sessionid"] => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Issuer = c.Issuer, OriginalIssuer = c.OriginalIssuer, Value = c.Value, ValueType = c.ValueType, Properties["http://schemas.xmlsoap.org/ws/2005/05/identity/claimproperties/format"] = "urn:oasis:names:tc:SAML:2.0:nameid-format:transient");
 
+@RuleTemplate = "PassThroughClaims"
 @RuleName = "Pass Authentication Methods References"
 c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);
 '
