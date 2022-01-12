@@ -13,24 +13,37 @@ attributeNotes: |2
   and [Azure AD](/technical/resources/configuring-azure-ad-for-safire)
   identity providers; in all other circumstances it is filtered out.
 
-  It is possible for the Federation hub to translate a _authnmethodsreferences_
-  claims asserting Microsoft's multi-factor authentication method
-  (`http://schemas.microsoft.com/claims/multipleauthn`) into a corresponding
-  `<samlp:AuthnContextClassRef>` element asserting the [REFEDS MFA](https://refeds.org/profile/mfa)
-  profile of `https://refeds.org/profile/mfa`. However, because not all
-  multi-factor authentication methods supported by Microsoft are compatible
+  Where _authnmethodsreferences_ includes a specific reference to the
+  [REFEDS MFA](https://refeds.org/profile/mfa) profile of
+  `https://refeds.org/profile/mfa`, the corresponding
+  `<samlp:AuthnContextClassRef>` element will be set to match. This allows
+  IdPs to explicitly signal their MFA is compatible with REFEDS MFA.
+
+  It is also possible for the Federation hub to translate a
+  _authnmethodsreferences_ claim asserting Microsoft's multi-factor
+  authentication method (`http://schemas.microsoft.com/claims/multipleauthn`)
+  into a corresponding `<samlp:AuthnContextClassRef>` element asserting the
+  [REFEDS MFA](https://refeds.org/profile/mfa) profile of
+  `https://refeds.org/profile/mfa`. However, because not all multi-factor
+  authentication methods supported by Microsoft are compatible
   with REFEDS MFA, this quirk is **not enabled by default**.
 
   Identity providers that wish to make use of REFEDS MFA and require this quirk
   must explicitly request it, and confirm that the multi-factor authentication
   methods they use are compatible with REFEDS MFA.
 
+  For this quirk to work with AD FS, the IdP must assert at least one other
+  _authnmethodsreferences_ attribute value corresponding to the factor actually
+  used. Some known-incompatible methods are automatically filtered (e.g.
+  http://schemas.microsoft.com/ws/2012/12/authmethod/email), and only the
+  remainder are considered.
+
 attributeReferences:
   - Name: AD FS Operations Guide
     URL: https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/create-a-rule-to-send-an-authentication-method-claim
   - Name: REFEDS MFA Profile
     URL: https://refeds.org/profile/mfa
-date: 2022-01-04 14:35:00+02:00
+date: 2022-01-12 10:13:00+02:00
 layout: attributelist
 slug: authnmethodsreferences
 title: http://schemas.microsoft.com/claims/authnmethodsreferences
