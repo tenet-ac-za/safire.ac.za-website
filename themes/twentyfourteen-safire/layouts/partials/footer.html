@@ -14,9 +14,6 @@
     <script type="text/javascript">hljs.initHighlightingOnLoad();</script>
     <script type="text/javascript" src="{{ relURL "/js/functions.js" }}"></script>
     {{ partial "tarteaucitron.html" . }}
-    <script type="text/javascript">
-      $(function(){$('.defusticate').each(function(i,v){$(this).text(atob($(this).text()));if(/^[^@]+@[^.]+\..+$/.test($(this).text())){$(this).html('<a href="mailto:'+$(this).text()+'">'+$(this).text()+'</a>');}});});
-    </script>
 </body>
 </html>
 <!-- end partial: footer -->

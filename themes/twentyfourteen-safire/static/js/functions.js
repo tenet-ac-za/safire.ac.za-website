@@ -5,6 +5,12 @@
  * footer widgets and Featured Content slider
  *
  */
+function rot(s, i) {
+	return s.replace(/[a-zA-Z]/g, function (c) {
+		return String.fromCharCode((c <= 'Z' ? 90 : 122) >= (c = c.charCodeAt(0) + i) ? c : c - 26);
+	});
+}
+
 ( function( $ ) {
 	var body    = $( 'body' ),
 		_window = $( window );
@@ -107,6 +113,24 @@
 		$( '.primary-navigation, .secondary-navigation' ).find( 'a' ).on( 'focus.twentyfourteen blur.twentyfourteen', function() {
 			$( this ).parents().toggleClass( 'focus' );
 		} );
+
+        $('.tenet-obfusticate').each(function(i) {
+		    var href = $(this).data('href');
+		    if (href) {
+			    // $(this).attr('href', rot(href, 15));
+			    $(this).attr('href', atob(href));
+		    }
+		    if (! $(this).hasClass('tenet-cleartext')) {
+			    var text = $(this).text();
+			    // $(this).html(rot(text, 11));
+			    $(this).html(atob(text));
+		    }
+		    var css = $(this).data('class');
+		    if (css) {
+			    $(this).addClass(css);
+		    }
+        } );
+
 	} );
 
 	_window.load( function() {

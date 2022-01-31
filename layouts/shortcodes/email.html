@@ -1,5 +1,27 @@
-<span class="defusticate">
-{{- range (split (base64Encode (replaceRE "^mailto:(.*)$" "$1" (.Get 0))) "") -}}
+{{- if .IsNamedParams }}
+{{   .Scratch.Set "mailto" (.Get "mailto") }}
+{{   if .Get "text" }}
+{{     .Scratch.Set "text" (.Get "text") }}
+{{   else }}
+{{     .Scratch.Set "text" (.Get "mailto") }}
+{{   end }}
+{{ else }}
+{{   .Scratch.Set "mailto" (.Get 0) }}
+{{   if len .Params | eq 2 }}
+{{     .Scratch.Set "text" (.Get 1) }}
+{{  else }}
+{{     .Scratch.Set "text" (.Get 0) }}
+{{   end }}
+{{ end -}}
+<a class="tenet-obfusticate" href="mailto:honeypot@tenet.ac.za" data-href="{{ base64Encode (replaceRE "^(mailto:)?(.*)$" "mailto:$2" (.Scratch.Get "mailto")) }}"
+{{- with .Get "clear" }} class="tenet-cleartext"{{ end -}}
+{{- with .Get "class" }} data-class="{{.}}"{{ end -}}
+>
+{{- if .Get "clear" -}}
+  {{- replaceRE "^mailto:(.*)$" "$1" (.Scratch.Get "text") -}}
+{{- else -}}
+{{- range (split (base64Encode (replaceRE "^mailto:(.*)$" "$1" (.Scratch.Get "text"))) "") -}}
   {{- printf "&#x%X;" . | safeHTML -}}
 {{- end -}}
-</span>
+{{- end -}}
+</a>
