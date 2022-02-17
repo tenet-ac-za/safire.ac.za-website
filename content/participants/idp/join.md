@@ -1,5 +1,5 @@
 ---
-date: 2016-09-12 10:23:39+00:00
+date: 2022-02-17T11:47:00+02:00
 menu:
   main:
     identifier: participants-idp-join
@@ -17,7 +17,7 @@ To become an identity provider, you first need to join SAFIRE as a Participant. 
 
 The Participation Agreement only needs to be completed once per juristic person, so if you've previously signed the current version of this agreement, you do not need to do so again.
 
-Please sign and scan (or electronically sign) a copy of the Participation Agreement and email it to {{< email "safire@tenet.ac.za" >}}. TENET is happy to accept [scanned documents and/or electronic signatures](https://www.michalsons.com/blog/spring-forest-trading-v-wilberry/14861), and will normally return an electronically signed copy to you.
+Please sign and scan (or electronically sign) a copy of the Participation Agreement and email it to {{< email "safire@tenet.ac.za" >}}. TENET is happy to accept [scanned documents and/or electronic signatures](https://www.michalsons.com/blog/spring-forest-trading-v-wilberry/14861), and will normally return an electronically signed copy to you. We can originate a document for signature in Adobe Sign on request.
 
 Should your processes require original manuscript (handwritten) signatures, please courier or post two copies of the signed agreement to [TENET's offices]({{< ref "/safire/contact/_index.md" >}}) (one will ultimately be returned to you by post countersigned by TENET). In addition, to counteract the inevitable postal delays, please send a scanned copy as above.
 
