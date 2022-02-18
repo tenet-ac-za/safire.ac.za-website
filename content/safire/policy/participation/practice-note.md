@@ -1,7 +1,7 @@
 ---
 aliases:
   - /safire/policy/practice-note-participation-agreement/
-date: 2019-01-10T12:35:00+02:00
+date: 2022-02-16T23:50:00+02:00
 slug: practice-note-participation-agreement
 tags:
   - participation
@@ -40,7 +40,7 @@ This is taken into consideration when applying [attribute release policies]({{< 
 
 # Default attribute release policy releases too much personal information
 
-Both the [default attribute release policy]({{< ref "/safire/policy/arp/_index.md#default" >}}) and the [Research & Scholarship one]({{< ref "/safire/policy/arp/_index.md#research-scholarship" >}}) release no more information than an average email. If your organisation is happy for an outgoing email to include both an email address and the name of the sender, you should be happy for this information to be released via other technologies. Alternatively, you should consider applying similar prohibitions to email.
+The [default attribute release policy]({{< ref "/safire/policy/arp/_index.md#default" >}}) releases no more information than an average email. If your organisation is happy for an outgoing email to include both an email address and the name of the sender, you should be happy for this information to be released via other technologies. Alternatively, you should consider applying similar prohibitions to email.
 
 # Consent for personal information release
 
@@ -66,15 +66,11 @@ However, it is likely that a RADIUS/EAP one will be developed to subsume the cur
 
 # Costs
 
-Signing the Participation Agreement does not in and of itself imply that a Participant will pay fees. The clauses in §3 only kick in when a Participant further registers an identity- or service-provider in one of the technology profiles (this requires explicit action --- submitting a [registration request form]({{< ref "/technical/saml2/forms/_index.md" >}})).
-
-**The costs associated with the SAML technology profile [are now known]({{< ref "/safire/news/20190110-safire-price-structure-may-2019.md" >}}), and have been published in accordance with §3.3.2 of the Participation Agreement.**
+Signing the Participation Agreement does not in and of itself imply that a Participant will pay fees. The clauses in §3 only kick in when a Participant further registers an identity- or service-provider in one of the technology profiles (this requires explicit action --- submitting a [registration request form]({{< ref "/technical/saml2/forms/_index.md" >}}) --- which serves as the Service Order Form).
 
 ## Identity Providers
 
-Section 3 noted that the cost structure is unknown, but provided an opt-out for identity providers later on. These costs are [now available]({{< ref "/participants/idp/fees.md" >}}).
-
-Something that is implicit, but seems to cause confusion is that this means that any identity provider who currently participates in SAFIRE is by definition a paid-up member (no fees have yet been levied) and is entitled to the benefits of membership. One of the [benefits of membership]({{< ref "/safire/governance.md" >}}) is being involved in the approval process of any future cost structure.
+Most identity providers receive a discount on the [published fees]({{< ref "/participants/idp/fees.md" >}}) by virtue of consuming a basket of services from TENET. This can be explicitly confirmed in writing at the time of signature.
 
 ## Service Providers
 
@@ -82,7 +78,7 @@ Participants who only wish to (or are only able to) register service providers s
 
 # Sanctions
 
-Section 8 provides for "sanctions", a term borrowed from earlier related agreements. However, what §8 doesn't explicitly state is that there is only one possible remedy available to the parties — withdrawal/removal from the Federation. This defeats the objectives of federation and is thus in nobody's interests. It will only be exercised by the Federation once **all** other avenues have been exhausted. Moreover, it does not carry any form of direct financial penalty.
+Section 8 provides for "sanctions", a term borrowed from earlier related agreements. However, what §8 doesn't explicitly state is that there is only one possible remedy available to the parties --- withdrawal/removal from the Federation. This defeats the objectives of federation and is thus in nobody's interests. It will only be exercised by the Federation once **all** other avenues have been exhausted. Moreover, it does not carry any form of direct financial penalty.
 
 # Sole provider/alternatives
 
@@ -94,7 +90,13 @@ Moreover, SAFIRE is operated by a non-profit company (TENET) who's [memorandum o
 
 # REN Service Agreement
 
-Section 11.3 makes reference to TENET's REN Services Agreement as containing the processes for dispute resolution. In the case where a Participant in SAFIRE is also a signatory of the REN Services Agreement (most universities, for instance), the prevailing version is the one most recently concluded between TENET and the Participant (we can supply a copy of this if necessary).
+Sections 3.3.2, 11.3, and 11.5 make reference to TENET's REN Services Agreement, which acts as TENET's master services agreement for institutions that consume a variety of services. The Participation Agreement is designed to stand alone, but also to fulfil the role of a Service Description in the case where an institution has separately concluded the REN Services Agreement.
+
+### Dispute resolution
+
+The clause in §11.5 references the REN Service Agreement's processes for dispute resolution, and concern has been raised that the "prevailing version" is not immediately clear.
+
+In the case where a Participant in SAFIRE is also a signatory of the REN Services Agreement (most universities, for instance), the prevailing version is the one most recently concluded between TENET and the Participant (we can supply a copy of this if necessary).
 
 In cases where the Participant is not also a signatory, the prevailing version is the one distributed to our SLA Reference Group from time to time. However, if necessary to allay concerns about this, we can annexure the relevant sections from the REN Service Agreement to the Participation Agreement at the time of signature.
 
@@ -118,4 +120,4 @@ Of course, if there is good cause to amend the Participation Agreement, we will 
 
 In general, the Participation Agreement and other SAFIRE documentation is drafted with the terms “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” used as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt). Most documents explicitly state this, but the Participation Agreement does not.
 
-Concern has been expressed about the use of the work "may" in §10.2 giving TENET the ability to make unilateral changes. This is not our intent, and the current use of "may" rather than "must" was an oversight. We've sought specific legal advice around this issue and TENET's own lawyers have advised that under common law, it is a fundamental requirement that agreements and amendments to agreements, are reached by consensus --- thus even the current wording would require resignature (which was our intent in any event). However we will happily give any institution that requires it a written undertaking as a separate annexure that substantive changes to the Participation Agreement MUST involve resignature.
+~~Concern has been expressed about the use of the work "may" in §10.2 giving TENET the ability to make unilateral changes. This is not our intent, and the current use of "may" rather than "must" was an oversight. We've sought specific legal advice around this issue and TENET's own lawyers have advised that under common law, it is a fundamental requirement that agreements and amendments to agreements, are reached by consensus --- thus even the current wording would require resignature (which was our intent in any event). However we will happily give any institution that requires it a written undertaking as a separate annexure that substantive changes to the Participation Agreement MUST involve resignature.~~
