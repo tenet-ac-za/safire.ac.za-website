@@ -102,7 +102,7 @@
             {{- if $p.contact }}
             <dt>Contact info</dt><dd>
             {{- range $contactType, $contact := $p.contact -}}
-                <button type="button" id="contactbutton-{{ printf "%03d" $i }}-{{ $contactType }}" class="g-recaptcha" data-sitekey="6LeHFTIUAAAAABkGt5axaYTocxsDNmQ_pSq5Q1mZ" data-callback="defusticate">{{ title $contactType }}</button>
+                <button type="button" id="contactbutton-{{ printf "%03d" $i }}-{{ $contactType }}">{{ title $contactType }}</button>
                 <div class="participantContact" id="contactdiv-{{ printf "%03d" $i }}-{{ $contactType }}" title="{{ title $contactType }} contact for {{ template "displayOrgName" $p }}">
                 {{- template "displayContact" $contact -}}
                 </div>
@@ -288,7 +288,7 @@
     {{- if findRE "^(http|https|tel):" . -}}
         <a href="{{ . }}" target="_blank">{{ . }}</a>
     {{- else if hasPrefix . "mailto:" -}}
-        <span class="defusticate">
+        <span class="tenet-obfusticate">
         {{- range (split (base64Encode (replaceRE "^mailto:(.*)$" "$1" .)) "") -}}
           {{- printf "&#x%X;" . | safeHTML -}}
         {{- end -}}
