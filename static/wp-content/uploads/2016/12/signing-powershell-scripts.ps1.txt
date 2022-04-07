@@ -1,0 +1,7 @@
+#
+# This Powershell excerpt can be used to sign the two .ps1 scripts we make avaialble.
+# It makes use of a code signing certificate issued to TENET (@ghalse currently has this).
+#
+$signingCert = Get-ChildItem cert:\ -recurse | Where-Object {$_.Thumbprint -eq "166887dc7314e12254b2bc0f9d25d1277e49bf8e"}
+Set-AuthenticodeSignature -FilePath add-safire-relyingparty.ps1 -Certificate $signingCert -TimeStampServer http://timestamp.sectigo.com -HashAlgorithm SHA256
+Set-AuthenticodeSignature -FilePath claim-descriptions.ps1 -Certificate $signingCert -TimeStampServer http://timestamp.sectigo.com -HashAlgorithm SHA256
