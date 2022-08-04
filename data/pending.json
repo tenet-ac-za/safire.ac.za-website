@@ -11,18 +11,5 @@
                 "URL": "https:\/\/pbs.twimg.com\/profile_images\/485001837108424705\/QJKv7j2M_400x400.png"
             }
         }
-    },
-    {
-        "entityType": "sp",
-        "ParticipationAgreement": true,
-        "OrganizationName": "Sabinet Online Ltd",
-        "OrganizationDisplayName": "Sabinet",
-        "OrganizationURL": "https:\/\/www.sabinet.co.za\/",
-        "TechnicalIntegration": false,
-        "mdui": {
-            "Logo": {
-                "URL": "https:\/\/pbs.twimg.com\/profile_images\/511425494349144064\/hSnyg9wc_400x400.jpeg"
-            }
-        }
     }
 ]
