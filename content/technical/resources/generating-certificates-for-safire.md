@@ -39,6 +39,8 @@ It is (relatively) easy to revoke your web server's certificate if it is comprom
 
 Best practice is to use a long-lived self-signed certificate for SAML signing. SAFIRE recommends generating a certificate that is valid for at least **ten years**. You should use an [appropriate bit length](https://www.keylength.com/en/compare/?twirl=0&parambase={{< year 10 >}}) to ensure the key will remain secure throughout its lifetime.
 
+Certificate and private key roll-overs [take some planning]({{< relref "certificate-key-roll-over.md" >}}).
+
 ## Generating a self-signed cert
 
 To generate a self-signed certificate that meets SAFIRE's recommendations using OpenSSL, you need to do something like this (replacing the Example bits to match your organisation):
