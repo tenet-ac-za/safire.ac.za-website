@@ -9,7 +9,7 @@ title: Performing a SAML certificate or key roll-over
 url: /technical/resources/certificate-key-roll-over/
 ---
 
-This document outlines a process for rolling over (changing) your SAML signing certificate and the associated private key.
+This is a recipe for rolling over (changing) your SAML signing certificate and the associated private key without a service affecting outage.
 
 > **NB!** You should be aware that this process is **NOT** instantaneous, and requires proper planning to ensure your users can continue using your provider without incident. Therefore, you need to begin the process well before the expiry of your existing SAML signing certificate (plan for at least a week). If you let your certificate expire, your users may not be able to log in, and it will take some time to recover from this.
 
