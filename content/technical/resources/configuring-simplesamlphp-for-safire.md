@@ -1,5 +1,5 @@
 ---
-date: 2021-10-20 10:00:00+02:00
+date: 2022-10-24 16:22:00+02:00
 slug: configuring-simplesamlphp-for-safire
 tags:
   - configuration
@@ -14,16 +14,16 @@ url: /technical/resources/configuring-simplesamlphp-for-safire/
 
 # Configuring metarefresh to fetch SAFIRE metadata
 
-You should use the metarefresh and cron modules to manage SAFIRE's metadata automatically. SimpleSAMLphp provides documentation on [automated metadata management](https://github.com/simplesamlphp/simplesamlphp-module-metarefresh/blob/master/docs/simplesamlphp-automated_metadata.md) which explains the basics of how you set this up. This document assumes you have a [working cron module](https://simplesamlphp.org/docs/stable/cron:cron) and have [enabled metarefresh](https://github.com/simplesamlphp/simplesamlphp-module-metarefresh/blob/master/docs/simplesamlphp-automated_metadata.md#preparations).
+You should use the metarefresh and cron modules to manage SAFIRE's metadata automatically. SimpleSAMLphp provides documentation on [automated metadata management](https://github.com/simplesamlphp/simplesamlphp-module-metarefresh/blob/master/docs/simplesamlphp-automated_metadata.md) which explains the basics of how you set this up. This document assumes you have a [working cron module](https://simplesamlphp.org/docs/stable/cron:cron) and have [installed and enabled metarefresh](https://github.com/simplesamlphp/simplesamlphp-module-metarefresh/blob/master/docs/simplesamlphp-automated_metadata.md#preparations).
 
 ## Configure metarefresh
 
-The first thing you need to do is configure the metarefresh module to fetch SAFIRE's metadata. The following sample config/config-metarefresh.php configures SimpleSAMLphp to fetch SAFIRE's metadata once per hour:
+The first thing you need to do is configure the metarefresh module to fetch SAFIRE's metadata. The following sample `config/module_metarefresh.php` (called `config-metarefresh.php` in SimpleSAMLphp 1.x) configures SimpleSAMLphp to fetch SAFIRE's metadata once per hour:
 
 ```php
 <?php
 /*
- * Sample config-metarefresh.php for the South African Identity Federation
+ * Sample module_metarefresh.php for the South African Identity Federation
  */
 $config = [
     'sets' => [
@@ -86,7 +86,7 @@ $config = [
                 ],
             ],
             'expireAfter' => 60 * 60 * 24 * 7, // Maximum 7 days cache time
-            'outputDir' => 'metadata/safire-consuming/',
+            'outputDir' => 'metadata/metadata-generated/',
             'outputFormat' => 'serialize',
             'types' => ['saml20-sp-remote','saml20-idp-remote'],
         ],
@@ -106,20 +106,20 @@ To get the above to work correctly, you need to create two directories within yo
 
 ```bash
 cd /path/to/your/simplesamlphp;
-mkdir -p data/ metadata/safire-consuming/;
-chown www-data:www-data data/ metadata/safire-consuming/;
+mkdir -p data/ metadata/metadata-generated/;
+chown www-data:www-data data/ metadata/metadata-generated/;
 ```
 
 The data/ directory is necessary because we've set the 'conditionalGET' directive above: SAFIRE correctly sends HTTP 304 Not Modified responses, and so setting this to true will prevent metarefresh from unnecessarily fetching metadata.
 
 ## Alter your SimpleSAMLphp config
 
-Finally, you need to alter you config/config.php to use the new metadata. To do this, find the 'metadata.sources' directive, and add the metadata/safire-consuming/ directory to it, something like this:
+Finally, you need to alter you config/config.php to use the new metadata. To do this, find the 'metadata.sources' directive, and add the metadata/metadata-generated/ directory to it, something like this:
 
 ```php
 'metadata.sources' => [
     ['type' => 'flatfile'],
-    ['type' => 'serialize', 'directory' => 'metadata/safire-consuming'],
+    ['type' => 'serialize', 'directory' => 'metadata/metadata-generated'],
 ],
 ```
 
