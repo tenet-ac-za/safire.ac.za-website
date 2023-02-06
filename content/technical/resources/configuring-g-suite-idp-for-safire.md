@@ -12,6 +12,7 @@ url: /technical/resources/configuring-g-suite-idp-for-safire/
 ---
 
 > As a result of the [baseline changes that occured in march 2021]({{< ref "/safire/news/20210331-baseline-changes.md" >}}), it is no longer possible to directly integrate Google Workspace (G Suite) with SAFIRE without making [schema changes](https://support.google.com/a/answer/6327792). In particular, you would need to add support for the [displayName]({{< ref "/technical/attributes/displayname.md" >}}) and [eduPersonScopedAffiliation]({{< ref "/technical/attributes/edupersonscopedaffiliation.md" >}}) attributes. As no current providers use Google Workspace, his document has not been updated to incorporate information on how to do that, nor has it been tested. It remains **theoretically** possible to integrate Google Workspace.
+{.message-box .error}
 
 [Google Workspace for Education](https://edu.google.com/products/productivity-tools/) (formally G Suite formerly Google Apps) includes a limited [SAML identity provider](https://support.google.com/a/answer/6087519). Because SAFIRE is a hub-and-spoke federation, this can potentially be configured to work as an identity provider within SAFIRE --- the federation will do the work of integrating service providers, avoiding the need to add each one individually.
 

@@ -16,6 +16,11 @@ Privacy:
     RespectDoNotTrack: true
   youtube:
     privacyEnhanced: true
+markup:
+  goldmark:
+    parser:
+      attribute:
+        block: true
 
 # External menu links & crosslinks
 menu:

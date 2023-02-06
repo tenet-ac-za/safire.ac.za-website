@@ -15,6 +15,7 @@ SAFIRE publishes various metadata feeds, at the locations shown below. All feed
 # Metadata for identity providers
 
 > This is metadata for entities that have [joined SAFIRE]({{< ref "/participants/idp/join.md" >}}) as an [identity provider]({{< ref "/participants/idp/list.md" >}}) and exchanged metadata with us.
+{.message-box .warning}
 
 ### SAFIRE Federation Hub
 
@@ -27,6 +28,7 @@ The hub metadata can also be used by SAFIRE service providers who only wish to m
 # Metadata for service providers
 
 > This is metadata for entities that have [joined SAFIRE]({{< ref "/participants/sp/join.md" >}}) as a [service provider]({{< ref "/participants/sp/list.md" >}}) and exchanged metadata with us.
+{.message-box .warning}
 
 ### SAFIRE IdP Proxies
 

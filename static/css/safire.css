@@ -242,6 +242,34 @@ input[type="submit"]:active { background-color: #6d488c; }
 	.site-description { padding-top: 0.5em; }
 }
 
+/* message boxes */
+.message-box {
+    background-color: #f4f4f4;
+    color: #2b2b2b;
+    border-left-color: #444;
+    border-left-style: solid;
+    border-left-width: 0.3125rem;
+    box-shadow: 0 5px 8px -6px rgb(0 0 0 / 20%);
+    margin: 1rem 0;
+    padding: 1.3rem;
+    position: relative;
+    font-size: inherit;
+    font-weight: inherit;
+
+}
+.message-box.warning {
+//    background-color: #fffdbf;
+    border-left-color: #f9f56b;
+}
+.message-box.error {
+    background-color: #f7e4e1;
+    border-left-color: #cc4b37;
+}
+.message-box.success {
+    background-color: #daf7e6;
+    border-left-color: #46cc48;
+}
+blockquote.message-box>p { margin-bottom: 0; }
 
 /* provider badges */
 .provider-badge { float:right; width:1em; height:1em; text-align: center; margin-left: 10px; }

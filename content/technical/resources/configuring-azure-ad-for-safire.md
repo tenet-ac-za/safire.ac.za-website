@@ -13,6 +13,7 @@ aliases:
 ---
 
 > The recommended way to integrate Azure AD into SAFIRE is via a [SAML Proxy such as Shibboleth](https://wiki.shibboleth.net/confluence/display/KB/Using+SAML+Proxying+in+the+Shibboleth+IdP+to+connect+with+Azure+AD). While it is possible to connect Azure AD directly into SAFIRE, this has several caveats and cannot be guaranteed as a long-term solution.
+{.message-box .warning}
 
 This documentation assumes that you already have an Azure Active Directory (Azure AD) tenant correctly configured and provisioned with your institution's user accounts.
 
@@ -37,6 +38,7 @@ Now that you have created your application, you need to enable *SAML* based sing
 Once saved, it is worthwhile double-checking that the information was correctly imported by the Upload utility and that you understand what each of the fields is doing.
 
 > SAFIRE's metadata changes periodically, and can do so without warning. The [IdP Requirements]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) put **the onus on you to keep this up-to-date** and expects this process to be automated. Unfortunately Azure AD cannot currently update metadata automatically which is partly why it remains only partially supported in SAFIRE. However, SAFIRE's metadata is stable enough that you can probably get away with this if you create a manual process to periodically ensure you re-upload the metadata or merge any changes.
+{.message-box}
 
 
 # 3. Configure Attribute claims rules
@@ -75,6 +77,7 @@ IF 'user.extensionattribute4' CONTAINS 'staff' THEN
 **NOTE:**  eduPersonScopedAffiliation is a multi-valued attribute with a controlled vocabulary and, importantly, where an the [vocabulary definition]({{< ref "/technical/attributes/edupersonaffiliation.md" >}}) says "implies…" the implied values must also be included in the returned set.
 
 > Azure AD as it does not currently support multi-valued user extension attributes
+{.message-box}
 
 As many institutions use user extension attributes to store affiliation information, you can work around this problem by (re-)configuring the Attribute claims *transform* rule for eduPersonScopedAffiliation to release an attribute *Named* `scopedAffiliationSingleton` in SAFIRE's custom *Namespace* of [`https://safire.ac.za/namespace/claims`]({{< ref "/namespace/claims.md" >}}) with attribute values that are separated by a space, and meet the format rules described in eduPersonAffiliation, scoped to your realm. If your Azure IdP asserts `scopedAffiliationSingleton` correctly, the SAFIRE federation hub will reformat it into a multi-valued eduPersonScopedAffiliation attribute for you.
 
