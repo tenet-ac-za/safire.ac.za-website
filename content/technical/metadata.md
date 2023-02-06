@@ -1,5 +1,5 @@
 ---
-date: 2019-08-08T13:21:00+02:00
+date: 2023-02-06T11:21:00+02:00
 menu:
   main:
     identifier: technical-metadata
@@ -14,15 +14,19 @@ SAFIRE publishes various metadata feeds, at the locations shown below. All feed
 
 # Metadata for identity providers
 
+> This is metadata for entities that have [joined SAFIRE]({{< ref "/participants/idp/join.md" >}}) as an [identity provider]({{< ref "/participants/idp/list.md" >}}) and exchanged metadata with us.
+
 ### SAFIRE Federation Hub
 
-This is the basic metadata for the SAFIRE federation, and contains information about the hub. It is intended for use by SAFIRE identity providers.
+This is the basic metadata for the SAFIRE federation, and contains information about the hub.
 
 {{< metadata url="https://metadata.safire.ac.za/safire-hub-metadata.xml" entityId="true" >}}
 
 The hub metadata can also be used by SAFIRE service providers who only wish to make use of central discovery services. However this mode of operation is **deprecated** as it is incompatible with current best practices for IdP discovery.
 
 # Metadata for service providers
+
+> This is metadata for entities that have [joined SAFIRE]({{< ref "/participants/sp/join.md" >}}) as a [service provider]({{< ref "/participants/sp/list.md" >}}) and exchanged metadata with us.
 
 ### SAFIRE IdP Proxies
 
@@ -46,8 +50,4 @@ This is a re-publication of a subset of the eduGAIN metadata that only include
 
 # Inter-federation Metadata
 
-#### SAFIRE Participants into eduGAIN
-
-This is a feed for eduGAIN containing only identity and service providers who wish to participate in inter-federation.
-
-{{< metadata url="https://metadata.safire.ac.za/safire-edugain.xml" >}}
+SAFIRE also provides metadata to the [eduGAIN interfederation](https://edugain.org/) for use by academic federations around the world. Entities wishing to interfederate should receive this metadata from their local federation rather than directly from SAFIRE. You can view metadata we provide to eduGAIN in the [REFEDS metadata explorer tool](https://met.refeds.org/met/federation/edugain/).
