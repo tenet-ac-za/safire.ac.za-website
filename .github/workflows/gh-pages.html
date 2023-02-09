@@ -22,7 +22,7 @@ jobs:
           # extended: true
 
       - name: Build
-        run: hugo --minify --buildDrafts
+        run: hugo --minify --buildDrafts --baseURL https://tenet-ac-za.github.io/safire.ac.za-website/
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
