@@ -23,6 +23,9 @@ jobs:
           hugo-version: 'latest'
           # extended: true
 
+      - name: Create example data
+        run: wget -O data/safire.json https://safire.ac.za/.safire-website-helpers/list-participants-hugo.php
+
       - name: Build
         run: hugo --minify --buildDrafts --baseURL https://tenet-ac-za.github.io/safire.ac.za-website/
 
