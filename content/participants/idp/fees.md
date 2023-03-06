@@ -31,6 +31,10 @@ All annual recurring costs are subject to an annual escalation to reflect the in
 - Non-profit or public benefit organisations properly registered as such in South Africa may request a discount.
 - The [SAFIRE Steering Committee]({{< ref "/governance.md" >}}) may, at its sole discretion, elect to discount or exempt any organisation from paying SAFIRE's fees.
 - All prices exclude value-added tax (VAT)
+<!-- break to apply class separately -->
+- &Dagger; eduroam identity providers with 150 or fewer users may use the managed IdP service at no charge.
+- Non-profit or public benefit eduroam identity providers that provide a reciprocal service provider used by other institutions receive a 50% discount on the RADIUS profile fees.
+{.fees-radius}
 
 [^fte]: For the avoidance of doubt, this covers the FTE count of all persons recognised as &quot;staff&quot; or &quot;student&quot; under the [eduPersonAffiliation]({{< ref "/technical/attributes/edupersonaffiliation.md" >}}) definition, but excludes those who are merely &quot;employee&quot; under that definition. In HEMIS terms, this means the &quot;trade/craft&quot; and &quot;service&quot; personnel categories are excluded.
 [^HEMIS]: DHET's Higher Education Management Information System, or its successor or equivalent government-mandated reporting system. Note that published HEMIS submissions usually lag by approximately two years.

@@ -1,6 +1,6 @@
 {{/* last fees update: Feb 2023 */}}
 {{- $SAMLcostPerFTE := 7.05 -}}
-{{- $RADIUScostPerFTE := 1.00 -}}
+{{- $RADIUScostPerFTE := 1.30 -}}
 {{- $HideRADIUS := true -}}
 {{ if $HideRADIUS }}
 <style>
@@ -24,7 +24,7 @@
         <tr>
             <td>0&ndash;500</td>
             <td class="fees-saml2">R {{lang.NumFmt 0 (mul 500 $SAMLcostPerFTE) "-|,| " "|"}}</td>
-            <td class="fees-radius">R {{lang.NumFmt 0 (mul 500 $RADIUScostPerFTE) "-|,| " "|"}}</td>
+            <td class="fees-radius">R {{lang.NumFmt 0 (mul 500 $RADIUScostPerFTE) "-|,| " "|"}} &Dagger;</td>
             <td>-</td>
         </tr>
         <tr>
