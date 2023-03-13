@@ -11,5 +11,18 @@
                 "URL": "https:\/\/pbs.twimg.com\/profile_images\/485001837108424705\/QJKv7j2M_400x400.png"
             }
         }
+    },
+    {
+        "entityType": "sp",
+        "ParticipationAgreement": true,
+        "OrganizationName": "South East Academic Libraries System Trust",
+        "OrganizationDisplayName": "SEALS",
+        "OrganizationURL": "https:\/\/www.seals.ac.za\/",
+        "TechnicalIntegration": false,
+        "mdui": {
+            "Logo": {
+                "URL": "https:\/\/www.seals.ac.za\/media\/seals\/site_assets\/images\/logo.gif"
+            }
+        }
     }
 ]
