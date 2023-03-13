@@ -49,6 +49,10 @@ To generate a self-signed certificate that meets SAFIRE's recommendations using 
 # separated to ensure BasicConstraints=CA:FALSE
 openssl req -newkey rsa:3072 -keyout example_ac_za.pem -new -subj '/C=ZA/O=Example University/CN=idp.example.ac.za' -sha256 -out example_ac_za.req
 openssl x509 -in example_ac_za.req -req -days 3652 -sha256 -signkey example_ac_za.pem -out example_ac_za.crt
+#
+# or a shortcut version for bash-like shells:
+openssl req -newkey rsa:3072 -keyout ${HOSTNAME//./_}.pem -new -subj "/C=ZA/O=Example University/CN=${HOSTNAME}" -sha256 -out ${HOSTNAME//./_}.req
+openssl x509 -in ${HOSTNAME//./_}.req -req -days 3652 -sha256 -signkey ${HOSTNAME//./_}.pem -out ${HOSTNAME//./_}.crt
 ```
 
 The example above generates a private key that is password protected. You will need to specify your password in your provider configuration. Alternatively, you can add -nodes to each of the command lines to remove the password.
