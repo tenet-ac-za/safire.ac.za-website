@@ -1,5 +1,5 @@
 ---
-date: 2022-10-24 16:22:00+02:00
+date: 2023-03-27 14:08:00+02:00
 slug: configuring-simplesamlphp-for-safire
 tags:
   - configuration
@@ -129,7 +129,7 @@ Download a copy of [SAFIRE's signing certificate]({{< ref "/technical/metadata.m
 
 ## Test it works
 
-If you go to the Federations tab of your SimpleSAMLphp web page, you should find a "Metarefresh: fetch metadata" link at the bottom. This will allow you to test that metarefresh can correctly fetch SAFIRE's metadata. Once you've run it, you should see entries in your remote metadata corresponding to the Federation.
+If you go to the Federations tab of your SimpleSAMLphp admin portal, you should find a "Metarefresh: fetch metadata" link at the bottom. This will allow you to test that metarefresh can correctly fetch SAFIRE's metadata. Once you've run it, you should see entries in your remote metadata corresponding to the Federation.
 
 If the cron module is correctly refreshing your metadata you should see log entries like this in SimpleSAMLphp's log:
 
@@ -148,8 +148,9 @@ If you're using a SimpleSAMLphp [hosted IdP](https://simplesamlphp.org/docs/stab
  * Note that this is not a complete example!
  * It only shows options that must be set for SAFIRE
  */
-$metadata['__DYNAMIC:1__'] = [
-    'scope' => ['yourrealm.example.net', 'yourotherrealm.example.net'],
+$metadata['http://idp.example.ac.za/'] = [
+    'host' => '__DEFAULT__',
+    'scope' => ['yourrealm.example.ac.za', 'yourotherrealm.example.net'],
     'attributes.NameFormat' => 'urn:oasis:names:tc:SAML:2.0:attrname-format:uri',
     'SingleSignOnServiceBinding' => ['urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'],
     'SingleLogoutServiceBinding' => ['urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'],
@@ -175,6 +176,7 @@ Whatever discovery service you choose, you should follow it's documentation for 
 $config = [
     'default-sp' => [
         'saml:SP',
+        'entityID' => 'https://myapp.example.org/',
         'discoURL' => 'https://service.seamlessaccess.org/ds',
     ],
 ];
@@ -190,6 +192,7 @@ It is possible configure SimpleSAMLphp to use SAFIRE's deprecated central discov
 $config = [
     'default-sp' => [
         'saml:SP',
+        'entityID' => 'https://myapp.example.org/',
         'idp' => 'https://iziko.safire.ac.za/',
     ],
 ];
@@ -198,10 +201,6 @@ $config = [
 ## Improve SP metadata
 
 To produce better automated metadata, you should also configure the [MDUI options](https://simplesamlphp.org/docs/stable/simplesamlphp-metadata-extensions-ui) correctly. (There's a [sample authsources.php](/wp-content/uploads/2017/02/authsources.php.txt)  file available to help you do this.)
-
-## Configure attribute mapping
-
-SimpleSAMLphp's default `oid2name` attribute map now contains all of SAFIRE's attributes.
 
 # Other technical requirements
 

@@ -7,6 +7,15 @@ tags:
 title: Theme generator for SimpleSAMLphp
 ---
 
+> This theme generator was developed for SimpleSAMLphp 1.18.x and is no longer maintained.
+{.message-box .info}
+
+> This should still work with SimpleSAMLphp 1.19.x, but may need a few tweeks.
+{.message-box .warning}
+
+> This will **not** work for SimpleSAMLphp 2.0.x as the theming mechanism [changes completely](https://simplesamlphp.org/docs/stable/simplesamlphp-upgrade-notes-2.0.html).
+{.message-box .error}
+
 A number of people seem to find [SimpleSAMLphp's theming system](https://simplesamlphp.org/docs/stable/simplesamlphp-theming)
 intimidating. To aid with this, we've written a simple [theme generator](/wp-content/uploads/2018/08/ssp-theme-generator.sh) for SimpleSAMLphp.
 

@@ -1,17 +1,16 @@
 <?php
 /*
- * This is an EXAMPLE to help you configure a SimpleSAMLphp identity provider
+ * This is an EXAMPLE to help you configure a SimpleSAMLphp 2.0.x identity provider
  * to produce metadata that is reasonably complete and closely meets SAIFRE's
  * recommendations. You may need to hand-edit the result, but hopefully not much.
  */
-$metadata['__DYNAMIC:1__'] = [
+$metadata['https://idp.example.ac.za/simplesaml/module.php/saml/idp/metadata'] = [ /* entityID - unique identifier within your domain name space */
     'host' => '__DEFAULT__',
     'privatekey' => 'server.pem',
     'privatekey_pass' => 'YourPrivateKeyPassphrase', /* you encrypt your private key, right? */
     'certificate' => 'server.crt', /* see https://safire.ac.za/technical/resources/generating-certificates-for-safire/ */
     'auth' => 'example-userpass', /* from config/authsources.php */
     'scope' => ['safire.ac.za', 'wf.safire.ac.za'], /* Scopes showing all possible valid right-hand-sides for eduPersonPrincipalName and mail */
-    'signature.algorithm' => 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256', /* SHA1 not acceptable */
     'SingleSignOnServiceBinding' => ['urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',], /* SAML2int only requires HTTP-Redirect, but could include HTTP-POST */
     'SingleLogoutServiceBinding' => ['urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',], /* SAML2int only requires HTTP-Redirect, but could include HTTP-POST */
     'attributes.NameFormat' => 'urn:oasis:names:tc:SAML:2.0:attrname-format:uri',
@@ -29,7 +28,7 @@ $metadata['__DYNAMIC:1__'] = [
         'en' => 'ExampleU',
         'af' => 'ByvorbeeldU',
     ],
-    'OrganizationURL' => ['en' => 'https://example.ac.za/',], /* Your home page */
+    'OrganizationURL' => ['en' => 'https://www.example.ac.za/',], /* Your home page */
     'UIInfo' => [
         'DisplayName' => [ /* usually same as OrganizationDisplayName */
             'en' => 'Example Identity Provider',
@@ -39,21 +38,21 @@ $metadata['__DYNAMIC:1__'] = [
             'en' => 'Example Identity Provider',
             'af' => 'Byvorbeeld Identiteit Verskaffer',
         ],
-        'PrivacyStatementURL' => ['en' => 'https://safire.ac.za/safire/policy/privacy',], /* STRONGLY RECOMMENDED */
-        'InformationURL' => ['en' => 'https://safire.ac.za/users/who-why-what',], /* suggested */
+        'PrivacyStatementURL' => ['en' => 'https://idp.example.ac.za/privacy-statement-or-policy-for-my-idp',], /* STRONGLY RECOMMENDED */
+        'InformationURL' => ['en' => 'https://idp.example.ac.za/about-my-idp',], /* suggested */
         'Logo' => [
             [ /* Recommended by Shibboleth SP */
-                'url' => 'https://static.safire.ac.za/logos/safire-logo-16x16.png',
+                'url' => 'https://sp.example.ac.za/my-16x16-logo.png',
                 'height' => 16,
                 'width' => 16,
             ],
             [ /* Recommended by Shibboleth SP */
-                'url' => 'https://static.safire.ac.za/logos/safire-logo-80x60.png',
+                'url' => 'https://idp.example.ac.za/my-80x60-logo.png',
                 'height' => 60,
                 'width' => 80,
             ],
             [ /* This is the size recommended by SAFIRE (at least 150x150, square) */
-                'url' => 'https://static.safire.ac.za/logos/safire-logo-300x300.png',
+                'url' => 'https://idp.example.ac.za/my-300x300-logo.png',
                 'height' => 300,
                 'width' => 300,
             ],
@@ -70,7 +69,7 @@ $metadata['__DYNAMIC:1__'] = [
             'telephoneNumber' => '+27.21.114.0000',
         ],
         [
-            /* required for Sirtfi, but this is how to add a security contact if you have one */
+            /* required security contact */
             'contactType' => 'other',
             'emailAddress' => 'mailto:csirt@example.ac.za',
             'givenName' => 'Example University CSIRT',
