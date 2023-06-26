@@ -1,9 +1,9 @@
 ---
 date: 2023-06-26 14:54:00+02:00
-slug: 20230630-hub-hupgrade
+slug: 20230630-hub-upgrade
 tags:
   - technical
-title: Upgrade of SAFIRE federation hub (30 June)
+title: Upgrade of SAFIRE federation hub on 30 June
 ---
 
 On Friday 30 June we'll be performing a major version upgrade of the software that's at the core of SAFIRE's federation hub. Although no downtime is expected, you can expect the following:
