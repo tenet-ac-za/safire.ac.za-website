@@ -44,7 +44,7 @@ You may be asked for affiliation or scoped affiliation values. These are the val
 If you are asked for an entitlement value, you will most likely use `urn:mace:dir:entitlement:common-lib-terms` as described in the [common-lib-terms specification](https://www.internet2.edu/products-services/trust-identity-middleware/mace-registries/urnmace-namespace/urn-mace-dir-registry/urn-mace-dir-entitlement/) and [_eduPersonEntitlement_]({{< ref "/technical/attributes/edupersonentitlement.md" >}}). However, note that SAFIRE does [not release this by default]({{< ref "/safire/policy/arp/_index.md#default" >}}) so this will only work if we've explictly enabled it (which will be the case for ones marked as working that require this).
 
 ### Attributes
-SAFIRE's default [attribute release policy]({{< ref "/safire/policy/arp/_index.md#default" >}}) releases the attributes most commonly needed by library and information providers in support of pseudonymous access. If more attributes are required, you will need to [let us know]({{< ref "/safire/contact/_index.md" >}}) (preferably with a reference to documentation).
+SAFIRE's default [attribute release policy]({{< ref "/safire/policy/arp/_index.md#default" >}}) releases the attributes most commonly needed by library and information providers in support of pseudonymous access. We also release the correct attributes for any provider marked as working above. However, if a provider tells you they require more/other attributes, you will need to [let us know]({{< ref "/safire/contact/_index.md" >}}) (preferably with a reference to documentation).
 
 # Hints from other federations
 
