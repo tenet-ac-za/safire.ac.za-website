@@ -14,7 +14,7 @@ On Thursday 21 September, we'll be convening a meeting of the SAFIRE Participant
  * Date: 21 September 2023
  * Time: 13:00-15:00<!--more-->
 
-This will be an in-person meeting, collocated with the [ZA·REN Week '23 conference](https://zaren23.nren.ac.za/) and immediately following the SLA Reference Group Meeting. Given the import of the agenda, we would encourage participants — and particularly those representing SAFIRE identity providers — to attend if they can. We've deliberately scheduled it to ensure those who're also attending the conference and/or SLA Reference Group Meeting will still be able to make evening flights.
+This will be an in-person meeting, collocated with the [ZA·REN Week '23 conference](https://zaren23.nren.ac.za/) and immediately following the SLA Reference Group Meeting. Given the import of the agenda, we would encourage participants — and particularly those representing SAFIRE identity providers — to attend if they can.
 
 Attendance at the Participants Forum is open to designated representatives of any SAFIRE participant. [Registration is required](https://events.tenet.ac.za/event/47/) to ensure appropriate catering, and to determine eligibility.
 
