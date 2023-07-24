@@ -45,7 +45,7 @@ menu:
     Weight: 1
   - Name: "Forget Me"
     Identifier: users-help-forget
-    URL: https://iziko.safire.ac.za/module.php/safire/forgetme.php
+    URL: https://iziko.safire.ac.za/module.php/safire/forgetme
     Parent: users-help
     Weight: 2
 
