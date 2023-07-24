@@ -44,7 +44,7 @@ At this point you should perform the login you wish to trace. Typically it'll be
 While you're doing this, you should see the SAML-tracer window recording the details of your transaction, including the SAML transactions (shown with the occasional orange SAML tags) that indicate an authentication process is occuring.
 {{< figure src="/wp-content/uploads/2021/05/saml-trace-testsp.png" caption="SAML trace in progress" >}}
 
-Note: It often helps to do this in a [private](https://support.mozilla.org/en-US/kb/private-browsing-use-firefox-without-history) or [incognito](https://support.google.com/chrome/answer/95464) window to ensure that any [cookies](https://iziko.safire.ac.za/module.php/safire/forgetme.php) previously set in your browser do not interfere with the trace. However, if you do this, you'll need to allow the SAML-tracer plugin to run in private/incognito mode. You typically do this in the plugin/add-on settings of your browser.
+Note: It often helps to do this in a [private](https://support.mozilla.org/en-US/kb/private-browsing-use-firefox-without-history) or [incognito](https://support.google.com/chrome/answer/95464) window to ensure that any [cookies](https://iziko.safire.ac.za/module.php/safire/forgetme) previously set in your browser do not interfere with the trace. However, if you do this, you'll need to allow the SAML-tracer plugin to run in private/incognito mode. You typically do this in the plugin/add-on settings of your browser.
 
 # 3.5 Review the trace (optional)
 
