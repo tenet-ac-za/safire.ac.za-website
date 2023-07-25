@@ -92,11 +92,15 @@ Providers:
        - http://admin.galegroup.com/galeadmin/help/help/GADMAuthenticationShibbolethHelp.html
 
     - Name: IEEE Xplore
-      LoginLink: "[Shibboleth](http://ieeexplore.ieee.org/servlet/wayf.jsp)"
-      Status: No SA institutions listed by default
-      Notes: Institutions need to register
+      LoginLink: "Institutional Sign In"
+      Status: Tested, works
+      StatusColour: green
+      StatusDate: 2023-07-25
+      Notes: |
+        Libraries need to contact IEEE support supplying their [proxied entity id](/participants/idp/list/?wayfless) to enable access. IEEE will provide a WAYFless URL of the form https://ieeexplore.ieee.org/servlet/wayf.jsp?entityId={{idp_proxy_entityid}}&url={{url-encoded-target}} (it may help to generate this yourself and test beforehand). However, they also support SeamlessAccess for login.
       Documentation:
        - https://supportcenter.ieee.org/app/answers/detail/a_id/162/~/does-ieee-support-shibboleth-or-athens-authentication-in-xplore%3F
+      SeamlessAccess: true
 
     - Name: IOP Science
       LoginLink: "[Athens / Institution login](https://ticket.iop.org/inst_login?return=https%3A%2F%2Fiopscience.iop.org%2F)"
