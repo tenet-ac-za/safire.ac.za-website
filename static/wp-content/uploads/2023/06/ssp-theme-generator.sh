@@ -476,6 +476,6 @@ else
     ${SED} -i -E \
         -e "s|(^[[:space:]]*'theme.use') => '[^']+',|\\1 => '${THEME}:${THEME}',|" \
         -e "s|^([[:space:]]*)/{0,2}'theme.header' => '[^']+',|\\1'theme.header' => '${NAME}',|"\
-        -e "/^[[:space:]]*'module.enable' => \[/ {\$!N;{/${THEME}/! s/^([[:space:]]*)'module.enable' => \[\\n/\\s'module.enable' => [\\n\\1\\1'${THEME}' => true,\\n/}}" \
+        -e "/^[[:space:]]*'module.enable' => \[/ {\$!N;{/${THEME}/! s/^([[:space:]]*)'module.enable' => \[\\n/\\1'module.enable' => [\\n\\1\\1'${THEME}' => true,\\n/}}" \
         config/config.php
 fi
