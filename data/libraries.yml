@@ -86,6 +86,20 @@ Providers:
        - https://emeraldpublishinggroup.freshdesk.com/support/solutions/articles/36000059612
       SeamlessAccess: true
 
+    - Name: Encyclopædia Britannica
+      LoginLink:
+      Status: Tested, working
+      StatusColour: green
+      StatusDate: 2023-07-27
+      Notes: |
+        Libraries need to provide Encyclopædia Britannica with their proxied entity id. A WAYFless URL of the form
+        https://shibboleth.eb.com/shibboleth.sso/UKF-DS?entityID={{idp_proxy_entityid}}&target={{url-encoded-target}}
+        will be generated for each product. Some issues have been reported using entity ids that are not properly
+        URL encoded for a WAYFless URL (use the [encoded version](/participants/idp/list/?wayfless)).
+      Documentation:
+       - https://www.ukfederation.org.uk/library/uploads/Documents/BritannicaCaseStudy.pdf
+      SeamlessAccess: false
+
     - Name: Gale Cengage
       Status: Not tested
       Documentation:
