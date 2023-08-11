@@ -199,6 +199,16 @@ Providers:
       Notes: |
         Thus far, both SAFIRE & two universities have reached out to LexisNexus SA about this. LexisNexus SA have indicated that it is on their roadmap for investigation starting in September 2020. (TENET:4612)
 
+    - Name: MathWorks
+      Status: Tested, working
+      StatusColour: green
+      StatusDate: 2023-08-11
+      Notes: |
+        Institutions need to contact MathWorks to enable; will need to supply an appropriate scoped affiliation. The `mail` attribute is used to match existing profiles and set them for SSO.
+      AuthAttribute:
+        - eduPersonScopedAffiliation
+        - mail
+
     - Name: McGraw-Hill Medical
       LoginLink: "[Sign in via Shibboleth](https://mhmedical.com/SignInShibboleth.aspx?view=signin&federationID=27&redirecturl=http%3a%2f%2fmhmedical.com%2fumbrella-index.aspx)"
       Status: Tested, working
