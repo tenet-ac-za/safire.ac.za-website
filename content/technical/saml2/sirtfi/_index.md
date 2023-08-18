@@ -1,5 +1,5 @@
 ---
-date: 2021-03-31 08:00:00+02:00
+date: 2023-08-18 17:00:00+02:00
 menu:
   main:
     identifier: technical-saml2-sirtfi
@@ -23,6 +23,10 @@ If you need to attest to your institution's Sirtfi compliance, in addition to a 
 This statement must be on institional letterhead, and should be signed by the person responsible for conducting the assessment (which may or may not be your technical contact). In large organisations it is typically signed by the head of an institutional CSIRT or equivelent information security function.
 
 A suitably redacted copy of this statement will be published as part of your entity's listing (see below for examples).
+
+#### Sirtfi v1.0 vs v2.0
+
+There are two revisions of the Sirtfi framework, both of which coexist and remain valid. Since v2.0 introduces an additional assertion ([IR3]), you must explicitly specify which of the two versions you're attesting to. New entites are encouraged to adopt v2.0. More details are available on the [REFED Sirtfi page](https://refeds.org/sirtfi).
 
 #### Annual review
 
