@@ -1,5 +1,5 @@
 ---
-date: 2023-09-06 15:00:00+02:00
+date: 2023-09-06 13:00:00+02:00
 slug: configuring-simplesamlphp-to-use-azure 
 tags:
   - azure
