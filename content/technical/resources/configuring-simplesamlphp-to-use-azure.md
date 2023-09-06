@@ -51,10 +51,10 @@ Here's an example of a minimal configuration to publish SAML 2.0 SP metadata:
 'default-sp' => [
     'saml:SP',
     // The entity ID of this SP.
-    'entityID' => 'https://<your\_host>/default-sp',
+    'entityID' => 'https://<your_host>/default-sp',
     //certificates
     'privatekey' => 'server.key',
-    'privatekey\_pass' => 'YourPrivateKeyPassphrase',
+    'privatekey_pass' => 'YourPrivateKeyPassphrase',
     'certificate' => 'server.crt',
     ],
 ```
@@ -72,11 +72,11 @@ To set up the IdP, you need to edit the _saml20-idp-hosted.php_ file. We will us
 ```php
 $metadata['https://your-simplesamlphp-hosted-idp-entityid'] = [
     //The hostname of the server (VHOST) that will use this SAML entity.
-    //Can be '\_\_DEFAULT\_\_', to use this entry by default.
-    'host' => '\_\_DEFAULT\_\_',
+    //Can be '__DEFAULT__', to use this entry by default.
+    'host' => '__DEFAULT__',
     // X.509 key and certificate. Relative to the cert directory.
     'privatekey' => 'idp.key',
-    'privatekey\_pass' => 'YourPrivateKeyPassphrase',
+    'privatekey_pass' => 'YourPrivateKeyPassphrase',
     'certificate' => 'idp.pem',
     //Authentication source to use. It must be one that is configured in
     //'config/authsources.php'.
@@ -96,7 +96,7 @@ You can name the application whatever makes sense to you. Your new application w
 
 # 4. Set up single sign-on
 
-Now that you have created your application, you need to enable SAML-based single sign-on and establish the Azure side of the bilateral trust relationship between your App and SimpleSAMLphp. You start by uploading your SAML 2.0 SP metadata file (from section 1, in XML format). Azure AD’s metadata Upload utility should pre-populate the Basic SAML Configuration from what it finds in the uploaded metadata file.
+Now that you have created your application, you need to enable SAML-based single sign-on and establish the Azure side of the bilateral trust relationship between your App and SimpleSAMLphp. You start by uploading your SAML 2.0 SP metadata file (from step 1, in XML format). Azure AD’s metadata Upload utility should pre-populate the Basic SAML Configuration from what it finds in the uploaded metadata file.
 
 Once saved, it is worthwhile double-checking that the upload utility correctly imported the information and that you understand what each of the fields is doing.
 
@@ -141,13 +141,13 @@ An example of an LDAP authsource can look like this:
 ```php
 'your-LDAP-authsource' => [
     'ldap:Ldap',
-    'connection\_string' => 'ldaps://your-ldap-host',
+    'connection_string' => 'ldaps://your-ldap-host',
     'encryption' => 'ssl',
     'version' => 3,
     'ldap.debug' => false,
     'options' => [
     'referrals' => 0x00,
-    'network\_timeout' => 3,
+    'network_timeout' => 3,
     ],
     'connector' => '\SimpleSAML\Module\ldap\Connector\Ldap',
     'attributes' => [
@@ -162,7 +162,7 @@ An example of an LDAP authsource can look like this:
     'search.attributes' => ['cn', 'userPrincipalName'],
     'search.filter' => '(&(objectClass=user)(objectCategory=person))',
     'search.username' => 'CN=searchuser, OU=services,DC=ad,DC=ac,DC=za',
-    'search.password' => 'searchuser\_password',
+    'search.password' => 'searchuser_password',
  ],
 ```
 Next, we will use SimpleSAMLphp's ldap:AttributeAddFromLDAP Auth Proc filter. You can configure your filters globally in the _config.php_ or the _sam20-idp-hosted.php_ metadata file; This choice is use-case specific.
@@ -183,12 +183,10 @@ Example of an authproc filter:
 
 The above example uses the claim-type version of the userPrincipalName (UPN) attribute value, obtained from Azure, to search through the Active Directory for a matching userPrincipalName attribute value. Once a match is found, the givenName, sn, and displayName attributes are returned; You can expand the list of returned attributes per your needs. 
 
-Something important to note from the Auth Proc documentation:
-
 > _An Auth Proc Filter is not functional in the "Test authentication sources" option within the web UI of a SimpleSAMLphp IdP. It will only be activated when used alongside an actual SP (Service Provider). Therefore, when testing your filter, it is necessary to establish both an IdP and an SP._
 {.message-box .warning}
 
-With that in mind, you can set up your SimpleSAMLphp deployment as a Service Provider internal to its own Identity Provider;
+With the above warning in mind, you can set up your SimpleSAMLphp deployment as a Service Provider internal to its own Identity Provider;
 
 # 8. Configure SimpleSAMLphp internal SP to test
 
@@ -198,17 +196,17 @@ A bilateral trust relationship needs to be established with the following consid
 
 _fig 1.2_
 
-Note: This SP is set up as a separate SP authsource from the default-sp, and remember that SimpleSAMLphp wants metadata converted to PHP.
+Note: This SP is set up as a separate SP authsource from the default-sp configured in step 1; Also remember that SimpleSAMLphp wants metadata converted to PHP.
 
 An example of your internal SP configuration could look like this:
 
 ```php
-'internal-saml' => [
+'internal-sp' => [
     'saml:SP',
    // The entity ID of this SP.
-   'entityID' => 'https://tmp-dsk-01.desk.local/internal-saml',
+   'entityID' => 'https://tmp-dsk-01.desk.local/internal-sp',
    'privatekey' => 'sp.key',
-   'privatekey\_pass' => 'YourPrivateKeyPassphrase',
+   'privatekey_pass' => 'YourPrivateKeyPassphrase',
    'certificate' => 'sp.pem',
    // The entity ID of your hosted SAML 2.0 IdP metadata this SP should contact
    'idp' => 'https://your-simplesamlphp-hosted-idp-entityid',
@@ -217,11 +215,11 @@ An example of your internal SP configuration could look like this:
 ],
 ```
 
-To finalise the set-up of the internal SP’s bilateral trust relationship, you will need to copy the SAML 2.0 IdP Metadata you set up in section 2 above from your SimpleSAMLphp’s _Federation tab_ into the _saml20-idp-remote.php_ file. You will also need to copy your SAML 2.0 SP metadata for your internal-sp into the _saml20-sp-remote.php_ file.
+Per _fig 1.2_, To finalise the set-up of the internal SP’s bilateral trust relationship, you will need to copy the SAML 2.0 IdP Metadata you set up in step 2 above from your SimpleSAMLphp’s _Federation tab_ into the _saml20-idp-remote.php_ file. You will also need to copy your SAML 2.0 SP metadata for your internal-sp into the _saml20-sp-remote.php_ file.
 
 With the above correctly configured, you can now go to SimpleSAMLphp’s Test page and use your ‘internal-sp’ to authenticate to your Azure AD IdP. 
 
-You should now see attributes returned from both Azure, and the Auth Proc filters you configured in section 7.
+You should now see attributes returned from both Azure, and the Auth Proc filters you configured in step 7.
 
 # Other examples
 
