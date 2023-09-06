@@ -9,8 +9,6 @@ tags:
   - technical
 title: Configuring SimpleSAMLphp to use Azure-AD as an Authentication source
 url: /technical/resources/configuring-simplesamlphp-to-use-azure
-aliases:
-  - /technical/resources/configuring-simplesamlphp-to-use-azure/
 ---
 
 This documentation will guide you through the Azure Active Directory (Azure AD) configuration process as an authentication source in SimpleSAMLphp. By integrating Azure AD in this way, you can retain your users' familiar login experience while leveraging SimpleSAMLphp's flexibility to fetch and/or manipulate attributes from Azure AD and other sources.
