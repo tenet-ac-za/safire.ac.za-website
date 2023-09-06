@@ -13,7 +13,7 @@ url: /technical/resources/configuring-simplesamlphp-to-use-azure
 
 This documentation will guide you through the Azure Active Directory (Azure AD) configuration process as an authentication source in SimpleSAMLphp. By integrating Azure AD in this way, you can retain your users' familiar login experience while leveraging SimpleSAMLphp's flexibility to fetch and/or manipulate attributes from Azure AD and other sources.
 
-While SAFIRE can directly work with Azure AD or SimpleSAMLphp (as explained in our [Configuring Azure AD SAML-based SSO for SAFIRE]({{< ref "/technical/resources/configuring-azure-ad-for-safire/" >}}) and [Configuring SimpleSAMLphp for SAFIRE]({{< ref "/technical/resources/configuring-simplesamlphp-for-safire/" >}}) documentation), you may find yourself in a situation where this approach better fits your use case.
+While SAFIRE can directly work with Azure AD or SimpleSAMLphp (as explained in our [Configuring Azure AD SAML-based SSO for SAFIRE]({{< ref "/technical/resources/configuring-azure-ad-for-safire.md" >}}) and [Configuring SimpleSAMLphp for SAFIRE]({{< ref "/technical/resources/configuring-simplesamlphp-for-safire.md" >}}) documentation), you may find yourself in a situation where this approach better fits your use case.
 
 Below, you'll find an example demonstrating how to configure SimpleSAMLphp to use the attributes received from Azure AD to search for and assert additional attributes for a user from an LDAP source of an on-prem Active Directory.
  
@@ -32,6 +32,6 @@ To configure SimpleSAMLphp to use your Azure AD IdP as an Authentication Source,
 
 To start, consider the following diagram on establishing a bilateral trust relationship between Azure AD and SimpleSAMLphp: 
 
-![Azure AD and SimpleSAMLphp bilateral trust](/wp-content/uploads/2023/09/azure-ssp-bilateral.svg)
+![Azure AD and SimpleSAMLphp bilateral trust](/wp-content/uploads/2023/09/azure-ssp-bilateral.png)
                            
 _fig 1.1_
