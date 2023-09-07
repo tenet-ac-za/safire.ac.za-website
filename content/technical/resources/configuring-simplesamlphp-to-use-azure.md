@@ -232,10 +232,11 @@ Another scenario is that we can also extract group memberships from Active Direc
 
 ```php
 61 => [
-'class' => 'core:PHP',
+    'class' => 'core:PHP',
     'code' => '
-    if (isset($attributes["memberOf"]) &&     in_array("CN=staff,OU=My,OU=AD,DC=ac,DC=za", $attributes["memberOf"])) {
-       $attributes["eduPersonAffiliation"] = ["staff", "employee", "member"];}',
+        if (isset($attributes["memberOf"]) && in_array("CN=staff,OU=My,OU=AD,DC=ac,DC=za", $attributes["memberOf"])) {
+            $attributes["eduPersonAffiliation"] = ["staff", "employee", "member"];
+        }',
 ],
 ```
 
@@ -244,8 +245,9 @@ Another scenario is that we can also extract group memberships from Active Direc
 you can, also map attributes to others:
 
 ```php
-62 =>  ['class' => 'core:AttributeMap',
-       'http://schemas.xmlsoap.org/claims/UPN' => 'eduPersonPrincipalName'],
+62 => [
+    'class' => 'core:AttributeMap',
+    'http://schemas.xmlsoap.org/claims/UPN' => 'eduPersonPrincipalName',
 ],
 ```
 (The above maps the claim-type version of the UPN attribute it received from Azure, to the eduPersonPrincipalName attribute)
