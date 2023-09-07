@@ -234,7 +234,7 @@ Another scenario is that we can also extract group memberships from Active Direc
 61 => [
 'class' => 'core:PHP',
     'code' => '
-    if (isset($attributes["memberOf"]) &&     in\_array("CN=staff,OU=My,OU=AD,DC=ac,DC=za", $attributes["memberOf"])) {
+    if (isset($attributes["memberOf"]) &&     in_array("CN=staff,OU=My,OU=AD,DC=ac,DC=za", $attributes["memberOf"])) {
        $attributes["eduPersonAffiliation"] = ["staff", "employee", "member"];}',
 ],
 ```
