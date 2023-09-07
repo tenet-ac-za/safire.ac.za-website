@@ -15,10 +15,10 @@ This documentation will guide you through the Azure Active Directory (Azure AD) 
 
 While SAFIRE can directly work with Azure AD or SimpleSAMLphp (as explained in our [Configuring Azure AD SAML-based SSO for SAFIRE]({{< ref "/technical/resources/configuring-azure-ad-for-safire.md" >}}) and [Configuring SimpleSAMLphp for SAFIRE]({{< ref "/technical/resources/configuring-simplesamlphp-for-safire.md" >}}) documentation), you may find yourself in a situation where this approach better fits your use case.
 
-Below, you'll find an example demonstrating how to configure SimpleSAMLphp to use the attributes received from Azure AD to search for and assert additional attributes for a user from an LDAP source of an on-prem Active Directory.
+Below, you'll find an example demonstrating how to configure SimpleSAMLphp to use the attributes received from Azure AD to search for and assert additional attributes for a user from an LDAP source of an on-prem Active Directory. Naturally, this concept can be ported to other LDAP sources.
  
-**NOTE:**
-This documentation assumes you already have an Azure AD tenant correctly configured and provisioned with your institution’s user accounts. Further, SimpleSAMLphp has good documentation, so this is not a complete/worked example of how to configure it. Instead, this provides the specific snippets you may need when working through SimpleSAMLphp’s documentation. Thus, this document also assumes you have SimpleSAMLphp installed and reachable with the basics configured.
+> This documentation assumes you already have an Azure AD tenant correctly configured and provisioned with your institution’s user accounts. Further, SimpleSAMLphp has good documentation, so this is not a complete/worked example of how to configure it. Instead, this provides the specific snippets you may need when working through SimpleSAMLphp’s documentation. Thus, this document also assumes you have SimpleSAMLphp installed and reachable with the basics configured.
+{.message-box}
 
 To configure SimpleSAMLphp to use your Azure AD IdP as an Authentication Source, you will need to complete the following:
 
@@ -37,8 +37,8 @@ To start, consider the following diagram on establishing a bilateral trust relat
                            
 _fig 1.1_
 
-**NOTE:**
-Azure AD mandates metadata in XML format, while SimpleSAMLphp necessitates metadata to be converted into PHP (See SimpleSAMLphp’s metadata converter).
+> Azure AD mandates metadata in XML format, while SimpleSAMLphp necessitates metadata to be converted into PHP (See SimpleSAMLphp’s metadata converter).
+{.message-box}
 
 # 1. Configure a SimpleSAMLphp SAML 2.0 Service Provider
 
@@ -61,7 +61,8 @@ Here's an example of a minimal configuration to publish SAML 2.0 SP metadata:
 
 The above will publish an elementary set of SAML 2.0 SP metadata values at the Federation tab of your SimpleSAMLphp webpage.
 
-**NOTE:** To produce more complete SAML 2.0 SP metadata, you should also consider configuring the [MDUI options](https://simplesamlphp.org/docs/stable/simplesamlphp-metadata-extensions-ui). 
+> To produce more complete SAML 2.0 SP metadata, you should also consider configuring the [MDUI options](https://simplesamlphp.org/docs/stable/simplesamlphp-metadata-extensions-ui). 
+{.message-box}
 
 # 2. Configure SimpleSAMLphp SAML 2.0 Identity Provider
 
@@ -86,7 +87,8 @@ $metadata['https://your-simplesamlphp-hosted-idp-entityid'] = [
 
 This will then publish basic SAML 2.0 IdP metadata, available on SimpleSAMLphp’s *Federation tab*, which we will use later in this document.
 
-**NOTE:** As with Configuring a SimpleSAMLphp SAML 2.0 Service Provider, you will need to produce well-formed metadata by configuring the [MDUI options](https://simplesamlphp.org/docs/stable/simplesamlphp-metadata-extensions-ui). Properly formed metadata and these options are required when [configuring your IdP for SAFIRE](https://safire.ac.za/technical/resources/configuring-simplesamlphp-for-safire/).
+> As with Configuring a SimpleSAMLphp SAML 2.0 Service Provider, you will need to produce well-formed metadata by configuring the [MDUI options](https://simplesamlphp.org/docs/stable/simplesamlphp-metadata-extensions-ui). Properly formed metadata and these options are required when [configuring your IdP for SAFIRE](https://safire.ac.za/technical/resources/configuring-simplesamlphp-for-safire/).
+{.message-box}
 
 # 3. Create a new Enterprise Application
 
@@ -184,7 +186,7 @@ Example of an authproc filter:
 The above example uses the claim-type version of the userPrincipalName (UPN) attribute value, obtained from Azure, to search through the Active Directory for a matching userPrincipalName attribute value. Once a match is found, the givenName, sn, and displayName attributes are returned; You can expand the list of returned attributes per your needs. 
 
 > _An Auth Proc Filter is not functional in the "Test authentication sources" option within the web UI of a SimpleSAMLphp IdP. It will only be activated when used alongside an actual SP (Service Provider). Therefore, when testing your filter, it is necessary to establish both an IdP and an SP._
-{.message-box .warning}
+{.message-box}
 
 With the above warning in mind, you can set up your SimpleSAMLphp deployment as a Service Provider internal to its own Identity Provider;
 
