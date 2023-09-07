@@ -199,7 +199,8 @@ A bilateral trust relationship needs to be established with the following consid
 
 _fig 1.2_
 
-Note: This SP is set up as a separate SP authsource from the default-sp configured in step 1; Also remember that SimpleSAMLphp wants metadata converted to PHP.
+> This SP is set up as a separate SP authsource from the default-sp configured in step 1; Also remember that SimpleSAMLphp wants metadata converted to PHP.
+{.message-box}
 
 An example of your internal SP configuration could look like this:
 
