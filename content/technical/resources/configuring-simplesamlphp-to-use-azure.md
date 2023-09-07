@@ -17,7 +17,7 @@ While SAFIRE can directly work with Azure AD or SimpleSAMLphp (as explained in o
 
 Below, you'll find an example demonstrating how to configure SimpleSAMLphp to use the attributes received from Azure AD to search for and assert additional attributes for a user from an LDAP source of an on-prem Active Directory. Naturally, this concept can be ported to other LDAP sources.
  
-> This documentation assumes you already have an Azure AD tenant correctly configured and provisioned with your institution’s user accounts. Further, SimpleSAMLphp has good documentation, so this is not a complete/worked example of how to configure it. Instead, this provides the specific snippets you may need when working through SimpleSAMLphp’s documentation. Thus, this document also assumes you have SimpleSAMLphp installed and reachable with the basics configured.
+> This documentation assumes you already have an Azure AD tenant correctly configured and provisioned with your institution's user accounts. Further, SimpleSAMLphp has good documentation, so this is not a complete/worked example of how to configure it. Instead, this provides the specific snippets you may need when working through SimpleSAMLphp's documentation. Thus, this document also assumes you have SimpleSAMLphp installed and reachable with the basics configured.
 {.message-box}
 
 To configure SimpleSAMLphp to use your Azure AD IdP as an Authentication Source, you will need to complete the following:
@@ -37,7 +37,7 @@ To start, consider the following diagram on establishing a bilateral trust relat
                            
 _fig 1.1_
 
-> Azure AD mandates metadata in XML format, while SimpleSAMLphp necessitates metadata to be converted into PHP (See SimpleSAMLphp’s metadata converter).
+> Azure AD mandates metadata in XML format, while SimpleSAMLphp necessitates metadata to be converted into PHP (See SimpleSAMLphp's metadata converter).
 {.message-box}
 
 # 1. Configure a SimpleSAMLphp SAML 2.0 Service Provider
@@ -66,7 +66,7 @@ The above will publish an elementary set of SAML 2.0 SP metadata values at the F
 
 # 2. Configure SimpleSAMLphp SAML 2.0 Identity Provider
 
-Setting up the IdP side of SimpleSAMLphp will essentially be ‘*killing two birds with one stone’*. On the one hand, it will allow you to test the Authentication Processing Filters we will set up later in this document. On the other hand, setting this up will be useful so you can get your IdP Federation ready. 
+Setting up the IdP side of SimpleSAMLphp will essentially be ‘*killing two birds with one stone'*. On the one hand, it will allow you to test the Authentication Processing Filters we will set up later in this document. On the other hand, setting this up will be useful so you can get your IdP Federation ready. 
 
 To set up the IdP, you need to edit the _saml20-idp-hosted.php_ file. We will use and slightly edit the default IdP configuration standard in the _saml20-idp-hosted.php.dist_ file for this documentation.
 
@@ -85,26 +85,26 @@ $metadata['https://your-simplesamlphp-hosted-idp-entityid'] = [
 ];
 ```
 
-This will then publish basic SAML 2.0 IdP metadata, available on SimpleSAMLphp’s *Federation tab*, which we will use later in this document.
+This will then publish basic SAML 2.0 IdP metadata, available on SimpleSAMLphp's *Federation tab*, which we will use later in this document. note, the _auth_ option is set to point at our _default-sp_ from step 1 above.
 
 > As with Configuring a SimpleSAMLphp SAML 2.0 Service Provider, you will need to produce well-formed metadata by configuring the [MDUI options](https://simplesamlphp.org/docs/stable/simplesamlphp-metadata-extensions-ui). Properly formed metadata and these options are required when [configuring your IdP for SAFIRE](https://safire.ac.za/technical/resources/configuring-simplesamlphp-for-safire/).
 {.message-box}
 
 # 3. Create a new Enterprise Application
 
-You will need to create a new *Enterprise Application* in your organisation’s Azure Active Directory Service. You can do so by adding a *New application* and then *Create your own application* under the *Enterprise Applications* Management item.
+You will need to create a new *Enterprise Application* in your organisation's Azure Active Directory Service. You can do so by adding a *New application* and then *Create your own application* under the *Enterprise Applications* Management item.
 
 You can name the application whatever makes sense to you. Your new application will be integrated with other applications, not in the Azure Application Gallery.
 
 # 4. Set up single sign-on
 
-Now that you have created your application, you need to enable SAML-based single sign-on and establish the Azure side of the bilateral trust relationship between your App and SimpleSAMLphp. You start by uploading your SAML 2.0 SP metadata file (from step 1, in XML format). Azure AD’s metadata Upload utility should pre-populate the Basic SAML Configuration from what it finds in the uploaded metadata file.
+Now that you have created your application, you need to enable SAML-based single sign-on and establish the Azure side of the bilateral trust relationship between your App and SimpleSAMLphp. You start by uploading your SAML 2.0 SP metadata file (from step 1, in XML format). Azure AD's metadata Upload utility should pre-populate the Basic SAML Configuration from what it finds in the uploaded metadata file.
 
 Once saved, it is worthwhile double-checking that the upload utility correctly imported the information and that you understand what each of the fields is doing.
 
 # 5. Configure Attribute claims rules
 
-You now need to configure your application’s User Attributes & Claims. Azure sets up a few default User Attributes & Claims rules. However, For this document, it is sufficient to release an attribute common in other sources you might use to search for user attributes. This requires altering what has been pre-defined or adding a new claim. In this example, we’ll configure Azure AD to release ‘userPrincipalName’ and ‘mail’ as a minimal set of attributes; We’ll fetch other attributes from LDAP.
+You now need to configure your application's User Attributes & Claims. Azure sets up a few default User Attributes & Claims rules. However, For this document, it is sufficient to release an attribute common in other sources you might use to search for user attributes. This requires altering what has been pre-defined or adding a new claim. In this example, we'll configure Azure AD to release ‘userPrincipalName' and ‘mail' as a minimal set of attributes; We'll fetch other attributes from LDAP.
 
 e.g. of the above claims from Azure.
 
@@ -115,7 +115,7 @@ e.g. of the above claims from Azure.
 
 # 6. Configure SimpleSAMLphp to use the Azure AD IdP as an authentication source
 
-With Your _Enterprise Application_ now configured, you need to configure SimpleSAMLphp to use Azure AD’s IdP as its Authentication Source.
+With Your _Enterprise Application_ now configured, you need to configure SimpleSAMLphp to use Azure AD's IdP as its Authentication Source.
 
 This is done by adding the following to your default-sp configuration from step 1 above.
 
@@ -126,17 +126,18 @@ This is done by adding the following to your default-sp configuration from step 
 
 This line tells the default SP to redirect authentication to the 'idp' specified. In this case, your Azure AD Identifier, or rather, 'entityID'.
 
-To finalise the SimpleSAMLphp side of the bilateral trust relationship between your Azure AD and SimpleSAMLphp, copy your Enterprise Application's _App Federation Metadata_. Using SimpleSAMLphp’s Metadata Converter (found on SimpleSAMLphp's _Federation tab_), convert your App Federation Metadata to SimpleSAMLphp. Once you have the converted metadata, paste it into the _saml20-idp-remote.php_ file.
+To finalise the SimpleSAMLphp side of the bilateral trust relationship between your Azure AD and SimpleSAMLphp, copy your Enterprise Application's _App Federation Metadata_. Using SimpleSAMLphp's Metadata Converter (found on SimpleSAMLphp's _Federation tab_), convert your App Federation Metadata to SimpleSAMLphp. Once you have the converted metadata, paste it into the _saml20-idp-remote.php_ file.
 
-To verify that you imported the metadata correctly, you should now see your Azure AD's entityID listed under SAML 2.0 IdP metadata on SimpleSAMLphp’s _Federation tab_.
+To verify that you imported the metadata correctly, you should now see your Azure AD's entityID listed under SAML 2.0 IdP metadata on SimpleSAMLphp's _Federation tab_.
 
 You should now also be able to go to SimpleSAMLphp's Test page, log in to your _default-sp_, and be redirected to your Azure AD login page. Once logged in, it is worth verifying that SimpleSAMLphp is correctly receiving the attributes from Azure AD you configured in step 5 above.
 
-Note: The attributes received from Azure are claim-type identifier attributes. You can establish a custom[ attribute mapping](https://simplesamlphp.org/docs/stable/core/authproc_attributemap.html) policy in which SimpleSAMLphp will rewrite the attributes received from Azure into different Identifier namespaces. These namespaces could include Object Identifiers (OIDs) or named identifiers like 'userPrincipalName'. SimpleSAMLphp includes some pre-defined mapping policies, which can be found in the attributemap folder.
+> The attributes received from Azure are claim-type identifier attributes. You can establish a custom[ attribute mapping](https://simplesamlphp.org/docs/stable/core/authproc_attributemap.html) policy in which SimpleSAMLphp will rewrite the attributes received from Azure into different Identifier namespaces. These namespaces could include Object Identifiers (OIDs) or named identifiers like 'userPrincipalName'. SimpleSAMLphp includes some pre-defined mapping policies, which can be found in the attributemap folder.
+{.message-box}
 
 # 7. Add attributes from another source (in this case, LDAP)
 
-Retrieving attributes from LDAP requires you to install SimpleSAMLphp’s [LDAP module](https://github.com/simplesamlphp/simplesamlphp-module-ldap). Once you have installed this module, you need to configure your [LDAP authsource](https://simplesamlphp.org/docs/contrib_modules/ldap/ldap.html), which will be used by [Authentication Processing Filters](https://simplesamlphp.org/docs/2.0/simplesamlphp-authproc.html) (authproc) to search for additional attributes later. 
+Retrieving attributes from LDAP requires you to install SimpleSAMLphp's [LDAP module](https://github.com/simplesamlphp/simplesamlphp-module-ldap). Once you have installed this module, you need to configure your [LDAP authsource](https://simplesamlphp.org/docs/contrib_modules/ldap/ldap.html), which will be used by [Authentication Processing Filters](https://simplesamlphp.org/docs/2.0/simplesamlphp-authproc.html) (authproc) to search for additional attributes later. 
 
 An example of an LDAP authsource can look like this:
 
@@ -177,7 +178,7 @@ Example of an authproc filter:
      'class' => 'ldap:AttributeAddFromLDAP',
      'authsource' => 'your-LDAP-authsource',
      'attribute.policy' => 'add',
-     'attributes' => ['givenName','sn',’displayName',],
+     'attributes' => ['givenName','sn','displayName',],
      'search.filter' => '(userPrincipalName=%http://schemas.xmlsoap.org/claims/UPN%)',
      ]
 ],
@@ -217,9 +218,9 @@ An example of your internal SP configuration could look like this:
 ],
 ```
 
-Per _fig 1.2_, To finalise the set-up of the internal SP’s bilateral trust relationship, you will need to copy the SAML 2.0 IdP Metadata you set up in step 2 above from your SimpleSAMLphp’s _Federation tab_ into the _saml20-idp-remote.php_ file. You will also need to copy your SAML 2.0 SP metadata for your internal-sp into the _saml20-sp-remote.php_ file.
+Per _fig 1.2_, to finalise the set-up of the internal SP's bilateral trust relationship, you will need to copy the SAML 2.0 IdP Metadata you set up in step 2 above from your SimpleSAMLphp's _Federation tab_ into the _saml20-idp-remote.php_ file. You will also need to copy your SAML 2.0 SP metadata for your internal-sp into the _saml20-sp-remote.php_ file.
 
-With the above correctly configured, you can now go to SimpleSAMLphp’s Test page and use your ‘internal-sp’ to authenticate to your Azure AD IdP. 
+With the above correctly configured, you can now go to SimpleSAMLphp's Test page and use your ‘internal-sp' to authenticate to your Azure AD IdP. 
 
 You should now see attributes returned from both Azure, and the Auth Proc filters you configured in step 7.
 
@@ -248,7 +249,7 @@ you can, also map attributes to others:
 ```
 (The above maps the claim-type version of the UPN attribute it received from Azure, to the eduPersonPrincipalName attribute)
 
-For more information, refer to SimpleSAMLphp’s documentation.
+For more information, refer to SimpleSAMLphp's documentation.
 
 
 
