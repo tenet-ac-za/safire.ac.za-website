@@ -8,7 +8,7 @@ tags:
 title: "Recommendations of the 2023 SAFIRE Participants Forum Meeting"
 ---
 
-On Thursday 21 Septemeber, we held a [SAFIRE Participants' Forum meeting]({{< ref "2023-participants-forum-meeting.md" >}}). This post summarises the significant outcome of that meeting.<!--more-->
+On Thursday 21 September, we held a [SAFIRE Participants' Forum meeting]({{< ref "2023-participants-forum-meeting.md" >}}). This post summarises the significant outcome of that meeting.<!--more-->
 
 There was a single item on the agenda for discussion: the future governance of the South African Identity Federation. By unanimous consensus, we will recommend to TENET's Board of Directors that they dissolve the SAFIRE Steering Committee and that [SAFIRE's governance]({{< ref "/safire/governance.md" >}}) should be subsumed into TENET's REN Master Service Agreement (REN MSA).
 
