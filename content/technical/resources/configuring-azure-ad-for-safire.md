@@ -38,7 +38,7 @@ Now that you have created your application, you need to enable *SAML* based sing
 
 Once saved, it is worthwhile double-checking that the information was correctly imported by the Upload utility and that you understand what each of the fields is doing.
 
-> TIP Your Enterprise application can use a [long-lived certificate]({{< ref "/technical/resources/generating-certificates-for-safire/" >}}) if you *import* your own long-lived certificate into the *SAML Certificates* section of your *Enterprise Application.*
+> TIP Your Enterprise application can use a [long-lived certificate]({{< ref "/technical/resources/generating-certificates-for-safire.md" >}}) if you *import* your own long-lived certificate into the *SAML Certificates* section of your *Enterprise Application.*
 {.message-box}
 
 > SAFIRE's metadata changes periodically, and can do so without warning. The [IdP Requirements]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) put **the onus on you to keep this up-to-date** and expects this process to be automated. Unfortunately Microsoft Entra ID cannot currently update metadata automatically which is partly why it remains only partially supported in SAFIRE. However, SAFIRE's metadata is stable enough that you can probably get away with this if you create a manual process to periodically ensure you re-upload the metadata or merge any changes.
