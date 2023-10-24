@@ -1,5 +1,5 @@
 ---
-date: 2018-09-18 09:40:08+02:00
+date: 2023-10-24 12:15:00+02:00
 slug: generating-certificates-for-safire
 tags:
   - configuration
@@ -55,7 +55,9 @@ openssl req -newkey rsa:3072 -keyout ${HOSTNAME//./_}.pem -new -subj "/C=ZA/O=Ex
 openssl x509 -in ${HOSTNAME//./_}.req -req -days 3652 -sha256 -signkey ${HOSTNAME//./_}.pem -out ${HOSTNAME//./_}.crt
 ```
 
-The example above generates a private key that is password protected. You will need to specify your password in your provider configuration. Alternatively, you can add -nodes to each of the command lines to remove the password.
+The example above generates a private key that is password protected. You will need to specify your password in your provider configuration. Alternatively, you can add `-nodes` to each of the command lines to remove the password.
+
+### Adding the self-signed cert to your provider
 
 To add the above key and certificate to SimpleSAMLphp, [try something like this]({{< ref "/technical/resources/configuring-simplesamlphp-for-safire.md" >}}) your authsources.php or saml20-idp-hosted.php (as appropriate):
 
@@ -70,6 +72,15 @@ To add it to the Shibboleth Native SP, [try something like this]({{< ref "/techn
 ```xml
 <!-- Simple file-based resolver for using a single keypair. -->
 <CredentialResolver type="File" key="example_ac_za.pem" password="YourPrivateKeyPassphrase" certificate="example_ac_za.crt"/>
+```
+
+To import it into [Microsoft Entra ID (Azure)]({{< ref "/technical/resources/configuring-azure-ad-for-safire.md" >}}) or Java-based providers, you may first need to convert it to PKCS#12 (PFX) format:
+
+```bash
+openssl pkcs12 -in example_ac_za.crt -inkey example_ac_za.pem -export -out example_ac_za.pfx
+#
+# or the same shortcut version for bash-like shells:
+openssl pkcs12 -in ${HOSTNAME//./_}.crt -inkey ${HOSTNAME//./_}.pem -export -out ${HOSTNAME//./_}.pfx
 ```
 
 [^1]: There are actually three: metadata is often signed with a separate certificate, which is also self-signed and uses the explicit key trust model. However in the context of federation, provider metadata is exchanged completely out-of-band and so you do not need to generate this certificate nor do you need to sign your metadata. (You should, however, verify the signature on [SAFIRE's metadata]({{< ref "/technical/metadata.md" >}}).)
