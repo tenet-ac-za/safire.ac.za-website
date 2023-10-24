@@ -33,7 +33,7 @@ SAFIRE uses the [explicit key trust model](https://spaces.at.internet2.edu/displ
 
 At the most simple level, using PKI for this certificate is a waste of money. However, there are a number of good reasons to prefer a self-signed certificate.
 
-The one that's most often relevant is that commercially signed certificates tend to have relatively short validity periods (three months for Let's Encrypt; 1-3 years for paid-for CAs). This works well with browsers where there is a long-lived root certificate acting as a trust anchor. Because your metadata is the anchor in SAML, you will need to remember to update metadata (and possibly perform key rollover) each time you change your certificate. At best this creates unnecessary churn and extra work, and at worst, you forget and your provider potentially stops working.
+The one that's most often relevant is that commercially signed certificates tend to have relatively short validity periods (three months for Let's Encrypt; ~1 years for paid-for CAs[^2]). This works well with browsers where there is a long-lived root certificate acting as a trust anchor. Because your metadata is the anchor in SAML, you will need to remember to update metadata (and possibly perform key rollover) each time you change your certificate. At best this creates unnecessary churn and extra work, and at worst, you forget and your provider potentially stops working.
 
 It is (relatively) easy to revoke your web server's certificate if it is compromised because browsers understand [certificate revocation lists](https://en.wikipedia.org/wiki/Certificate_revocation_list). There's no equivalent in metadata, and revoking a compromised certificate involves new metadata and a potentially disruptive key rollover. This means that from a risk perspective, it also makes sense to use a separate private key to the public-facing parts of your web server (depending on how your deploy your provider, this may even be privilege separated). This would mean maintaining a separate certificate too.
 
@@ -84,3 +84,5 @@ openssl pkcs12 -in ${HOSTNAME//./_}.crt -inkey ${HOSTNAME//./_}.pem -export -out
 ```
 
 [^1]: There are actually three: metadata is often signed with a separate certificate, which is also self-signed and uses the explicit key trust model. However in the context of federation, provider metadata is exchanged completely out-of-band and so you do not need to generate this certificate nor do you need to sign your metadata. (You should, however, verify the signature on [SAFIRE's metadata]({{< ref "/technical/metadata.md" >}}).)
+
+[^2]: Note this is [likely to reduce to 90 days](https://www.chromium.org/Home/chromium-security/root-ca-policy/moving-forward-together/) as well.
