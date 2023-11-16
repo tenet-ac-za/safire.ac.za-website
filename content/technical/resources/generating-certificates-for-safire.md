@@ -1,5 +1,5 @@
 ---
-date: 2023-10-24 12:15:00+02:00
+date: 2023-11-15 21:00:00+02:00
 slug: generating-certificates-for-safire
 tags:
   - configuration
@@ -37,7 +37,7 @@ The one that's most often relevant is that commercially signed certificates tend
 
 It is (relatively) easy to revoke your web server's certificate if it is compromised because browsers understand [certificate revocation lists](https://en.wikipedia.org/wiki/Certificate_revocation_list). There's no equivalent in metadata, and revoking a compromised certificate involves new metadata and a potentially disruptive key rollover. This means that from a risk perspective, it also makes sense to use a separate private key to the public-facing parts of your web server (depending on how your deploy your provider, this may even be privilege separated). This would mean maintaining a separate certificate too.
 
-Best practice is to use a long-lived self-signed certificate for SAML signing. SAFIRE recommends generating a certificate that is valid for at least **ten years**. You should use an [appropriate bit length](https://www.keylength.com/en/compare/?twirl=0&parambase={{< year 10 >}}) to ensure the key will remain secure throughout its lifetime.
+Best practice is to use a long-lived self-signed certificate for SAML signing. SAFIRE recommends generating a certificate that is valid for at least **ten years** and requires it be valid for at least one year. You should use an [appropriate bit length](https://www.keylength.com/en/compare/?twirl=0&parambase={{< year 10 >}}) to ensure the key will remain secure throughout its lifetime.
 
 Certificate and private key roll-overs [take some planning]({{< relref "certificate-key-roll-over.md" >}}).
 
@@ -85,4 +85,4 @@ openssl pkcs12 -in ${HOSTNAME//./_}.crt -inkey ${HOSTNAME//./_}.pem -export -out
 
 [^1]: There are actually three: metadata is often signed with a separate certificate, which is also self-signed and uses the explicit key trust model. However in the context of federation, provider metadata is exchanged completely out-of-band and so you do not need to generate this certificate nor do you need to sign your metadata. (You should, however, verify the signature on [SAFIRE's metadata]({{< ref "/technical/metadata.md" >}}).)
 
-[^2]: Note this is [likely to reduce to 90 days](https://www.chromium.org/Home/chromium-security/root-ca-policy/moving-forward-together/) as well.
+[^2]: Note this is [likely to reduce to 90 days](https://www.chromium.org/Home/chromium-security/root-ca-policy/moving-forward-together/) as well. At that point, it will no longer be possible to use a certificate signed by a commerical CA for your SAML signing certificate.
