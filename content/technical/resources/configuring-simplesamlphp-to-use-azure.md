@@ -1,43 +1,45 @@
 ---
 date: 2023-09-06 13:00:00+02:00
-slug: configuring-simplesamlphp-to-use-azure 
+slug: configuring-simplesamlphp-to-use-entra-id
 tags:
   - azure
   - configuration
   - metadata
   - simplesamlphp
   - technical
-title: Configuring SimpleSAMLphp to use Azure-AD
-url: /technical/resources/configuring-simplesamlphp-to-use-azure
+title: Configuring SimpleSAMLphp to use Entra ID (Azure AD)
+url: /technical/resources/configuring-simplesamlphp-to-use-entra-id
+aliases:
+  - /technical/resources/configuring-simplesamlphp-to-use-azure
 ---
 
-This documentation will guide you through the Azure Active Directory (Azure AD) configuration process as an authentication source in SimpleSAMLphp. By integrating Azure AD in this way, you can retain your users' familiar login experience while leveraging SimpleSAMLphp's flexibility to fetch and/or manipulate attributes from Azure AD and other sources.
+This documentation will guide you through the Microsoft Entra ID (Azure AD) configuration process as an authentication source in SimpleSAMLphp. By integrating Entra ID in this way, you can retain your users' familiar login experience while leveraging SimpleSAMLphp's flexibility to fetch and/or manipulate attributes from Entra ID and other sources.
 
-While SAFIRE can directly work with Azure AD or SimpleSAMLphp (as explained in our [Configuring Azure AD SAML-based SSO for SAFIRE]({{< ref "/technical/resources/configuring-azure-ad-for-safire.md" >}}) and [Configuring SimpleSAMLphp for SAFIRE]({{< ref "/technical/resources/configuring-simplesamlphp-for-safire.md" >}}) documentation), you may find yourself in a situation where this approach better fits your use case.
+While SAFIRE can directly work with Entra ID or SimpleSAMLphp (as explained in our [Configuring Entra ID SAML-based SSO for SAFIRE]({{< ref "/technical/resources/configuring-azure-ad-for-safire.md" >}}) and [Configuring SimpleSAMLphp for SAFIRE]({{< ref "/technical/resources/configuring-simplesamlphp-for-safire.md" >}}) documentation), you may find yourself in a situation where this approach better fits your use case.
 
-Below, you'll find an example demonstrating how to configure SimpleSAMLphp to use the attributes received from Azure AD to search for and assert additional attributes for a user from an LDAP source of an on-prem Active Directory. Naturally, this concept can be ported to other LDAP sources.
- 
-> This documentation assumes you already have an Azure AD tenant correctly configured and provisioned with your institution's user accounts. Further, SimpleSAMLphp has good documentation, so this is not a complete/worked example of how to configure it. Instead, this provides the specific snippets you may need when working through SimpleSAMLphp's documentation. Thus, this document also assumes you have SimpleSAMLphp installed and reachable with the basics configured.
+Below, you'll find an example demonstrating how to configure SimpleSAMLphp to use the attributes received from Entra ID to search for and assert additional attributes for a user from an LDAP source of an on-prem Active Directory. Naturally, this concept can be ported to other LDAP sources.
+
+> This documentation assumes you already have an Entra ID tenant correctly configured and provisioned with your institution's user accounts. Further, SimpleSAMLphp has good documentation, so this is not a complete/worked example of how to configure it. Instead, this provides the specific snippets you may need when working through SimpleSAMLphp's documentation. Thus, this document also assumes you have SimpleSAMLphp installed and reachable with the basics configured.
 {.message-box}
 
-To configure SimpleSAMLphp to use your Azure AD IdP as an Authentication Source, you will need to complete the following:
+To configure SimpleSAMLphp to use your Entra ID IdP as an Authentication Source, you will need to complete the following:
 
  1. Configure a SimpleSAMLphp SAML 2.0 Service Provider (SP)
  2. Configure SimpleSAMLphp SAML 2.0 Identity Provider (IdP)
  3. Create a new Enterprise Application
  4. Set up single sign-on
  5. Configure Attribute claims rules.
- 6. Configure SimpleSAMLphp to use the Azure AD IdP as an authentication source.
+ 6. Configure SimpleSAMLphp to use the Entra ID IdP as an authentication source.
  7. Add attributes from another source (in this case, LDAP)
  8. Configure SimpleSAMLphp internal SP to test
 
-To start, consider the following diagram on establishing a bilateral trust relationship between Azure AD and SimpleSAMLphp: 
+To start, consider the following diagram on establishing a bilateral trust relationship between Entra ID and SimpleSAMLphp:
 
-![Azure AD and SimpleSAMLphp bilateral trust](/wp-content/uploads/2023/09/ssp-azure-bilateral.png)
-                           
+![Entra ID and SimpleSAMLphp bilateral trust](/wp-content/uploads/2023/09/ssp-azure-bilateral.png)
+
 _fig 1.1_
 
-> Azure AD mandates metadata in XML format, while SimpleSAMLphp necessitates metadata to be converted into PHP (See SimpleSAMLphp's metadata converter).
+> Entra ID mandates metadata in XML format, while SimpleSAMLphp necessitates metadata to be converted into PHP (See SimpleSAMLphp's metadata converter).
 {.message-box}
 
 # 1. Configure a SimpleSAMLphp SAML 2.0 Service Provider
@@ -61,12 +63,12 @@ Here's an example of a minimal configuration to publish SAML 2.0 SP metadata:
 
 The above will publish an elementary set of SAML 2.0 SP metadata values at the Federation tab of your SimpleSAMLphp webpage.
 
-> To produce more complete SAML 2.0 SP metadata, you should also consider configuring the [MDUI options](https://simplesamlphp.org/docs/stable/simplesamlphp-metadata-extensions-ui). 
+> To produce more complete SAML 2.0 SP metadata, you should also consider configuring the [MDUI options](https://simplesamlphp.org/docs/stable/simplesamlphp-metadata-extensions-ui).
 {.message-box}
 
 # 2. Configure SimpleSAMLphp SAML 2.0 Identity Provider
 
-Setting up the IdP side of SimpleSAMLphp will essentially be ‘*killing two birds with one stone'*. On the one hand, it will allow you to test the Authentication Processing Filters we will set up later in this document. On the other hand, setting this up will be useful so you can get your IdP Federation ready. 
+Setting up the IdP side of SimpleSAMLphp will essentially be ‘*killing two birds with one stone'*. On the one hand, it will allow you to test the Authentication Processing Filters we will set up later in this document. On the other hand, setting this up will be useful so you can get your IdP Federation ready.
 
 To set up the IdP, you need to edit the _saml20-idp-hosted.php_ file. We will use and slightly edit the default IdP configuration standard in the _saml20-idp-hosted.php.dist_ file for this documentation.
 
@@ -92,52 +94,52 @@ This will then publish basic SAML 2.0 IdP metadata, available on SimpleSAMLphp's
 
 # 3. Create a new Enterprise Application
 
-You will need to create a new *Enterprise Application* in your organisation's Azure Active Directory Service. You can do so by adding a *New application* and then *Create your own application* under the *Enterprise Applications* Management item.
+You will need to create a new *Enterprise Application* in your organisation's Entra ID Directory Service. You can do so by adding a *New application* and then *Create your own application* under the *Enterprise Applications* Management item.
 
-You can name the application whatever makes sense to you. Your new application will be integrated with other applications, not in the Azure Application Gallery.
+You can name the application whatever makes sense to you. Your new application will be integrated with other applications, not in the Entra ID Application Gallery.
 
 # 4. Set up single sign-on
 
-Now that you have created your application, you need to enable SAML-based single sign-on and establish the Azure side of the bilateral trust relationship between your App and SimpleSAMLphp. You start by uploading your SAML 2.0 SP metadata file (from step 1, in XML format). Azure AD's metadata Upload utility should pre-populate the Basic SAML Configuration from what it finds in the uploaded metadata file.
+Now that you have created your application, you need to enable SAML-based single sign-on and establish the Entra ID side of the bilateral trust relationship between your App and SimpleSAMLphp. You start by uploading your SAML 2.0 SP metadata file (from step 1, in XML format). Entra ID's metadata Upload utility should pre-populate the Basic SAML Configuration from what it finds in the uploaded metadata file.
 
 Once saved, it is worthwhile double-checking that the upload utility correctly imported the information and that you understand what each of the fields is doing.
 
 # 5. Configure Attribute claims rules
 
-You now need to configure your application's User Attributes & Claims. Azure sets up a few default User Attributes & Claims rules. However, For this document, it is sufficient to release an attribute common in other sources you might use to search for user attributes. This requires altering what has been pre-defined or adding a new claim. In this example, we'll configure Azure AD to release ‘userPrincipalName' and ‘mail' as a minimal set of attributes; We'll fetch other attributes from LDAP.
+You now need to configure your application's User Attributes & Claims. Entra ID sets up a few default User Attributes & Claims rules. However, For this document, it is sufficient to release an attribute common in other sources you might use to search for user attributes. This requires altering what has been pre-defined or adding a new claim. In this example, we'll configure Entra ID to release ‘userPrincipalName' and ‘mail' as a minimal set of attributes; We'll fetch other attributes from LDAP.
 
-e.g. of the above claims from Azure.
+e.g. of the above claims from Entra ID.
 
 |***CLAIM NAME***|***VALUE***|
 | :- | :- |
 |http://schemas.xmlsoap.org/claims/UPN|user.userprincipalname|
 |http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|user.mail|
 
-# 6. Configure SimpleSAMLphp to use the Azure AD IdP as an authentication source
+# 6. Configure SimpleSAMLphp to use the Entra ID IdP as an authentication source
 
-With Your _Enterprise Application_ now configured, you need to configure SimpleSAMLphp to use Azure AD's IdP as its Authentication Source.
+With Your _Enterprise Application_ now configured, you need to configure SimpleSAMLphp to use Entra ID's IdP as its Authentication Source.
 
 This is done by adding the following to your default-sp configuration from step 1 above.
 
 ```php
-// Your Azure Azure AD Identifier (entityID)
-'idp' => 'https://sts.windows.net/<your-azure-tenant-id/',
+// Your Entra ID Identifier (entityID)
+'idp' => 'https://sts.windows.net/<your-entra-tenant-id/',
 ```
 
-This line tells the default SP to redirect authentication to the 'idp' specified. In this case, your Azure AD Identifier, or rather, 'entityID'.
+This line tells the default SP to redirect authentication to the 'idp' specified. In this case, your Entra ID Identifier, or rather, 'entityID'.
 
-To finalise the SimpleSAMLphp side of the bilateral trust relationship between your Azure AD and SimpleSAMLphp, copy your Enterprise Application's _App Federation Metadata_. Using SimpleSAMLphp's Metadata Converter (found on SimpleSAMLphp's _Federation tab_), convert your App Federation Metadata to SimpleSAMLphp. Once you have the converted metadata, paste it into the _saml20-idp-remote.php_ file.
+To finalise the SimpleSAMLphp side of the bilateral trust relationship between your Entra ID tenant and SimpleSAMLphp, copy your Enterprise Application's _App Federation Metadata_. Using SimpleSAMLphp's Metadata Converter (found on SimpleSAMLphp's _Federation tab_), convert your App Federation Metadata to SimpleSAMLphp. Once you have the converted metadata, paste it into the _saml20-idp-remote.php_ file.
 
-To verify that you imported the metadata correctly, you should now see your Azure AD's entityID listed under SAML 2.0 IdP metadata on SimpleSAMLphp's _Federation tab_.
+To verify that you imported the metadata correctly, you should now see your Entra ID's entityID listed under SAML 2.0 IdP metadata on SimpleSAMLphp's _Federation tab_.
 
-You should now also be able to go to SimpleSAMLphp's Test page, log in to your _default-sp_, and be redirected to your Azure AD login page. Once logged in, it is worth verifying that SimpleSAMLphp is correctly receiving the attributes from Azure AD you configured in step 5 above.
+You should now also be able to go to SimpleSAMLphp's Test page, log in to your _default-sp_, and be redirected to your Entra ID application's login page. Once logged in, it is worth verifying that SimpleSAMLphp is correctly receiving the attributes from Entra ID you configured in step 5 above.
 
-> The attributes received from Azure are claim-type identifier attributes. You can establish a custom[ attribute mapping](https://simplesamlphp.org/docs/stable/core/authproc_attributemap.html) policy in which SimpleSAMLphp will rewrite the attributes received from Azure into different Identifier namespaces. These namespaces could include Object Identifiers (OIDs) or named identifiers like 'userPrincipalName'. SimpleSAMLphp includes some pre-defined mapping policies, which can be found in the attributemap folder.
+> The attributes received from Entra ID are claim-type identifier attributes. You can establish a custom[ attribute mapping](https://simplesamlphp.org/docs/stable/core/authproc_attributemap.html) policy in which SimpleSAMLphp will rewrite the attributes received from Entra ID into different Identifier namespaces. These namespaces could include Object Identifiers (OIDs) or named identifiers like 'userPrincipalName'. SimpleSAMLphp includes some pre-defined mapping policies, which can be found in the attributemap folder.
 {.message-box}
 
 # 7. Add attributes from another source (in this case, LDAP)
 
-Retrieving attributes from LDAP requires you to install SimpleSAMLphp's [LDAP module](https://github.com/simplesamlphp/simplesamlphp-module-ldap). Once you have installed this module, you need to configure your [LDAP authsource](https://simplesamlphp.org/docs/contrib_modules/ldap/ldap.html), which will be used by [Authentication Processing Filters](https://simplesamlphp.org/docs/2.0/simplesamlphp-authproc.html) (authproc) to search for additional attributes later. 
+Retrieving attributes from LDAP requires you to install SimpleSAMLphp's [LDAP module](https://github.com/simplesamlphp/simplesamlphp-module-ldap). Once you have installed this module, you need to configure your [LDAP authsource](https://simplesamlphp.org/docs/contrib_modules/ldap/ldap.html), which will be used by [Authentication Processing Filters](https://simplesamlphp.org/docs/2.0/simplesamlphp-authproc.html) (authproc) to search for additional attributes later.
 
 An example of an LDAP authsource can look like this:
 
@@ -184,7 +186,7 @@ Example of an authproc filter:
 ],
 ```
 
-The above example uses the claim-type version of the userPrincipalName (UPN) attribute value, obtained from Azure, to search through the Active Directory for a matching userPrincipalName attribute value. Once a match is found, the givenName, sn, and displayName attributes are returned; You can expand the list of returned attributes per your needs. 
+The above example uses the claim-type version of the userPrincipalName (UPN) attribute value, obtained from Entra ID, to search through the Active Directory for a matching userPrincipalName attribute value. Once a match is found, the givenName, sn, and displayName attributes are returned; You can expand the list of returned attributes per your needs.
 
 > _An Auth Proc Filter is not functional in the "Test authentication sources" option within the web UI of a SimpleSAMLphp IdP. It will only be activated when used alongside an actual SP (Service Provider). Therefore, when testing your filter, it is necessary to establish both an IdP and an SP._
 {.message-box}
@@ -221,9 +223,9 @@ An example of your internal SP configuration could look like this:
 
 Per _fig 1.2_, to finalise the set-up of the internal SP's bilateral trust relationship, you will need to copy the SAML 2.0 IdP Metadata you set up in step 2 above from your SimpleSAMLphp's _Federation tab_ into the _saml20-idp-remote.php_ file. You will also need to copy your SAML 2.0 SP metadata for your internal-sp into the _saml20-sp-remote.php_ file.
 
-With the above correctly configured, you can now go to SimpleSAMLphp's Test page and use your ‘internal-sp' to authenticate to your Azure AD IdP. 
+With the above correctly configured, you can now go to SimpleSAMLphp's Test page and use your ‘internal-sp' to authenticate to your Entra ID IdP.
 
-You should now see attributes returned from both Azure, and the Auth Proc filters you configured in step 7.
+You should now see attributes returned from both Entra ID, and the Auth Proc filters you configured in step 7.
 
 # Other examples
 
@@ -250,7 +252,7 @@ you can, also map attributes to others:
     'http://schemas.xmlsoap.org/claims/UPN' => 'eduPersonPrincipalName',
 ],
 ```
-(The above maps the claim-type version of the UPN attribute it received from Azure, to the eduPersonPrincipalName attribute)
+(The above maps the claim-type version of the UPN attribute it received from Entra ID, to the eduPersonPrincipalName attribute)
 
 For more information, refer to SimpleSAMLphp's documentation.
 
