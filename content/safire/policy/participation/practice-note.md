@@ -118,6 +118,6 @@ Of course, if there is good cause to amend the Participation Agreement, we will 
 
 # May-vs-Must
 
-In general, the Participation Agreement and other SAFIRE documentation is drafted with the terms “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” used as described in [RFC 2119](https://www.ietf.org/rfc/rfc2119.txt). Most documents explicitly state this, but the Participation Agreement does not.
+In general, the Participation Agreement and other SAFIRE documentation is drafted with the terms “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” used as described in [BCP 14](https://www.rfc-editor.org/info/bcp14). Most documents explicitly state this, but the Participation Agreement does not.
 
 ~~Concern has been expressed about the use of the work "may" in §10.2 giving TENET the ability to make unilateral changes. This is not our intent, and the current use of "may" rather than "must" was an oversight. We've sought specific legal advice around this issue and TENET's own lawyers have advised that under common law, it is a fundamental requirement that agreements and amendments to agreements, are reached by consensus --- thus even the current wording would require resignature (which was our intent in any event). However we will happily give any institution that requires it a written undertaking as a separate annexure that substantive changes to the Participation Agreement MUST involve resignature.~~
