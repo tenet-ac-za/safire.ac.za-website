@@ -1,7 +1,7 @@
 ---
 aliases:
   - /safire/policy/practice-note-participation-agreement/
-date: 2022-02-16T23:50:00+02:00
+date: 2023-12-04T14:00:00+02:00
 slug: practice-note-participation-agreement
 tags:
   - participation
@@ -88,17 +88,17 @@ The defining feature is that, unlike commercial ventures, SAFIRE exists solely t
 
 Moreover, SAFIRE is operated by a non-profit company (TENET) who's [memorandum of incorporation espouses these ideals](https://www.tenet.ac.za/about/our-purpose-and-constitution). As an NPC, TENET does not charge for its services in amounts exceeding what is required to recover the costs of delivering services.
 
-# REN Service Agreement
+# REN Master Service Agreement
 
-Sections 3.3.2, 11.3, and 11.5 make reference to TENET's REN Services Agreement, which acts as TENET's master services agreement for institutions that consume a variety of services. The Participation Agreement is designed to stand alone, but also to fulfil the role of a Service Description in the case where an institution has separately concluded the REN Services Agreement.
+Sections 3.3.2, 11.3, and 11.5 make reference to TENET's REN Master Service Agreement, which acts as TENET's master services agreement for institutions that consume a variety of services. The Participation Agreement is designed to stand alone, but also to fulfil the role of a Service Description in the case where an institution has separately concluded the REN Master Service Agreement. However, as of 9 December 2020, the REN Master Service Agreement always takes precidence. Moreover, on 4 December 2023, parts of SAFIRE's [governance]({{< ref "/safire/governance.md" >}}) were changed to better align with this agreement.
 
 ### Dispute resolution
 
-The clause in §11.5 references the REN Service Agreement's processes for dispute resolution, and concern has been raised that the "prevailing version" is not immediately clear.
+The clause in §11.5 references the REN Master Service Agreement's processes for dispute resolution, and concern has been raised that the "prevailing version" is not immediately clear.
 
-In the case where a Participant in SAFIRE is also a signatory of the REN Services Agreement (most universities, for instance), the prevailing version is the one most recently concluded between TENET and the Participant (we can supply a copy of this if necessary).
+In the case where a Participant in SAFIRE is also a signatory of the REN Master Service Agreement (most universities, for instance), the prevailing version is the one most recently concluded between TENET and the Participant (we can supply a copy of this if necessary).
 
-In cases where the Participant is not also a signatory, the prevailing version is the one distributed to our SLA Reference Group from time to time. However, if necessary to allay concerns about this, we can annexure the relevant sections from the REN Service Agreement to the Participation Agreement at the time of signature.
+In cases where the Participant is not also a signatory, the prevailing version is the one distributed to our SLA Reference Group from time to time. However, if necessary to allay concerns about this, we can annexure the relevant sections from the REN Master Service Agreement to the Participation Agreement at the time of signature.
 
 # Variations
 
