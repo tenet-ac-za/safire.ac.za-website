@@ -26,6 +26,7 @@ The following is a summary of the (SAML2) attributes supported by SAFIRE.
 
   * [eduPersonAffiliation]({{< ref "/technical/attributes/edupersonaffiliation.md" >}})
   * _[eduPersonAssurance]({{< ref "/technical/attributes/edupersonassurance.md" >}})_ [^trial]
+  * _[eduPersonDisplayPronouns]({{< ref "/technical/attributes/edupersondisplaypronouns.md" >}})_ [^trial]
   * [eduPersonEntitlement]({{< ref "/technical/attributes/edupersonentitlement.md" >}}) [^supplied]
   * [eduPersonOrcid]({{< ref "/technical/attributes/edupersonorcid.md" >}})
   * [eduPersonPrimaryAffiliation]({{< ref "/technical/attributes/edupersonprimaryaffiliation.md" >}})
