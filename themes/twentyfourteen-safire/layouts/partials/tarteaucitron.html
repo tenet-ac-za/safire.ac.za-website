@@ -28,8 +28,8 @@
     {{- if $pc.AnonymizeIP }}
     tarteaucitron.user.analyticsMore = function () { ga('set', 'anonymizeIp', true); };
     {{ end }}
+{{ end }}
     (tarteaucitron.job = tarteaucitron.job || []).push('analytics');
     (tarteaucitron.job = tarteaucitron.job || []).push('youtube');
-{{ end }}
 {{ end }}
 </script>
