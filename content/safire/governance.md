@@ -10,7 +10,7 @@ title: Governance
 url: /safire/governance/
 ---
 
-The South African Identity Federation (SAFIRE) was formed as a joint project of the [Tertiary Education and Research Network of South Africa (TENET)](http://www.tenet.ac.za/), the [SANReN Competency Area](http://www.sanren.ac.za/) at the CSIR Meraka Institute (SCA), and the [Association of South African University Directors of Information Technology](http://www.asaudit.ac.za/) (ASAUDIT) with the aim of establishing federated identity services to serve the needs of the research and higher education communities in South Africa.
+The South African Identity Federation (SAFIRE) was formed as a joint project of [TENET](http://www.tenet.ac.za/), the [SANReN Competency Area](http://www.sanren.ac.za/), and the [HEITSA](http://www.heitsa.ac.za/) with the aim of establishing federated identity services to serve the needs of the research and higher education communities in South Africa.
 
 TENET act as the juristic person of record for SAFIRE. As a result, SAFIRE's assets are owned by TENET and all SAFIRE's staff are employed by TENET. Ultimately accountability, therefore, exists with TENET's Board. However, TENET’s Board has granted the Federation significant operational autonomy.
 

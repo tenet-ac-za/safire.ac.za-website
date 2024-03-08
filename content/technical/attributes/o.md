@@ -1,5 +1,5 @@
 ---
-attributeExample: Tertiary Education and Research Network of South Africa
+attributeExample: Fabrikam, Inc
 attributeFormat: Single valued
 attributeOid: urn:oid:2.5.4.10
 attributeReferences:

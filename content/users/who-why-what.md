@@ -12,9 +12,9 @@ url: /users/who-why-what/
 
 # Who is SAFIRE?
 
-SAFIRE is an academic identity federation, housed in [TENET](http://www.tenet.ac.za/). Unless you’re a seasoned techie, that probably[ sounds like Greek to you](https://en.wikipedia.org/wiki/Greek_to_me). Here’s what it actually means:
+SAFIRE is an academic identity federation operated by [TENET](http://www.tenet.ac.za/). Unless you’re a seasoned techie, that probably[ sounds like Greek to you](https://en.wikipedia.org/wiki/Greek_to_me). Here’s what it actually means:
 
-Firstly, [TENET](http://www.tenet.ac.za/) is the Tertiary Education and Research Network of South Africa --- a local Non-Profit Company (NPC) and Public Benefit Organisation (PBO) aimed at securing Information and Technology services for the benefit of South African universities and associated research and support institutions.
+Firstly, [TENET](http://www.tenet.ac.za/) is a local Non-Profit Company (NPC) and Public Benefit Organisation (PBO) aimed at securing Information and Technology services for the benefit of South African universities and associated research and support institutions.
 
 SAFIRE is essentially a data processor or operator, depending on the lingo you choose to use. They facilitate access to other academic institutions; thanks to SAFIRE, you can use your university login details to access resources at other universities and education-related institutions around the world --- at no cost to you.
 
