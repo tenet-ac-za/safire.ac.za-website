@@ -1,7 +1,7 @@
 ---
 aliases:
   - /contact/
-date: 2018-11-14 08:59:00+02:00
+date: 2024-03-11 15:26:00+02:00
 menu:
   main:
     identifier: safire-contact
@@ -16,18 +16,11 @@ This page provides general contact details for the South African Identity Federa
 
 # SAFIRE - South African Identity Federation
 
-SAFIRE is a project and trade name of the Tertiary Education and Research Network NPC, a non-profit company incorporated in terms of the Companies Act, registration number: 2000/020780/08. Further information about this is available on [TENET's web site](http://www.tenet.ac.za/about).
+SAFIRE is a project and trade name of the TENET, a non-profit company incorporated in terms of the Companies Act, registration number: 2000/020780/08. Further information about this is available on [TENET's web site](http://www.tenet.ac.za/about).
 
 # TENET Offices
 
-Postal Address
-: P O Box 18094, Wynberg 7824, South Africa.
-
-Physical Address
-: House Vincent, Wynberg Mews, Cnr Ebenezer & Brodie Roads, Wynberg 7800, South Africa.
-
-GPS Coordinates
-: [-34.002972, 18.467533](https://tools.wmflabs.org/geohack/geohack.php?params=34_0_10.70_S_18_28_3.12_E)
+General organisational contact details for TENET, including a physical address, can be found on [TENET's website](https://www.tenet.ac.za).
 
 # SAFIRE Project Office
 
