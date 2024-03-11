@@ -20,7 +20,7 @@ SAFIRE is a project and trade name of the TENET, a non-profit company incorporat
 
 # TENET Offices
 
-General organisational contact details for TENET, including a physical address, can be found on [TENET's website](https://www.tenet.ac.za).
+General organisational contact details for TENET, including a physical address, can be found on [TENET's website](https://www.tenet.ac.za/contact).
 
 # SAFIRE Project Office
 
