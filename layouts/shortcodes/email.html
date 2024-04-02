@@ -13,7 +13,7 @@
 {{     .Scratch.Set "text" (.Get 0) }}
 {{   end }}
 {{ end -}}
-<a class="tenet-obfusticate" href="mailto:honeypot@tenet.ac.za" data-href="{{ base64Encode (replaceRE "^(mailto:)?(.*)$" "mailto:$2" (.Scratch.Get "mailto")) }}"
+<span data-nosnippet><a class="tenet-obfusticate" href="mailto:honeypot@tenet.ac.za" data-href="{{ base64Encode (replaceRE "^(mailto:)?(.*)$" "mailto:$2" (.Scratch.Get "mailto")) }}"
 {{- with .Get "clear" }} class="tenet-cleartext"{{ end -}}
 {{- with .Get "class" }} data-class="{{.}}"{{ end -}}
 >
@@ -24,4 +24,4 @@
   {{- printf "&#x%X;" . | safeHTML -}}
 {{- end -}}
 {{- end -}}
-</a>
+</a></span>
