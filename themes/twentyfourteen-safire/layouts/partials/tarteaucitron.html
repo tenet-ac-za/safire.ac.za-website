@@ -21,12 +21,10 @@
 {{ with .Site.GoogleAnalytics }}
 {{ if hasPrefix . "G-"}}
     tarteaucitron.user.gtagUa = '{{ . }}';
-    tarteaucitron.user.gtagMore = function () { gtag('config', '{{ . }}', { 'anonymize_ip': {{- $pc.AnonymizeIP -}} }); };
     (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
 {{ else if hasPrefix . "UA-" }}
     tarteaucitron.user.analyticsUa = '{{ . }}';
     {{- if $pc.AnonymizeIP }}
-    tarteaucitron.user.analyticsMore = function () { ga('set', 'anonymizeIp', true); };
     {{ end }}
 {{ end }}
     (tarteaucitron.job = tarteaucitron.job || []).push('analytics');
