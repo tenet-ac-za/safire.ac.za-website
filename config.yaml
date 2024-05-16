@@ -10,7 +10,9 @@ disableAliases: true
 enableGitInfo: true
 params:
   Description: "South African Identity Federation"
-googleAnalytics: "G-H6SRTQF871"
+Services:
+  googleAnalytics:
+    ID: "G-H6SRTQF871"
 Privacy:
   googleAnalytics:
     RespectDoNotTrack: true

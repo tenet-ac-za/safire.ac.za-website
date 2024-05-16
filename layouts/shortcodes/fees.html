@@ -23,50 +23,50 @@
     <tbody>
         <tr>
             <td>0&ndash;500</td>
-            <td class="fees-saml2">R {{lang.NumFmt 0 (mul 500 $SAMLcostPerFTE) "-|,| " "|"}}</td>
-            <td class="fees-radius">R {{lang.NumFmt 0 (mul 500 $RADIUScostPerFTE) "-|,| " "|"}} &Dagger;</td>
+            <td class="fees-saml2">R {{lang.FormatNumberCustom 0 (mul 500 $SAMLcostPerFTE) "-|,| " "|"}}</td>
+            <td class="fees-radius">R {{lang.FormatNumberCustom 0 (mul 500 $RADIUScostPerFTE) "-|,| " "|"}} &Dagger;</td>
             <td>-</td>
         </tr>
         <tr>
             <td>501&ndash;1&nbsp;000</td>
-            <td class="fees-saml2">R {{lang.NumFmt 0 (mul 1.8 (mul 500 $SAMLcostPerFTE)) "-|,| " "|"}}</td>
-            <td class="fees-radius">R {{lang.NumFmt 0 (mul 1.8 (mul 500 $RADIUScostPerFTE)) "-|,| " "|"}}</td>
+            <td class="fees-saml2">R {{lang.FormatNumberCustom 0 (mul 1.8 (mul 500 $SAMLcostPerFTE)) "-|,| " "|"}}</td>
+            <td class="fees-radius">R {{lang.FormatNumberCustom 0 (mul 1.8 (mul 500 $RADIUScostPerFTE)) "-|,| " "|"}}</td>
             <td>10%</td>
         </tr>
         <tr>
             <td>1&nbsp;001&ndash;2&nbsp;500</td>
-            <td class="fees-saml2">R {{lang.NumFmt 0 (mul 4.25 (mul 500 $SAMLcostPerFTE)) "-|,| " "|"}}</td>
-            <td class="fees-radius">R {{lang.NumFmt 0 (mul 4.25 (mul 500 $RADIUScostPerFTE)) "-|,| " "|"}}</td>
+            <td class="fees-saml2">R {{lang.FormatNumberCustom 0 (mul 4.25 (mul 500 $SAMLcostPerFTE)) "-|,| " "|"}}</td>
+            <td class="fees-radius">R {{lang.FormatNumberCustom 0 (mul 4.25 (mul 500 $RADIUScostPerFTE)) "-|,| " "|"}}</td>
             <td>15%</td>
         </tr>
         <tr>
             <td>2&nbsp;501&ndash;5&nbsp;000</td>
-            <td class="fees-saml2">R {{lang.NumFmt 0 (mul 8 (mul 500 $SAMLcostPerFTE)) "-|,| " "|"}}</td>
-            <td class="fees-radius">R {{lang.NumFmt 0 (mul 8 (mul 500 $RADIUScostPerFTE)) "-|,| " "|"}}</td>
+            <td class="fees-saml2">R {{lang.FormatNumberCustom 0 (mul 8 (mul 500 $SAMLcostPerFTE)) "-|,| " "|"}}</td>
+            <td class="fees-radius">R {{lang.FormatNumberCustom 0 (mul 8 (mul 500 $RADIUScostPerFTE)) "-|,| " "|"}}</td>
             <td>20%</td>
         </tr>
         <tr>
             <td>5&nbsp;001&ndash;10&nbsp;000</td>
-            <td class="fees-saml2">R {{lang.NumFmt 0 (mul 15 (mul 500 $SAMLcostPerFTE)) "-|,| " "|"}}</td>
-            <td class="fees-radius">R {{lang.NumFmt 0 (mul 15 (mul 500 $RADIUScostPerFTE)) "-|,| " "|"}}</td>
+            <td class="fees-saml2">R {{lang.FormatNumberCustom 0 (mul 15 (mul 500 $SAMLcostPerFTE)) "-|,| " "|"}}</td>
+            <td class="fees-radius">R {{lang.FormatNumberCustom 0 (mul 15 (mul 500 $RADIUScostPerFTE)) "-|,| " "|"}}</td>
             <td>25%</td>
         </tr>
         <tr>
             <td>10&nbsp;001&ndash;15&nbsp;000</td>
-            <td class="fees-saml2">R {{lang.NumFmt 0 (mul 21 (mul 500 $SAMLcostPerFTE)) "-|,| " "|"}}</td>
-            <td class="fees-radius">R {{lang.NumFmt 0 (mul 21 (mul 500 $RADIUScostPerFTE)) "-|,| " "|"}}</td>
+            <td class="fees-saml2">R {{lang.FormatNumberCustom 0 (mul 21 (mul 500 $SAMLcostPerFTE)) "-|,| " "|"}}</td>
+            <td class="fees-radius">R {{lang.FormatNumberCustom 0 (mul 21 (mul 500 $RADIUScostPerFTE)) "-|,| " "|"}}</td>
             <td>30%</td>
         </tr>
         <tr>
             <td>15&nbsp;001&ndash;30&nbsp;000</td>
-            <td class="fees-saml2">R {{lang.NumFmt 0 (mul 36 (mul 500 $SAMLcostPerFTE)) "-|,| " "|"}}</td>
-            <td class="fees-radius">R {{lang.NumFmt 0 (mul 36 (mul 500 $RADIUScostPerFTE)) "-|,| " "|"}}</td>
+            <td class="fees-saml2">R {{lang.FormatNumberCustom 0 (mul 36 (mul 500 $SAMLcostPerFTE)) "-|,| " "|"}}</td>
+            <td class="fees-radius">R {{lang.FormatNumberCustom 0 (mul 36 (mul 500 $RADIUScostPerFTE)) "-|,| " "|"}}</td>
             <td>40%</th>
         </tr>
         <tr>
             <td>&gt; 30&nbsp;000</td>
-            <td class="fees-saml2">+ R {{lang.NumFmt 0 (mul 2 (div (mul 500 $SAMLcostPerFTE) 3)) "-|,| " "|"}} per additional 1&nbsp;000 FTE over 30&nbsp;000</td>
-            <td class="fees-radius">+ R {{lang.NumFmt 0 (mul 2 (div (mul 500 $RADIUScostPerFTE) 3)) "-|,| " "|"}} per additional 1&nbsp;000 FTE over 30&nbsp;000</td>
+            <td class="fees-saml2">+ R {{lang.FormatNumberCustom 0 (mul 2 (div (mul 500 $SAMLcostPerFTE) 3)) "-|,| " "|"}} per additional 1&nbsp;000 FTE over 30&nbsp;000</td>
+            <td class="fees-radius">+ R {{lang.FormatNumberCustom 0 (mul 2 (div (mul 500 $RADIUScostPerFTE) 3)) "-|,| " "|"}} per additional 1&nbsp;000 FTE over 30&nbsp;000</td>
             <td>&gt 40%</td>
         </tr>
     </tbody>

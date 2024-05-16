@@ -9,7 +9,7 @@
       "orientation": "top",
       "showIcon": false,
       "highPrivacy": false,
-      "handleBrowserDNTRequest": false,
+      "handleBrowserDNTRequest": {{ .Site.Config.Privacy.GoogleAnalytics.RespectDoNotTrack | default "false" -}},
       "removeCredit": true,
       "readmoreLink": "{{ ref . "/users/who-why-what.md" }}",
       "cookieDomain": "{{ lower $url.Host | replaceRE "^(.+\\.)?([^.]+\\.(ac\\.za|local))$" ".$2" }}",
@@ -17,17 +17,15 @@
     });
     tarteaucitron.user.googleFonts = [ 'Lato:300,400,700,900,300italic,400italic,700italic;subset=latin,latin-ext' ];
     (tarteaucitron.job = tarteaucitron.job || []).push('googlefonts');
-{{- $pc := .Site.Config.Privacy.GoogleAnalytics -}}
-{{ with .Site.GoogleAnalytics }}
-{{ if hasPrefix . "G-"}}
+{{- if not .Site.Config.Privacy.GoogleAnalytics.Disable }}
+  {{- with .Site.Config.Services.GoogleAnalytics.ID }}
+    {{- if strings.HasPrefix (lower .) "ua-" }}
+      {{- warnf "Google Analytics 4 (GA4) replaced Google Universal Analytics (UA) effective 1 July 2023. See https://support.google.com/analytics/answer/11583528. Create a GA4 property and data stream, then replace the Google Analytics ID in your site configuration with the new value." }}
+    {{- else }}
     tarteaucitron.user.gtagUa = '{{ . }}';
     (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
-{{ else if hasPrefix . "UA-" }}
-    tarteaucitron.user.analyticsUa = '{{ . }}';
-    {{- if $pc.AnonymizeIP }}
-    {{ end }}
-{{ end }}
-    (tarteaucitron.job = tarteaucitron.job || []).push('analytics');
+    {{- end }}
+  {{- end }}
+{{- end }}
     (tarteaucitron.job = tarteaucitron.job || []).push('youtube');
-{{ end }}
 </script>
