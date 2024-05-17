@@ -16,15 +16,15 @@
                     <section class="attributedescription">
                         <h2 class="screen-reader-text">Attribute Definition</h2>
                         <table>
-                            <tr>
+                            <tr id="attribute-friendlyname">
                                 <th>Friendly Name</th>
                                 <td>{{ .Title }}</td>
                             </tr>
-                            <tr>
+                            <tr id="attribute-oid">
                                 <th>OID</th>
                                 <td>{{ .Params.attributeOid|default "unknown" }}</td>
                             </tr>
-                            <tr>
+                            <tr id="attribute-description">
                                 <th>Description</th>
                                 <td>{{ .Content }}</td>
                             </tr>
@@ -32,7 +32,7 @@
                                 <th>Format</th>
                                 <td>{{ .Params.attributeFormat|default ""|markdownify }}</td>
                             </tr>
-                            <tr>
+                            <tr id="attribute-references">
                                 <th>References</th>
                                 <td>{{ if .Params.attributeReferences }}<ul class="referencelist">
                                 {{- range $i,$v := .Params.attributeReferences }}
@@ -40,12 +40,12 @@
                                 {{- end }}
                                 </ul>{{ else }}none{{end}}</td>
                             </tr>
-                            <tr>
+                            <tr id="attribute-example">
                                 <th>Example</th>
                                 <td>{{ .Params.attributeexample|default "none given"|markdownify }}</td>
                             </tr>
 {{- with .Params.attributeNotes }}
-                            <tr>
+                            <tr id="attribute-notes">
                                 <th>Additional Notes</th>
                                 <td>{{ .|default "none"|markdownify }}</td>
                             </tr>
