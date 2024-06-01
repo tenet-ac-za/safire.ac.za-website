@@ -16,4 +16,5 @@ eduroam in South Africa has its own website at <https://eduroam.ac.za/>. That si
  * [Policy](https://eduroam.ac.za/policy/)
  * [Technical Requirements](https://eduroam.ac.za/policy/)
  * [Registration Request Forms](https://eduroam.ac.za/policy/)
+ * [Costs](https://eduroam.ac.za/faq/costs/)
  * a [management portal](https://eduroam.ac.za/manage/)

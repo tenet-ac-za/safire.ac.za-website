@@ -1,23 +1,61 @@
-{{/* last fees update: Feb 2023 */}}
-{{- $SAMLcostPerFTE := 7.05 -}}
+{{/* last fees update: Jun 2024 */}}
+{{- $EffectiveYear := 2024 -}}
+{{- $SAMLcostPerFTE := 7.40 -}}
 {{- $RADIUScostPerFTE := 1.30 -}}
-{{- $HideRADIUS := true -}}
-{{ if $HideRADIUS }}
 <style>
-.fees-radius { display: none; }
+  .fees-radius { display: none; }
 </style>
-{{ end }}
+<script>
+    // https://www.c-sharpcorner.com/UploadFile/cd7c2e/get-values-from-query-string-using-jquery/
+    function GetParameterValues(param) {
+        var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        for (var i = 0; i < url.length; i++) {
+            var urlparam = url[i].split('=');
+            if (urlparam[0] == param) {
+                return urlparam[1];
+            }
+        }
+    }
+
+    $(document).ready(function() {
+        var show = [ window.top.location.hash.substring(1), GetParameterValues('show')  ];
+        show = show.find((element) => !! element);
+        if (show) {
+            console.log(show);
+            show = show.split(',');
+            console.log(show);
+            var colspan = 0;
+            if (show.includes('saml') || show.includes('saml2')) {
+                $('.fees-saml2').show();
+                colspan++;
+            } else {
+                $('.fees-saml2').hide();
+            }
+            if (show.includes('radius') || show.includes('eduroam')) {
+                $('.fees-radius').show();
+                colspan++;
+            } else {
+                $('.fees-radius').hide();
+            }
+            $('.fees #fees-profile').attr('colspan', colspan);
+        } else {
+            $('.fees-saml2').show();
+            $('.fees-radius').hide();
+            $('.fees #fees-profile').attr('colspan', 1);
+        }
+    });
+</script>
 <table class="fees idp" id="idp-fees">
-    <caption>Annual fees for Identity Providers</caption>
+    <caption>Annual ({{ $EffectiveYear }}) fees for Identity Providers</caption>
     <thead>
         <tr>
             <th rowspan="2">FTE Band</th>
-            <th colspan="{{ if $HideRADIUS }}1{{ else }}2{{ end }}">Technology Profile</th>
+            <th id="fees-profile" colspan="2">Technology Profile</th>
             <th rowspan="2">Effective Max Discount</th>
         </tr>
         <tr>
             <th class="fees-saml2">SAML2</th>
-            <th class="fees-radius">RADIUS</th>
+            <th class="fees-radius">RADIUS/EAP (<span class="eduroam">eduroam</span>)</th>
         </tr>
     </thead>
     <tbody>

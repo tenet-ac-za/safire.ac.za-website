@@ -3032,6 +3032,9 @@ a.post-thumbnail:hover {
 	display: none;
 }
 
+.eduroam {
+    text-transform: lowercase !important;
+}
 
 /**
  * 10.0 Multisite
