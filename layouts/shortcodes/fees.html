@@ -25,13 +25,13 @@
             show = show.split(',');
             console.log(show);
             var colspan = 0;
-            if (show.includes('saml') || show.includes('saml2')) {
+            if (show.includes('saml') || show.includes('saml2') || show.includes('all')) {
                 $('.fees-saml2').show();
                 colspan++;
             } else {
                 $('.fees-saml2').hide();
             }
-            if (show.includes('radius') || show.includes('eduroam')) {
+            if (show.includes('radius') || show.includes('eduroam') || show.includes('all')) {
                 $('.fees-radius').show();
                 colspan++;
             } else {
