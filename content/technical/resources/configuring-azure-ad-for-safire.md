@@ -1,5 +1,5 @@
 ---
-date: 2022-01-04 15:22:00+02:00
+date: 2024-06-10 11:22:00+02:00
 slug: configuring-microsoft-entra-id-for-safire
 tags:
   - azure
@@ -13,7 +13,7 @@ aliases:
   - /technical/resources/configuring-azure-ad-for-safire/
 ---
 
-> The recommended way to integrate Microsoft Entra ID into SAFIRE is via a [SAML Proxy such as Shibboleth](https://wiki.shibboleth.net/confluence/display/KB/Using+SAML+Proxying+in+the+Shibboleth+IdP+to+connect+with+Azure+AD). While it is possible to connect Microsoft Entra ID directly into SAFIRE, this has several caveats and cannot be guaranteed as a long-term solution.
+> [Microsoft recommends](https://learn.microsoft.com/en-us/entra/architecture/multilateral-federation-introduction) integrating Entra ID into SAFIRE via a [SAML Proxy such as Shibboleth](https://wiki.shibboleth.net/confluence/display/KB/Using+SAML+Proxying+in+the+Shibboleth+IdP+to+connect+with+Azure+AD), which mirror's the R&E federation communty's guidence. While it is possible to connect Microsoft Entra ID directly into SAFIRE, this has several caveats and cannot be guaranteed as a long-term solution.
 {.message-box .warning}
 
 This documentation assumes that you already have an Microsoft Entra ID tenant correctly configured and provisioned with your institution's user accounts.
@@ -43,6 +43,9 @@ Once saved, it is worthwhile double-checking that the information was correctly 
 
 > SAFIRE's metadata changes periodically, and can do so without warning. The [IdP Requirements]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) put **the onus on you to keep this up-to-date** and expects this process to be automated. Unfortunately Microsoft Entra ID cannot currently update metadata automatically which is partly why it remains only partially supported in SAFIRE. However, SAFIRE's metadata is stable enough that you can probably get away with this if you create a manual process to periodically ensure you re-upload the metadata or merge any changes.
 {.message-box}
+
+> Entra ID generates an entity ID for your application using the well-known format *https://sts.windows.net/your-enterprise-application-id/*, and this **cannot be changed**. The entity ID uniquely identifies your provider to other service providers, and changing the entity ID can break existing trust relationships (for example [eduPersonTargetId]({{< ref "/technical/attributes/edupersontargetedid.md" >}}) will change, potentially unlinking user accounts). This limitation means you cannot migrate between a directly-integrated Entra ID identity provider and any other software (e.g. on-prem AD FS). This is one of the main reasons a [proxy is recommended](https://learn.microsoft.com/en-us/entra/architecture/multilateral-federation-introduction).
+{.message-box .warning}
 
 
 # 3. Configure Attribute claims rules

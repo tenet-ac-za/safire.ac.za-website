@@ -31,6 +31,7 @@ This page contains links to more information and technical resources. It will be
   * [Step-by-step IdP installation](https://tuakiri.ac.nz/confluence/display/Tuakiri/Installing+a+Shibboleth+3.x+IdP) - written by Tuakiri (NZ), but many of the principles follow through.
   * [TestShib](http://www.testshib.org/) - Test service provider.
   * [SAMLtest.id](https://samltest.id/) - test your IdP & SP
+  * [University multilateral federation solutions for Entra ID](https://learn.microsoft.com/en-us/entra/architecture/multilateral-federation-introduction) - Microsoft documentation on interporating Entra ID with R&E federations.
 
 # Service Provider deployment
 
