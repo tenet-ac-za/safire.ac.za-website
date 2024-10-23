@@ -1,5 +1,5 @@
 ---
-date: 2022-02-17 00:00:00+02:00
+date: 2024-10-23 00:00:00+02:00
 menu:
   main:
     identifier: participants-idp-fees
@@ -13,7 +13,7 @@ url: /participants/idp/fees/
 
 ## Non-recurring costs
 
-A once-off take-on charge of ***R 2 550*** will be levied for each new production entity registered under the [SAML2 technology profile]({{< ref "/technical/saml2/_index.md" >}}) to cover the [administrative overheads]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) of processing a new identity provider registration.
+A once-off take-on charge of ***R 2750*** will be levied for each new production entity registered under the [SAML2 technology profile]({{< ref "/technical/saml2/_index.md" >}}) to cover the [administrative overheads]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) of processing a new identity provider registration.
 {.fees-saml2}
 
 There are no take-on or other initial non-recurring charges associated with the [RADIUS/EAP ("eduroam")]({{< ref "/technical/radius-eap/_index.md" >}}) technology profile.

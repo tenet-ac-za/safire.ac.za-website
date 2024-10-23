@@ -1,7 +1,7 @@
-{{/* last fees update: Jun 2024 */}}
-{{- $EffectiveYear := 2024 -}}
-{{- $SAMLcostPerFTE := 7.40 -}}
-{{- $RADIUScostPerFTE := 1.30 -}}
+{{/* last fees update: Oct 2024 */}}
+{{- $EffectiveYear := 2025 -}}
+{{- $SAMLcostPerFTE := 7.60 -}}
+{{- $RADIUScostPerFTE := 1.36 -}}
 <style>
   .fees-radius { display: none; }
 </style>
@@ -103,9 +103,9 @@
         </tr>
         <tr>
             <td>&gt; 30&nbsp;000</td>
-            <td class="fees-saml2">+ R {{lang.FormatNumberCustom 0 (mul 2 (div (mul 500 $SAMLcostPerFTE) 3)) "-|,| " "|"}} per additional 1&nbsp;000 FTE over 30&nbsp;000</td>
-            <td class="fees-radius">+ R {{lang.FormatNumberCustom 0 (mul 2 (div (mul 500 $RADIUScostPerFTE) 3)) "-|,| " "|"}} per additional 1&nbsp;000 FTE over 30&nbsp;000</td>
-            <td>&gt 40%</td>
+            <td class="fees-saml2">+ R {{lang.FormatNumberCustom 0 (mul 3 (div (mul 500 $SAMLcostPerFTE) 8)) "-|,| " "|"}} per additional 1&nbsp;000 FTE over 30&nbsp;000</td>
+            <td class="fees-radius">+ R {{lang.FormatNumberCustom 0 (mul 3 (div (mul 500 $RADIUScostPerFTE) 8)) "-|,| " "|"}} per additional 1&nbsp;000 FTE over 30&nbsp;000</td>
+            <td>&ge; 45%</td>
         </tr>
     </tbody>
 </table>
