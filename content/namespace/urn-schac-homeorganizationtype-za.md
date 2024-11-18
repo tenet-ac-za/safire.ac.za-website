@@ -18,5 +18,9 @@ The REFEDS SCHAC Editorial Board has delegated the operation of **urn:schac:home
 | Prefix | Use/Description |
 :--------|:----------------|
 | **urn:schac:homeOrganizationType:za:**… | Used as described for the [schacHomeOrganizationType]({{< ref "/technical/attributes/schachomeorganizationtype.md" >}}) attribute. |
+| urn:schac:homeOrganizationType:za:private-college | Private College (as defined in the Continuing Education and Training Act) |
+| urn:schac:homeOrganizationType:za:private-hei | Private Higher Educational Institution (as defined in the Higher Education Act) |
 | urn:schac:homeOrganizationType:za:research-council | Statutory research council established by act of parliament |
+| urn:schac:homeOrganizationType:za:tvet | Public TVET College (as defined in the Continuing Education and Training Act) |
+| urn:schac:homeOrganizationType:za:university | Public University (as defined in the Higher Education Act) |
 
