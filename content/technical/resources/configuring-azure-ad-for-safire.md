@@ -13,8 +13,11 @@ aliases:
   - /technical/resources/configuring-azure-ad-for-safire/
 ---
 
-> [Microsoft recommends](https://learn.microsoft.com/en-us/entra/architecture/multilateral-federation-introduction) integrating Entra ID into SAFIRE via a [SAML Proxy such as Shibboleth](https://wiki.shibboleth.net/confluence/display/KB/Using+SAML+Proxying+in+the+Shibboleth+IdP+to+connect+with+Azure+AD), which mirror's the R&E federation communty's guidence. While it is possible to connect Microsoft Entra ID directly into SAFIRE, this has several caveats and cannot be guaranteed as a long-term solution.
+> While it is possible to connect Microsoft Entra ID directly into SAFIRE, this has **several caveats** you need to be aware of. To help you make an informed decision, the info boxes in this document highlight some of the things you need to consider. Read through it carefully before starting your implementation.
 {.message-box .warning}
+
+> [Microsoft recommends](https://learn.microsoft.com/en-us/entra/architecture/multilateral-federation-introduction) integrating Entra ID into SAFIRE via a [SAML Proxy such as Shibboleth](https://wiki.shibboleth.net/confluence/display/KB/Using+SAML+Proxying+in+the+Shibboleth+IdP+to+connect+with+Azure+AD), which mirror's the R&E federation communty's guidence. (Some SAFIRE providers opt to [use SimpleSAMLphp for this]({{< ref "configuring-simplesamlphp-to-use-azure.md" >}}) instead.) Doing this avoids many of the caveats highlighted below.
+{.message-box}
 
 This documentation assumes that you already have an Microsoft Entra ID tenant correctly configured and provisioned with your institution's user accounts.
 
@@ -38,7 +41,7 @@ Now that you have created your application, you need to enable *SAML* based sing
 
 Once saved, it is worthwhile double-checking that the information was correctly imported by the Upload utility and that you understand what each of the fields is doing.
 
-> TIP Your Enterprise application can use a [long-lived certificate]({{< ref "/technical/resources/generating-certificates-for-safire.md" >}}) if you *import* your own long-lived certificate into the *SAML Certificates* section of your *Enterprise Application.*
+> TIP Your Enterprise application can use a [long-lived certificate]({{< ref "/technical/resources/generating-certificates-for-safire.md" >}}) if you *import* your own long-lived certificate into the *SAML Certificates* section of your *Enterprise Application.* As SAFIRE does not [perform automated certificate roll over]({{< ref "certificate-key-roll-over.md" >}}), it is strongly recommended you do this to avoid service outages.
 {.message-box}
 
 > SAFIRE's metadata changes periodically, and can do so without warning. The [IdP Requirements]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) put **the onus on you to keep this up-to-date** and expects this process to be automated. Unfortunately Microsoft Entra ID cannot currently update metadata automatically which is partly why it remains only partially supported in SAFIRE. However, SAFIRE's metadata is stable enough that you can probably get away with this if you create a manual process to periodically ensure you re-upload the metadata or merge any changes.
@@ -83,7 +86,7 @@ IF 'user.extensionattribute4' CONTAINS 'staff' THEN
 
 **NOTE:**  eduPersonScopedAffiliation is a multi-valued attribute with a controlled vocabulary and, importantly, where an the [vocabulary definition]({{< ref "/technical/attributes/edupersonaffiliation.md" >}}) says "implies…" the implied values must also be included in the returned set.
 
-> Microsoft Entra ID currently does not support multi-valued user extension attributes
+> Microsoft Entra ID currently does not support multi-valued user extension attributes. We have a federation-specific workaround.
 {.message-box}
 
 As many institutions use user extension attributes to store affiliation information, you can work around this problem by (re-)configuring the Attribute claims *transform* rule for eduPersonScopedAffiliation to release an attribute *Named* `scopedAffiliationSingleton` in SAFIRE's custom *Namespace* of [`https://safire.ac.za/namespace/claims`]({{< ref "/namespace/claims.md" >}}) with attribute values that are separated by a space, and meet the format rules described in eduPersonAffiliation, scoped to your realm. If your Entra ID IdP asserts `scopedAffiliationSingleton` correctly, the SAFIRE federation hub will reformat it into a multi-valued eduPersonScopedAffiliation attribute for you.
