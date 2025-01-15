@@ -86,7 +86,7 @@ IF 'user.extensionattribute4' CONTAINS 'staff' THEN
 
 **NOTE:**  eduPersonScopedAffiliation is a multi-valued attribute with a controlled vocabulary and, importantly, where an the [vocabulary definition]({{< ref "/technical/attributes/edupersonaffiliation.md" >}}) says "implies…" the implied values must also be included in the returned set.
 
-> Microsoft Entra ID currently does not support multi-valued user extension attributes. We have a federation-specific workaround.
+> Microsoft Entra ID currently does not support multi-valued user extension attributes. We have a federation-specific workaround, but Microsoft's policy language does not allow this to support complex scenarios.
 {.message-box}
 
 As many institutions use user extension attributes to store affiliation information, you can work around this problem by (re-)configuring the Attribute claims *transform* rule for eduPersonScopedAffiliation to release an attribute *Named* `scopedAffiliationSingleton` in SAFIRE's custom *Namespace* of [`https://safire.ac.za/namespace/claims`]({{< ref "/namespace/claims.md" >}}) with attribute values that are separated by a space, and meet the format rules described in eduPersonAffiliation, scoped to your realm. If your Entra ID IdP asserts `scopedAffiliationSingleton` correctly, the SAFIRE federation hub will reformat it into a multi-valued eduPersonScopedAffiliation attribute for you.
