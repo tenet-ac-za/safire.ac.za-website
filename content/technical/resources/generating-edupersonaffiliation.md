@@ -45,7 +45,7 @@ It should be apparent that this means that the vast majority of users are expect
 
 # Case 1: Containers / distinguished name
 
-If you've organised your directory into containers that reflect the above roles, you may be able to use the distinguishedName (or entryDN in some LDAP directories) attribute to derive eduPersonAffiliation. The example below also sets [eduPersonPrimaryAffiliation]({{< ref "/technical/attributes/edupersonprimaryaffiliation.md" >}}).
+If you've organised your directory into containers that reflect the above roles, you may be able to use the distinguishedName (or entryDN in some LDAP directories) attribute to derive eduPersonAffiliation. The example below also sets [eduPersonPrimaryAffiliation]({{< ref "/technical/attributes/edupersonprimaryaffiliation.md" >}}).
 
 ```php
 20 => [
