@@ -27,6 +27,7 @@
         </a>
     </span>
     {{- if .GitInfo }}
+    <!--
     <span class="byline">
         <span class="author vcard">
           <a rel="author" title="{{ .GitInfo.AuthorName|htmlEscape }}">
@@ -34,6 +35,7 @@
           </a>
         </span>
     </span>
+    -->
     <span class="edit-link" aria-hidden="true">
         <a title="{{ .GitInfo.Subject  }} [{{ .GitInfo.AuthorDate.Local.Format "2006-01-02" }}]" href="https://github.com/tenet-ac-za/safire.ac.za-website/blob/{{ .GitInfo.Hash|urlize }}/content/{{ .File.Path }}" rel="nofollow noopener" target="_blank">
             {{- .GitInfo.AbbreviatedHash -}}
