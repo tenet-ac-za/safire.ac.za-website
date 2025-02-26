@@ -33,10 +33,10 @@ All annual recurring costs are subject to an annual escalation to reflect the in
 
 - **Institutions that subscribe to a basket of NREN services from TENET receive a 100% discount on SAFIRE's fees** so long as they continue to receive that basket.
 - Non-profit or public benefit organisations properly registered as such in South Africa may request a discount.
-- The [SAFIRE Steering Committee]({{< ref "safire/governance.md" >}}) may, at its sole discretion, elect to discount or exempt any organisation from paying SAFIRE's fees.
+- [TENET]({{< ref "safire/governance.md" >}}) may, at its sole discretion, elect to discount or exempt any organisation from paying SAFIRE's fees. Such discretion may be applied on recommendation from a [Member]({{< ref "/participants/idp/list.md" >}}) or the operations staff.
 - All prices exclude value-added tax (VAT)
 <!-- break to apply class separately -->
-- &Dagger; eduroam identity providers with 150 or fewer users may use the managed IdP service at no charge.
+- &Dagger; eduroam identity providers with 150 or fewer users may use the eduroam Managed IdP service at no charge.
 - Non-profit or public benefit eduroam identity providers that provide a reciprocal service provider used by other institutions receive a 50% discount on the RADIUS profile fees.
 {.fees-radius}
 
