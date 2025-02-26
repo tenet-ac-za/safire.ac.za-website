@@ -53,17 +53,19 @@ Once saved, it is worthwhile double-checking that the information was correctly 
 
 # 3. Configure Attribute claims rules
 
-You now need to configure your application's *User Attributes & Claims*. Entra ID sets up a few default User Attributes & Claims rules. However, you need to ensure these release the at least the [Minimum attributes required for participation]({{< ref "/technical/attributes/_index.md" >}}) for SAFIRE. This requires altering what has been pre-defined or *Add new claim*. Depending on your exact use case, you may also need to release some additional attributes.
+You now need to configure your application's *Attributes & Claims*. Entra ID sets up a few default Attributes & Claims rules. However, you need to ensure these release the at least the [minimum attributes required for participation]({{< ref "/technical/attributes/_index.md" >}}) for SAFIRE. This requires altering what has been pre-defined or *Add new claim* to create claims matching:
 
-e.g.
+| *Claim Name* | *Namespace* | *Name format* | *Source* | *Source attribute* |
+|---|---|---|---|---|
+| CommonName | http\://schemas.xmlsoap.org/claims | Omitted | Attribute | user.displayname |
+| UPN | http\://schemas.xmlsoap.org/claims | Omitted | Attribute | user.userprincipalname  |
+| upn | http\://schemas.xmlsoap.org/ws/2005/05/identity/claims | Omitted | Attribute | user.userprincipalname  |
+| emailaddress | http\://schemas.xmlsoap.org/ws/2005/05/identity | Omitted | Attribute | user.mail |
+| givenname | http\://schemas.xmlsoap.org/ws/2005/05/identity/claims | Omitted | Attribute| user.givenname |
+| surname | http\://schemas.xmlsoap.org/ws/2005/05/identity/claims | Omitted | Attribute | user.surname |
+| [urn:oid:2.16.840.1.113730.3.1.39]({{< ref "/technical/attributes/preferredlanguage.md" >}}) | *blank* | URI | Attribute | user.preferredlanguage |
 
-| *Claim name* | *Value* |
-|----------|----------|
-| http\://schemas.xmlsoap.org/claims/CommonName  | user.displayname |
-| http\://schemas.xmlsoap.org/claims/UPN  | user.userprincipalname  |
-| http\://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress | user.mail  |
-| http\://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname | user.givenname  |
-| http\://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname | user.surname |
+Ideally you should release a more complete set as it increases the number of services users can interact with (see [Other Attributes]({{< ref "#other-attributes" >}})).
 
 ### eduPersonPrincipalName
 
@@ -73,55 +75,43 @@ eduPersonPrincipalName is perhaps the most important attribute you release, and 
 
 ### eduPersonScopedAffiliation
 
-[eduPersonScopedAffiliation]({{< ref "/technical/attributes/edupersonscopedaffiliation.md" >}}) provides a controlled vocabulary for asserting a users role in the institution. You will need to use what user attributes you have in your Microsoft Entra ID to create a *transform* rule to assert a users role at your institution correctly.
-
-e.g. pseudocode
-
-```lang-none
-
-IF 'user.extensionattribute4' CONTAINS 'staff' THEN
-  OUTPUT 'member@example.ac.za'
-
-```
-
-**NOTE:**  eduPersonScopedAffiliation is a multi-valued attribute with a controlled vocabulary and, importantly, where an the [vocabulary definition]({{< ref "/technical/attributes/edupersonaffiliation.md" >}}) says "implies…" the implied values must also be included in the returned set.
+[eduPersonScopedAffiliation]({{< ref "/technical/attributes/edupersonscopedaffiliation.md" >}}) provides a controlled vocabulary for asserting a users role in the institution. You will need to use what user attributes you have in your Microsoft Entra ID to create a *transform* rule to assert a users role at your institution correctly. Remember that eduPersonScopedAffiliation is a multi-valued attribute with a controlled vocabulary and, importantly, where an the [vocabulary definition]({{< ref "/technical/attributes/edupersonaffiliation.md" >}}) says "implies…" the implied values must also be included in the returned set.
 
 > Microsoft Entra ID currently does not support multi-valued user extension attributes. We have a federation-specific workaround, but Microsoft's policy language does not allow this to support complex scenarios.
 {.message-box}
 
-As many institutions use user extension attributes to store affiliation information, you can work around this problem by (re-)configuring the Attribute claims *transform* rule for eduPersonScopedAffiliation to release an attribute *Named* `scopedAffiliationSingleton` in SAFIRE's custom *Namespace* of [`https://safire.ac.za/namespace/claims`]({{< ref "/namespace/claims.md" >}}) with attribute values that are separated by a space, and meet the format rules described in eduPersonAffiliation, scoped to your realm. If your Entra ID IdP asserts `scopedAffiliationSingleton` correctly, the SAFIRE federation hub will reformat it into a multi-valued eduPersonScopedAffiliation attribute for you.
+Many institutions use user extension attributes to store affiliation information. If this is the case you can work around this problem by configuring the Attribute claims *transform* rule for eduPersonScopedAffiliation to release an attribute *Named* `scopedAffiliationSingleton` in SAFIRE's custom *Namespace* of [`https://safire.ac.za/namespace/claims`]({{< ref "/namespace/claims.md" >}}) with attribute values that are separated by a space, and meet the format rules described in eduPersonAffiliation, scoped to your realm. If your Entra ID IdP asserts `scopedAffiliationSingleton` correctly, the SAFIRE federation hub will reformat it into a multi-valued eduPersonScopedAffiliation attribute for you.
 
-e.g. pseudocode
+| *Claim Name* | *Namespace* | *Name format* | *Source* |
+|---|---|---|---|
+| scopedAffiliationSingleton | https\://safire.ac.za/namespace/claims | Omitted | Transformation |
+
+With a transformation doing something similar to the pseudocode below:
 
 ```lang-none
-
 IF 'user.extensionattribute4' CONTAINS 'staff' THEN
   OUTPUT 'staff@example.ac.za member@example.ac.za employee@example.ac.za'
 ELSE IF 'user.extensionattribute4' CONTAINS 'student' THEN
   OUTPUT 'student@example.ac.za member@example.ac.za'
-
+ELSE
+  OUTPUT 'member@example.ac.za'
 ```
 
-If you do not have a single attribute to use as in the above examples and you distinguish users based on group membership, you can look at creating *Claim conditions Transformations*.
-
-e.g.
+If you do not have a single attribute to use as in the above examples and you distinguish users based on group membership, you can look at using *Claim conditions* to do conditional transformations. For example:
 
 | *User type* | *Scoped Groups* | *Source* | *Value* |
-|----------|----------|----------|----------|
-| Members | *Select groups e.g. **students*** | Transformation | IF 'user.userprincipalname' NOT EMPTY THEN OUTPUT 'student@example.ac.za member@example.ac.za' |
-| **OR**|
-| Members | *Select groups e.g. **alumni*** | Transformation | IF 'user.userprincipalname' NOT EMPTY THEN OUTPUT 'alum@example.ac.za' |
+|---|---|---|---|
+| Members | *Select groups e.g. **students*** | Transformation | `IF 'user.userprincipalname' NOT EMPTY THEN OUTPUT 'student@example.ac.za member@example.ac.za'` |
+| Members | *Select groups e.g. **staff*** | Transformation | `IF 'user.userprincipalname' NOT EMPTY THEN OUTPUT 'staff@example.ac.za member@example.ac.za' `|
+| Members | *Select groups e.g. **alumni*** | Transformation | `IF 'user.userprincipalname' NOT EMPTY THEN OUTPUT 'alum@example.ac.za'` |
 
 See our [notes on generating eduPerson{Scoped}Affiliation]({{< ref "generating-edupersonaffiliation.md" >}}) for more ideas.
 
 ### eduPersonAffiliation
 
-eduPersonAffiliation has the same semantics as eduPersonScopedAffiliation, but lacks the scope (the '@' sign and what follows, e.g. '@example.ac.za'). Thus you can re-use the claim rules you created for eduPersonScopedAffiliation to generate eduPersonAffiliation as well, and simply omit your scope from the attribute you output.
-
-e.g. pseudocode
+eduPersonAffiliation has the same semantics as eduPersonScopedAffiliation, but lacks the scope (the '@' sign and what follows, e.g. '@example.ac.za'). Thus you can duplicate the claim rules you created for eduPersonScopedAffiliation to generate eduPersonAffiliation as well, and simply omit your scope from the attribute you output. For example:
 
 ```lang-none
-
 IF 'user.extensionattribute4' CONTAINS 'staff' THEN
   OUTPUT 'staff member employee'
 
@@ -129,11 +119,24 @@ IF 'user.extensionattribute4' CONTAINS 'staff' THEN
 
 As with eduPersonScopedAffiliation, you can work around Entra ID's multi-valued attribute problem, you can release eduPersonAffiliation as an attribute named `unscopedAffiliationSingleton` in SAFIRE's [claims namespace]({{< ref "/namespace/claims.md" >}}).
 
+### eduPersonEntitlement
+
+Your library or researchers may require you to assert [eduPersonEntitlement]({{< ref "/technical/attributes/edupersonentitlement.md" >}}). This suffers similar multi-valued limitations, and can be mapped using the `entitlementSingleton` claim in SAFIRE's [claims namespace]({{< ref "/namespace/claims.md" >}}). See our [notes on generating eduPersonEntitlement]({{< ref "generating-edupersonentitlement.md" >}}) and the example below:
+
+| *Claim Name* | *Namespace* | *Name format* | *Source* | *Source attribute* |
+|---|---|---|---|---|
+| entitlementSingleton | https\://safire.ac.za/namespace/claims | Omitted | Attribute (constant) | "urn:mace:dir:entitlement:common-lib-terms urn:mace:safire.ac.za:entitlement:certs:smime" |
+
 ### Other attributes
 
 What's shown here is only a subset of SAFIRE's [attribute set]({{< ref "/technical/attributes/_index.md" >}}). You're strongly encouraged to release others where you have the data available.
 
-In particular, your library or researchers may require you to assert [eduPersonEntitlement]({{< ref "/technical/attributes/edupersonentitlement.md" >}}). This suffers similar multi-valued limitations, and can be mapped using the `entitlementSingleton` claim in SAFIRE's [claims namespace]({{< ref "/namespace/claims.md" >}}). See our [notes on generating eduPersonEntitlement]({{< ref "generating-edupersonentitlement.md" >}}).
+For example, if you store a user's ORCID iD in the built-in extension attribute 10 and their personal pronouns in a directory extension definining user.pronouns, you could do something like this:
+
+| *Claim Name* | *Namespace* | *Name format* | *Source* | *Source attribute* |
+|---|---|---|---|---|
+| [urn:oid:1.3.6.1.4.1.5923.1.1.1.16]({{< ref "/technical/attributes/edupersonorcid.md" >}}) | *blank* | URI | Attribute | user.extensionattribute10 |
+| [urn:oid:1.3.6.1.4.1.5923.1.1.1.18]({{< ref "/technical/attributes/edupersondisplaypronouns.md" >}}) | *blank* | URI | Attribute | user.pronouns |
 
 # Other technical requirements
 There is an additional [technical requirement]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) that you should ensure your Microsoft Entra ID tenant complies with which is not part of the above documentation, that you nevertheless need to meet.
@@ -146,13 +149,13 @@ In order to meet the requirements of SAFIRE's [metadata registration practice st
 
 ## Multi-factor authentication
 
-To enable support multi-factor authentication for your users, you will need to explicitly confirm that the authentication methods you've enabled are compatible with academic federation. See [authnmethodsreferences]({{< ref "/technical/attributes/authnmethodsreferences.md" >}}) for details.
+Entra ID has built-in support for multi-factor authentication. To enable signalling of support multi-factor authentication for your users, you will need to explicitly confirm that the authentication methods you've enabled are compatible with academic federation. See [authnmethodsreferences]({{< ref "/technical/attributes/authnmethodsreferences.md" >}}) for details.
 
 # Improving generated metadata
 
 By default, Microsoft Entra ID publishes its generated metadata at a well-known URL of:
 
-* https://login.microsoftonline.com/*your-azure-ad-tenant-id*/federationmetadata/2007-06/federationmetadata.xml?appid=*your-enterprise-application-id*
+* https\://login.microsoftonline.com/*your-azure-ad-tenant-id*/federationmetadata/2007-06/federationmetadata.xml?appid=*your-enterprise-application-id*
 
 This URL is displayed in the SAML Signing Certificate block of the Single sign-on properties of your Enterprise Application, along with a download link. You can use this to obtain the copy of metadata you need to supply to SAFIRE.
 
