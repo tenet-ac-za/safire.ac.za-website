@@ -1,5 +1,5 @@
 ---
-date: 2024-06-10 11:22:00+02:00
+date: 2025-02-26 12:44:15+02:00
 slug: configuring-microsoft-entra-id-for-safire
 tags:
   - azure
