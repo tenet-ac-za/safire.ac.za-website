@@ -60,7 +60,7 @@ You now need to configure your application's *Attributes & Claims*. Entra ID set
 | CommonName | http\://schemas.xmlsoap.org/claims | Omitted | Attribute | user.displayname |
 | UPN | http\://schemas.xmlsoap.org/claims | Omitted | Attribute | user.userprincipalname  |
 | upn | http\://schemas.xmlsoap.org/ws/2005/05/identity/claims | Omitted | Attribute | user.userprincipalname  |
-| emailaddress | http\://schemas.xmlsoap.org/ws/2005/05/identity | Omitted | Attribute | user.mail |
+| emailaddress | http\://schemas.xmlsoap.org/ws/2005/05/identity/claims | Omitted | Attribute | user.mail |
 | givenname | http\://schemas.xmlsoap.org/ws/2005/05/identity/claims | Omitted | Attribute| user.givenname |
 | surname | http\://schemas.xmlsoap.org/ws/2005/05/identity/claims | Omitted | Attribute | user.surname |
 | [urn:oid:2.16.840.1.113730.3.1.39]({{< ref "/technical/attributes/preferredlanguage.md" >}}) | *blank* | URI | Attribute | user.preferredlanguage |
