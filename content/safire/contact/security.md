@@ -26,7 +26,7 @@ All federation operations staff understand and will honour the [traffic light pr
 The South African NREN operates a sector CSIRT consisting of two parts: a proactive and a reactive component. These act as a unified team, but have different staffing and contact information.
 
 * [RFC2350 information](https://csirt.sanren.ac.za/rfc2350.html)
-* [Trusted Introducer listing](https://www.trusted-introducer.org/directory/teams/sa-nren-csirt.html)
+* [Trusted Introducer listing](https://www.trusted-introducer.org/trusted-introducer/directory/teams/sa-nren-csirt/)
 * [FIRST team information](https://www.first.org/members/teams/sa_nren_csirt)
 
 Note that for operational reasons, we cannot guarentee that all recipients of email to the general CSIRT contact email addresses will necessarily honour the traffic light protocol. In addition, use of cryptography may be variable. Contacts obtained via Trusted Introducer or FIRST will, however.
