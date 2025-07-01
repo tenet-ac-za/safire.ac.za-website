@@ -37,7 +37,7 @@ Service providers are encouraged to consider _pairwise-id_ as an alternative to 
 
 #### Caveat: urn:oasis:names:tc:SAML:profiles:subject-id:req requirements signalling
 
-While the above entity-category based profiles will trigger the release of _subject-id_ and _pairwise-id_ as specified, the federation does not currently support the [SAML V2.0 Subject Identifier Attributes Profile](https://docs.oasis-open.org/security/saml-subject-id-attr/v1.0/cs01/saml-subject-id-attr-v1.0-cs01.html)'s requirements signaling specification for other use cases. This is a large part of why such support must still be considered experimental: we only support the limited use case of the REFEDS entity categories, rather than the more general use case of these two attributes. It is hoped that support for such signalling will be added in future.
+While the above entity-category based profiles will trigger the release of _subject-id_ and _pairwise-id_ as specified, the federation does not currently support the [SAML V2.0 Subject Identifier Attributes Profile](https://docs.oasis-open.org/security/saml-subject-id-attr/v1.0/cs01/saml-subject-id-attr-v1.0-cs01.html)'s requirements signaling specification for other use cases. This is a large part of why such support must still be considered experimental: we only support the limited use case of the REFEDS entity categories, rather than the more general use case of these two attributes. It is hoped that [support for such signalling](https://github.com/simplesamlphp/simplesamlphp/issues/2479) will be added in future.
 
 ## Updates to the SAFIRE Test Service Provider
 
