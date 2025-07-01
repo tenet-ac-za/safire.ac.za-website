@@ -51,7 +51,7 @@ $config = [
                           /* optional attributes (send as many as you can) */
                           'eduPersonAffiliation', 'eduPersonAssurance', 'eduPersonEntitlement',
                           'eduPersonOrcid', 'eduPersonPrimaryAffiliation', 'preferredLanguage',
-                          'schacHomeOrganization',
+                          'schacHomeOrganization', 'subject-id', 'pairwise-id',
                         ],
                         /* SAFIRE federation hub handles consent/transfer notification */
                         'consent.disable' => true,
@@ -78,7 +78,7 @@ $config = [
                           /* optional attributes (send as many as you can) */
                           'eduPersonAffiliation', 'eduPersonAssurance', 'eduPersonEntitlement',
                           'eduPersonOrcid', 'eduPersonPrimaryAffiliation', 'preferredLanguage',
-                          'schacHomeOrganization',
+                          'schacHomeOrganization', 'subject-id', 'pairwise-id',
                         ],
                         /* SAFIRE federation hub handles consent/transfer notification */
                         'consent.disable' => true,

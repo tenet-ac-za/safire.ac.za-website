@@ -73,6 +73,37 @@ You need to map the UPN claim to a username-like user attribute that is scoped t
 
 eduPersonPrincipalName is perhaps the most important attribute you release, and it is up to you to determine which attribute in your Microsoft Entra ID best meets the required definition. See our [notes on generating eduPersonPrincipalName]({{< ref "generating-edupersonprincipalname.md" >}}) for more detail.
 
+### subject-id
+
+To generate a SAML general purpose subject identifier ([subject-id]({{< ref "/technical/attributes/subject-id.md" >}})), you need a transformation claim that takes your directory objectID as the unique, non-reassignable local part and then adds your scope. You should *Add new claim* to create the following additional claim:
+
+| *Claim Name* | *Namespace* | *Name format* | *Source* |
+|---|---|---|---|
+| [urn:oasis:names:tc:SAML:attribute:subject-id]({{< ref "/technical/attributes/subject-id.md" >}}) | *blank* | URI | Transformation |
+
+You should configure your transformation rule as follows:
+| **Transformation** | RegexReplace() |
+|-|-|
+| **Parameter 1**    | Attribute |
+| **Attribute name** | user.userprincipalname |
+| **Regex pattern**  | `^.+@(?<scope>[a-zA-Z0-9][a-zA-Z0-9.-]{0,126})$` |
+| Add additional **Parameter (Input)** | user.objectid |
+| **Replacement pattern** | `{objectid}@{scope}` |
+
+Then click the *Add tranformation* button to add an additional transformation:
+| **Transformation** | ToLowercase() |
+|-|-|
+| **Parameter 1**    | Output from previous transformation |
+
+And finally click *Add* to save it.
+
+This uses the userprincipalname to determine the scope portion of the subject-id and then prepends the user object's ID. In Entra's transformation pseudocode the resultant transformation should look like:
+```lang-none
+If 'Parameter 1 (Regex input)' matches the '^.+@(?<scope>[a-zA-Z0-9][a-zA-Z0-9.-]{0,126})$' regex pattern
+then replace the captured regex output group(s) and user.objectid input parameter value(s) into the '{objectid}@{scope}' replacement pattern.
+Then apply next transformation.
+```
+
 ### eduPersonScopedAffiliation
 
 [eduPersonScopedAffiliation]({{< ref "/technical/attributes/edupersonscopedaffiliation.md" >}}) provides a controlled vocabulary for asserting a users role in the institution. You will need to use what user attributes you have in your Microsoft Entra ID to create a *transform* rule to assert a users role at your institution correctly. Remember that eduPersonScopedAffiliation is a multi-valued attribute with a controlled vocabulary and, importantly, where an the [vocabulary definition]({{< ref "/technical/attributes/edupersonaffiliation.md" >}}) says "implies…" the implied values must also be included in the returned set.

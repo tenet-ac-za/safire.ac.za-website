@@ -304,4 +304,18 @@ Another scenario is to use the group information we extracted in [step 7]({{< re
 
 (The above looks if the user is a member of the staff group (in DN format) in the `groups` attribute, and if so, will assert an eduPersonAffiliation attribute.)
 
+For the specific case of the SAML general purpose subject identifier ([subject-id]({{< ref "/technical/attributes/subject-id.md" >}})), you can either [take the approach documented for EntraID]({{< ref "configuring-azure-ad-for-safire.md#subject-id" >}}) or you can use SimpleSAMLphp's [saml:SubjectID authproc filter](https://simplesamlphp.org/docs/stable/saml/authproc_subjectid.html) to transform the default objectID claim:
+
+```php
+'authproc' => [
+    /* ... */
+    20 => [
+        'class' => 'saml:SubjectID',
+        'identifyingAttribute' => 'http://schemas.microsoft.com/identity/claims/objectidentifier',
+        'scopeAttribute' => 'eduPersonPrincipalName',
+    ],```
+    /* ... */
+],
+```
+
 For more information, refer to SimpleSAMLphp's documentation and our [guide to configuring SimpleSAMLphp]({{< ref "configuring-simplesamlphp-for-safire.md" >}}).

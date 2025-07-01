@@ -80,4 +80,24 @@ $metadata['https://idp.example.ac.za/simplesaml/module.php/saml/idp/metadata'] =
             ],
         ],
     ],
+
+    'authproc' => [
+        /*
+         * here you can manipulate the attributes you got from your authsource
+         * before sending them to the federation/other services. You use
+         * authentication processing filters as described at
+         * https://simplesamlphp.org/docs/stable/simplesamlphp-authproc.html
+         */
+        // to generate a SAML subject-id
+        /*
+        20 => [
+            'class' => 'saml:SubjectID',
+            'identifyingAttribute' => 'objectID', // some unique, non-assignable attribute
+            'scopeAttribute' => 'eduPersonPrincipalName',
+        ],
+        */
+        100 => ['class' => 'core:AttributeMap', 'name2oid',],
+        /* subject identifier - separated to ensure it only ever processes aftere name2oid */
+        101 => ['class' => 'core:AttributeMap', 'name2urn',],
+    ],
 ];
