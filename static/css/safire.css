@@ -28,10 +28,12 @@ dd { padding-left: 1em; }
 #participantList dt:after { content: ":"; padding-right: 0.5em; }
 #participantList dd { margin: 0 0 0 10em; padding: 0 0 0.5em 0; }
 #participantList dl.participantTechnical { font-size: 80%; }
-#participantList dd.emailAddress ul.stringOrArrayList { margin: 0; list-style: none; padding-left: 0; }
+#participantList dd.emailAddress ul.stringOrArrayList:has(li::only-child()) { margin: 0; list-style: none; padding-left: 0; }
+/*
 #participantList dl.participantTechnical ul.stringOrArrayList { display: inline; margin: 0; padding: 0; list-style: none; }
 #participantList dl.participantTechnical ul.stringOrArrayList li { display: inline; padding-right: 0.3em; }
 #participantList dl.participantTechnical ul.stringOrArrayList li + li:before { content: "\25fe"; padding-right: 0.3em; }
+*/
 #participantList dd button { margin: 0 1px 2px; }
 
 .attributedescription ul.referencelist li, .attributedescription ul.referencelist { display: inline-block; padding:0; margin:0; }
