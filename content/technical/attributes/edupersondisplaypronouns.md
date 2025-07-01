@@ -26,4 +26,4 @@ url: /technical/attributes/edupersondisplaypronouns/
 
 Text representing the word(s) a person prefers as their personal pronoun(s).
 
-_Note: While this attribute is supported by SAFIRE's infrastructure, it is not included in the list of [officially supported attributes]({{< relref "_index.md" >}}). Participants wishing to make use of it are invited to [discuss their use-cases with us](https://lists.tenet.ac.za/sympa/info/safire-discuss)._
+_Note: While this attribute is supported by SAFIRE's infrastructure, it is not included in the list of [officially supported attributes]({{< relref "_index.md" >}})._
