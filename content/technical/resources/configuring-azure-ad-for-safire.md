@@ -104,6 +104,9 @@ then replace the captured regex output group(s) and user.objectid input paramete
 Then apply next transformation.
 ```
 
+If for some reason you don't have a valid attribute you can extract a scope from (unlikely), please speak to us about enabling the "subjectid" quirk for your identity provider. This will cause the Federation hub to generate subject-id on your behalf (which is not ideal, as pairwise-id may not be generated unless you do this yourself).
+{.message-box}
+
 ### eduPersonScopedAffiliation
 
 [eduPersonScopedAffiliation]({{< ref "/technical/attributes/edupersonscopedaffiliation.md" >}}) provides a controlled vocabulary for asserting a users role in the institution. You will need to use what user attributes you have in your Microsoft Entra ID to create a *transform* rule to assert a users role at your institution correctly. Remember that eduPersonScopedAffiliation is a multi-valued attribute with a controlled vocabulary and, importantly, where an the [vocabulary definition]({{< ref "/technical/attributes/edupersonaffiliation.md" >}}) says "implies…" the implied values must also be included in the returned set.
@@ -181,6 +184,8 @@ In order to meet the requirements of SAFIRE's [metadata registration practice st
 ## Multi-factor authentication
 
 Entra ID has built-in support for multi-factor authentication. To enable signalling of support multi-factor authentication for your users, you will need to explicitly confirm that the authentication methods you've enabled are compatible with academic federation. See [authnmethodsreferences]({{< ref "/technical/attributes/authnmethodsreferences.md" >}}) for details.
+
+If you'd like to do this, please ask us to enable the "multiauthn" quirk for your identity provider.
 
 # Improving generated metadata
 
