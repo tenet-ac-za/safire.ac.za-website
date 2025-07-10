@@ -1,5 +1,5 @@
 ---
-date: 2023-08-18 17:00:00+02:00
+date: 2025-07-10 13:00:00+02:00
 menu:
   main:
     identifier: technical-saml2-sirtfi
@@ -12,7 +12,7 @@ url: /technical/saml2/sirtfi/
 
 The [Security Incident Response Trust Framework for Federated Identity](https://refeds.org/sirtfi) (Sirtfi) aims to enable the coordination of incident response across federated organisations. The framework provides a structured way for providers to indicate that they follow current information security best practices, thus raising their level of assurance and improving trust within the federated community.
 
-It is **strongly recommended** that SAFIRE participants work towards Sirtfi compliance, and inclusion of a security contact is [required for identity providers]({{< ref "../idp-requirements/_index.md" >}}). In particular, identity providers need to be aware that a growing number of widely-used service providers --- such a CILogin --- require that identity providers are Sirtfi compliant before they will grant their users access to services.
+It is **strongly recommended** that all SAFIRE participants work towards Sirtfi compliance, and this has been [required for new identity providers]({{< ref "../idp-requirements/_index.md" >}}) since [September 2025]({{< ref "/safire/news/20250901-baseline-changes.md" >}}).
 
 ### Attesting Sirtfi compliance
 
@@ -26,7 +26,11 @@ A suitably redacted copy of this statement will be published as part of your ent
 
 #### Sirtfi v1.0 vs v2.0
 
-There are two revisions of the Sirtfi framework, both of which coexist and remain valid. Since v2.0 introduces an additional assertion ([IR3]), you must explicitly specify which of the two versions you're attesting to. New entites are encouraged to adopt v2.0. More details are available on the [REFED Sirtfi page](https://refeds.org/sirtfi).
+There are currently two versions of the Sirtfi framework. Both coexist and remain valid.
+
+However, since **1 September 2025**, SAFIRE no longer accepts new attestations for v1 alone. All new entities must adopt v2 of the framework. Existing v1 attestations remain valid, provided the entity remains compliant and completes the required annual review.
+
+More information is available on the [REFEDS Sirtfi page](https://refeds.org/sirtfi).
 
 #### Annual review
 
