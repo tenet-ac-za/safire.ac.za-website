@@ -16,13 +16,10 @@ attributeReferences:
   - Name: SAML V2.0 Subject Identifier Attributes Profile Version 1.0
     URL: https://docs.oasis-open.org/security/saml-subject-id-attr/v1.0/cs01/saml-subject-id-attr-v1.0-cs01.html
 layout: attributelist
-date: 2025-06-30 09:30:00+02:00
+date: 2025-07-10 13:00:00+02:00
 slug: pairwise-id
 title: pairwise-id
 url: /technical/attributes/pairwise-id/
 ---
 
 The Pairwise Subject Identifier is a long-lived, non-reassignable, uni-directional identifier suitable for use as a unique external person identifier (key). Its value for a given subject depends upon the relying party to whom it is given, thus preventing unrelated systems from using it as a basis for correlation.
-
-_Note: While this attribute is supported by SAFIRE's infrastructure, it is not yet included in the list of [officially supported attributes]({{< relref "_index.md" >}})._
-

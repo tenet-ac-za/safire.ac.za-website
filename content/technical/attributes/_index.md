@@ -1,5 +1,5 @@
 ---
-date: 2021-03-31 08:00:00+02:00
+date: 2025-07-10 13:00:00+02:00
 menu:
   main:
     identifier: technical-attributes
@@ -21,24 +21,27 @@ The following is a summary of the (SAML2) attributes supported by SAFIRE.
   * [givenName]({{< ref "/technical/attributes/givenname.md" >}}) [^rns]
   * [mail]({{< ref "/technical/attributes/mail.md" >}}) [^rns]
   * [sn]({{< ref "/technical/attributes/sn.md" >}}) [^rns]
+  * [subject-id]({{< ref "/technical/attributes/subject-id.md" >}}) (General Purpose Subject Identifier) [^subjectid] [^refedsattr]
 
 # Optional attributes
 
   * [eduPersonAffiliation]({{< ref "/technical/attributes/edupersonaffiliation.md" >}})
-  * _[eduPersonAssurance]({{< ref "/technical/attributes/edupersonassurance.md" >}})_ [^trial] [^refedsattr]
-  * _[eduPersonDisplayPronouns]({{< ref "/technical/attributes/edupersondisplaypronouns.md" >}})_ [^trial]
+  * [eduPersonAssurance]({{< ref "/technical/attributes/edupersonassurance.md" >}}) [^refedsattr]
+  * [eduPersonDisplayPronouns]({{< ref "/technical/attributes/edupersondisplaypronouns.md" >}})
   * [eduPersonEntitlement]({{< ref "/technical/attributes/edupersonentitlement.md" >}}) [^supplied]
   * [eduPersonOrcid]({{< ref "/technical/attributes/edupersonorcid.md" >}})
   * [eduPersonPrimaryAffiliation]({{< ref "/technical/attributes/edupersonprimaryaffiliation.md" >}})
   * [preferredLanguage]({{< ref "/technical/attributes/preferredlanguage.md" >}})
   * [schacHomeOrganization]({{< ref "/technical/attributes/schachomeorganization.md" >}}) [^supplied]
-  * _[subject-id]({{< ref "/technical/attributes/subject-id.md" >}})_ (General Purpose Subject Identifier) [^trial] [^refedsattr]
+
 
 # SAFIRE supplied attributes
 
   * [eduPersonTargetedID]({{< ref "/technical/attributes/edupersontargetedid.md" >}}) [^rns] [^depricated]
-  * _[pairwise-id]({{< ref "/technical/attributes/pairwise-id.md" >}})_ (Pairwise Subject Identifier) [^trial]
+  * [pairwise-id]({{< ref "/technical/attributes/pairwise-id.md" >}}) (Pairwise Subject Identifier)
   * [schacHomeOrganizationType]({{< ref "/technical/attributes/schachomeorganizationtype.md" >}})
+
+[^subjectid]: `subject-id` is [mandatory for new identity providers that were added after 1 September 2025]({{< ref "/safire/news/20250901-baseline-changes.md" >}}). It is an optional (but recommended attribute) for all other identity providers.
 
 [^rns]: Required for Research & Scholarship entity category.
 

@@ -14,12 +14,10 @@ attributeReferences:
   - Name: SAML V2.0 Subject Identifier Attributes Profile Version 1.0
     URL: https://docs.oasis-open.org/security/saml-subject-id-attr/v1.0/cs01/saml-subject-id-attr-v1.0-cs01.html
 layout: attributelist
-date: 2025-06-30 09:30:00+02:00
+date: 2025-07-10 13:00:00+02:00
 slug: subject-id
 title: subject-id
 url: /technical/attributes/subject-id/
 ---
 
 The General Purpose Subject Identifier is a long-lived, non-reassignable, omni-directional identifier suitable for use as a globally-unique external person identifier (key). Its value for a given subject is independent of the relying party to whom it is given.
-
-_Note: While this attribute is supported by SAFIRE's infrastructure, it is not yet included in the list of [officially supported attributes]({{< relref "_index.md" >}})._
