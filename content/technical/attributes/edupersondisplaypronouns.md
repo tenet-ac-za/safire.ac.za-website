@@ -17,7 +17,7 @@ attributeNotes: |2
 
   See the [REFEDS guidence](https://wiki.refeds.org/display/STAN/eduPersonDisplayPronouns)
   for more information.
-date: 2024-02-05 14:04:00+02:00
+date: 2025-07-10 13:00:00+02:00
 layout: attributelist
 slug: eduPersonDisplayPronouns
 title: eduPersonDisplayPronouns
@@ -25,5 +25,3 @@ url: /technical/attributes/edupersondisplaypronouns/
 ---
 
 Text representing the word(s) a person prefers as their personal pronoun(s).
-
-_Note: While this attribute is supported by SAFIRE's infrastructure, it is not included in the list of [officially supported attributes]({{< relref "_index.md" >}})._
