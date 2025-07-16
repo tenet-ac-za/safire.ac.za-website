@@ -142,7 +142,7 @@ If you do not have a single attribute to use as in the above examples and you di
 Alternatively you can use the [suffixed version of the `scopedAffiliationSingleton` claim]({{< ref "/namespace/claims.md" >}}) to specify individual values as separate claims. This can be coupled with *Claim conditions* as a much more powerful way of expressing nuanced affiliation.
 
 | *Claim Name* | *Namespace* | *Name format* | *Source* | *Source attribute* |
-|---|---|---|---|
+|---|---|---|---|---|
 | scopedAffiliationSingleton/01 | https\://safire.ac.za/namespace/claims | Omitted | Attribute (constant) | `member` |
 | scopedAffiliationSingleton/02 | https\://safire.ac.za/namespace/claims | Omitted | Attribute (constant) | `staff` |
 | scopedAffiliationSingleton/03 | https\://safire.ac.za/namespace/claims | Omitted | Attribute (constant) | `student` |
