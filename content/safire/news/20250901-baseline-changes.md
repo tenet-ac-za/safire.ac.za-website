@@ -45,7 +45,7 @@ A future baseline change in SAFIRE is likely to make both `subject-id` and `eduP
 
 The [2021 baseline]({{< ref "20210331-baseline-changes.md" >}}) required identity providers to include a `<md:ContactPerson>` element aligned with the [REFEDS Security Contact Metadata Extension](https://refeds.org/metadata/contactType/security). While adoption of the full [Sirtfi framework](http://refeds.org/sirtfi) was encouraged, it was not required.
 
-From **1 September 2025**, all *new* identity providers must complete a self-assessment and be in a position [**to attest their compliance**]({{< ref "/technical/saml2/sirtfi.md" >}}) with Sirtfi framework as a [condition for participation]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}).
+From **1 September 2025**, all *new* identity providers must complete a self-assessment and be in a position [**to attest their compliance**]({{< ref "/technical/saml2/sirtfi/_index.md" >}}) with Sirtfi framework as a [condition for participation]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}).
 
 Existing identity providers will be expected either to complete a self-assessment enabling them to attest Sirtfi compliance, or to submit written reasons explaining why they are currently unable to do so. For those who have not yet attested, the following grace period applies:
 
@@ -53,7 +53,7 @@ Existing identity providers will be expected either to complete a self-assessmen
 
 - **1 April 2026**: Providers that remain non-compliant will be considered in breach of §6 of the [Participation Agreement]({{< ref "/safire/policy/participation/_index.md" >}}) and may be suspended from the Federation.
 
-- Where written reasons are accepted, these will [be published]({{< ref "/technical/saml2/sirtfi.md" >}}) in lieu of a self-attestation of compliance. Acceptance of such reasons will defer enforcement of the above requirements for a maximum of one year.
+- Where written reasons are accepted, these will [be published]({{< ref "/technical/saml2/sirtfi/_index.md" >}}) in lieu of a self-attestation of compliance. Acceptance of such reasons will defer enforcement of the above requirements for a maximum of one year.
 
 > This change links to additional requirements explained in the section on [security vulnerabilities and outdated software](#security-vulnerabilities-and-outdated-software).
 {.message-box}
@@ -68,7 +68,7 @@ From **1 September 2025**, this becomes **mandatory** for all new service provid
 
 Existing service providers have until **1 November 2025** to update their metadata accordingly.
 
-As with identity providers, inclusion of a security contact is a prerequisite for adopting the full [Sirtfi incident response framework]({{< ref "/technical/saml2/sirtfi.md" >}}), which is strongly recommended.
+As with identity providers, inclusion of a security contact is a prerequisite for adopting the full [Sirtfi incident response framework]({{< ref "/technical/saml2/sirtfi/_index.md" >}}), which is strongly recommended.
 
 ## Changes affecting all Participants
 
@@ -94,7 +94,7 @@ The timeline for enforcement is as follows:
 
 ### Sirtfi v2
 
-Effective immediately, all new [Sirtfi attestations]({{< ref "/technical/saml2/sirtfi.md" >}}) must conform to **version 2** of the Sirtfi framework. Attestations only to version 1 are no longer accepted.
+Effective immediately, all new [Sirtfi attestations]({{< ref "/technical/saml2/sirtfi/_index.md" >}}) must conform to **version 2** of the Sirtfi framework. Attestations only to version 1 are no longer accepted.
 
 Existing v1 attestations remain valid, provided that:
 
@@ -110,7 +110,7 @@ However, we recommend that all entities migrate to [Sirtfi v2](https://refeds.or
 
 When an identity or service provider requests the publication of one or more well-known entity categories (such as those defined by [REFEDS specifications](https://refeds.org/specifications)) in their metadata, they are asking the Federation to attest that they meet the eligibility requirements for those categories. Other entities, in turn, rely on SAFIRE's assertion as evidence that appropriate due diligence has been carried out.
 
-SAFIRE already has processes in place for some entity categories, such as [Sirtfi v2]({{< ref "/technical/saml2/sirtfi.md" >}}). However, in line with the broader focus on the trustworthiness of metadata and attributes, Federation Participants should expect these processes to be refined and updated — both when an entity category is first requested, and through periodic reviews. The Federation website will always carry up-to-date information on these processes, and any substantive changes that need to be applied retrospectively will be published in advance.
+SAFIRE already has processes in place for some entity categories, such as [Sirtfi v2]({{< ref "/technical/saml2/sirtfi/_index.md" >}}). However, in line with the broader focus on the trustworthiness of metadata and attributes, Federation Participants should expect these processes to be refined and updated — both when an entity category is first requested, and through periodic reviews. The Federation website will always carry up-to-date information on these processes, and any substantive changes that need to be applied retrospectively will be published in advance.
 
 As an example of how these processes might evolve, the annual security contact challenge has already been updated to ask identity providers to confirm their current software versions. This was first implemented in July, and speaks directly to the section on [security vulnerabilities and outdated software](#security-vulnerabilities-and-outdated-software) above, as well as the [new requirement for Sirtfi](#sirtfi-framework-mandatory). It forms part of a revised process for attesting compliance with the Sirtfi framework.
 
