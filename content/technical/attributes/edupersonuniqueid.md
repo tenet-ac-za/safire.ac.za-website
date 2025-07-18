@@ -5,7 +5,7 @@ attributeFormat: |2
 
   The uniqueID portion MUST be unique within the context of the issuing identity system and MUST contain only alphanumeric characters (a-z, A-Z, 0-9). The length of the uniqueID portion MUST be less than or equal to 64 characters and consist only of alphanumeric characters.
 
-  The scope portion must exactly match one of the `<shibmd:Scope>` elements in the [identity provider's metadata](/technical/saml2/idp-requirements/).
+  The scope portion must exactly match one of the `<shibmd:Scope>` elements in the [identity provider's metadata](/technical/saml2/idp-requirements/). Note that scopes are **case sensitive**.
 attributeOid: urn:oid:1.3.6.1.4.1.5923.1.1.1.13
 attributeReferences:
   - Name: eduPerson

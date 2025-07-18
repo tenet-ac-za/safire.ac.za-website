@@ -4,7 +4,7 @@ attributeExample: |2
 attributeFormat: |2
   Single valued, scoped, case-insensitive. The syntax is per section 3.3 of the SAML V2.0 Subject Identifier Attributes Profile.
 
-  The scope portion must match one of the `<shibmd:Scope>` elements in the [identity provider's metadata](/technical/saml2/idp-requirements/).
+  The scope portion must match one of the `<shibmd:Scope>` elements in the [identity provider's metadata](/technical/saml2/idp-requirements/). Note that scopes are **case sensitive**.
 attributeNotes: |2
   The _subject-id_ consists of two parts in the form `uniqueID@scope`. The uniqueID is a pseudonymous identifier for the subject at their home organisation, and the scope identifies the home organisation of the subject. The maximum combined length, including the "@" separator, is 255 characters.
 
