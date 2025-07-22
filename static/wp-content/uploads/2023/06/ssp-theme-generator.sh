@@ -242,7 +242,7 @@ if test -e "${THEMEBASE}" -a ${FORCE:=0} -ne 1 ; then
     exit 1
 else
     test $VERBOSE -ge 1 && echo "+ making directory structure" >&2
-    mkdir -p "${THEMEBASE}" "${THEMEBASE}/public/assets/css" "${THEMEBASE}/public/assets/icons" "${THEMEBASE}/themes/${THEME}/default" || exit 1
+    mkdir -p "${THEMEBASE}" "${THEMEBASE}/public/assets/css" "${THEMEBASE}/public/assets/icons" "${THEMEBASE}/themes/${THEME}/default" "${THEMEBASE}/locales/en/LC_MESSAGES" || exit 1
 fi
 
 #
@@ -463,6 +463,22 @@ $(basename $0) ${@@Q}
 \`\`\`
 
 " > "${THEMEBASE}/README.md"
+
+#
+# Add a translation stub to suppress warnings
+#
+echo "msgid \"\"
+msgstr \"\"
+\"Content-Transfer-Encoding: 8bit\\n\"
+\"Content-Type: text/plain; charset=UTF-8\\n\"
+\"Language: en\\n\"
+\"MIME-Version: 1.0\\n\"
+\"Project-Id-Version: SimpleSAMLphp\\n\"
+\"X-Domain: ${THEME}\\n\"
+
+msgid \"${NAME}\"
+msgstr \"${NAME}\"
+" > "${THEMEBASE}/locales/en/LC_MESSAGES/${THEME}.po"
 
 # enable our theme in the stock config
 if test '!' -f config/config.php ; then
