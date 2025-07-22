@@ -13,6 +13,9 @@ url: /technical/resources/
 
 This page contains links to more information and technical resources. It will be expanded as time passes, and stuff here may change significantly. The idea is to provide a starting point for people looking to implement an identity or service provider connected to SAFIRE.
 
+> Apart from the [SAFIRE-specific stuff]({{ ref "#safire-specific-stuff" }}) at the bottom, we make no guarentees of accuracy, relevance, or continued availability of the resources listed here.
+{.message-box}
+
 # Introduction to Federation
 
   * The NSRC & GÉANT have produced an excellent series of videos giving a broad introductory overview of federation topics, which are available at [https://learn.nsrc.org/FedIdM](https://learn.nsrc.org/FedIdM).
@@ -30,7 +33,6 @@ This page contains links to more information and technical resources. It will be
   * [IdP Installer](https://github.com/idp-installer-manager/idp-installer-global) - Federated identity Appliance developed by [CANARIE](https://www.canarie.ca/identity/) (CA) /[SWAMID](http://www.swamid.se/) (SE).
   * [Step-by-step IdP installation](https://tuakiri.ac.nz/confluence/display/Tuakiri/Installing+a+Shibboleth+3.x+IdP) - written by Tuakiri (NZ), but many of the principles follow through.
   * [TestShib](http://www.testshib.org/) - Test service provider.
-  * [SAMLtest.id](https://samltest.id/) - test your IdP & SP
   * [University multilateral federation solutions for Entra ID](https://learn.microsoft.com/en-us/entra/architecture/multilateral-federation-introduction) - Microsoft documentation on interporating Entra ID with R&E federations.
 
 # Service Provider deployment
