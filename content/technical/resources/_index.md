@@ -13,7 +13,7 @@ url: /technical/resources/
 
 This page contains links to more information and technical resources. It will be expanded as time passes, and stuff here may change significantly. The idea is to provide a starting point for people looking to implement an identity or service provider connected to SAFIRE.
 
-> Apart from the [SAFIRE-specific stuff]({{ ref "#safire-specific-stuff" }}) at the bottom, we make no guarentees of accuracy, relevance, or continued availability of the resources listed here.
+> Apart from the [SAFIRE-specific stuff]({{< ref "#safire-specific-stuff" >}}) at the bottom, we make no guarentees of accuracy, relevance, or continued availability of the resources listed here.
 {.message-box}
 
 # Introduction to Federation
