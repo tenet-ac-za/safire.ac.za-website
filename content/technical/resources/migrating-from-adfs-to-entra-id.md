@@ -63,6 +63,14 @@ If your business logic is too complex for Entra ID's native claims, or if it dep
 > Note: If SAFIRE provides a SaaS proxy in future, it will not support custom business logic.
 {.message-box .warning}
 
+## subject-id changes
+
+If you have used the [`objectGUID`](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-ada3/937eb5c6-f6b3-4652-a276-5d6bb8979658) directory attribute as a source attribute for generating the scoped SAML [`subject-id`]({{< ref "/technical/attributes/subject-id.md" >}}) attribute, you should be aware that `objectGUID` is **not** the same attribute as the EntraID `user.objectidentifer` attribute (available as the `http://schemas.microsoft.com/identity/claims/objectidentifier` claim).
+
+The original on-prem `objectGUID` is [usually available](https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/plan-connect-design-concepts#sourceanchor) as `user.onpremisesimmutableid`, albeit as a base64 encoded binary representation of the GUID. That means it is *in theory* possible to preserve a `subject-id` generated from an on-prem `objectGUID`. However, we're not aware of a claim transformation that will let you convert the base64 representation to the same string representation you may be using in AD FS.
+
+For this reason, and given that `subject-id` was [introduced as a supported attribute]({{< ref "/safire/news/20250901-baseline-changes.md" >}}) long after the deprecation of AD FS, we would **strongly recommend** deferring the introduction of `subject-id` until after your Entra ID migration.
+
 ## No automated metadata refresh
 
 Entra ID currently does not support dynamically refreshing remote metadata from a URL. This means there's no way to automatically track or incorporate updates to SAFIRE's metadata. While this would be a significant problem for service providers, in practice, metadata changes that affect identity providers are infrequent.
