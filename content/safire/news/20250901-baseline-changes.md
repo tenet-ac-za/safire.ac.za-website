@@ -1,5 +1,5 @@
 ---
-date: 2025-07-10 08:00:00+02:00
+date: 2025-08-06 08:00:00+02:00
 slug: 20250901-baseline-changes
 tags:
   - idp-requirements
@@ -9,12 +9,7 @@ tags:
   - popia
   - baseline
 title: SAFIRE baseline changes 2025
-draft: true
-build:
-  list: never
 ---
-
-> Note: This draft has been published for consultation. The final version is expected to be published at this same location on 1 August 2025.
 
 Following a period of consultation, and effective from **1 September 2025**, SAFIRE has made several changes to its [identity provider]({{< ref "/technical/saml2/idp-requirements/_index.md" >}}) & [service provider]({{< ref "/technical/saml2/sp-requirements/_index.md" >}}) requirements, as well as its [metadata registration practice statement]({{< ref "/safire/policy/mrps/_index.md" >}}).<!--more-->
 
@@ -53,10 +48,12 @@ Existing identity providers will be expected either to complete a self-assessmen
 
 - **1 April 2026**: Providers that remain non-compliant will be considered in breach of §6 of the [Participation Agreement]({{< ref "/safire/policy/participation/_index.md" >}}) and may be suspended from the Federation.
 
-- Where written reasons are accepted, these will [be published]({{< ref "/technical/saml2/sirtfi/_index.md" >}}) in lieu of a self-attestation of compliance. Acceptance of such reasons will defer enforcement of the above requirements for a maximum of one year.
+- Written reasons may be accepted at the discretion of the Federation Operator, taking into account the specific areas of non-compliance and any constraints faced by the entity. Where accepted, a summary of these reasons may [be published]({{< ref "/technical/saml2/sirtfi/_index.md" >}}) in place of a formal self-attestation of compliance. Acceptance will defer enforcement of the relevant requirements for a period of up to one year, after which they will be subject to reevaluation.
 
 > This change links to additional requirements explained in the section on [security vulnerabilities and outdated software](#security-vulnerabilities-and-outdated-software).
 {.message-box}
+
+For the avoidance of doubt, identity providers that submit written reasons will not have Sirtfi compliance asserted in their metadata until such time as they are able to self-attest. All other requirements remain unchanged.
 
 ## Changes affecting service providers
 
@@ -66,7 +63,7 @@ Since 2021, service providers have been encouraged to include a `<md:ContactPers
 
 From **1 September 2025**, this becomes **mandatory** for all new service providers.
 
-Existing service providers have until **1 November 2025** to update their metadata accordingly.
+Existing service providers have until **1 June 2026** to update their metadata accordingly.
 
 As with identity providers, inclusion of a security contact is a prerequisite for adopting the full [Sirtfi incident response framework]({{< ref "/technical/saml2/sirtfi/_index.md" >}}), which is strongly recommended.
 

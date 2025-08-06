@@ -1,5 +1,5 @@
 ---
-date: 2025-07-10 13:00:00+02:00
+date: 2025-08-06 13:00:00+02:00
 menu:
   main:
     identifier: technical-saml2-sirtfi
