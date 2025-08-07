@@ -1,5 +1,5 @@
 ---
-date: 2025-02-26 12:44:15+02:00
+date: 2025-08-07 09:22:00+02:00
 slug: configuring-simplesamlphp-to-use-entra-id
 tags:
   - azure
@@ -17,7 +17,7 @@ This documentation will guide you through the Microsoft Entra ID (Azure AD) conf
 
 While SAFIRE can directly work with Entra ID or SimpleSAMLphp (as explained in our [Configuring Entra ID SAML-based SSO for SAFIRE]({{< ref "/technical/resources/configuring-azure-ad-for-safire.md" >}}) and [Configuring SimpleSAMLphp for SAFIRE]({{< ref "/technical/resources/configuring-simplesamlphp-for-safire.md" >}}) documentation), you may find yourself in a situation where this approach better fits your use case.
 
-Below, you'll find an example demonstrating how to configure SimpleSAMLphp to use the attributes received from Entra ID to search for and assert additional attributes for a user from an LDAP source of an on-prem Active Directory. Naturally, this concept can be ported to other LDAP sources.
+Below, you'll also find an example demonstrating how to configure SimpleSAMLphp to use the attributes received from Entra ID to search for and assert additional attributes for a user from an LDAP source of an on-prem Active Directory. Naturally, this concept can be ported to other data sources.
 
 > This documentation assumes you already have an Entra ID tenant correctly configured and provisioned with your institution's user accounts. Further, SimpleSAMLphp has good documentation, so this is not a complete/worked example of how to configure it. Instead, this provides the specific snippets you may need when working through SimpleSAMLphp's documentation. Thus, this document also assumes you have SimpleSAMLphp installed and reachable with the basics configured.
 {.message-box}
@@ -30,8 +30,9 @@ To configure SimpleSAMLphp to use your Entra ID IdP as an Authentication Source,
  4. Set up single sign-on
  5. Configure Attribute claims rules.
  6. Configure SimpleSAMLphp to use the Entra ID IdP as an authentication source.
- 7. Add attributes from another source (in this case, LDAP)
- 8. Configure SimpleSAMLphp internal SP to test
+ 7. [Optional] Add attributes from another source (in this case, LDAP)
+ 8. Other attribute manipulations
+ 9. Testing
 
 To start, consider the following diagram on establishing a bilateral trust relationship between Entra ID and SimpleSAMLphp:
 
@@ -42,65 +43,97 @@ To start, consider the following diagram on establishing a bilateral trust relat
     id="figure_1_1"
 >}}
 
-
 > Entra ID mandates metadata in XML format, while SimpleSAMLphp necessitates metadata to be converted into PHP (See SimpleSAMLphp's metadata converter).
 {.message-box}
 
 # 1. Configure a SimpleSAMLphp SAML 2.0 Service Provider
 
-To set up SimpleSAMLphp's Service Provider, configure a new Authentication Source in the authsources config file.
+To set up SimpleSAMLphp's Service Provider, configure a new Authentication Source in _config/authsources.php_.
 
 Here's an example of a minimal configuration to publish SAML 2.0 SP metadata:
 
 ```php
-// An authentication source that can authenticate against SAML 2.0 IdPs.
-'default-sp' => [
-    'saml:SP',
-    // The entity ID of this SP.
-    'entityID' => 'https://myapp.example.org/',
-    //certificates
-    'privatekey' => 'server.key',
-    'privatekey_pass' => 'YourPrivateKeyPassphrase',
-    'certificate' => 'server.crt',
+$config = [
+    /* ... */
+
+    /* An authentication source that can authenticate against SAML 2.0 IdPs. */
+    'entraid-sp' => [
+        'saml:SP',
+
+        // The entity ID of this SP.
+        'entityID' => 'https://myapp.example.org/',
+
+        // The entity ID of the IdP this SP should contact.
+        'idp' => 'https://sts.windows.net/<your-entra-tenant-id>/'
+        'name' => ['en' => 'Microsoft Entra ID'],
+
+        // certificates
+        'certificate' => 'server.crt',
+        'privatekey' => 'server.key',
+        'privatekey_pass' => 'YourPrivateKeyPassphrase', /* you encrypt your private key, right? */
+
+        'authproc' => [
+            /* authproc rules from steps 7 & 8 */
+        ],
+
+        // fine tuning the auth source for Entra ID
+        'sign.authnrequest' => true,
+        'sign.logout' => true,
+        'proxymode.passAuthnContextClassRef' => true,
+        'disable_scoping' => true,
+        'signature.algorithm' => 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256',
     ],
+],
 ```
 
 The above will publish an elementary set of SAML 2.0 SP metadata values at the Federation tab of your SimpleSAMLphp webpage.
-
-> To produce more complete SAML 2.0 SP metadata, you should also consider configuring the [MDUI options](https://simplesamlphp.org/docs/stable/simplesamlphp-metadata-extensions-ui).
-{.message-box}
 
 # 2. Configure SimpleSAMLphp SAML 2.0 Identity Provider
 
 Setting up the IdP side of SimpleSAMLphp will essentially be ‘*killing two birds with one stone'*. On the one hand, it will allow you to test the Authentication Processing Filters we will set up later in this document. On the other hand, setting this up will be useful so you can get your IdP Federation ready.
 
-To set up the IdP, you need to edit the _saml20-idp-hosted.php_ file. We will use and slightly edit the default IdP configuration standard in the _saml20-idp-hosted.php.dist_ file for this documentation.
+To set up the IdP, you need to edit the _metadata/saml20-idp-hosted.php_ file. We will use and slightly edit the default IdP configuration standard in the _metadata/saml20-idp-hosted.php.dist_ file for this documentation.
 
 ```php
 $metadata['http://idp.example.ac.za/'] = [
-    //The hostname of the server (VHOST) that will use this SAML entity.
-    //Can be '__DEFAULT__', to use this entry by default.
+    /*
+     * The hostname of the server (VHOST) that will use this SAML entity.
+     *
+     * Can be '__DEFAULT__', to use this entry by default.
+     */
     'host' => '__DEFAULT__',
+
     // X.509 key and certificate. Relative to the cert directory.
-    'privatekey' => 'idp.key',
+    'privatekey' => 'server.pem',
     'privatekey_pass' => 'YourPrivateKeyPassphrase',
-    'certificate' => 'idp.pem',
-    //Authentication source to use. It must be one that is configured in
-    //'config/authsources.php'.
-    'auth' => 'default-sp',
+    'certificate' => 'server.crt',
+
+    /*
+     * Authentication source to use. Must be one that is configured in
+     * 'config/authsources.php'.
+     */
+    'auth' => 'entraid-sp', // proxy to Microsoft Entra ID
+
+    /* convert the attributes to the format expected by SAFIRE */
+    'attributes.NameFormat' => 'urn:oasis:names:tc:SAML:2.0:attrname-format:uri',
+    'authproc' => [
+        100 => ['class' => 'core:AttributeMap', 'name2oid',],
+        /* subject identifier - separated to ensure it only ever processes after name2oid */
+        101 => ['class' => 'core:AttributeMap', 'name2urn',],
+    ],
 ];
 ```
 
-This will then publish basic SAML 2.0 IdP metadata, available on SimpleSAMLphp's *Federation tab*, which we will use later in this document. note, the _auth_ option is set to point at our _default-sp_ from [step 1 above]({{< ref "#1-configure-a-simplesamlphp-saml-20-service-provider" >}}).
+Note the _auth_ option is set to point at our _entraid-sp_ from [step 1 above]({{< ref "#1-configure-a-simplesamlphp-saml-20-service-provider" >}}).
 
-> As with Configuring a SimpleSAMLphp SAML 2.0 Service Provider, you will need to produce well-formed metadata by configuring the [MDUI options](https://simplesamlphp.org/docs/stable/simplesamlphp-metadata-extensions-ui). Properly formed metadata and these options are required when [configuring your IdP for SAFIRE](https://safire.ac.za/technical/resources/configuring-simplesamlphp-for-safire/).
+> This is not a complete configuration. You will need to produce well-formed metadata by configuring the [MDUI options](https://simplesamlphp.org/docs/stable/simplesamlphp-metadata-extensions-ui). Properly formed metadata and these options are required when [configuring your IdP for SAFIRE]({{< ref "configuring-simplesamlphp-for-safire.md" >}}).
 {.message-box}
 
 # 3. Create a new Enterprise Application
 
 You will need to create a new *Enterprise Application* in your organisation's Entra ID Directory Service. You can do so by adding a *New application* and then *Create your own application* under the *Enterprise Applications* Management item.
 
-You can name the application whatever makes sense to you. Your new application will be integrated with other applications, not in the Entra ID Application Gallery.
+You can name the application whatever makes sense to you and your users (it will be displayed to users during login, so perhaps "SAFIRE Identity Provider"). Your new application will be integrated with other applications, not in the Entra ID Application Gallery.
 
 # 4. Set up single sign-on
 
@@ -110,45 +143,59 @@ Once saved, it is worthwhile double-checking that the upload utility correctly i
 
 # 5. Configure Attribute claims rules
 
-You now need to configure your application's Attributes & Claims. Entra ID sets up a few default Attributes & Claims rules. However, For this document, it is sufficient to release an attribute common in other sources you might use to search for user attributes. This requires altering what has been pre-defined or adding a new claim. In this example, we'll configure Entra ID to release ‘userPrincipalName' and ‘mail' as a minimal set of attributes.
+You now need to configure your application's Attributes & Claims. There are two possibilities here: you can either release all the attributes from Entra ID directly (removing any other dependencies), or you can simply use Entra ID to identify the user and gather attributes from LDAP or another source.
+
+## 5.1 Attributes from Entra ID
+
+If your Entra ID directory contains sufficient information, it makes sense to gather all (or as many as possible) attributes from that source. In that case, you would need to set up all the claim rules required to release these attributes directly from Entra ID.
+
+> See our [documentation on configuring Entra ID for SAFIRE]({{< ref "configuring-azure-ad-for-safire.md#3-configure-attribute-claims-rules" >}}) for details on how to set these claims up.
+{.message-box}
+
+If you are generating `eduPersonScopedAffiliation` in SimpleSAMLphp, you might want to release group information from Entra ID. To do that, you need to *Add a group claim*. The easiest solution is to return *All groups* with the claim. You can vary the *Source attribute* based on your needs: if your group names change or you have a complicated forest, you might want to use `Group ID` (a persistent UUID). If you'd prefer more friendly names, you might want to use `DNSDomain\sAMAccountName`.
+
+## 5.2 User ID from Entra ID; attributes from elsewhere.
+
+If you're going to get your attributes from another source, it is sufficient to release an attribute common in other sources you might use to search for user attributes. This requires altering what has been pre-defined or adding a new claim. In this example, we'll configure Entra ID to release ‘userPrincipalName' and ‘mail' as a minimal set of attributes.
 
 | *Claim Name* | *Namespace* | *Name format* | *Source* | *Source attribute* |
 |---|---|---|---|---|
 | UPN | http\://schemas.xmlsoap.org/claims | Omited | Attribute | user.userprincipalname|
 | emailaddress | http\://schemas.xmlsoap.org/ws/2005/05/identity/claims | Omitted | Attribute |user.mail|
 
-We can then use this information to fetch other attributes from LDAP, as the remainder of this document shows.
-
-> You could also consider getting other attributes directly from Entra ID. For example, you can send group information by adding a group claim of http\://schemas.microsoft.com/ws/2008/06/identity/claims/groups. That may be sufficient for your needs, but this document assumes a more complete example with an LDAP backend.
-{.message-box}
+We can then use this information to fetch other attributes from LDAP, as the [section 7]({{< ref "#7-add-attributes-from-another-source" >}}) of this document shows.
 
 # 6. Configure SimpleSAMLphp to use the Entra ID IdP as an authentication source
 
 With your _Enterprise Application_ now configured, you need to configure SimpleSAMLphp to use Entra ID's IdP as its Authentication Source.
 
-This is done by adding the following to your default-sp configuration from [step 1 above]({{< ref "#1-configure-a-simplesamlphp-saml-20-service-provider" >}}).
+This is done by replacing the following line in your entraid-sp configuration from [step 1 above]({{< ref "#1-configure-a-simplesamlphp-saml-20-service-provider" >}}) with the Microsoft Entra Identifier from the Enterprise Application (on the Single sign-on page, see step 4 "Set up SAFIRE Identity Provider").
 
 ```php
 // Your Entra ID Identifier (entityID)
-'idp' => 'https://sts.windows.net/<your-entra-tenant-id/',
+'idp' => 'https://sts.windows.net/<your-entra-tenant-id>/',
 ```
 
 This line tells the default SP to redirect authentication to the IdP specified. In this case, your Entra ID Identifier (i.e. your entity ID).
 
-To finalise the SimpleSAMLphp side of the bilateral trust relationship between your Entra ID tenant and SimpleSAMLphp, copy your Enterprise Application's _App Federation Metadata_. Using SimpleSAMLphp's Metadata Converter (found on SimpleSAMLphp's _Federation tab_), convert your App Federation Metadata to SimpleSAMLphp. Once you have the converted metadata, paste it into the _saml20-idp-remote.php_ file.
+To finalise the SimpleSAMLphp side of the bilateral trust relationship between your Entra ID tenant and SimpleSAMLphp, copy your Enterprise Application's _App Federation Metadata_. Using SimpleSAMLphp's Metadata Converter (found on the _Federation_ tab of SimpleSAMLphp's admin portal), convert your App Federation Metadata to SimpleSAMLphp's native PHP format. Once you have the converted metadata, paste it into the _metadata/saml20-idp-remote.php_ file.
 
-To verify that you imported the metadata correctly, you should now see your Entra ID's entityID listed under SAML 2.0 IdP metadata on SimpleSAMLphp's _Federation tab_.
+To verify that you imported the metadata correctly, you should now see your Entra ID's entityID listed under SAML 2.0 IdP metadata on the _Federation_ tab.
 
-You should now also be able to go to SimpleSAMLphp's Test page, log in to your _default-sp_, and be redirected to your Entra ID application's login page. Once logged in, it is worth verifying that SimpleSAMLphp is correctly receiving the attributes from Entra ID you configured in [step 5 above]({{< ref "#5-configure-attribute-claims-rules" >}}).
+You should now also be able to go to the _Test_ tab in the admin portal, log in to your _entraid-sp_ authentication source, and be redirected to your Entra ID application's login page. Once logged in, it is worth verifying that SimpleSAMLphp is correctly receiving the attributes from Entra ID you configured in [step 5 above]({{< ref "#5-configure-attribute-claims-rules" >}}). See [testing]({{< ref "#9-testing" >}}) below for more info.
 
-> The attributes received from Entra ID are claim-type identifier attributes. You can establish a custom[ attribute mapping](https://simplesamlphp.org/docs/stable/core/authproc_attributemap.html) policy in which SimpleSAMLphp will rewrite the attributes received from Entra ID into different Identifier namespaces. These namespaces could include Object Identifiers (OIDs) or named identifiers like 'userPrincipalName'. SimpleSAMLphp includes some pre-defined mapping policies, which can be found in the attributemap folder.
-{.message-box}
+Note that the attributes received from Entra ID are claim-type identifier attributes. You will fix this in [step 8]({{< ref "#8-other-attribute-manipulations" >}}).
 
-# 7. Add attributes from another source (in this case, LDAP)
+# 7. Add attributes from another source
 
-Retrieving attributes from LDAP requires you to install SimpleSAMLphp's [LDAP module](https://github.com/simplesamlphp/simplesamlphp-module-ldap). Once you have installed this module, you need to configure your [LDAP authsource](https://simplesamlphp.org/docs/contrib_modules/ldap/ldap.html), which will be used by [Authentication Processing Filters](https://simplesamlphp.org/docs/2.0/simplesamlphp-authproc.html) (authproc) to search for additional attributes later.
+> You can skip this step if you're getting all your attributes from Entra ID directly.
+{.message-box .info}
 
-An example of an LDAP authsource can look like this:
+You can retrieve attributes from any data source SimpleSAMLphp supports (e.g. SQL, LDAP). Since it's common for people to have a hybrid arrangement with an on-prem Active Directory, this example will assume retrieving attributes from AD via LDAP. That might also be more familiar scenario for people who are transitioning an existing SimpleSAMLphp from Active Directory to Entra ID (in which case you will already have an `ldap:Ldap` authsource).
+
+Retrieving attributes from LDAP requires you to install SimpleSAMLphp's [LDAP module](https://github.com/simplesamlphp/simplesamlphp-module-ldap). Once you have installed this module, you need to configure an [LDAP authsource](https://simplesamlphp.org/docs/contrib_modules/ldap/ldap.html). This won't be used directly, but will instead be used by [Authentication Processing Filters](https://simplesamlphp.org/docs/2.0/simplesamlphp-authproc.html) (authproc) to search for additional attributes later.
+
+An example of an LDAP authsource in _config/authsources.php_ can look like this:
 
 ```php
 $config = [
@@ -180,9 +227,12 @@ $config = [
         'search.password' => 'searchuser_password',
     ],
     /* ... */
+    'entraid-sp' => [
+        /* ... */
+    ],
 ],
 ```
-Next, we will use SimpleSAMLphp's [ldap:AttributeAddFromLDAP][https://simplesamlphp.org/docs/contrib_modules/ldap/ldap.html] authentication processing (authproc) filter. You can configure your filters globally in the _config.php_ or the _sam20-idp-hosted.php_ metadata file; This choice is use-case specific.
+Next, we will use SimpleSAMLphp's [ldap:AttributeAddFromLDAP][https://simplesamlphp.org/docs/contrib_modules/ldap/ldap.html] authentication processing (authproc) filter to reference this from within the _entraid-sp_ authsource we created earlier.
 
 Example of an authproc filter:
 
@@ -202,7 +252,7 @@ Example of an authproc filter:
 
 The above example uses the claim-type version of the userPrincipalName (UPN) attribute value, obtained from Entra ID, to search through the Active Directory for a matching userPrincipalName attribute value. Once a match is found, the givenName, sn, and displayName attributes are returned. You can expand the list of returned attributes per your needs.
 
-You can also used the [ldap:AttributeAddUsersGroups](https://simplesamlphp.org/docs/contrib_modules/ldap/ldap.html) authproc filter to retrieve a user's groups. This might be useful if you need group information to generate [eduPersonScopedAffiliation]({{< ref "generating-edupersonaffiliation.md" >}}).
+You can also use the [ldap:AttributeAddUsersGroups](https://simplesamlphp.org/docs/contrib_modules/ldap/ldap.html) authproc filter to retrieve a user's groups. This might be useful if you need group information to generate [eduPersonScopedAffiliation]({{< ref "generating-edupersonaffiliation.md" >}}).
 
 ```php
 'authproc' => [
@@ -217,68 +267,33 @@ You can also used the [ldap:AttributeAddUsersGroups](https://simplesamlphp.org/d
 ],
 ```
 
-> _An authproc filter is not functional in the "Test authentication sources" option within the web UI of a SimpleSAMLphp IdP. It will only be activated when used alongside an actual SP (Service Provider). Therefore, when testing your filter, it is necessary to establish both an IdP and an SP._
-{.message-box}
+# 8. Other attribute manipulations
 
-With the above warning in mind, you can set up your SimpleSAMLphp deployment as a Service Provider internal to its own Identity Provider to facilitate testing.
+SimpleSAMLphp provides powerful options to manipulate attributes in the form of Authentication Processing filters. These can be configured in several places, but generally we'd recommend configuring them in your Entra ID `saml:SP` authsource.
 
-# 8. Configure SimpleSAMLphp internal SP to test
-
-A bilateral trust relationship needs to be established with the following considerations:
-
-{{< figure
-    src="/wp-content/uploads/2023/09/ssp-internal-bilateral.png"
-    alt="SimpleSAMLphp internatl bilateral trust"
-    caption="Figure 1.2 SimpleSAMLphp internatl bilateral trust"
-    id="figure_1_2"
->}}
-
-> This SP is set up as a separate SP authsource from the default-sp configured in [step 1]({{< ref "#1-configure-a-simplesamlphp-saml-20-service-provider" >}}); Also remember that SimpleSAMLphp wants metadata converted to PHP.
-{.message-box}
-
-An example of your internal SP configuration could look like this:
-
-```php
-$config = [
-    /* ... */
-    'internal-sp' => [
-        'saml:SP',
-       // The entity ID of this SP.
-       'entityID' => 'https://myapp.example.org/internal-sp',
-       'privatekey' => 'sp.key',
-       'privatekey_pass' => 'YourPrivateKeyPassphrase',
-       'certificate' => 'sp.pem',
-       // The entity ID of your hosted SAML 2.0 IdP metadata this SP should contact (configured above)
-       'idp' => 'https://idp.example.ac.za/',
-    ],
-    /* ... */
-],
-```
-
-Per [figure 1.2]({{< ref "#figure_1_2" >}}), to finalise the set-up of the internal SP's bilateral trust relationship, you will need to copy the SAML 2.0 IdP Metadata you set up in [step 2 above]({{< ref "#2-configure-simplesamlphp-saml-20-identity-provider" >}}) from your SimpleSAMLphp's _Federation tab_ into the _saml20-idp-remote.php_ file. You will also need to copy your SAML 2.0 SP metadata for your internal-sp into the _saml20-sp-remote.php_ file.
-
-With the above correctly configured, you can now go to SimpleSAMLphp's Test page and use your ‘internal-sp' to authenticate to your Entra ID IdP.
-
-You should now see attributes returned from both Entra ID, and the Auth Proc filters you configured in [step 7]({{< ref "#7-add-attributes-from-another-source-in-this-case-ldap" >}}).
-
-# Other examples
-
-You can map incoming attribute names to new names. For example, to map he claim-type version of the UPN attribute claim it received from Entra ID to the [eduPersonPrincipalName]({{< ref "/technical/attributes/edupersonprincipalname.md" >}}) attribute.
+You can map incoming attribute names to new names. For example, to map the claim-type version of the attributes received from Entra ID to the the more friendly versions typically used in SimpleSAMLphp, you can set up an AttributeMap like this:
 
 ```php
 'authproc' => [
     /* ... */
     62 => [
         'class' => 'core:AttributeMap',
+        /* there are several versions of the userprincipalname claim, you only need the one you use */
         'http://schemas.xmlsoap.org/claims/UPN' => 'eduPersonPrincipalName',
+        'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn' => 'eduPersonPrincipalName',
+        'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name' => 'eduPersonPrincipalName',
+        /* other possible attributes */
+        'http://schemas.xmlsoap.org/claims/CommonName' => 'displayName',
+        'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname' => 'givenName',
+        'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname' => 'sn',
+        'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress' => 'mail',
+        'http://schemas.microsoft.com/ws/2008/06/identity/claims/groups' => 'memberOf',
     ],
     /* ... */
 ],
 ```
 
-Although this might be more efficiently done with the built-in `claim2name` attribute map. See [core:AttributeMap](https://simplesamlphp.org/docs/stable/core/authproc_attributemap.html).
-
-Another scenario is to use the group information we extracted in [step 7]({{< ref "#7-add-attributes-from-another-source-in-this-case-ldap" >}}) to generate [eduPersonAffiliation]({{< ref "/technical/attributes/edupersonaffiliation.md" >}}) and [eduPersonScopedAffiliation]({{< ref "/technical/attributes/edupersonscopedaffiliation.md" >}}).
+Another scenario is to use the group information we extracted in [step 7]({{< ref "#7-add-attributes-from-another-source-in-this-case-ldap" >}}) to generate [eduPersonAffiliation]({{< ref "/technical/attributes/edupersonaffiliation.md" >}}) and [eduPersonScopedAffiliation]({{< ref "/technical/attributes/edupersonscopedaffiliation.md" >}}). The same logic could be used for a group claim directly from Entra ID.
 
 ```php
 'authproc' => [
@@ -319,3 +334,36 @@ For the specific case of the SAML general purpose subject identifier ([subject-i
 ```
 
 For more information, refer to SimpleSAMLphp's documentation and our [guide to configuring SimpleSAMLphp]({{< ref "configuring-simplesamlphp-for-safire.md" >}}).
+
+# 9. Testing
+
+> The built-in test tools described here only execute the authproc filters configured on the SP side of a proxy. Any filters you've configured on the IdP side (i.e. in the `authproc.idp` section of _config/config.php_ or in _metadata/saml20-idp-hosted.php_) can only be tested by another SAML SP. You can configure one locally for this purpose, but doing so is outside the scope of this documentation.
+{.message-box .warning}
+
+If you've put all your attribute transformations in the _entraid-sp_ saml:SP authsource, then you can test them by using SimpleSAMLphp's built-in tests. From the SimpleSAMLphp admin portal, click the _Test_ tab and find the Test Authentication Sources. Then choose your _entraid-sp_ source to initiate a login. You should be redirected to Entra ID and log in from login.microsoftonline.com.
+
+Once you have logged in, you will be redirected back to the test page and you'll see the attributes released. Importantly, what you see will be the attributes as they are *after* any transformations done by authproc filter rules in the authsource.
+
+You can re-visit the test page to iteratively refine the attributes that are generated until they contain the correct information. Note that you will need to Logout or otherwise clear session cookies set by both SimpleSAMLphp and login.microsoftonline.com between tests. A good way to do this is to start each test in a clean incognito/private browsing session.
+
+It is important to test with multiple users (particularly ones who match different scenarios [e.g. staff vs students]). If you have test accounts of each of those types, you can use those. However, you might want other people to test and you might not want to give them administrative access to your SimpleSAMLphp install.
+
+## 9.1 Testing with other users
+
+If you want to allow other users to test, you can use SimpleSAMLphp's debugsp module. To use this, enable it in your _config.php_ by adding it to modules.enable:
+
+```php
+'module.enable' => [
+    'core' => true,
+    'admin' => true,
+    'saml' => true,
+    /* ... */
+    'debugsp' => true,
+],
+```
+
+Once the debugsp module is enabled, any user can visit
+
+> https://__your_simplesaml_host__/simplesaml/module.php/debugsp/test/entraid-sp
+
+and they'll be able to log in and see the same attributes you see in the Test Authentication Sources (obviously for their own user).

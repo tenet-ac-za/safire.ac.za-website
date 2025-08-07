@@ -155,6 +155,14 @@ $metadata['http://idp.example.ac.za/'] = [
     'SingleSignOnServiceBinding' => ['urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'],
     'SingleLogoutServiceBinding' => ['urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect'],
     'signature.algorithm' => 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256',
+    /* convert the attributes to the format expected by SAFIRE */
+    'attributes.NameFormat' => 'urn:oasis:names:tc:SAML:2.0:attrname-format:uri',
+    'authproc' => [
+        100 => ['class' => 'core:AttributeMap', 'name2oid'],
+        /* subject identifier - separated to ensure it only ever processes after name2oid */
+        101 => ['class' => 'core:AttributeMap', 'name2urn',],
+    ],
+
 ];
 ```
 

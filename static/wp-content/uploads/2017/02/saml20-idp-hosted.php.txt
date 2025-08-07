@@ -97,7 +97,7 @@ $metadata['https://idp.example.ac.za/simplesaml/module.php/saml/idp/metadata'] =
         ],
         */
         100 => ['class' => 'core:AttributeMap', 'name2oid',],
-        /* subject identifier - separated to ensure it only ever processes aftere name2oid */
+        /* subject identifier - separated to ensure it only ever processes after name2oid */
         101 => ['class' => 'core:AttributeMap', 'name2urn',],
     ],
 ];
