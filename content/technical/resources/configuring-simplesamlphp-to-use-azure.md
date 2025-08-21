@@ -80,6 +80,7 @@ $config = [
         'sign.authnrequest' => true,
         'sign.logout' => true,
         'proxymode.passAuthnContextClassRef' => true,
+        /* https://learn.microsoft.com/en-us/answers/questions/69360/aadsts900236-the-saml-authentication-request-prope */
         'disable_scoping' => true,
         'signature.algorithm' => 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256',
     ],
