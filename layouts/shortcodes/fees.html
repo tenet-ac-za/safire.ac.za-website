@@ -4,6 +4,7 @@
 {{- $RADIUScostPerFTE := 1.36 -}}
 <style>
   .fees-radius { display: none; }
+  .fees-saml2 { display: none; }
 </style>
 <script>
     // https://www.c-sharpcorner.com/UploadFile/cd7c2e/get-values-from-query-string-using-jquery/
@@ -39,14 +40,17 @@
             }
             $('.fees #fees-profile').attr('colspan', colspan);
         } else {
-            $('.fees-saml2').show();
+            $('.fees-saml2').hide();
             $('.fees-radius').hide();
-            $('.fees #fees-profile').attr('colspan', 1);
+            $('.fees #fees-profile').hide();
         }
     });
 </script>
+<blockquote class="message-box error fees-saml2 fees-radius">
+<p>The pricing shown was indicative VAT exclusive annual pricing prior to 2025, and is no longer updated. <strong>Please contact us for a  quote.</strong></p>
+<p>See <a href="https://eduroam.ac.za/faq/costs/">the eduroam costs page</a> for information about RADIUS/EAP (<span class="eduroam">eduroam</span>).</p>
+</blockquote>
 <table class="fees idp" id="idp-fees">
-    <caption>Annual ({{ $EffectiveYear }}) fees for Identity Providers</caption>
     <thead>
         <tr>
             <th rowspan="2">Tier</th>
