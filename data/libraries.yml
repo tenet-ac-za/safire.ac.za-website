@@ -60,13 +60,15 @@ Providers:
        - https://help.ebsco.com/interfaces/EBSCOadmin/Admin_User_Guide/set_up_Shibboleth_SAML_Authentication
       AuthAttribute: eduPersonScopedAffiliation
 
-    - Name: Elsevier ScienceDirect/Scopus
+    - Name: Elsevier ScienceDirect, Scopus, SciVal, Engineering Village, ClinicalKey, and Knovel
       LoginLink: "[Other institution](http://www.sciencedirect.com/science?_ob=FederationURL&_method=display&md5=e2d806d1e8c4953bc9f57621cb18fbd2&prevURL=https%3A%2F%2Fwww.sciencedirect.com%2Fuser%2Frouter%2Fshib)"
       Status: Tested, working
       StatusColour: green
-      StatusDate: 2017-10-23
+      StatusDate: 2025-09-15
       Notes: |
         Libraries need to generate a WAYFless URL of the form https://auth.elsevier.com/ShibAuth/institutionLogin?entityID={{idp_proxy_entityid}}&appReturnURL={{url-encoded-target}} using their [proxied entity id](/participants/idp/list/?wayfless) and send it to Elsevier support to get themselves listed.
+
+        The notes hear refer to ScienceDirect. However, Scopus, SciVal, Engineering Village, ClinicalKey, and Knovel are known to work in the same way.
       Documentation:
        - https://www.elsevier.com/solutions/scopus/support/federated-authentication-through-saml
       AuthAttribute:
@@ -101,9 +103,14 @@ Providers:
       SeamlessAccess: false
 
     - Name: Gale Cengage
-      Status: Not tested
+      LoginLink: "[Access through your institution](https://link.gale.com/apps/)"
+      Status: Tested, works
+      StatusColour: green
+      StatusDate: 2025-09-15
       Documentation:
        - http://admin.galegroup.com/galeadmin/help/help/GADMAuthenticationShibbolethHelp.html
+      Notes: |
+        Libraries need to contact Gale Centage customer support and request access.
 
     - Name: IEEE Xplore
       LoginLink: "Institutional Sign In"
@@ -159,7 +166,7 @@ Providers:
     - Name: JoVE (Journal of Visualized Experiments)
       LoginLink: "[Continue with Shibboleth/OpenAthens](https://www.jove.com/discovery?return_page=https://www.jove.com/)"
       Status: Tested, working
-      StatusColor: green
+      StatusColour: green
       StatusDate: 2021-04-01
       Notes: |
         Libraries need to provide JoVE support with their [proxied entity id](/participants/idp/list/?wayfless) and the eduPersonScopedAffiliation they will use.
@@ -196,8 +203,11 @@ Providers:
     - Name: LexisNexus South Africa
       Status: No support, contacted, on roadmap
       StatusColour: red
+      StatusDate: 2025-10-01
       Notes: |
-        Thus far, both SAFIRE & two universities have reached out to LexisNexus SA about this. LexisNexus SA have indicated that it is on their roadmap for investigation starting in September 2020. (TENET:4612)
+        Thus far, both SAFIRE & two universities have reached out to LexisNexus SA about this. LexisNexus SA have indicated that it is on their roadmap for investigation starting in September 2020. [TENET:4612]; as of October 2025 engagements continue with LexisNexus SA indicating they'd like to participate in a trial [TENET:0163142].
+
+        Entity is the same as LexisNexis global, so in theory metadata exists.
 
     - Name: MathWorks
       Status: Tested, working
@@ -208,6 +218,18 @@ Providers:
       AuthAttribute:
         - eduPersonScopedAffiliation
         - mail
+
+    - Name: McGraw-Hill Education
+      Status: Tested, Working
+      StatusColour: green
+      StatusDate: 2025-09-15
+      Notes: |
+        Access Engineering tested, others likely work.
+
+        Libraries need to contact McGraw-Hill and request access be enabled, using the [proxied entity id](/participants/idp/list/) and the correct value of eduPersonScopedAffiliation.
+      Documentation:
+       - https://www.accessengineeringlibrary.com/administration?implicit-login=true
+      AuthAttribute: eduPersonScopedAffiliation
 
     - Name: McGraw-Hill Medical
       LoginLink: "[Sign in via Shibboleth](https://mhmedical.com/SignInShibboleth.aspx?view=signin&federationID=27&redirecturl=http%3a%2f%2fmhmedical.com%2fumbrella-index.aspx)"
@@ -221,11 +243,11 @@ Providers:
       AuthAttribute: eduPersonScopedAffiliation
 
     - Name: Nature.com / SpringerNature
-      LoginLink: "[Access through your institution](https://idp.nature.com/login/natureuser?client_id=grover&redirect_uri=https%3A%2F%2Fwww.nature.com%2Fnature)"
       Status: Tested, discovery problem
-      StatusColour: yellow
+      StatusColour: green
+      StatusDate: 2025-09-15
       Notes: |
-        Metadata for South African institutions exists, and a WAYFless URL reaches the right identity provider. Needs an institution using this service to engage with them about the next steps.
+        Metadata for South African institutions exists, and a WAYFless URL reaches the right identity provider. At least one university has reported that this works correctly. However, there's no obvious end-user method of reaching an institutional login page.
       SeamlessAccess: true
 
     - Name: Newsbank
@@ -249,18 +271,22 @@ Providers:
       Status: No SA institutions listed by default
 
     - Name: Oxford University Press
-      LoginLink: "Sign in via your Institution"
-      Status: Tested, discovery problem, engaged at SANLiC2019
-      StatusColour: yellow
-      Notes: WAYFless login works, not sure what else needs to be done.
+      LoginLink: "Sign in through your Institution"
+      Status: Tested, working
+      StatusColour: green
+      StatusDate: 2025-09-15
+      Notes: |
+        At least the following products are known to be working Oxford Music Online, Oxford Journal Collection, Oxford Research Encyclopedias, and OUP Law
       AuthAttribute: eduPersonScopedAffiliation
 
-    - Name: ProQuest (Dissertations & Theses Global)
+    - Name: ProQuest
       LoginLink: "[Use your institution's local login](https://search.proquest.com/shibbolethlogin)"
       Status: Tested, working
       StatusColour: green
-      StatusDate: 2021-02-19
-      Notes: Enable in the ProQuest Administrator Module
+      StatusDate: 2025-09-15
+      Notes: |
+        Enable in the ProQuest Administrator Module
+        Several ProQuest Databases are known to be working, as well as Dissertations & Theses Global.
       Documentation:
        - https://support.proquest.com/articledetail?id=kA23r000000FVN3CAO&key=saml&pcat=All__c&icat=
       AuthAttribute: eduPersonScopedAffiliation
