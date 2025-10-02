@@ -17,7 +17,7 @@ A once-off take-on charge will be levied for each new production entity register
 
 Where service providers ask SAFIRE to assist with integration, and where SAFIRE [is able to provide such assistance,]({{< ref "/participants/support/_index.md" >}}) we reserve the right to recover any additional costs we incur at our prevailing consulting rates. This would be negotiated in advance on a per-case basis.
 
-> Please [contact us]({{< ref "/safire/contact.md" >}}) if you need an estimate or quote.
+> Please [contact us]({{< ref "/safire/contact/_index.md" >}}) if you need an estimate or quote.
 {.message-box .info}
 
 ## Recurring costs

@@ -25,7 +25,7 @@ For public and private institutions recognised by the [Department of Higher Educ
 
 Tiers 1–4 are invoiced annually at 12× monthly cost. Tiers 5–7 may be invoiced monthly or annually. All costs are subject to an annual escalation to reflect the increasing costs of providing and maintaining the service.
 
-> Please [contact us]({{< ref "/safire/contact.md" >}}) for an estimate or quote. We may need to know your current FTE count to produce this.
+> Please [contact us]({{< ref "/safire/contact/_index.md" >}}) for an estimate or quote. We may need to know your current FTE count to produce this.
 {.message-box .info}
 
 ## Discounts and exemptions
