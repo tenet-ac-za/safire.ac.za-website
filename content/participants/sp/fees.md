@@ -13,9 +13,12 @@ url: /participants/sp/fees/
 
 ## Non-recurring costs
 
-A once-off take-on charge of ***R 2750*** (excl VAT) will be levied for each new production entity registered under the [SAML2 technology profile]({{< ref "/technical/saml2/_index.md" >}}) to cover the [administrative overheads]({{< ref "/technical/saml2/sp-requirements/_index.md" >}}) of processing a new service provider registration.
+A once-off take-on charge will be levied for each new production entity registered under the [SAML2 technology profile]({{< ref "/technical/saml2/_index.md" >}}) to cover the [administrative overheads]({{< ref "/technical/saml2/sp-requirements/_index.md" >}}) of processing a new service provider registration. This nominal charge is based on the average amount of time we spend processing a new entity.
 
 Where service providers ask SAFIRE to assist with integration, and where SAFIRE [is able to provide such assistance,]({{< ref "/participants/support/_index.md" >}}) we reserve the right to recover any additional costs we incur at our prevailing consulting rates. This would be negotiated in advance on a per-case basis.
+
+> Please [contact us]({{< ref "/safire/contact.md" >}}) if you need an estimate or quote.
+{.message-box .info}
 
 ## Recurring costs
 
