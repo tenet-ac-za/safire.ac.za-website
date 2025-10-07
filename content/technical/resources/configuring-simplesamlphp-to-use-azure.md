@@ -121,6 +121,25 @@ $metadata['http://idp.example.ac.za/'] = [
         100 => ['class' => 'core:AttributeMap', 'name2oid',],
         /* subject identifier - separated to ensure it only ever processes after name2oid */
         101 => ['class' => 'core:AttributeMap', 'name2urn',],
+
+        /*
+         * Uncomment authproc filter 102 if you're migrating an *existing* IdP that previously did
+         * local authentication via e.g. LDAP to one that fronts another SAML IdP (AD FS, Entra).
+         * This ensures services that depend on <AuthenticatingAuthority> see your original
+         * entityID as the authority that did the authentication rather than the one you proxy (you
+         * hide the extra hop). This helps preserve persistent identifiers like eduPersonTargetedID
+         * that use the last <AuthenticatingAuthority> to determine the authenticating IdP. For a
+         * more detailed explanation see: https://github.com/simplesamlphp/simplesamlphp/issues/1431
+         */
+        /*
+        102 => [
+            'class' => 'core:PHP', 'code' => '
+                if (isset($state["saml:AuthenticatingAuthority"])) {
+                    unset($state["saml:AuthenticatingAuthority"]);
+                }
+            ',
+        ],
+        */
     ],
 ];
 ```
