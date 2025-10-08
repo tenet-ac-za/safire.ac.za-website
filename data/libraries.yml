@@ -140,9 +140,11 @@ Providers:
 
     - Name: BioOne
       LoginLink: "[Find your institution](https://bioone.org/Account/institutionalsignin?redirect=https%3a%2f%2fbioone.org%2flibrary-resources)"
-      Status: working (but untested)
+      Status: working (untested)
       StatusDate: 2025-09-15
       StatusColour: yellow
+      Notes: |
+        This is marked working but untested because we've had no confirmation of a SAFIRE participant using it successfully. However, because the service appears to have adopted SeamlessAccess it's highly likely that it works in an interoperable way.
       Documentation:
        - http://www.bioone.org/page/help/RemoteAccess
       SeamlessAccess: true
@@ -187,11 +189,13 @@ Providers:
 
     - Name: De Gruyter Brill
       LoginLink: "[Manage Access/Add institutional acess/Access through your institution](https://www.degruyterbrill.com/)"
-      Status: working, untested
+      Status: working (untested)
       StatusColour: yellow
       StatusDate: 2025-09-15
       Notes: |
         Libraries need to contact De Gruyter Brill Customer Service Team to request federated (Shibboleth) access be enabled. Libraries will need to provide their institution's [proxied entity id](/participants/idp/list/) (See documentation).
+
+        This is marked working but untested because we've had no confirmation of a SAFIRE participant using it successfully. However, because the service appears to have adopted SeamlessAccess it's highly likely that it works in an interoperable way.
       Documentation:
        - https://www.degruyterbrill.com/how-access-works
       SeamlessAccess: true
@@ -507,11 +511,13 @@ Providers:
 
     - Name: Ovid SP
       LoginLink: "[OpenAthens | Institutional](https://ovidsp.ovid.com/)"
-      Status: working, untested
+      Status: working (untested)
       StatusColour: yellow
       StatusDate: 2025-09-15
       Notes: |
         While SAFIRE IdP's are found at [OpenAthens | Institutional](https://ovidsp.ovid.com/), they are not necessarily authorised to access the service. No documentation has been found on what libraries need to do to enable federated (Shibboleth/institutional) access, but the most likely course of action would be to contact Ovid SP support to request that access be enabled for your institution.
+
+        This is marked working but untested because we've had no confirmation of a SAFIRE participant using it successfully. However, because the service appears to have adopted SeamlessAccess it's highly likely that it works in an interoperable way.
       SeamlessAccess: true
 
     - Name: Oxford University Press
@@ -600,11 +606,13 @@ Providers:
 
     - Name: SAGE Journals
       LoginLink: "[Institution](https://journals.sagepub.com/action/showLogin?uri=%2F)"
-      Status: working, untested
+      Status: working (untested)
       StatusColour: yellow
       StatusDate: 2025-09-15
       Notes: |
         Libraries need to contact Sage Online Technical Support to request Federated (Shibboleth) Access. See documentation.
+
+        This is marked working but untested because we've had no confirmation of a SAFIRE participant using it successfully. However, because the service appears to have adopted SeamlessAccess it's highly likely that it works in an interoperable way.
       Documentation:
         - https://journalssolutions.sagepub.com/support/solutions/articles/7000055462-what-off-campus-access-methods-remote-access-does-sage-journals-offer-#Institutional-Affiliation-Access
       SeamlessAccess: true
