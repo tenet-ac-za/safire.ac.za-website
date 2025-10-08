@@ -5,25 +5,157 @@
 # Remember also to update StatusDate
 ---
 Providers:
-    - Name: Association for Computing Machinery (ACM)
-      LoginLink: Sign in via your Institution
-      Status: No SA institutions listed by default
+    - Name: Association for Computing Machinery
+      LoginLink: "[Institutional Login](https://dl.acm.org/action/showLogin?redirectUri=%2F)"
+      Status: Working
+      StatusColour: green
+      Notes: |
+         Libraries can follow the documentation link, or contact ACM support and request Shibboleth access (see documentation).
       Documentation:
-       - http://libraries.acm.org/subscriptions-access/authentication
-      AuthAttribute: eduPersonEntitlement
+       - https://libraries.acm.org/subscriptions-access/authentication
+      AuthAttribute: eduPersonScopedAffiliation
 
-    - Name: American Chemical Society
+    - Name: AIP Publishing
+      LoginLink: "[Access through your institution](https://pubs.aip.org/institutional-login)"
+      Status: Tested, Working
+      StatusColour: green
+      StatusDate: 2025-09-15
+      Notes: |
+        American Institute of Physics (AIP) tested.
+
+        Libraries can follow the documentation link below, or contact AIP support and request Shibboleth access (see documentation).
+      Documentation:
+       - https://knowledgebase.aip.org/support/solutions/articles/6000266900-how-do-i-setup-shibboleth-open-athens-access
+      AuthAttribute: eduPersonScopedAffiliation
+      SeamlessAccess: true
+
+    - Name: American Chemical Society (Publications)
       LoginLink: "[Find my institution](https://pubs.acs.org/action/ssostart?redirectUri=/page/remoteaccess/confirm)"
       Status: Tested, Working
       StatusColour: green
       StatusDate: 2021-01-26
       SeamlessAccess: true
 
+    - Name: American Chemical Society (CAS/Scifinder)
+      Status: Tested, Working
+      StatusColour: green
+      StatusDate: 2021-01-26
+      SeamlessAccess: true
+      Notes: |
+        Libraries need to contact CAS Customer Center to request access.
+        Libraries need to also generate a WAYFless URL of the form https://sso.cas.org/sp/startSSO.ping?TargetResource=https%3A%2F%2Fscifinder-n.cas.org%2F&PartnerIdpId={{idp_proxy_entityid}} using their [proxied entity id](/participants/idp/list/?wayfless).
+
+    - Name: American Institute of Aeronautics (AIAA | ARC)
+      LoginLink: "[Find your institution](https://arc.aiaa.org/action/ssostart?redirectUri=%2F)"
+      Status: Tested, Working
+      StatusColour: green
+      StatusDate: 2025-09-15
+      Notes: Libraries need to contact AIAA / ARC support and request access.
+      SeamlessAccess: true
+
+    - Name: American Society of Civil Engineers
+      LoginLink: "[Find your institution](https://ascelibrary.org/action/ssostart?uri=%2F)"
+      Status: Tested, Working
+      StatusColour: green
+      StatusDate: 2025-09-15
+      Notes: |
+        ASCE Library.
+
+        Libraries need to contact ASCE Customer Service and request Shibboleth access (see documentation -> Remote Access Options).
+      Documentation:
+       - https://ascelibrary.org/librariannews
+
+    - Name: American Physical Society
+      LoginLink: "[Find your institution](https://journals.aps.org/auth/openathens/login)"
+      Status: Tested, Working
+      StatusColour: green
+      StatusDate: 2025-09-15
+      Notes: |
+        Physical Review Journals.
+
+        Libraries need to contact American Physical Society support and request Shibboleth access (see documentation -> Shibboleth/Institutional Single Sign-on/OpenAthens)
+      Documentation:
+       - https://journals.aps.org/remote-access
+
+    - Name: American Phytopathological Society
+      LoginLink: "[Find your institution](https://apsjournals.apsnet.org/action/ssostart?redirectUri=)"
+      Status: Tested, Working
+      StatusColour: green
+      StatusDate: 2025-09-15
+      Notes: |
+        APS Online Publications tested.
+
+        Libraries need to contact American Phytopathological Society support and request Shibboleth access.
+
+    - Name: American Psychological Association
+      LoginLink: "[Get access via your Institution](https://sso.apa.org/apasso/idm/login?ERIGHTS_TARGET=https%3A%2F%2Fpsycnet.apa.org%2Fsearch)"
+      Status: Tested, Working, Discovery problem (See Notes)
+      StatusColour: yellow
+      StatusDate: 2025-09-15
+      Notes: |
+        Psyctests, Psycinfo, Psycarticles.
+
+        Libraries need to contact American Psychological Association support to request SAML (Shibboleth) access (see documentation).
+
+        Discovery problem - Once your institution is set up, select your institution’s name from the \'OpenAthens\' drop-down menu. This list, labelled \'OpenAthens\', also includes institutions using SAML (sometimes called Shibboleth).
+      Documentation:
+       - https://blog.apapubs.org/2024/02/22/what-access-methods-can-my-institution-use-for-apa-psycnet/
+
+    - Name: American Society of Microbiology
+      LoginLink: "[Institutional Login](https://journals.asm.org/action/ssostart?redirectUri=%2F)"
+      Status: Tested, Working
+      StatusColour: green
+      StatusDate: 2025-09-15
+      Notes: |
+        ASM Journals.
+
+        Libraries need to contact American Society of Microbiology support to enable federated (SAML/sometimes called Shibboleth) access . (see documentation)
+      Documentation:
+       - https://journals.asm.org/librarian-and-administrator-resources
+
+    - Name: Anatomy.tv
+      LoginLink: "[UK Shibboleth](https://www.anatomy.tv/login?lastpageurl=help)"
+      Status: Tested, working, Discovery problem (see notes)
+      StatusColour: yellow
+      StatusDate: 2025-09-15
+      Notes: |
+        Primal Pictures
+
+        Libraries need to contact support to enable federated (SAML/sometimes called Shibboleth) access  (see documentation).
+
+        Discovery problem - Once your institution is set up, to login you need to click on \"UK Shibboleth\". You then can type the name of your institution to be redirected to your login page.
+      Documentation:
+       - https://www.anatomy.tv/faqs.aspx
+
+    - Name: British Online Archives
+      LoginLink: "[Sign in/Access through your institution](https://britishonlinearchives.com/)"
+      Status: Tested, working
+      StatusColour: green
+      StatusDate: 2025-09-15
+      Notes: |
+        Libraries need to contact BOA Sales to enable federated (SAML/sometimes called Shibboleth) access  (see documentation).
+      Documentation:
+       - https://britishonlinearchives.com/support/2/sales/topic
+      SeamlessAccess: true
+
     - Name: BioOne
-      LoginLink: Login via your Institution (Shibboleth)
-      Status: No SA institutions listed by default
+      LoginLink: "[Find your institution](https://bioone.org/Account/institutionalsignin?redirect=https%3a%2f%2fbioone.org%2flibrary-resources)"
+      Status: working (but untested)
+      StatusDate: 2025-09-15
+      StatusColour: yellow
       Documentation:
        - http://www.bioone.org/page/help/RemoteAccess
+      SeamlessAccess: true
+
+    - Name: CABI Digital Library
+      LoginLink: "[Find your institution](https://www.cabidigitallibrary.org/action/ssostart?redirectUri=%2F)"
+      Status: Tested, working
+      StatusColour: green
+      StatusDate: 2018-09-26
+      Notes: Libraries need to request their institution account be configured to use Institutional Access (see documentation).
+      Documentation:
+       - https://www.cabidigitallibrary.org/access-options
+      SeamlessAccess: true
 
     - Name: Cambridge Core
       LoginLink: "[Institutional login](https://shibboleth.cambridge.org/CJOShibb2/index?app=https://www.cambridge.org/core/shibboleth?ref=/core)"
@@ -34,6 +166,16 @@ Providers:
       Documentation:
        - https://vimeo.com/178305091/ac7ed284ae
       AuthAttribute: eduPersonScopedAffiliation
+      SeamlessAccess: true
+
+    - Name: Company of Biologists
+      LoginLink: "[Sign in via Shibboleth](https://journals.biologists.com/institutional-login?returnUrl=https%3a%2f%2fjournals.biologists.com%2fjournals)"
+      Status: Tested, working
+      StatusColour: green
+      StatusDate: 2025-09-15
+      Notes: Libraries can follow admministrators documentation and add \'Shibboleth Information\' in the admin dashboard.
+      Documentation:
+       - https://www.biologists.com/library-hub/subscriptions/info-for-library-administrators/
 
     - Name: Dawsonera
       LoginLink: "[Shibboleth login](https://www.dawsonera.com/wayf/wayf.html?entityID=https%3A%2F%2Fwww.dawsonera.com%2Fshibboleth&return=https%3A%2F%2Fwww.dawsonera.com%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dcookie%253A1501229600_249b)"
@@ -43,11 +185,16 @@ Providers:
       Notes: |
         Libraries need to generate a WAYFless URL of the form https://www.dawsonera.com/Shibboleth.sso/Login?entityID={{idp_proxy_entityid}}&target=https://www.dawsonera.com/depp/shibboleth/ShibbolethLogin.html?dest= using their [proxied entity id](/participants/idp/list/?wayfless) and send it to Dawson support to get themselves listed.
 
-    - Name: De Gruyter
-      LoginLink: Connect via Institution
-      Status: No SA institutions listed by default
+    - Name: De Gruyter Brill
+      LoginLink: "[Manage Access/Add institutional acess/Access through your institution](https://www.degruyterbrill.com/)"
+      Status: working, untested
+      StatusColour: yellow
+      StatusDate: 2025-09-15
+      Notes: |
+        Libraries need to contact De Gruyter Brill Customer Service Team to request federated (Shibboleth) access be enabled. Libraries will need to provide their institution's [proxied entity id](/participants/idp/list/) (See documentation).
       Documentation:
-       - https://www.degruyter.com/page/286#Shibboleth
+       - https://www.degruyterbrill.com/how-access-works
+      SeamlessAccess: true
 
     - Name: EBSCO
       LoginLink: "[Institutional Login](http://search.ebscohost.com/login.aspx?profile=ehost)"
@@ -112,27 +259,92 @@ Providers:
       Notes: |
         Libraries need to contact Gale Centage customer support and request access.
 
+    - Name: GeoScienceWorld
+      LoginLink: "[Sign In via Shibboleth](https://pubs.geoscienceworld.org/institutional-login?returnUrl=https://pubs.geoscienceworld.org/)"
+      Status: Tested, works
+      StatusColour: green
+      StatusDate: 2025-09-15
+      Documentation:
+       - https://pubs.geoscienceworld.org/pages/help
+      Notes: |
+        Libraries need follow the \'OpenAthens and Shibboleth\' section in the documentation.
+
+    - Name: HeinOnline
+      LoginLink: "[Access Through Your Institution](https://heinonline.org/HOL/login-hol?redirect_url=%2FHOL%2FWelcome)"
+      Status: Tested, works
+      StatusColour: green
+      StatusDate: 2025-09-15
+      Documentation:
+       - https://help.heinonline.org/kb/how-to-log-in-to-heinonline/
+      Notes: |
+        Libraries need to contact HeinOnline support to enable federated (SAML/sometimes called Shibboleth) access .
+
+        Once access has been enabled, lbraries can also generate a WAYFless URL of the form https://heinonline.org/HOL/WAYFless?entityID={{idp_proxy_entityid}}&target=https://heinonline.org/HOL/Welcome using their [proxied entity id](/participants/idp/list/?wayfless).
+
+    - Name: HSTalks
+      LoginLink: "[Select Your Institution](https://hstalks.com/accounts/saml/discovery/)"
+      Status: Tested, works
+      StatusColour: green
+      StatusDate: 2025-09-15
+      Notes: |
+        Henry Stewart Talks
+
+        Libraries need to contact HSTalks support to enable federated (SAML/sometimes called Shibboleth) access  (see discovery page [If your institution is not listed](https://hstalks.com/accounts/saml/discovery/)) for more information.
+
     - Name: IEEE Xplore
       LoginLink: "Institutional Sign In"
       Status: Tested, works
       StatusColour: green
       StatusDate: 2023-07-25
       Notes: |
-        Libraries need to contact IEEE support supplying their [proxied entity id](/participants/idp/list/?wayfless) to enable access. IEEE will provide a WAYFless URL of the form https://ieeexplore.ieee.org/servlet/wayf.jsp?entityId={{idp_proxy_entityid}}&url={{url-encoded-target}} (it may help to generate this yourself and test beforehand). However, they also support SeamlessAccess for login.
+        Libraries need to contact IEEE support supplying their [proxied entity id](/participants/idp/list/?wayfless) to enable federated (SAML/sometimes called Shibboleth) access . IEEE will provide a WAYFless URL of the form https://ieeexplore.ieee.org/servlet/wayf.jsp?entityId={{idp_proxy_entityid}}&url={{url-encoded-target}} (it may help to generate this yourself and test beforehand). However, they also support SeamlessAccess for login.
       Documentation:
        - https://supportcenter.ieee.org/app/answers/detail/a_id/162/~/does-ieee-support-shibboleth-or-athens-authentication-in-xplore%3F
       SeamlessAccess: true
+
+    - Name: IET Digital Library
+      LoginLink: "[Find your institution](https://digital-library.theiet.org/action/ssostart?redirectUri=%2Faction%2FshowPublications%3FpubType%3Dbook%26seriesKey%3Dbooks%26startPage%3D0%26sortBy%3DEPubDate)"
+      Status: Tested, works
+      StatusColour: green
+      StatusDate: 2025-09-15
+      Notes: |
+        Institution of Engineering and Technology
+
+        Libraries need to contact IET Digital Library support to enable federated (SAML/sometimes called Shibboleth) access .
+
+    - Name: iG Library
+      LoginLink: "[Sign in with Shibboleth/OpenAthens](https://portal.igpublish.com/iglibrary/signin?targeturl=/search)"
+      Status: Tested, works
+      StatusColour: green
+      StatusDate: 2025-09-15
+      Notes: |
+        iG Publishing
+
+        Libraries need to contact iG Publishing support to enable federated (SAML/sometimes called Shibboleth) access .
 
     - Name: IOP Science
       LoginLink: "[Athens / Institution login](https://ticket.iop.org/inst_login?return=https%3A%2F%2Fiopscience.iop.org%2F)"
       Status: Tested, works
       StatusColour: green
       Notes: |
-        Libraries need to supply IOP with their [proxied entity id](/participants/idp/list/?wayfless) to enable access. IOP recommends using a [WAYFless URL](https://myiopscience.iop.org/account/wayflessurl).
+        Libraries need to supply IOP with their [proxied entity id](/participants/idp/list/?wayfless) to enable federated (SAML/sometimes called Shibboleth) access . IOP recommends using a [WAYFless URL](https://myiopscience.iop.org/account/wayflessurl).
       Documentation:
        - https://iopscience.iop.org/page/remote-access-tutorial
        - https://iopscience.iop.org/page/remote-access-guidelines
        - https://myiopscience.iop.org/account/wayflessurl
+      AuthAttribute: eduPersonScopedAffiliation
+      SeamlessAccess: true
+
+    - Name: JAMA Network
+      LoginLink: "[Access through your institution](https://jamanetwork.com/signinshibboleth)"
+      Status: Tested, Working
+      StatusColour: green
+      StatusDate: 2025-09-15
+      Notes: |
+        American Medical Association.
+
+        While there is some information available at the documentation link, and at [Access through your institution](https://jamanetwork.com/signinshibboleth), it is unclear what libraries exactly need to do to enable Federated Access. Unless it is not clear in the admin portal, libraries should contact JAMA Network support for more information, or assistnce on enabling federated (SAML/sometimes called Shibboleth) access .
+      Documentation: https://jamanetwork.com/pages/institutions-and-librarians
       AuthAttribute: eduPersonScopedAffiliation
       SeamlessAccess: true
 
@@ -148,23 +360,8 @@ Providers:
        - https://shibboleth2sp.jstor.org/wayfless_url_generator.html
       AuthAttribute: eduPersonScopedAffiliation
 
-    - Name: Intembeko ORCID Hub (TENET)
-      LoginLink: "[Log in / Access through your institution](https://intembeko.orcid.ac.za/saml/login)"
-      Status: Working
-      StatusColour: green
-      StatusDate: 2021-06-08
-      Notes: |
-        Institutions need to contact TENET's [Service Desk](https://www.tenet.ac.za/support) to enable this service.
-        The service also requires ORCID [member API](https://info.orcid.org/documentation/features/member-api/#easy-faq-2710) credentials.
-      Documentation:
-       - https://docs.orcid.ac.za/hub/institutions
-      AuthAttribute: eduPersonScopedAffiliation
-      SeamlessAccess: true
-      SAFIRE: true
-      RnSProvider: true
-
     - Name: JoVE (Journal of Visualized Experiments)
-      LoginLink: "[Continue with Shibboleth/OpenAthens](https://www.jove.com/discovery?return_page=https://www.jove.com/)"
+      LoginLink: "[Sign into JoVE by selecting your registered institution below](https://app.jove.com/discovery)"
       Status: Tested, working
       StatusColour: green
       StatusDate: 2021-04-01
@@ -174,12 +371,22 @@ Providers:
        - https://www.jove.com/wp-content/uploads/2020/03/Remote-Access-V2.pdf
 
     - Name: kanopy
-      LoginLink: https://www.kanopy.com/signup/find/university
+      LoginLink: "[Find Your University](https://www.kanopy.com/signup/find/university)"
       Status: Tested, working
       StatusColour: green
       StatusDate: 2019-12-10
       Notes: |
         Libraries need to ask kanopy to enable `Shibboleth` and send them their [proxied entity id](/participants/idp/list/). It may help to mention that your metadata is already exported to the UK Access Federation via eduGAIN.
+
+    - Name: Karger
+      LoginLink: "[Login/Access via Shibboleth and OpenAthens](https://www.karger.com/fastfacts#fastfactstitles)"
+      Status: Tested, working
+      StatusColour: green
+      StatusDate: 2025-09-15
+      Notes: |
+        Libraries need to contact Karger support and request federated (SAML/sometimes called Shibboleth) access  (see documentation).
+      Documentation: https://karger.com/pages/institutional-access
+      SeamlessAccess: true
 
     - Name: Kortext
       LoginLink: "[Sign in to browse your university library](https://app.kortext.com/login)"
@@ -189,6 +396,15 @@ Providers:
       Notes: |
         Libraries need to contact Kortext support and request Login access be enabled, using their [proxied entity id](/participants/idp/list/). It may help to mention that your metadata is already exported to the UK Access Federation via eduGAIN
       AuthAttribute: eduPersonScopedAffiliation
+
+    - Name: Kluwer Law Online
+      LoginLink: "[Go to OpenAthens & Shibboleth/find your institution](https://kluwerlawonline.com/account/login)"
+      Status: Tested, working
+      StatusColour: green
+      StatusDate: 2025-09-15
+      Notes: |
+        Libraries need to contact Kluwer Law Online support and request federated (SAML/sometimes called Shibboleth) access  be enabled. Technical support contact form is available at the [login](https://kluwerlawonline.com/login) page
+      SeamlessAccess: true
 
     - Name: LexisNexus International
       LoginLink: Use Academic Sign-in
@@ -209,6 +425,16 @@ Providers:
 
         Entity is the same as LexisNexis global, so in theory metadata exists.
 
+    - Name: Marketline/GlobalData
+      LoginLink: "[Sign in via Shibboleth](https://advantage.marketline.com/)"
+      Status: Tested, working
+      StatusColour: green
+      StatusDate: 2025-09-15
+      Notes: |
+        Libraries need to contact their Marketline account manager and request federated (Shibboleth) access be enabled (See documentation).
+      Documentation: https://www.marketline.com/wp-content/uploads/MLA_IPaccess_instructions.pdf
+      SeamlessAccess: true
+
     - Name: MathWorks
       Status: Tested, working
       StatusColour: green
@@ -219,12 +445,22 @@ Providers:
         - eduPersonScopedAffiliation
         - mail
 
-    - Name: McGraw-Hill Education
+    - Name: MathSciNet
+      LoginLink: "[Access through your institution](https://mathscinet.ams.org/mathscinet/)"
+      Status: Tested, working
+      StatusColour: green
+      StatusDate: 2025-09-15
+      Notes: |
+        American Mathematical Society
+
+        Institutions need to contact MathSciNet to enable federated (SAML/sometimes called Shibboleth) access .
+      SeamlessAccess: true
+
+    - Name: McGraw-Hill Education (Access Engineering)
       Status: Tested, Working
       StatusColour: green
       StatusDate: 2025-09-15
       Notes: |
-        Access Engineering tested, others likely work.
 
         Libraries need to contact McGraw-Hill and request access be enabled, using the [proxied entity id](/participants/idp/list/) and the correct value of eduPersonScopedAffiliation.
       Documentation:
@@ -248,6 +484,9 @@ Providers:
       StatusDate: 2025-09-15
       Notes: |
         Metadata for South African institutions exists, and a WAYFless URL reaches the right identity provider. At least one university has reported that this works correctly. However, there's no obvious end-user method of reaching an institutional login page.
+
+        There is, however, a user guide available at the documentation link on how to use your institutional credentials to sign in via SeamlessAccess.
+      Documentation: https://media.springernature.com/full/springer-cms/rest/v1/content/17802526/data/v5
       SeamlessAccess: true
 
     - Name: Newsbank
@@ -267,8 +506,13 @@ Providers:
        - https://members.orcid.org/api/integrate/institution-sign-in
 
     - Name: Ovid SP
-      LoginLink: "[Institutional Login](https://shibboleth.ovid.com/)"
-      Status: No SA institutions listed by default
+      LoginLink: "[OpenAthens | Institutional](https://ovidsp.ovid.com/)"
+      Status: working, untested
+      StatusColour: yellow
+      StatusDate: 2025-09-15
+      Notes: |
+        While SAFIRE IdP's are found at [OpenAthens | Institutional](https://ovidsp.ovid.com/), they are not necessarily authorised to access the service. No documentation has been found on what libraries need to do to enable federated (Shibboleth/institutional) access, but the most likely course of action would be to contact Ovid SP support to request that access be enabled for your institution.
+      SeamlessAccess: true
 
     - Name: Oxford University Press
       LoginLink: "Sign in through your Institution"
@@ -278,6 +522,28 @@ Providers:
       Notes: |
         At least the following products are known to be working Oxford Music Online, Oxford Journal Collection, Oxford Research Encyclopedias, and OUP Law
       AuthAttribute: eduPersonScopedAffiliation
+
+    - Name: PNAS
+      LoginLink: "[Access through your institution](https://mathscinet.ams.org/mathscinet/)"
+      Status: Tested, working
+      StatusColour: green
+      StatusDate: 2025-09-15
+      Notes: |
+        Proceedings of the National Academy of Sciences of the United States of America (PNAS)
+
+        Institutions need follow documentation on enabling remote access. You will need your institutions [proxied entity id](/participants/idp/list/) to complete the confirguration at the institutional subscriber account page.
+      Documentation: https://www.pnas.org/librarians
+      SeamlessAccess: true
+
+    - Name: PubMed
+      LoginLink: "[More login options/Find your login provider](https://account.ncbi.nlm.nih.gov/?back_url=https%3A%2F%2Fpubmed.ncbi.nlm.nih.gov%2F)"
+      Status: Tested, working
+      StatusColour: green
+      StatusDate: 2025-09-15
+      Notes: |
+        National Library of Medicine
+
+        Libraries need to contact [Support](https://www.ncbi.nlm.nih.gov/home/about/contact/) to find out more about enabling federated (SAML/sometimes called Shibboleth) access .
 
     - Name: ProQuest
       LoginLink: "[Use your institution's local login](https://search.proquest.com/shibbolethlogin)"
@@ -322,23 +588,26 @@ Providers:
         - https://journals.co.za/faq
       SAFIRE: true
 
-    - Name: Sabinet Reference
-      LoginLink: Not supported
-      StatusColour: red
+    - Name: Sabinet Discover
+      LoginLink: "[Sign in/sign in with Your Institution](https://discover.sabinet.co.za/)"
+      Status: Tested, working
+      StatusColour: green
       StatusDate: 2021-06-14
-      Notes: Sabinet is in the process of joining SAFIRE (signed participation agreement). [TENET:23854]
+      Notes: While Sabinet is a direct participant in SAFIRE, libraries may need to contact Sabinet Client Support to enable federated (SAML/sometimes called Shibboleth) access  for Sabinet Discover (see documentation).
+      Documentation:
+        - https://discover.sabinet.co.za/pages/faq-general
       SAFIRE: true
 
-    - Name: Sabinet Legal
-      LoginLink: Not supported
-      StatusColour: red
-      StatusDate: 2021-06-14
-      Notes: Sabinet is in the process of joining SAFIRE (signed participation agreement). [TENET:23854]
-      SAFIRE: true
-
-    - Name: SAGE
-      LoginLink: "[Institutional access: Shibboleth](http://journals.sagepub.com/action/ssostart?redirectUri=/)"
-      Status: No SA institutions listed by default
+    - Name: SAGE Journals
+      LoginLink: "[Institution](https://journals.sagepub.com/action/showLogin?uri=%2F)"
+      Status: working, untested
+      StatusColour: yellow
+      StatusDate: 2025-09-15
+      Notes: |
+        Libraries need to contact Sage Online Technical Support to request Federated (Shibboleth) Access. See documentation.
+      Documentation:
+        - https://journalssolutions.sagepub.com/support/solutions/articles/7000055462-what-off-campus-access-methods-remote-access-does-sage-journals-offer-#Institutional-Affiliation-Access
+      SeamlessAccess: true
 
     - Name: SpringerLink
       LoginLink: "[Log in via Shibboleth or Athens](https://link.springer.com/athens-shibboleth-login?previousUrl=https%3A%2F%2Flink.springer.com%2F)"
@@ -388,7 +657,7 @@ Providers:
        - eduPersonTargetedId
 
     - Name: Wiley
-      LoginLink: "[Institutional Login](https://onlinelibrary.wiley.com/action/ssostart?redirectUri=%2F)"
+      LoginLink: "[Search for your institution](https://onlinelibrary.wiley.com/action/ssostart?redirectUri=%2F)"
       Status: Test, working
       StatusColour: green
       StatusDate: 2017-08-24
@@ -397,3 +666,12 @@ Providers:
        - http://media.wiley.com/assets/2265/11/Wiley_Online_Library_Federated_Access_Dec_2013.pdf
       AuthAttribute: eduPersonScopedAffiliation
       SeamlessAccess: true
+
+    - Name: World Scientific
+      LoginLink: "[Find your Institution](https://www.worldscientific.com/action/ssostart?redirectUri=%2F)"
+      Status: Test, working
+      StatusColour: green
+      StatusDate: 2025-09-15
+      Notes: Libraries need to contact Customer Care to enable federated (Shibboleth) access. libraries will also need their institution's [proxied entity id](/participants/idp/list/) as part of the process (See documentation).
+      Documentation:
+       - https://www.worldscientific.com/page/librarians/access-authentication?srsltid=AfmBOorIXFfX1x7Q8zsIEF23qgo4dp7nQlSP5fFjMquQJTZJxYEHxabC
