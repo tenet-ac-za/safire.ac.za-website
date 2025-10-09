@@ -179,13 +179,14 @@ Providers:
       Documentation:
        - https://www.biologists.com/library-hub/subscriptions/info-for-library-administrators/
 
-    - Name: Dawsonera
-      LoginLink: "[Shibboleth login](https://www.dawsonera.com/wayf/wayf.html?entityID=https%3A%2F%2Fwww.dawsonera.com%2Fshibboleth&return=https%3A%2F%2Fwww.dawsonera.com%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dcookie%253A1501229600_249b)"
-      Status: Tested, working
-      StatusColour: green
-      StatusDate: 2019-03-01
-      Notes: |
-        Libraries need to generate a WAYFless URL of the form https://www.dawsonera.com/Shibboleth.sso/Login?entityID={{idp_proxy_entityid}}&target=https://www.dawsonera.com/depp/shibboleth/ShibbolethLogin.html?dest= using their [proxied entity id](/participants/idp/list/?wayfless) and send it to Dawson support to get themselves listed.
+# Dawsonera went out of business
+#    - Name: Dawsonera
+#      LoginLink: "[Shibboleth login](https://www.dawsonera.com/wayf/wayf.html?entityID=https%3A%2F%2Fwww.dawsonera.com%2Fshibboleth&return=https%3A%2F%2Fwww.dawsonera.com%2FShibboleth.sso%2FLogin%3FSAMLDS%3D1%26target%3Dcookie%253A1501229600_249b)"
+#      Status: Tested, working
+#      StatusColour: green
+#      StatusDate: 2019-03-01
+#      Notes: |
+#        Libraries need to generate a WAYFless URL of the form https://www.dawsonera.com/Shibboleth.sso/Login?entityID={{idp_proxy_entityid}}&target=https://www.dawsonera.com/depp/shibboleth/ShibbolethLogin.html?dest= using their [proxied entity id](/participants/idp/list/?wayfless) and send it to Dawson support to get themselves listed.
 
     - Name: De Gruyter Brill
       LoginLink: "[Manage Access/Add institutional acess/Access through your institution](https://www.degruyterbrill.com/)"
