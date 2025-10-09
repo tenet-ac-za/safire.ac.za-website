@@ -16,6 +16,38 @@
         {{- $.Scratch.Add "i" 1 -}}
     {{- end }}
     {{- end }}
+    {{- if (eq $type "sirtfi") }}
+        {{- /*
+            This hard codes the federation hub entity into the data for
+            the Sirtfi page. It's a special case that allows us to provided
+            an easy link to the federation's own self-assertion, since that's
+            implicitly in scope for the assertions of any other proxied IdP.
+        */ -}}
+        {{- with $p := dict
+            "entityID" "https://iziko.safire.ac.za/"
+            "entityType" "fed"
+            "ParticipationAgreement" true
+            "TechnicalIntegration" true
+            "Sirtfi" "v2.0"
+            "OrganizationName" "Tertiary Education and Research Network of South Africa NPC"
+            "OrganizationDisplayName" "SAFIRE - South African Identity Federation"
+            "OrganizationURL" (ref . "/_index.md")
+            "mdui" (dict
+                "DisplayName" "SAFIRE Federation Infrastructure…"
+                "Description" "Assessment of those Federation components that are in scope for other identity- and service-providers' own Sirtfi assessments"
+                "PrivacyStatementURL" (ref . "/safire/policy/privacy/_index.md")
+                "InformationURL" (ref . "/users/who-why-what.md")
+                "Logo" (dict "URL" "https://static.safire.ac.za/logos/safire-logo-300x300.png")
+            )
+            "contact" (dict
+                "support" (dict "GivenName" "TENET Service Support Centre" "URL" "https://www.tenet.ac.za/support/")
+                "technical" (dict "GivenName" "TENET SAFIRE Operations Team" "URL" (ref . "/safire/contact/_index.md"))
+                "security" (dict "GivenName" "TENET SAFIRE Incident Response Team" "URL" (ref . "/safire/contact/security.md"))
+            )
+        }}
+            {{ template "listParticipant" (dict "p" $p "i" ($.Scratch.Get "i")) }}
+        {{- end }}
+    {{- end }}
 </div>
 <script>
     $(document).ready(function()
@@ -155,7 +187,7 @@
                 <dd>{{ if $p.eduGAIN }}yes, will be published{{ else }}no, will not be published{{ end }}</dd>
             {{ if $p.Sirtfi }}
             <dt><abbr title="entity has indicated it complies with https://refeds.org/sirtfi">Sirtfi</abbr></dt>
-                <dd>yes, {{ with $p.entityID }}<a href="/technical/saml2/sirtfi/{{ .|sha1 }}.pdf" target="_blank">{{ end -}}
+                <dd>yes{{ if not (eq $p.Sirtfi true) }} {{ $p.Sirtfi }}{{ end }}, {{ with $p.entityID }}<a href="/technical/saml2/sirtfi/{{ .|sha1 }}.pdf" target="_blank">{{ end -}}
                     self-assertion of compliance received
                     {{- with $p.entityID }}</a>{{ end }}</dd>
             {{ end }}
@@ -184,6 +216,8 @@
         Service provider (visited organisation)
     {{- else if eq . "aa" -}}
         Attribute authority
+    {{- else if eq . "fed" -}}
+        Federation Operator
     {{- else -}}
         Unknown Type
     {{- end -}}
@@ -196,6 +230,8 @@
         SP
     {{- else if eq . "aa" -}}
         AA
+    {{- else if eq . "fed" -}}
+        <img class="provider-badge provider-badge-safire" src="//static.safire.ac.za/logos/safire-icon.svg" title="SAFIRE Federation Operator" alt="FedOp">
     {{- else -}}
         ??
     {{- end -}}
@@ -255,7 +291,11 @@
 {{ define "displayContact" }}
     <dl class="participantListContact">
         <dt>Name</dt>
-            <dd>{{ .GivenName -}} {{- .SurName }}</dd>
+            <dd>
+            {{- with .URL }}<a href=".">{{ end -}}
+            {{ .GivenName -}} {{- .SurName }}
+            {{- with .URL }}</a>{{ end -}}
+            </dd>
         {{- with .Company }}
         <dt>Company</dt>
             <dd>{{.}}</dd>
