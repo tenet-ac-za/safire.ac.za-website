@@ -98,7 +98,9 @@ The clause in §11.5 references the REN Master Service Agreement's processes for
 
 In the case where a Participant in SAFIRE is also a signatory of the REN Master Service Agreement (most universities, for instance), the prevailing version is the one most recently concluded between TENET and the Participant (we can supply a copy of this if necessary).
 
-In cases where the Participant is not also a signatory, the prevailing version is the one distributed to our SLA Reference Group from time to time. However, if necessary to allay concerns about this, we can annexure the relevant sections from the REN Master Service Agreement to the Participation Agreement at the time of signature.
+In cases where the Participant is not also a signatory, the prevailing version is the one distributed to our SLA Reference Group from time to time.
+
+It is our intent to replace references to the REN Master Service Agreement with references to standalone General Terms and Conditions of Service published on TENET's website. Those terms & conditions would be substantively similar to the existing REN Master Service Agreement and effectively a standalone version of the same. That would make things simpler in the case where a Participatant in SAFIRE is not also a signatory of our MSA. However, in the mean time and if necessary to allay concerns about this, we can annexure the relevant sections from the REN Master Service Agreement to the Participation Agreement at the time of signature.
 
 # Variations
 
@@ -118,6 +120,9 @@ Of course, if there is good cause to amend the Participation Agreement, we will 
 
 # May-vs-Must
 
-In general, the Participation Agreement and other SAFIRE documentation is drafted with the terms “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” used as described in [BCP 14](https://www.rfc-editor.org/info/bcp14). Most documents explicitly state this, but the Participation Agreement does not.
+In general, the Participation Agreement and other SAFIRE documentation is drafted with the capitalised terms “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL” used as described in [BCP 14](https://www.rfc-editor.org/info/bcp14). Most documents explicitly state this, but the Participation Agreement does not.
+
+> The following paragraph is rendered moot by the 2020 REN Master Service Agreement change making this explict. Nonetheless, its preserved here because the sentiment remains true.
+{.message-box}
 
 ~~Concern has been expressed about the use of the work "may" in §10.2 giving TENET the ability to make unilateral changes. This is not our intent, and the current use of "may" rather than "must" was an oversight. We've sought specific legal advice around this issue and TENET's own lawyers have advised that under common law, it is a fundamental requirement that agreements and amendments to agreements, are reached by consensus --- thus even the current wording would require resignature (which was our intent in any event). However we will happily give any institution that requires it a written undertaking as a separate annexure that substantive changes to the Participation Agreement MUST involve resignature.~~
