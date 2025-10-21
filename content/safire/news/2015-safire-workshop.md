@@ -1,7 +1,7 @@
---- 
+---
 date: 2015-03-06 10:32:10+00:00
 slug: 2015-safire-workshop
-tags: 
+tags:
   - event
 title: 2015 SAFIRE Workshop
 url: /safire/news/2015-safire-workshop/
@@ -35,7 +35,7 @@ Members of the pilot project team and the Steering Committee provided details in
 
 The tasks of all three of the streams were completed by the time of the workshop. The only outstanding task of the streams is the implementation of the automated meta-data exchange, which will be imminently implemented.
 
-This session also included a demonstration of the SAFIRE pilot implementation. This was done by asking the IT director of UCT to use a federated logon onto a service that he had not previous used, MCONF.
+This session also included a demonstration of the SAFIRE pilot implementation. This was done by asking the IT director of UCT to use a federated login to a service that he had not previously used, MCONF.
 
 The demonstration was followed by a discussion on the various lessons learnt during the implementation of the project. It was identified that the lack of a clear direction or mandate for the steering committee was problematic from the start. Additionally, many of the issues that the project team faced could have been avoided by proper communications – a topic that was discussed in detail towards the end of the workshop.
 

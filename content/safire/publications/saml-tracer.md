@@ -41,7 +41,7 @@ SAML-tracer only actively records your connections when its window is open. To o
 
 At this point you should perform the login you wish to trace. Typically it'll be a service that you're having difficulty authenticating with, and you should complete the normal [login process]({{< ref "/users/how.md" >}}) from the beginning as far as possible until the error or problem occurs.
 
-While you're doing this, you should see the SAML-tracer window recording the details of your transaction, including the SAML transactions (shown with the occasional orange SAML tags) that indicate an authentication process is occuring.
+While you're doing this, you should see the SAML-tracer window recording the details of your transaction, including the SAML transactions (shown with the occasional orange SAML tags) that indicate an authentication process is occurring.
 {{< figure src="/wp-content/uploads/2021/05/saml-trace-testsp.png" caption="SAML trace in progress" >}}
 
 Note: It often helps to do this in a [private](https://support.mozilla.org/en-US/kb/private-browsing-use-firefox-without-history) or [incognito](https://support.google.com/chrome/answer/95464) window to ensure that any [cookies](https://iziko.safire.ac.za/module.php/safire/forgetme) previously set in your browser do not interfere with the trace. However, if you do this, you'll need to allow the SAML-tracer plugin to run in private/incognito mode. You typically do this in the plugin/add-on settings of your browser.

@@ -1,7 +1,7 @@
---- 
+---
 date: 2015-06-12 12:50:52+00:00
 slug: june-2015-steering-committee-meeting
-tags: 
+tags:
   - meeting
 title: June 2015 Steering Committee Meeting
 url: /safire/news/june-2015-steering-committee-meeting/
@@ -28,6 +28,6 @@ The main discussions were based on the ToR for the project as well as feedback t
 
   * The project team must ensure that all the tools necessary to handle the operations of SAFIRE must be available by that date
 
-  * A train the trainers event must occur and the will be driven by the HCD stream of SAFIRE. This stream must coordinate with Horizon 2020 projects like MAGIC and Sci-GaIA to assist with training.
+  * A train the trainers event must occur and this will be driven by the HCD stream of SAFIRE. This stream must coordinate with Horizon 2020 projects like MAGIC and Sci-GaIA to assist with training.
 
 Minutes of the Steering Committee meetings will be made available once ready.
