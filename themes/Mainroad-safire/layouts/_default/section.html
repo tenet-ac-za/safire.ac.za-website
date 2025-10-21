@@ -1,0 +1,41 @@
+{{ define "main" }}
+<main class="main list" role="main">
+	{{- with .Title }}
+	<header class="main__header">
+		<h1 class="main__title">{{ . }}</h1>
+	</header>
+	{{- end }}
+	{{- with .Content }}
+	<div class="content main__content clearfix">
+		{{ . }}
+	</div>
+	{{- end }}
+
+	{{- if not .Params.skipsectionmenu }}
+	<nav class="section-menu">
+		<ul class="section-menu">
+		{{- range (union .Pages .Sections) }}
+			{{- if not (in .Params.tags "versioned") -}}
+				{{ template "section-menu-item" . }}
+			{{- end -}}
+		{{- end }}
+		</ul>
+	</nav>
+	{{- end }}
+</main>
+{{ end }}
+
+{{ define "section-menu-item" }}
+	<li>
+		<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ if .Draft }} [Draft]{{ end }}
+		{{- if .IsNode }}
+		<ul class="sub-menu">
+			{{- range (union .Pages .Sections) }}
+				{{- if not (in .Params.tags "versioned") -}}
+					{{ template "section-menu-item" . }}
+				{{- end -}}
+			{{- end -}}
+		</ul>
+		{{- end }}
+	</li>
+{{ end }}

@@ -5,13 +5,26 @@
 .library-status-green { background-color:#0f3; }
 .library-status-yellow { background-color:#ffde00; }
 .library-status-red { background-color:#ff5b33; }
-.library-status.library-status-unknown { background:repeating-linear-gradient(45deg,transparent,transparent 3px,#f6f6f6 3px,#f6f6f6 6px),#cccccc; }
-.library-status { float:right; width:1em; height:1em; text-align: center; font-weight: bold; margin-left: 10px; }
+.ui-accordion-header .library-status.library-status-unknown { background:repeating-linear-gradient(45deg,transparent,transparent 3px,#f6f6f6 3px,#f6f6f6 6px),#cccccc; }
+.ui-accordion-header .library-status { float:right; width:1em; height:1em; text-align: center; font-weight: bold; margin-left: 10px; }
+.participantDetail .library-status { padding: 0.2em 1em !important;}
 .library-member { text-align: center; font-style: italic; }
 .library-seamless, .library-rns { font-size: 80%; text-align: center; font-style: italic; }
 .library-status-date { float:right; font-size: 75%; font-style: italic; }
+/* Ensure library provider list has proper spacing like participant list */
+#libraryProviderList dl {
+	margin-bottom: 1.5rem !important;
+	clear: both;
+}
+#libraryProviderList dt {
+	margin-bottom: 0.5rem;
+	clear: left;
+}
+#libraryProviderList dd {
+	margin-bottom: 1rem;
+}
 </style>
-<div id="participantList" class="ui-accordion ui-widget ui-helper-reset">
+<div id="libraryProviderList" class="ui-accordion ui-widget ui-helper-reset">
 {{- range $p := .Site.Data.libraries.Providers }}
     <h3 data-name="{{ $p.Name|urlize }}" data-tabindex="{{ ($.Scratch.Get "i") }}" class="ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons">
         {{ $p.Name }}
@@ -26,14 +39,14 @@
         <img class="provider-badge provider-badge-rns" src="{{ "wp-content/provider-badges/rns-black.svg" | absURL }}" title="Research and Scholarship" alt="RnS">
     {{- end }}
     </h3>
-    <div id="participantdetail-{{ printf "%03d" ($.Scratch.Get "i") }}" style="display:none;" class="ui-accordion-content ui-corner-bottom ui-helper-reset ui-widget-content">
+    <div id="librarydetail-{{ printf "%03d" ($.Scratch.Get "i") }}" style="display:none;" class="ui-accordion-content ui-corner-bottom ui-helper-reset ui-widget-content">
         {{- if $p.SAFIRE }}
         <p class="library-member">This provider <a href="/participants/sp/list/">directly participates</a> in SAFIRE</p>
         {{- end }}
         <dl class="participantDetail">
             {{- if $p.Status }}
             <dt>Status</dt>
-                <dd class="library-status-{{ $p.StatusColour|default "unknown" }}">
+                <dd class="library-status library-status-{{ $p.StatusColour|default "unknown" }}">
                 {{ $p.Status }}
                 </dd>
             {{- end }}
@@ -73,29 +86,39 @@
 {{- end }}
 </div>
 <script>
-    $(document).ready(function()
-    {
-        var p = $('#participantList')
-        if (p.accordion('instance')) {
-            p.accordion('option', 'active', false);
-            p.accordion('refresh');
-        } else {
-            p.accordion({'collapsible': true, 'active': false});
-            p.bind('accordionactivate', function (event, ui)
-            {
-                if (!$.isEmptyObject(ui.newHeader.offset())) {
-                    $('html:not(:animated), body:not(:animated)').animate({scrollTop: ui.newHeader.offset().top - 50}, 'fast');
-                    window.location.hash = "#" + ui.newHeader.data("name");
+    // Wait for jQuery to be loaded before initializing
+    function initializeLibraryProviders() {
+        if (typeof jQuery !== 'undefined') {
+            jQuery(document).ready(function($) {
+                var p = $('#libraryProviderList');
+                if (p.accordion('instance')) {
+                    p.accordion('option', 'active', false);
+                    p.accordion('refresh');
+                } else {
+                    p.accordion({'collapsible': true, 'active': false});
+                    p.bind('accordionactivate', function (event, ui)
+                    {
+                        if (!$.isEmptyObject(ui.newHeader.offset())) {
+                            $('html:not(:animated), body:not(:animated)').animate({scrollTop: ui.newHeader.offset().top - 50}, 'fast');
+                            window.location.hash = "#" + ui.newHeader.data("name");
+                        }
+                    });
+                }
+                // allow us to pre-open a tab
+                if (window.location.hash) {
+                    if ($.isNumeric(window.location.hash.substring(1))) {
+                        p.accordion('option', 'active', parseInt(window.location.hash.substring(1)));
+                    } else if(t = p.find('[data-name="' + window.location.hash.substring(1) + '"]')) {
+                        p.accordion('option', 'active', t.data('tabindex'));
+                    }
                 }
             });
+        } else {
+            // jQuery not loaded yet, try again in 100ms
+            setTimeout(initializeLibraryProviders, 100);
         }
-		// allow us to pre-open a tab
-		if (window.location.hash) {
-			if ($.isNumeric(window.location.hash.substring(1))) {
-				p.accordion('option', 'active', parseInt(window.location.hash.substring(1)));
-			} else if(t = $(this).find('[data-name="' + window.location.hash.substring(1) + '"]')) {
-				p.accordion('option', 'active', t.data('tabindex'));
-			}
-		}
-    });
+    }
+
+    // Start trying to initialize
+    initializeLibraryProviders();
 </script>

@@ -19,7 +19,17 @@ A once-off take-on charge will be levied for each new production entity register
 
 The recurring costs for participation is calculated based on the technology profile as well as the number of [full-time equivalent](https://en.wikipedia.org/wiki/Full-time_equivalent) staff[^fte] and students at the participating institution using the following tiering:
 
-{{< fees "idp" >}}
+| Tier | FTE Band      | Effective Max Discount |
+|:----:|--------------:|:----------------------:|
+| 1    | 0–500         | -                      |
+| 2    | 501–1 000     | 10%                    |
+| 3    | 1 001–2 500   | 15%                    |
+| 4    | 2 501–5 000   | 20%                    |
+| 5    | 5 001–10 000  | 25%                    |
+| 6    | 10 001–15 000 | 30%                    |
+| 7    | 15 001–30 000 | 40%                    |
+| 7+   | > 30 000      | ≥ 45%                  |
+{.fees .idp}
 
 For public and private institutions recognised by the [Department of Higher Education and Training](http://www.dhet.gov.za), the FTE count from the last published MIS[^HEMIS] submissions will be used. For other organisations, a mutually agreeable method for determining FTE count must be derived.
 

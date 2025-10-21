@@ -1,62 +1,59 @@
-{{ partial "header.html" . }}
+{{ define "main" }}
+<main class="main" role="main">
+    <article class="post">
+        <header class="post__header">
+            <h1 class="post__title">{{ .Title }}</h1>
+            {{- with .Params.lead }}
+            <p class="post__lead">{{ . }}</p>
+            {{- end }}
+            {{ with partial "post_meta.html" . -}}
+            <div class="post__meta meta">{{ . }}</div>
+            {{- end }}
+        </header>
 
-<div id="main-content" class="main-content single single-post singular">
-    <div id="primary" class="content-area">
-        <div id="content" class="site-content" role="main">
-            <article class="post type-post status-{{ if .Draft }}draft{{ else }}publish{{ end }} format-standard hentry">
-                <!-- .entry-header -->
-                <header class="entry-header">
-                    <h1 class="entry-title">Attribute: {{ .Title }}</h1>
-                    {{ partial "entry-meta.html" . }}
-                </header>
+        <div class="content post__content clearfix">
+            {{ .Content }}
 
-                <div class="entry-content">
-                    {{ .Content }}
-
-                    <section class="attributedescription">
-                        <h2 class="screen-reader-text">Attribute Definition</h2>
-                        <table>
-                            <tr id="attribute-friendlyname">
-                                <th>Friendly Name</th>
-                                <td>{{ .Title }}</td>
-                            </tr>
-                            <tr id="attribute-oid">
-                                <th>OID</th>
-                                <td>{{ .Params.attributeOid|default "unknown" }}</td>
-                            </tr>
-                            <tr id="attribute-description">
-                                <th>Description</th>
-                                <td>{{ .Content }}</td>
-                            </tr>
-                            <tr>
-                                <th>Format</th>
-                                <td>{{ .Params.attributeFormat|default ""|markdownify }}</td>
-                            </tr>
-                            <tr id="attribute-references">
-                                <th>References</th>
-                                <td>{{ if .Params.attributeReferences }}<ul class="referencelist">
-                                {{- range $i,$v := .Params.attributeReferences }}
-                                    <li>{{ with $v.URL }}<a href="{{.|safeURL}}">{{end}}{{ $v.Name|markdownify }}{{ with $v.URL }}</a>{{end}}</li>
-                                {{- end }}
-                                </ul>{{ else }}none{{end}}</td>
-                            </tr>
-                            <tr id="attribute-example">
-                                <th>Example</th>
-                                <td>{{ .Params.attributeexample|default "none given"|markdownify }}</td>
-                            </tr>
+            <section class="attributedescription">
+                <h2 class="screen-reader-text">Attribute Definition</h2>
+                <table>
+                    <tr id="attribute-friendlyname">
+                        <th>Friendly Name</th>
+                        <td>{{ .Title }}</td>
+                    </tr>
+                    <tr id="attribute-oid">
+                        <th>OID</th>
+                        <td>{{ .Params.attributeOid|default "unknown" }}</td>
+                    </tr>
+                    <tr id="attribute-description">
+                        <th>Description</th>
+                        <td>{{ .Content }}</td>
+                    </tr>
+                    <tr>
+                        <th>Format</th>
+                        <td>{{ .Params.attributeFormat|default ""|markdownify }}</td>
+                    </tr>
+                    <tr id="attribute-references">
+                        <th>References</th>
+                        <td>{{ if .Params.attributeReferences }}<ul class="referencelist">
+                        {{- range $i,$v := .Params.attributeReferences }}
+                            <li>{{ with $v.URL }}<a href="{{.|safeURL}}">{{end}}{{ $v.Name|markdownify }}{{ with $v.URL }}</a>{{end}}</li>
+                        {{- end }}
+                        </ul>{{ else }}none{{end}}</td>
+                    </tr>
+                    <tr id="attribute-example">
+                        <th>Example</th>
+                        <td>{{ .Params.attributeexample|default "none given"|markdownify }}</td>
+                    </tr>
 {{- with .Params.attributeNotes }}
-                            <tr id="attribute-notes">
-                                <th>Additional Notes</th>
-                                <td>{{ .|default "none"|markdownify }}</td>
-                            </tr>
+                    <tr id="attribute-notes">
+                        <th>Additional Notes</th>
+                        <td>{{ .|default "none"|markdownify }}</td>
+                    </tr>
 {{- end}}
-                        </table>
-                    </section>
-                </div><!-- .entry-content -->
-            </article> <!-- #post-## -->
-        </div><!-- #content -->
-    </div><!-- #primary -->
-    {{ partial "sidebar.html" . }}
-</div><!-- #main-content -->
-
-{{ partial "footer.html" . }}
+                </table>
+            </section>
+        </div><!-- .content -->
+    </article>
+</main>
+{{ end }}

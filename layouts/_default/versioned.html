@@ -1,42 +1,36 @@
-{{ partial "header.html" . }}
+{{ define "main" }}
+<main class="main" role="main">
+        <header class="main__header main__header--versioned">
+            {{ $title := .Title }}
+            <h1 class="main__title">{{ .Title }}</h1>
+            <details class="version-history">
+                <summary>Version History</summary>
+                <ul id="section-menu">
+                {{- range (where (union .Pages .Sections) ".Params.tags" "intersect" (slice "versioned")).ByDate.Reverse }}
+                    <li><a href="{{ .Permalink }}">{{ .Title }}</a> (<time datetime="{{ .Date.Format "2006-01-02T15:04:05Z" }}">{{ .Date.Format "2006-01-02" }}</time>){{ if .Draft }} [Draft]{{ end }}</li>
+                {{- end }}
+                </ul>
+            </details> <!-- .version-history -->
+            <aside class="versioned__overview">
+                {{ .Content }}
+            </aside>
+        </header>
 
-<div id="main-content" class="main-content single single-content singular">
-
-    <div id="primary" class="content-area">
-        <div id="content" class="site-content" role="main">
-
-            <header class="archive-header">
-                {{ $title := .Title }}
-                <h1 class="archive-title">{{ .Title }}</h1>
-                <div class="taxonomy-description">
-                    {{ .Content }}
-                </div> <!-- .taxonomy-description -->
-
-                <details class="version-history">
-                    <summary>Version History</summary>
-                    <ul id="section-menu">
-                    {{- range (where (union .Pages .Sections) ".Params.tags" "intersect" (slice "versioned")).ByDate.Reverse }}
-                        <li><a href="{{ .Permalink }}">{{ .Title }}</a> (<time datetime="{{ .Date.Format "2006-01-02T15:04:05Z" }}">{{ .Date.Format "2006-01-02" }}</time>){{ if .Draft }} [Draft]{{ end }}</li>
-                    {{- end }}
-                    </ul>
-                </details> <!-- .version-history -->
-            </header> <!-- .archive-header -->
-
-            {{- range last 1 (where (where (union .Pages .Sections) ".Params.tags" "intersect" (slice "versioned")) "Draft" false).ByDate }}
-            <article class="post type-post status-{{ if .Draft }}draft{{ else }}publish{{ end }} format-standard hentry">
-                <header class="entry-header">
-                    <h1 class="entry-title">{{ .Title }}</h1>
-                    {{ partial "entry-meta.html" . }}
-                </header>
-                <div class="entry-content">
-                    {{ .Content }}
-                </div> <!-- .entry-content -->
-            </article> <!-- #post-## -->
-            {{- end }}
-
-        </div><!-- #content -->
-    </div><!-- #primary -->
-    {{ partial "sidebar.html" . }}
-</div><!-- #main-content -->
-
-{{ partial "footer.html" . }}
+        {{- range last 1 (where (where (union .Pages .Sections) ".Params.tags" "intersect" (slice "versioned")) "Draft" false).ByDate }}
+        <article class="post">
+            <header class="post__header">
+                <h1 class="post__title">{{ .Title }}</h1>
+                {{- with .Params.lead }}
+                <p class="post__lead">{{ . }}</p>
+                {{- end }}
+                {{ with partial "post_meta.html" . -}}
+                <div class="post__meta meta">{{ . }}</div>
+                {{- end }}
+            </header>
+            <div class="content post__content clearfix">
+                {{ .Content }}
+            </div> <!-- .content -->
+        </article> <!-- .post -->
+        {{- end }}
+</main>
+{{ end }}

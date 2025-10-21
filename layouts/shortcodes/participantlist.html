@@ -50,57 +50,61 @@
     {{- end }}
 </div>
 <script>
-    $(document).ready(function()
-    {
-        var p = $('#participantList')
-        if (p.accordion('instance')) {
-            p.accordion('option', 'active', false);
-            p.accordion('refresh');
-        } else {
-            p.accordion({'collapsible': true, 'active': false});
-            p.bind('accordionactivate', function (event, ui)
-            {
-                if (!$.isEmptyObject(ui.newHeader.offset())) {
-                    $('html:not(:animated), body:not(:animated)').animate({scrollTop: ui.newHeader.offset().top - 50}, 'fast');
-                    if (ui.newHeader.data("name")) {
-                        window.location.hash = "#" + ui.newHeader.data("name");
-                    } else {
-                        window.location.hash = "";
+    // Wait for jQuery to be loaded before initializing
+    function initializeParticipantList() {
+        if (typeof jQuery !== 'undefined') {
+            jQuery(document).ready(function($) {
+                var p = $('#participantList')
+                if (p.accordion('instance')) {
+                    p.accordion('option', 'active', false);
+                    p.accordion('refresh');
+                } else {
+                    p.accordion({'collapsible': true, 'active': false, 'heightStyle': 'content'});
+                    p.bind('accordionactivate', function (event, ui)
+                    {
+                        if (!$.isEmptyObject(ui.newHeader.offset())) {
+                            $('html:not(:animated), body:not(:animated)').animate({scrollTop: ui.newHeader.offset().top - 50}, 'fast');
+                            if (ui.newHeader.data("name")) {
+                                window.location.hash = "#" + ui.newHeader.data("name");
+                            } else {
+                                window.location.hash = "";
+                            }
+                        }
+                    });
+                }
+                $('button').button();
+                $('abbr').tooltip();
+                // allow us to pre-open a tab
+                if (window.location.hash) {
+                    if ($.isNumeric(window.location.hash.substring(1))) {
+                        p.accordion('option', 'active', parseInt(window.location.hash.substring(1)));
+                    } else if(t = $(this).find('[data-name="' + window.location.hash.substring(1) + '"]')) {
+                        p.accordion('option', 'active', t.data('tabindex'));
+                    } else if(t = $(this).find('[data-entityid="' + window.location.hash.substring(1) + '"]')) {
+                        p.accordion('option', 'active', t.data('tabindex'));
                     }
                 }
-            });
-        }
-        $('button').button();
-        $('abbr').tooltip();
-        // allow us to pre-open a tab
-        if (window.location.hash) {
-            if ($.isNumeric(window.location.hash.substring(1))) {
-                p.accordion('option', 'active', parseInt(window.location.hash.substring(1)));
-            } else if(t = $(this).find('[data-name="' + window.location.hash.substring(1) + '"]')) {
-                p.accordion('option', 'active', t.data('tabindex'));
-            } else if(t = $(this).find('[data-entityid="' + window.location.hash.substring(1) + '"]')) {
-                p.accordion('option', 'active', t.data('tabindex'));
-            }
-        }
 
-        // create dialogs for contact details
-        $('.participantContact').dialog({ width: 500, autoOpen: false });
-        $('.participantContact').each(function(index)
-        {
-            var div = $(this).attr('id');
-            var button = div.replace('contactdiv', 'contactbutton');
-            $('#' + button).on('click', function() {
-                console.log(div);
-                $('#' + div).dialog('open');
+                // create dialogs for contact details
+                $('.participantContact').dialog({ width: 500, autoOpen: false });
+                $('.participantContact').each(function(index)
+                {
+                    var div = $(this).attr('id');
+                    var button = div.replace('contactdiv', 'contactbutton');
+                    $('#' + button).on('click', function() {
+                        console.log(div);
+                        $('#' + div).dialog('open');
+                    });
+                });
             });
-        });
+        } else {
+            // jQuery not loaded yet, try again in 100ms
+            setTimeout(initializeParticipantList, 100);
+        }
+    }
 
-        // allow us to unfold entity ids:
-        $('.entityidfold').click(function() {
-            console.log('entityidfold click');
-            $('.entityidfold-' + $(this).attr('data-id')).toggle();
-        });
-    });
+    // Start trying to initialize
+    initializeParticipantList();
 </script>
 
 {{ define "listParticipant" }}
@@ -160,20 +164,24 @@
                 <dd>{{ dateFormat "2006-01-02T15:04Z" . }}</dd>
             {{- end }}
             {{- with $p.proxyEntityID }}
-            <dt class="entityidfold" data-id="{{ $i }}"><abbr title="Unique identifier for this particular participant (entity). Click for other forms.">Metadata entityID</abbr></dt>
-                <dd class="entityidfold" data-id="{{ $i }}" style="cursor: help" title="Click for other forms">{{ . }}</dd>
-                {{- with $p.entityID }}
-            <dt class="entityidfold-{{ $i }}" hidden><abbr title="Original, untransformed entityID from source metadata. This is almost never used.">Source entityID</abbr></dt>
-                <dd class="entityidfold-{{ $i }}" hidden>{{ . }}</dd>
-                {{- end }}
-                {{- with $p.proxyEntityID }}
-            <dt class="entityidfold-{{ $i }}" hidden><abbr title="Proxied entityID, as used for most purposes.">Proxied entityID</abbr></dt>
-                <dd class="entityidfold-{{ $i }}" hidden>{{ . }}</dd>
-                {{- end }}
-                {{- with $p.wayflessEntityID }}
-            <dt class="entityidfold-{{ $i }}" hidden><abbr title="URL-encoded version of proxied entityID, needed for many wayfless URLs">Wayfless entityID</abbr></dt>
-                <dd class="entityidfold-{{ $i }}" hidden>{{ . }}</dd>
-                {{- end }}
+            <dt><abbr title="Unique identifier for this particular participant (entity). Click for other forms.">Metadata entityID</abbr></dt>
+                <dd>
+                    <details>
+                        <summary>{{ . }}</summary>
+                        <dl class="participantEntityIDs">
+                            <dt><abbr title="Proxied entityID, as used for most purposes.">Proxied entityID</abbr></dt>
+                            <dd>{{ . }}</dd>
+                            {{- with $p.entityID }}
+                            <dt><abbr title="Original, untransformed entityID from source metadata. This is almost never used.">Source entityID</abbr></dt>
+                            <dd>{{ . }}</dd>
+                            {{- end }}
+                            {{- with $p.wayflessEntityID }}
+                            <dt><abbr title="URL-encoded version of proxied entityID, needed for many wayfless URLs">Wayfless entityID</abbr></dt>
+                            <dd>{{ . }}</dd>
+                            {{- end }}
+                        </dl>
+                    </details>
+                </dd>
             {{- end }}
             {{- with $p.Scope }}
             <dt>Domains</dt>

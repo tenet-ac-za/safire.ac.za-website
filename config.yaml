@@ -2,7 +2,7 @@
 languageCode: en-ZA
 language: en
 title: SAFIRE
-theme: twentyfourteen-safire
+theme: Mainroad-safire
 metaDataFormat: yaml
 canonifyURLs: true
 enableRobotsTXT: true
@@ -10,6 +10,26 @@ disableAliases: true
 enableGitInfo: true
 params:
   Description: "South African Identity Federation"
+  highlightColor: "#5da9dd"
+  style:
+    vars:
+      highlightColor: "#5da9dd"
+      safirePurple: "#6d488c"
+      safirePurpleLight: "#a77fb2"
+      safireMenuBg: "#32373c"
+  # Mainroad theme configuration
+  post_meta: ["date"]
+  sidebar:
+    home: false
+    list: false
+    single: false
+    widgets: []
+  widgets:
+    recent_num: 5
+    categories_counter: false
+    tags_counter: false
+  logo:
+    image: "https://static.safire.ac.za/logos/SAFIRE_P_Colour.svg"
 Services:
   googleAnalytics:
     ID: "G-H6SRTQF871"
@@ -33,11 +53,11 @@ menu:
     Weight: 1
   - Name: "Home Organisations"
     Identifier: users-where-idp
-    URL: /participants/idp/list/
+    pageRef: /participants/idp/list.md
     Parent: users-where
   - Name: "Services"
     Identifier: users-where-sp
-    URL: /participants/sp/list/
+    pageRef: /participants/sp/list.md
     Parent: users-where
 
   - Name: "Test Login"
@@ -85,7 +105,7 @@ menu:
 
   - Name: "Attribute Release Policy"
     Identifier: technical-saml2-arp
-    URL: /safire/policy/arp/
+    pageRef: /safire/policy/arp/_index.md
     Parent: technical-saml2
     Weight: 4
   - Name: "Metadata Validator"
@@ -93,6 +113,24 @@ menu:
     URL: http://validator.safire.ac.za/
     Parent: technical-saml2
     Weight: 6
+
+  footer:
+  - Name: "Privacy Statement"
+    Identifier: footer-privacy
+    pageRef: /safire/policy/privacy/_index.md
+    Weight: 1
+  - Name: "Contact"
+    Identifier: footer-contact
+    pageRef: /safire/contact/_index.md
+    Weight: 2
+  - Name: "TENET"
+    Identifier: footer-tenet
+    URL: https://www.tenet.ac.za/
+    Weight: 3
+  - Name: "REFEDS"
+    Identifier: footer-refeds
+    URL: https://www.refeds.org/
+    Weight: 4
 
 # Based on https://gohugo.io/news/http2-server-push-in-hugo/
 outputs:

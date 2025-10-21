@@ -1,15 +1,15 @@
---- 
-aliases: 
+---
+aliases:
   - /category/safire/publications/
 date: 2016-09-16 14:13:58+00:00
-layout: taxonomy
-menu: 
-  main: 
+layout: list
+menu:
+  main:
     identifier: safire-publications
     parent: safire
     weight: 4
 slug: publications
-tags: 
+tags:
   - publications
 title: Publications
 url: /safire/publications/

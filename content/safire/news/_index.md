@@ -2,7 +2,7 @@
 aliases:
   - /category/safire/news/
 date: 2016-09-14 06:49:47+00:00
-layout: taxonomy
+layout: list
 menu:
   main:
     identifier: safire-news

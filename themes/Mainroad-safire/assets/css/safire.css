@@ -1,0 +1,699 @@
+﻿/* SAFIRE-specific CSS overrides and customizations */
+
+{{- $highlightColor := .Site.Params.style.vars.highlightColor | default (.Site.Params.highlightColor | default "#e22d30") -}}
+{{- $safirePurple := .Site.Params.style.vars.safirePurple | default "#6d488c" -}}
+{{- $safirePurpleLight := .Site.Params.style.vars.safirePurpleLight | default "#a77fb2" -}}
+{{- $safireMenuBg := .Site.Params.style.vars.safireMenuBg | default "#32373c" -}}
+
+/* Font faces */
+@font-face {
+	font-family: 'Esphimere Light';
+	src: url('//static.safire.ac.za/fonts/Esphimere_Light.woff') format('woff');
+}
+@font-face {
+	font-family: 'Rounded Elegance';
+	src: url('//static.safire.ac.za/fonts/Rounded_Elegance.woff') format('woff');
+}
+
+/* Let safire.css handle most button styling, just add some enhancements */
+button,
+input[type="button"],
+input[type="submit"] {
+	border-radius: 4px;
+	border: 1px solid transparent;
+	transition: all 0.3s ease;
+	cursor: pointer;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover {
+	opacity: 0.8;
+}
+
+/* Specific styling for participant list buttons */
+#participantList button,
+#libraryProviderList button,
+.participantTechnical button,
+.participantDetail button {
+	border-radius: 4px;
+	border: 1px solid transparent;
+	transition: all 0.3s ease;
+	font-size: 0.9em;
+	padding: 4px 8px;
+	background-color: {{ $highlightColor }};
+	color: #fff;
+	cursor: pointer;
+	margin: 0 1px 2px;
+}
+
+#participantList button:hover,
+#libraryProviderList button:hover,
+.participantTechnical button:hover,
+.participantDetail button:hover {
+	background-color: {{ $safirePurple }};
+	transform: translateY(-1px);
+}
+
+#participantList button:active,
+#libraryProviderList button:active,
+.participantTechnical button:active,
+.participantDetail button:active {
+	background-color: {{ $safirePurple }};
+}
+
+/* SAFIRE logo sizing */
+.logo__img {
+	height: 60px;
+	width: auto;
+	max-width: 250px;
+}
+
+.logo {
+	padding: 10px 25px;
+}
+
+.post__header {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.post__title {
+    flex: 1;
+}
+
+.post__meta {
+    border: none;
+    padding: 0;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+.post__meta .meta__item-datetime {
+    font-size: 0.85em;
+    color: #666;
+    font-weight: normal;
+}
+
+.post__meta .meta__item-datetime .meta__icon {
+    width: 14px;
+    height: 14px;
+}
+
+/* GitHub-style hover anchor links - OVERRIDE EVERYTHING */
+.post__content .anchor,
+.content .anchor,
+article .anchor {
+	float: left !important;
+	padding-right: 4px !important;
+	margin-left: -20px !important;
+	line-height: 1 !important;
+}
+
+.post__content .octicon-link,
+.content .octicon-link,
+article .octicon-link {
+	color: #1b1f23 !important;
+	vertical-align: middle !important;
+	visibility: hidden !important;
+	opacity: 0 !important;
+}
+
+.post__content .octicon,
+.content .octicon,
+article .octicon {
+	display: inline-block !important;
+	fill: currentColor !important;
+}
+
+/* Show on hover with multiple selectors to ensure it works */
+.post__content h1:hover .anchor .octicon-link,
+.post__content h2:hover .anchor .octicon-link,
+.post__content h3:hover .anchor .octicon-link,
+.post__content h4:hover .anchor .octicon-link,
+.post__content h5:hover .anchor .octicon-link,
+.post__content h6:hover .anchor .octicon-link,
+.content h1:hover .anchor .octicon-link,
+.content h2:hover .anchor .octicon-link,
+.content h3:hover .anchor .octicon-link,
+.content h4:hover .anchor .octicon-link,
+.content h5:hover .anchor .octicon-link,
+.content h6:hover .anchor .octicon-link,
+article h1:hover .anchor .octicon-link,
+article h2:hover .anchor .octicon-link,
+article h3:hover .anchor .octicon-link,
+article h4:hover .anchor .octicon-link,
+article h5:hover .anchor .octicon-link,
+article h6:hover .anchor .octicon-link {
+	visibility: visible !important;
+	opacity: 1 !important;
+}
+
+/* Ensure hidden attribute works properly for entityidfold */
+[hidden] {
+	display: none !important;
+}
+
+/* Style details/summary for entity ID folding */
+.participantTechnical details {
+	margin: 0;
+}
+
+/* Add spacing between DL entries in participant lists */
+.participantTechnical dl,
+#participantList dl,
+#libraryProviderList dl {
+	margin-bottom: 1.5rem !important;
+	clear: both;
+	display: block;
+	overflow: hidden; /* Contains floated elements */
+}
+
+.participantTechnical dt,
+#participantList dt,
+#libraryProviderList dt {
+	float: left;
+	clear: left;
+	min-width: 12rem;
+	font-weight: bold;
+	margin-bottom: 0.5rem;
+	padding-right: 1rem;
+	box-sizing: border-box;
+}
+
+.participantTechnical dd,
+#participantList dd,
+#libraryProviderList dd {
+	float: left;
+	margin: 0 0 1rem 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.participantTechnical summary {
+	cursor: pointer;
+	color: #6d488c;
+	font-weight: normal;
+	font-family: monospace;
+	/* font-size: 0.9em; */
+	word-break: break-all;
+}
+
+.participantTechnical summary:hover {
+	color: #5da9dd;
+}
+
+.participantTechnical details dl {
+	margin-top: 10px;
+	/* font-size: 0.85em; */
+	border-left: 2px solid #eee;
+	padding-left: 10px;
+}
+
+.participantTechnical details dl dt {
+	font-weight: bold;
+	margin-top: 5px;
+}
+
+.participantTechnical details dl dd {
+	font-family: monospace;
+	font-size: 0.9em;
+	word-break: break-all;
+	margin-left: 10px;
+}
+
+.menu__link {
+	display: flex;
+	align-items: flex-start;
+	font-weight: normal;
+}
+
+/* Section menu styling to match content lists */
+.main__content:has(+ .section-menu) {
+	margin-bottom: 0;
+}
+
+.section-menu ul {
+	list-style: square;
+	margin: 0 0 20px 40px;
+}
+
+.section-menu li {
+/*	line-height: 1.5; */
+	margin-bottom: 5px;
+}
+
+.section-menu a {
+	color: {{ $highlightColor }};
+	text-decoration: none;
+    font-weight: 700;
+	transition: color 0.3s ease;
+}
+
+.section-menu a:hover {
+	color: {{ $safirePurple }};
+	text-decoration: underline;
+}
+
+
+.section-menu .sub-menu {
+	margin: 0;
+	max-height: 0;
+	overflow: hidden;
+	opacity: 0;
+	transition: max-height 0.4s ease, opacity 0.3s ease, margin 0.4s ease;
+}
+
+/* Hide empty sub-menus completely */
+.section-menu .sub-menu:empty {
+	display: none;
+}
+
+/* Show sub-menu on hover (only if not empty) - override margin for nested lists */
+.section-menu li:hover > .sub-menu:not(:empty) {
+	margin-left: 40px;
+	max-height: 100vh;
+    overflow: visible;
+	opacity: 1;
+}
+
+.section-menu .sub-menu li {
+	margin: 0.2rem 0;
+}
+
+/* Typography */
+.post__title,
+.main__title {
+	font-family: 'Esphimere Light', sans-serif;
+	text-transform: initial;
+    /* match H1 */
+    font-size: 32px;
+    font-size: 2rem;
+}
+
+.content a:hover, .warning a:hover, .authorbox__description a:hover {
+	color: {{ $safirePurple }};
+}
+
+/* Footnotes and versioning */
+.footnotes {
+	font-size: 10px;
+	margin-top: 1rem;
+}
+.footnotes ol li p {
+    margin-bottom: 0;
+}
+
+/* Participant list specific styling */
+#participantList {
+	padding-bottom: 18px;
+}
+
+#participantList dt {
+	color: {{ $safirePurple }};
+}
+
+#participantList dt:after {
+	content: ":";
+	padding-right: 0.5em;
+}
+
+#participantList dl.participantTechnical {
+	font-size: 80%;
+}
+
+#participantList .participantEntityIDs dt{
+    min-width: 6.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+/* StringOrArrayList styling - ensure bullets align with content margin */
+ul.stringOrArrayList {
+	list-style: disc;
+	margin: 0 0 1rem 0;
+	padding-left: 1rem;
+	line-height: 1.5;
+}
+
+ul.stringOrArrayList:has(li:only-child) {
+	margin: 0;
+	list-style: none;
+	padding-left: 0;
+}
+
+/* Ensure definition lists and participant lists are not affected by list styles */
+.content dl, .content dt, .content dd,
+#participantList dl, #participantList dt, #participantList dd,
+.participantTechnical dl, .participantTechnical dt, .participantTechnical dd ,
+.participantListContact dl, .participantListContact dt, .participantListContact dd {
+	list-style: none !important;
+	margin-left: 0 !important;
+}
+
+/* Attribute descriptions */
+.attributedescription ul.referencelist li,
+.attributedescription ul.referencelist {
+	display: inline-block;
+	padding: 0;
+	margin: 0;
+}
+
+.attributedescription ul.referencelist li:after {
+	content: ";";
+}
+
+.attributedescription ul.referencelist li:last-child:after {
+	content: "";
+}
+
+/* Code styling */
+pre.xml {
+	white-space: pre;
+	font-size: 75%;
+}
+
+pre > code {
+	font-family: monospace, serif;
+	font-size: 12px;
+	white-space: pre;
+	overflow: auto;
+}
+
+abbr[title] {
+	text-decoration: none;
+}
+
+/* Hover links for headers - these styles are already defined above for modern classes */
+
+/* Draft styling */
+.status__draft .post__title,
+.status__draft .post__meta,
+.status__draft .post__meta a {
+	color: {{ $safirePurple }} !important;
+}
+
+.status__draft .post__title::after {
+	content: " [Draft]";
+}
+
+/* Message boxes */
+.message-box {
+	background-color: #f4f4f4;
+	color: #2b2b2b;
+	border-left-color: #444;
+	border-left-style: solid;
+	border-left-width: 0.3125rem;
+	box-shadow: 0 5px 8px -6px rgb(0 0 0 / 20%);
+	margin: 1rem 0;
+	padding: 1.3rem;
+	position: relative;
+	font-size: inherit;
+	font-weight: inherit;
+}
+
+.message-box.warning {
+	border-left-color: #f9f56b;
+}
+
+.message-box.error {
+	background-color: #f7e4e1;
+	border-left-color: #cc4b37;
+}
+
+.message-box.success {
+	background-color: #daf7e6;
+	border-left-color: #46cc48;
+}
+
+blockquote.message-box > p {
+	margin-bottom: 0;
+}
+
+/* Table styling */
+table.fees {
+	width: auto !important;
+	margin: 1rem 0;
+	border-collapse: collapse;
+	border: 1px solid #ddd;
+}
+
+table.fees th {
+	background-color: {{ $safirePurple }};
+	color: white;
+	text-align: center;
+	font-weight: 600;
+	border: 1px solid #ddd;
+}
+
+table.fees tbody tr:nth-child(odd) {
+	background-color: #f9f9f9;
+}
+
+table.fees tbody tr:nth-child(even) {
+	background-color: white;
+}
+
+table.fees tbody tr:hover {
+	background-color: rgba(93, 169, 221, 0.1);
+}
+
+.footer__copyright-credits {
+	display: none;
+}
+
+/* Provider badges */
+.provider-badge {
+	float: right;
+	width: 1em;
+	height: 1em;
+	text-align: center;
+	margin-left: 10px;
+}
+
+@media screen and (max-width: 782px) {
+	.provider-badge {
+		display: none;
+	}
+}
+
+.ui-state-active .provider-badge-safire  {
+	content: url(//static.safire.ac.za/logos/safire-icon-white.svg);
+}
+
+.ui-state-active .provider-badge-seamless  {
+	content: url(../wp-content/provider-badges/seamless-white.svg);
+}
+
+.ui-state-active .provider-badge-rns  {
+	content: url(../wp-content/provider-badges/rns-white.svg);
+}
+
+.ui-state-active .provider-badge-coco  {
+	content: url(../wp-content/provider-badges/coco-white.svg);
+}
+
+.ui-state-active .provider-badge-sirtfi  {
+	content: url(../wp-content/provider-badges/sirtfi-white.svg);
+}
+
+/* Versioned layout header styling */
+.main__header--versioned {
+	display: flex;
+	align-items: baseline;
+	flex-wrap: wrap;
+	gap: 1rem;
+	position: relative;
+}
+
+.main__header--versioned .main__title {
+	margin: 0;
+	flex: 1;
+}
+
+.main__header--versioned .versioned__overview {
+	flex-basis: 100%;
+	font-size: 12px;
+}
+
+.main__header--versioned .version-history {
+	position: relative;
+	padding-top: 0;
+	font-size: 0.85em;
+	color: #666;
+}
+
+.main__header--versioned .version-history[open] ul {
+	position: absolute;
+	top: 100%;
+	right: 0;
+	background: white;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+	min-width: 200px;
+	max-width: 400px;
+	z-index: 1000;
+	padding: 0.5rem;
+	margin: 0;
+	list-style: none;
+}
+
+.main__header--versioned .version-history[open] ul li {
+	margin: 0.25rem 0;
+	padding: 0.25rem 0;
+	border-bottom: 1px solid #eee;
+}
+
+.main__header--versioned .version-history[open] ul li:last-child {
+	border-bottom: none;
+}
+
+.main__header--versioned aside p:last-child {
+    margin-bottom: 0;
+}
+
+@media screen and (min-width: 767px) {
+	.menu__btn {
+		display: none !important;
+	}
+
+	.menu__item {
+		position: relative;
+	}
+
+	.menu__submenu {
+		display: none !important;
+		position: absolute;
+		z-index: 999;
+		min-width: 200px;
+		background: {{ $safireMenuBg }};
+		border: 1px solid rgba(255, 255, 255, .1);
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+	}
+
+	/* First level submenus appear below their parent */
+	.menu__item--has-children > .menu__submenu {
+		top: 100%;
+		left: 0;
+		border-top: 0;
+	}
+
+	/* Second level submenus appear to the right of their parent */
+	.menu__subitem--has-children > .menu__submenu {
+		top: -1px; /* Align with parent item border */
+		left: 100%;
+		border-left: 0;
+	}
+
+	/* Show submenu only when hovering directly over the parent */
+	.menu__item--has-children:hover > .menu__submenu,
+	.menu__item--has-children.menu__item--hover > .menu__submenu {
+		display: block !important;
+	}
+
+	.menu__subitem--has-children:hover > .menu__submenu,
+	.menu__subitem--has-children.menu__item--hover > .menu__submenu {
+		display: block !important;
+	}
+
+	/* Visual indicators for menu items with submenus */
+	.menu__item--has-children > .menu__link:before {
+		content: "▶";
+		font-size: 0.8em;
+		margin-right: 0.5em;
+		opacity: 0.7;
+		flex-shrink: 0;
+		transition: transform 0.2s ease;
+		display: inline-block;
+		transform: rotate(0deg);
+	}
+
+	/* Rotate arrows when expanded (mobile) or hovered (desktop) for top-level items */
+	.menu__item--has-children.menu__item--expanded > .menu__link:before,
+	.menu__item--has-children.menu__item--hover > .menu__link:before,
+	.menu__item--has-children:hover > .menu__link:before {
+		transform: rotate(90deg);
+	}
+
+	/* Keep submenu arrows as they were - on the right side */
+	.menu__subitem--has-children > .menu__sublink:after {
+		content: " ►";
+		font-size: 0.8em;
+		margin-left: auto;
+		padding-left: 0.5em;
+		opacity: 0.7;
+		flex-shrink: 0;
+		align-self: flex-start;
+	}
+
+	.menu__subitem {
+		border-bottom: 1px solid rgba(255, 255, 255, .1);
+	}
+
+	.menu__subitem {
+		position: relative; /* Needed for absolute positioning of nested submenus */
+	}
+
+	.menu__subitem:last-child {
+		border-bottom: 0;
+	}
+
+	.menu__subitem:hover {
+		background: {{ $highlightColor }};
+	}
+
+	.menu__sublink {
+		display: flex;
+		align-items: flex-start;
+		padding: 8px 15px;
+		padding: .5rem .9375rem;
+		/* font-weight: 600; */
+		color: #fff;
+		text-transform: none;
+		font-size: 13px;
+		font-size: .8125rem;
+	}
+
+	.menu__sublink:hover {
+		color: #fff;
+	}
+}
+
+/* Mobile submenu styles */
+@media screen and (max-width: 767px) {
+	.menu__submenu {
+		background: {{ $safireMenuBg }};
+		border-left: 3px solid {{ $highlightColor }};
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		position: static;
+		display: none;
+	}
+
+	.menu__item--has-children.menu__item--expanded .menu__submenu {
+		display: block;
+	}
+
+	.menu__subitem {
+		border-top: 1px solid rgba(255, 255, 255, .1);
+	}
+
+	.menu__subitem:hover {
+		background: {{ $highlightColor }};
+	}
+
+	.menu__sublink {
+		padding-left: 30px;
+		font-size: 12px;
+		font-size: .75rem;
+		color: #fff;
+		text-transform: none;
+	}
+}

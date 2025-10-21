@@ -1,3 +1,3 @@
-[submodule "themes/twentyfourteen"]
-	path = themes/twentyfourteen
-	url = https://github.com/jaden/twentyfourteen.git
+[submodule "themes/Mainroad"]
+	path = themes/Mainroad
+	url = https://github.com/Vimux/Mainroad
