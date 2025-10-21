@@ -5,7 +5,7 @@ menu:
     identifier: namespace
     name: Namespace Registries
     parent: technical
-    weight: 7
+    weight: 6
 slug: namespace
 title: Namespace Registries
 url: /namespace/

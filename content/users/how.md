@@ -5,12 +5,11 @@ menu:
     identifier: users-how
     parent: users
     weight: 3
+    name: How?
 slug: how
-title: How?
+title: How does this work?
 url: /users/how/
 ---
-
-# How does this work?
 
 SAFIRE has been [contracted]({{< ref "/safire/policy/participation/_index.md" >}}) by your university to negotiate with other education-related organisations ([service providers]({{< ref "/users/where.md" >}})) about the personal information that needs to be shared to confirm your rights when accessing their resources.
 

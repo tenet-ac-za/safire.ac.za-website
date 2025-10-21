@@ -25,6 +25,7 @@ attributeNotes: |2
   Note that where an affiliation value above says "implies&hellip;" the implied values **must** also be included in the returned set. The most significant/primary one from the set can then be returned separately as [_eduPersonPrimaryAffiliation_](/technical/attributes/edupersonprimaryaffiliation/).
 
   The non-normative diagram below shows how the implied values result in nesting such that the outermost value implicitly includes all of the inner ones.
+
   ![Nesting of eduPersonAffiliation values in SAFIRE](/wp-content/uploads/2017/10/Nesting-of-eduPersonAffiliation-values.svg)
 
 attributeOid: urn:oid:1.3.6.1.4.1.5923.1.1.1.1
