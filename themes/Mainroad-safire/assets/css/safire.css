@@ -74,32 +74,32 @@ input[type="submit"]:hover {
 }
 
 .post__header {
-    display: flex;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 1rem;
+	display: flex;
+	align-items: baseline;
+	flex-wrap: wrap;
+	gap: 1rem;
 }
 
 .post__title {
-    flex: 1;
+	flex: 1;
 }
 
 .post__meta {
-    border: none;
-    padding: 0;
-    margin: 0;
-    flex-shrink: 0;
+	border: none;
+	padding: 0;
+	margin: 0;
+	flex-shrink: 0;
 }
 
 .post__meta .meta__item-datetime {
-    font-size: 0.85em;
-    color: #666;
-    font-weight: normal;
+	font-size: 0.85em;
+	color: #666;
+	font-weight: normal;
 }
 
 .post__meta .meta__item-datetime .meta__icon {
-    width: 14px;
-    height: 14px;
+	width: 14px;
+	height: 14px;
 }
 
 /* GitHub-style hover anchor links - OVERRIDE EVERYTHING */
@@ -248,7 +248,7 @@ article h6:hover .anchor .octicon-link {
 .section-menu a {
 	color: {{ $highlightColor }};
 	text-decoration: none;
-    font-weight: 700;
+	font-weight: 700;
 	transition: color 0.3s ease;
 }
 
@@ -275,7 +275,7 @@ article h6:hover .anchor .octicon-link {
 .section-menu li:hover > .sub-menu:not(:empty) {
 	margin-left: 40px;
 	max-height: 100vh;
-    overflow: visible;
+	overflow: visible;
 	opacity: 1;
 }
 
@@ -288,9 +288,9 @@ article h6:hover .anchor .octicon-link {
 .main__title {
 	font-family: 'Esphimere Light', sans-serif;
 	text-transform: initial;
-    /* match H1 */
-    font-size: 32px;
-    font-size: 2rem;
+	/* match H1 */
+	font-size: 32px;
+	font-size: 2rem;
 }
 
 .content a:hover, .warning a:hover, .authorbox__description a:hover {
@@ -303,7 +303,7 @@ article h6:hover .anchor .octicon-link {
 	margin-top: 1rem;
 }
 .footnotes ol li p {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 /* Participant list specific styling */
@@ -325,9 +325,9 @@ article h6:hover .anchor .octicon-link {
 }
 
 #participantList .participantEntityIDs dt{
-    min-width: 6.5rem;
-    padding: 0;
-    margin: 0;
+	min-width: 6.5rem;
+	padding: 0;
+	margin: 0;
 }
 
 /* StringOrArrayList styling - ensure bullets align with content margin */
@@ -552,7 +552,7 @@ table.fees tbody tr:hover {
 }
 
 .main__header--versioned aside p:last-child {
-    margin-bottom: 0;
+	margin-bottom: 0;
 }
 
 @media screen and (min-width: 767px) {
