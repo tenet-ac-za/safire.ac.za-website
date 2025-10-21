@@ -40,7 +40,7 @@ Tiers 1–4 are invoiced annually at 12× monthly cost. Tiers 5–7 may be invoi
 
 ## Discounts and exemptions
 
-- Institutions that subscribe to a basket of NREN services from TENET receive up-to a 100% discount on federation participation fees so long as they continue to receive that basket and their total monthly spend with TENET exceeds the required threshold.
+- Institutions that subscribe to a basket of NREN services from TENET receive up to 100% discount on federation participation fees so long as they continue to receive that basket and their total monthly spend with TENET exceeds the required threshold.
 - [TENET]({{< ref "safire/governance.md" >}}) may, at its sole discretion, elect to discount or exempt any organisation from paying some or all of the federation participation fees. Such discretion may be applied on recommendation from a [Member]({{< ref "/participants/idp/list.md" >}}) or the operations staff.
 
 [^fte]: For the avoidance of doubt, this covers the FTE count of all persons recognised as &quot;staff&quot; or &quot;student&quot; under the [eduPersonAffiliation]({{< ref "/technical/attributes/edupersonaffiliation.md" >}}) definition, but excludes those who are merely &quot;employee&quot; under that definition. In HEMIS terms, this means the &quot;trade/craft&quot; and &quot;service&quot; personnel categories are excluded.

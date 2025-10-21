@@ -10,11 +10,11 @@ title: Who, Why, What?
 url: /users/who-why-what/
 ---
 
-Answers to the three fundemental questions...
+Answers to the three fundamental questions...
 
 # Who is SAFIRE?
 
-SAFIRE is an academic identity federation operated by [TENET](http://www.tenet.ac.za/). Unless you’re a seasoned techie, that probably[ sounds like Greek to you](https://en.wikipedia.org/wiki/Greek_to_me). Here’s what it actually means:
+SAFIRE is an academic identity federation operated by [TENET](http://www.tenet.ac.za/). Unless you're a seasoned techie, that probably [sounds like Greek to you](https://en.wikipedia.org/wiki/Greek_to_me). Here's what it actually means:
 
 Firstly, [TENET](http://www.tenet.ac.za/) is a local Non-Profit Company (NPC) and Public Benefit Organisation (PBO) aimed at securing Information and Technology services for the benefit of South African universities and associated research and support institutions.
 
