@@ -3,7 +3,7 @@
 	{{ partial "svg/time.svg" (dict "class" "meta__icon") -}}
     {{- if findRE "/participants/(idp|sp)/list/" .RelPermalink }}
     {{- $t := time .Site.Data.safire.lastMod}}
-        <time class="meta__text" title="Last Updated" datetime="{{ $t.UTC.Format "2006-01-02T15:04:05Z" }}">
+        <time class="meta__text date__lastmodify date_lastupdate" title="Last Updated" datetime="{{ $t.UTC.Format "2006-01-02T15:04:05Z" }}">
             {{- $t | dateFormat (.Site.Params.dateformat | default "January 02, 2006") }}
         </time>
     {{- else if findRE "/technical/resources/library-services/" .RelPermalink }}
@@ -15,15 +15,15 @@
             {{- end }}
             {{- end }}
         {{- end }}
-        <time class="meta__text" title="Last Updated" datetime="{{ ($.Scratch.Get "t").UTC.Format "2006-01-02T15:04:05Z" }}">
+        <time class="meta__text date__lastmodify date_lastupdate" title="Last Updated" datetime="{{ ($.Scratch.Get "t").UTC.Format "2006-01-02T15:04:05Z" }}">
             {{- ($.Scratch.Get "t") | dateFormat (.Site.Params.dateformat | default "January 02, 2006") }}
         </time>
     {{- else if findRE "/safire/(news|publications)/" .RelPermalink }}
-        <time class="meta__text" title="Published" datetime="{{ (.PublishDate |default .Date).UTC.Format "2006-01-02T15:04:05Z" }}">
+        <time class="meta__text date__publish" title="Published" datetime="{{ (.PublishDate |default .Date).UTC.Format "2006-01-02T15:04:05Z" }}">
             {{- (.PublishDate |default .Date) | dateFormat (.Site.Params.dateformat | default "January 02, 2006") -}}
         </time>
     {{- else }}
-        <time class="meta__text" title="Last Modified" datetime="{{ (.Lastmod |default .Date).UTC.Format "2006-01-02T15:04:05Z" }}">
+        <time class="meta__text date__lastmodify" title="Last Modified" datetime="{{ (.Lastmod |default .Date).UTC.Format "2006-01-02T15:04:05Z" }}">
             {{- (.Lastmod |default .Date) | dateFormat (.Site.Params.dateformat | default "January 02, 2006") -}}
         </time>
     {{- end }}
