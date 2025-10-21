@@ -5,12 +5,11 @@ menu:
     identifier: users-where
     parent: users
     weight: 2
+    name: Where?
 slug: where
-title: Where?
+title: Where can I use this?
 url: /users/where/
 ---
-
-## Where can I use this?
 
 To answer that question, we need to look at where you’re based --- your academic HQ. That’s your home institution, or what we like to call the identity provider. For example, if you’re a student or staff member at a [participating university]({{< ref "/participants/idp/list.md" >}}), they will be your identity provider. Essentially, they provide you with the credentials you need to access resources at other institutions.
 

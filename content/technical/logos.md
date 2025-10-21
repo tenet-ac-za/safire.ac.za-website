@@ -4,7 +4,7 @@ menu:
   main:
     identifier: technical-logos
     parent: technical
-    weight: 5
+    weight: 7
 slug: logos
 title: Logos & Branding
 url: /technical/logos/

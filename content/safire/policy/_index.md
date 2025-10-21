@@ -1,7 +1,7 @@
---- 
+---
 date: 2016-09-12 09:33:49+00:00
-menu: 
-  main: 
+menu:
+  main:
     identifier: safire-policy
     parent: safire
     weight: 3

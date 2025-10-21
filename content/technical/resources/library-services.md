@@ -6,6 +6,12 @@ tags:
   - library
   - publishers
   - technical
+menu:
+  main:
+    name: "Library Services"
+    identifier: technical-library-services
+    parent: technical
+    weight: 5
 title: Integrating library information providers via SAFIRE
 url: /technical/resources/library-services/
 aliases:
