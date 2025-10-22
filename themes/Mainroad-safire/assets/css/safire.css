@@ -205,14 +205,19 @@ pre > code {
 /* ========================================= */
 
 /* SAFIRE logo sizing */
+.logo--mixed .logo__img,
 .logo__img {
 	height: 60px;
 	width: auto;
-	max-width: 250px;
+	max-width: 270px;
 }
 
 .logo {
 	padding: 10px 25px;
+}
+
+.logo--mixed .logo__text {
+	display: none;
 }
 
 /* ========================================= */
