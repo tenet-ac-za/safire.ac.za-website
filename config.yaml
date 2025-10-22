@@ -8,8 +8,10 @@ canonifyURLs: true
 enableRobotsTXT: true
 disableAliases: true
 enableGitInfo: true
+disableKind: ["taxonomy", "RSS", "term"]
 params:
   Description: "South African Identity Federation"
+  copyright: "TENET (South African Identity Federation)"
   highlightColor: "#5da9dd"
   style:
     vars:
@@ -134,7 +136,7 @@ menu:
 
 # Based on https://gohugo.io/news/http2-server-push-in-hugo/
 outputs:
- home: [ "HTML", "RSS", "HTACCESS" ]
+ home: [ "HTML", "HTACCESS" ]
 
 mediaTypes:
   "text/apache24":
