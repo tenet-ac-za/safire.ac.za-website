@@ -2,7 +2,7 @@
 	{{ partial "post_thumbnail.html" (dict "class" "list" "page" .) }}
 	<header class="list__header">
 		<h2 class="list__title post__title">
-			<a href="{{ .RelPermalink }}" rel="bookmark">
+			<a href="{{ .RelPermalink }}" rel="bookmark{{ with .Params.noindex }} noopener nofollow{{ end }}">
 			{{ .Title }}
 			</a>
 		</h2>
@@ -19,7 +19,7 @@
 	{{- if .Site.Params.readmore }}
 	{{- if .Truncated }}
 	<div class="list__footer clearfix">
-		<a class="list__footer-readmore btn" href="{{ .RelPermalink }}">{{ T "read_more" }}</a>
+		<a class="list__footer-readmore btn" href="{{ .RelPermalink }}"{{ with .Params.noindex }} rel="noopener nofollow"{{ end }}>{{ T "read_more" }}</a>
 	</div>
 	{{- end }}
 	{{- end }}

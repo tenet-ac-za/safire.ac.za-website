@@ -32,6 +32,7 @@ params:
     tags_counter: false
   logo:
     image: "https://static.safire.ac.za/logos/SAFIRE_P_Colour.svg"
+    subtitle: South African Identity Federation
 Services:
   googleAnalytics:
     ID: "G-H6SRTQF871"

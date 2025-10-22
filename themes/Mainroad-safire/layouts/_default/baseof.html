@@ -3,19 +3,22 @@
   src: {{ .File.Path }}
   unique id: {{ .File.UniqueID }}
   commit: {{ .GitInfo.Hash }}
+  date: {{ .GitInfo.CommitDate.Format "2006-01-02" }}
 {{ "-->"|safeHTML }}{{ end -}}
 <html class="no-js" lang="{{ .Site.Language.Lang }}">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="creator" content="South African Identity Federation">
-	<meta name="theme-color" content="#5da9dd">
-	{{ with .Page.Keywords }}<meta name="keywords" content="{{.}}">{{ end -}}
+	{{- if .Params.noindex }}
+	<meta name="robots" content="noindex, nofollow">
+	{{- end }}
 	<title>{{ block "title" . }}{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ .Site.Title }}{{ end }}</title>
 	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
 	<meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Params.Description }}{{ end }}">
+	{{ with .Page.Keywords }}<meta name="keywords" content="{{.}}">{{ end -}}
+	<meta name="dc.modified" content="{{ .Lastmod | default .Date | time.Format "2006/01/02" }}">
 
-	{{- if .Site.Params.opengraph }}
+    {{- if .Site.Params.opengraph }}
 		{{ template "_internal/opengraph.html" . }}
 	{{- end }}
 	{{- if .Site.Params.schema }}
@@ -28,8 +31,8 @@
 	{{- $googleFontsLink := .Site.Params.googleFontsLink | default "https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" }}
 	{{- if hasPrefix $googleFontsLink "https://fonts.googleapis.com/" }}
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link rel="dns-prefetch" href="https://fonts.googleapis.com">
-	<link rel="dns-prefetch" href="https://fonts.gstatic.com">
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//fonts.gstatic.com">
 	<link rel="stylesheet" {{ printf `href="%s"` $googleFontsLink | safeHTMLAttr }}>
 	{{- end }}
 
@@ -50,13 +53,13 @@
 	{{ range .Site.Params.customCSS -}}
 	<link rel="stylesheet" href="{{ . | relURL }}">
 	{{- end }}
+	<meta name="theme-color" content="{{ .Params.highlightColor | default "#e22d30" }}">
 
 	{{- with .OutputFormats.Get "rss" }}
 	{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
 	{{- end }}
 
-	<link rel="license" href="https://creativecommons.org/licenses/by/4.0/">
-	<link rel="icon" type="image/icon" href="//static.safire.ac.za/favicons/favicon.ico">
+	<link rel="shortcut icon" type="image/icon" href="//static.safire.ac.za/favicons/favicon.ico">
 	<link rel="icon" type="image/png" sizes="16x16" href="//static.safire.ac.za/favicons/favicon-16x16.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="//static.safire.ac.za/favicons/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="72x72" href="//static.safire.ac.za/favicons/favicon-72x72.png">
@@ -71,7 +74,7 @@
 		{{ template "_internal/google_analytics.html" . }}
 	{{- end }}
 </head>
-<body class="body{{ if .Draft }} status__draft{{ end }}">
+<body class="body kind__{{ .Kind }} {{ with .Section }}section__{{ . }} {{ end }}{{ with .File }}file__{{ .BaseFileName }} unique__{{ .UniqueID }}{{ end }}{{ if .Draft }} status__draft{{ end }}">
 	<div class="container container--outer">
 		{{ block "header" . }}{{ partial "header.html" . }}{{ end }}
 		<div class="wrapper flex">
