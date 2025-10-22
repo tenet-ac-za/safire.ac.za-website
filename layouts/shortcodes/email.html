@@ -18,10 +18,10 @@
 {{- with .Get "class" }} data-class="{{.}}"{{ end -}}
 >
 {{- if .Get "clear" -}}
-  {{- replaceRE "^mailto:(.*)$" "$1" (.Scratch.Get "text") -}}
+	{{- replaceRE "^mailto:(.*)$" "$1" (.Scratch.Get "text") -}}
 {{- else -}}
 {{- range (split (base64Encode (replaceRE "^mailto:(.*)$" "$1" (.Scratch.Get "text"))) "") -}}
-  {{- printf "&#x%X;" . | safeHTML -}}
+	{{- printf "&#x%X;" . | safeHTML -}}
 {{- end -}}
 {{- end -}}
 </a></span>

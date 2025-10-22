@@ -1,8 +1,8 @@
 {{- $t := time .Site.Data.safire.lastMod}}
 <time datetime="{{ $t.UTC.Format "2006-01-02T15:04:05Z" }}" title="{{ $t.Local.Format "Mon, 02 Jan 2006 15:04:05 MST" }}">
 {{- if sub (int (now.Local.Format "20060102")) (int ($t.Local.Format "20060102")) }}
-    {{ $t.Local.Format "15:04 MST on 2 Jan 2006" }}
+	{{ $t.Local.Format "15:04 MST on 2 Jan 2006" }}
 {{- else }}
-    {{ $t.Local.Format "15:04 MST" }}
+	{{ $t.Local.Format "15:04 MST" }}
 {{- end }}
 </time>

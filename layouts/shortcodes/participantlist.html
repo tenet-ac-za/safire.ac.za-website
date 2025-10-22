@@ -2,351 +2,350 @@
 <!-- this is a counter used for button indices -->
 {{- $.Scratch.Set "i" 0 -}}
 <div id="participantList" class="ui-accordion ui-widget ui-helper-reset">
-    <!-- display the participants from metadata -->
-    {{- range $p := .Site.Data.safire.metadata }}
-    {{- if or (not $type) (eq $p.entityType $type) (and (eq $type "sirtfi") ($p.Sirtfi)) (and (eq $type "coco") ($p.CoCo)) }}
-        {{ template "listParticipant" (dict "p" $p "i" ($.Scratch.Get "i")) }}
-        {{- $.Scratch.Add "i" 1 -}}
-    {{- end }}
-    {{- end }}
-    <!-- display the pending participants from data/pending.json -->
-    {{- range $p := sort .Site.Data.pending "OrganizationDisplayName"  }}
-    {{- if or (not $type) (eq $p.entityType $type) }}
-        {{ template "listParticipant" (dict "p" $p "i" ($.Scratch.Get "i")) }}
-        {{- $.Scratch.Add "i" 1 -}}
-    {{- end }}
-    {{- end }}
-    {{- if (eq $type "sirtfi") }}
-        {{- /*
-            This hard codes the federation hub entity into the data for
-            the Sirtfi page. It's a special case that allows us to provided
-            an easy link to the federation's own self-assertion, since that's
-            implicitly in scope for the assertions of any other proxied IdP.
-        */ -}}
-        {{- with $p := dict
-            "entityID" "https://iziko.safire.ac.za/"
-            "entityType" "fed"
-            "ParticipationAgreement" true
-            "TechnicalIntegration" true
-            "Sirtfi" "v2.0"
-            "OrganizationName" "Tertiary Education and Research Network of South Africa NPC"
-            "OrganizationDisplayName" "SAFIRE - South African Identity Federation"
-            "OrganizationURL" (ref . "/_index.md")
-            "mdui" (dict
-                "DisplayName" "SAFIRE Federation Infrastructure…"
-                "Description" "Assessment of those Federation components that are in scope for other identity- and service-providers' own Sirtfi assessments"
-                "PrivacyStatementURL" (ref . "/safire/policy/privacy/_index.md")
-                "InformationURL" (ref . "/users/who-why-what.md")
-                "Logo" (dict "URL" "https://static.safire.ac.za/logos/safire-logo-300x300.png")
-            )
-            "contact" (dict
-                "support" (dict "GivenName" "TENET Service Support Centre" "URL" "https://www.tenet.ac.za/support/")
-                "technical" (dict "GivenName" "TENET SAFIRE Operations Team" "URL" (ref . "/safire/contact/_index.md"))
-                "security" (dict "GivenName" "TENET SAFIRE Incident Response Team" "URL" (ref . "/safire/contact/security.md"))
-            )
-        }}
-            {{ template "listParticipant" (dict "p" $p "i" ($.Scratch.Get "i")) }}
-        {{- end }}
-    {{- end }}
+	<!-- display the participants from metadata -->
+	{{- range $p := .Site.Data.safire.metadata }}
+	{{- if or (not $type) (eq $p.entityType $type) (and (eq $type "sirtfi") ($p.Sirtfi)) (and (eq $type "coco") ($p.CoCo)) }}
+		{{ template "listParticipant" (dict "p" $p "i" ($.Scratch.Get "i")) }}
+		{{- $.Scratch.Add "i" 1 -}}
+	{{- end }}
+	{{- end }}
+	<!-- display the pending participants from data/pending.json -->
+	{{- range $p := sort .Site.Data.pending "OrganizationDisplayName"  }}
+	{{- if or (not $type) (eq $p.entityType $type) }}
+		{{ template "listParticipant" (dict "p" $p "i" ($.Scratch.Get "i")) }}
+		{{- $.Scratch.Add "i" 1 -}}
+	{{- end }}
+	{{- end }}
+	{{- if (eq $type "sirtfi") }}
+		{{- /*
+			This hard codes the federation hub entity into the data for
+			the Sirtfi page. It's a special case that allows us to provided
+			an easy link to the federation's own self-assertion, since that's
+			implicitly in scope for the assertions of any other proxied IdP.
+		*/ -}}
+		{{- with $p := dict
+			"entityID" "https://iziko.safire.ac.za/"
+			"entityType" "fed"
+			"ParticipationAgreement" true
+			"TechnicalIntegration" true
+			"Sirtfi" "v2.0"
+			"OrganizationName" "Tertiary Education and Research Network of South Africa NPC"
+			"OrganizationDisplayName" "SAFIRE - South African Identity Federation"
+			"OrganizationURL" (ref . "/_index.md")
+			"mdui" (dict
+				"DisplayName" "SAFIRE Federation Infrastructure…"
+				"Description" "Assessment of those Federation components that are in scope for other identity- and service-providers' own Sirtfi assessments"
+				"PrivacyStatementURL" (ref . "/safire/policy/privacy/_index.md")
+				"InformationURL" (ref . "/users/who-why-what.md")
+				"Logo" (dict "URL" "https://static.safire.ac.za/logos/safire-logo-300x300.png")
+			)
+			"contact" (dict
+				"support" (dict "GivenName" "TENET Service Support Centre" "URL" "https://www.tenet.ac.za/support/")
+				"technical" (dict "GivenName" "TENET SAFIRE Operations Team" "URL" (ref . "/safire/contact/_index.md"))
+				"security" (dict "GivenName" "TENET SAFIRE Incident Response Team" "URL" (ref . "/safire/contact/security.md"))
+			)
+		}}
+			{{ template "listParticipant" (dict "p" $p "i" ($.Scratch.Get "i")) }}
+		{{- end }}
+	{{- end }}
 </div>
 <script>
-    // Wait for jQuery to be loaded before initializing
-    function initializeParticipantList() {
-        if (typeof jQuery !== 'undefined') {
-            jQuery(document).ready(function($) {
-                var p = $('#participantList')
-                if (p.accordion('instance')) {
-                    p.accordion('option', 'active', false);
-                    p.accordion('refresh');
-                } else {
-                    p.accordion({'collapsible': true, 'active': false, 'heightStyle': 'content'});
-                    p.bind('accordionactivate', function (event, ui)
-                    {
-                        if (!$.isEmptyObject(ui.newHeader.offset())) {
-                            $('html:not(:animated), body:not(:animated)').animate({scrollTop: ui.newHeader.offset().top - 50}, 'fast');
-                            if (ui.newHeader.data("name")) {
-                                window.location.hash = "#" + ui.newHeader.data("name");
-                            } else {
-                                window.location.hash = "";
-                            }
-                        }
-                    });
-                }
-                $('button').button();
-                $('abbr').tooltip();
-                // allow us to pre-open a tab
-                if (window.location.hash) {
-                    if ($.isNumeric(window.location.hash.substring(1))) {
-                        p.accordion('option', 'active', parseInt(window.location.hash.substring(1)));
-                    } else if(t = $(this).find('[data-name="' + window.location.hash.substring(1) + '"]')) {
-                        p.accordion('option', 'active', t.data('tabindex'));
-                    } else if(t = $(this).find('[data-entityid="' + window.location.hash.substring(1) + '"]')) {
-                        p.accordion('option', 'active', t.data('tabindex'));
-                    }
-                }
+	// Wait for jQuery to be loaded before initializing
+	function initializeParticipantList() {
+		if (typeof jQuery !== 'undefined') {
+			jQuery(document).ready(function($) {
+				var p = $('#participantList')
+				if (p.accordion('instance')) {
+					p.accordion('option', 'active', false);
+					p.accordion('refresh');
+				} else {
+					p.accordion({'collapsible': true, 'active': false, 'heightStyle': 'content'});
+					p.bind('accordionactivate', function (event, ui)
+					{
+						if (!$.isEmptyObject(ui.newHeader.offset())) {
+							$('html:not(:animated), body:not(:animated)').animate({scrollTop: ui.newHeader.offset().top - 50}, 'fast');
+							if (ui.newHeader.data("name")) {
+								window.location.hash = "#" + ui.newHeader.data("name");
+							} else {
+								window.location.hash = "";
+							}
+						}
+					});
+				}
+				$('button').button();
+				$('abbr').tooltip();
+				// allow us to pre-open a tab
+				if (window.location.hash) {
+					if ($.isNumeric(window.location.hash.substring(1))) {
+						p.accordion('option', 'active', parseInt(window.location.hash.substring(1)));
+					} else if(t = $(this).find('[data-name="' + window.location.hash.substring(1) + '"]')) {
+						p.accordion('option', 'active', t.data('tabindex'));
+					} else if(t = $(this).find('[data-entityid="' + window.location.hash.substring(1) + '"]')) {
+						p.accordion('option', 'active', t.data('tabindex'));
+					}
+				}
 
-                // create dialogs for contact details
-                $('.participantContact').dialog({ width: 500, autoOpen: false });
-                $('.participantContact').each(function(index)
-                {
-                    var div = $(this).attr('id');
-                    var button = div.replace('contactdiv', 'contactbutton');
-                    $('#' + button).on('click', function() {
-                        console.log(div);
-                        $('#' + div).dialog('open');
-                    });
-                });
-            });
-        } else {
-            // jQuery not loaded yet, try again in 100ms
-            setTimeout(initializeParticipantList, 100);
-        }
-    }
-
-    // Start trying to initialize
-    initializeParticipantList();
+				// create dialogs for contact details
+				$('.participantContact').dialog({ width: 500, autoOpen: false });
+				$('.participantContact').each(function(index)
+				{
+					var div = $(this).attr('id');
+					var button = div.replace('contactdiv', 'contactbutton');
+					$('#' + button).on('click', function() {
+						console.log(div);
+						$('#' + div).dialog('open');
+					});
+				});
+			});
+		} else {
+			// jQuery not loaded yet, try again in 100ms
+			setTimeout(initializeParticipantList, 100);
+		}
+	}
+	// Start trying to initialize
+	initializeParticipantList();
 </script>
 
 {{ define "listParticipant" }}
-    <!-- display a single participant $p with index $i -->
-    {{- $i := .i }}
-    {{- $p := .p }}
-    <h3 data-entityid="{{ $p.entityID }}" data-tabindex="{{ $i }}" {{ with $p.mdui.DisplayName }}data-name="{{ . | urlize}}"{{end}}} class="ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons">
-        {{- template "displayServiceName" $p -}}
-        <span style="float:right; margin-left:10px;">
-            {{- if or (not $p.ParticipationAgreement) (not $p.TechnicalIntegration) }}Pending {{ end -}}
-            {{- template "shortParticipantType" $p.entityType -}}
-        </span>
-        {{- if and ($p.RnS) (eq $p.entityType "sp") }}
-            <img class="provider-badge provider-badge-rns" src="{{ "wp-content/provider-badges/rns-black.svg" | absURL }}" title="Research and Scholarship" alt="RnS">
-        {{- end }}
-        {{- if $p.CoCo }}
-            <img class="provider-badge provider-badge-coco" src="{{ "wp-content/provider-badges/coco-black.svg" | absURL }}" title="GÉANT Code of Conduct" alt="CoCo">
-        {{- end }}
-        {{- if $p.Sirtfi }}
-            <img class="provider-badge provider-badge-sirtfi" src="{{ "wp-content/provider-badges/sirtfi-black.svg" | absURL }}" title="Sirtfi" alt="Sirtfi">
-        {{- end }}
-    </h3>
-    <div id="participantdetail-{{ printf "%03d" $i }}" style="display:none;" class="ui-accordion-content ui-corner-bottom ui-helper-reset ui-widget-content">
-        <div style="float: right">{{- template "displayLogo" $p -}}</div>
-        <p>{{- template "displayServiceDescription" $p -}}</p>
-        <dl class="participantDetail">
-            <dt>Type</dt>
-                <dd>{{- template "participantType" $p.entityType -}}</dd>
-            <dt>Participant</dt>
-                <dd>{{- template "displayParticipant" $p -}}</dd>
-            {{- if $p.contact }}
-            <dt>Contact info</dt><dd>
-            {{- range $contactType, $contact := $p.contact -}}
-                <button type="button" id="contactbutton-{{ printf "%03d" $i }}-{{ $contactType }}">{{ title $contactType }}</button>
-                <div class="participantContact" id="contactdiv-{{ printf "%03d" $i }}-{{ $contactType }}" title="{{ title $contactType }} contact for {{ template "displayOrgName" $p }}">
-                {{- template "displayContact" $contact -}}
-                </div>
-            {{- end }}
-            </dd>
-            {{- end }}
-            {{- if or $p.mdui.PrivacyStatementURL $p.mduiInformationURL }}
-            <dt>Additional info</dt>
-                <dd>
-                {{- with $p.mdui.PrivacyStatementURL -}}
-                    <a target="_blank" href="{{.}}" title="Privacy Statement"><button type="button">Privacy Statement</button></a>
-                {{- end -}}
-                {{- with $p.mdui.InformationURL -}}
-                    <a target="_blank" href="{{.}}"><button type="button">Information Page</button></a>
-                {{- end -}}
-                </dd>
-            {{- end }}
-        </dl><hr class="participantSeparator">
-        <dl class="participantTechnical">
-        {{- if $p.TechnicalIntegration }}
-            {{- with $p.RegistrationInstant }}
-            <dt><abbr title="Registration Instant (last substantive change to metadata)">Last updated</abbr></dt>
-                <dd>{{ dateFormat "2006-01-02T15:04Z" . }}</dd>
-            {{- end }}
-            {{- with $p.proxyEntityID }}
-            <dt><abbr title="Unique identifier for this particular participant (entity). Click for other forms.">Metadata entityID</abbr></dt>
-                <dd>
-                    <details>
-                        <summary>{{ . }}</summary>
-                        <dl class="participantEntityIDs">
-                            <dt><abbr title="Proxied entityID, as used for most purposes.">Proxied entityID</abbr></dt>
-                            <dd>{{ . }}</dd>
-                            {{- with $p.entityID }}
-                            <dt><abbr title="Original, untransformed entityID from source metadata. This is almost never used.">Source entityID</abbr></dt>
-                            <dd>{{ . }}</dd>
-                            {{- end }}
-                            {{- with $p.wayflessEntityID }}
-                            <dt><abbr title="URL-encoded version of proxied entityID, needed for many wayfless URLs">Wayfless entityID</abbr></dt>
-                            <dd>{{ . }}</dd>
-                            {{- end }}
-                        </dl>
-                    </details>
-                </dd>
-            {{- end }}
-            {{- with $p.Scope }}
-            <dt>Domains</dt>
-                <dd>{{ template "stringOrArray" . }}</dd>
-            {{- end }}
-            {{- with $p.EntityCategories }}
-            <dt>Entity Categories</dt>
-                <dd>{{ template "stringOrArray" . }}</dd>
-            {{- end }}
-            <dt><abbr title="entity is published to eduGAIN and other interfederation partners">eduGAIN</abbr></dt>
-                <dd>{{ if $p.eduGAIN }}yes, will be published{{ else }}no, will not be published{{ end }}</dd>
-            {{ if $p.Sirtfi }}
-            <dt><abbr title="entity has indicated it complies with https://refeds.org/sirtfi">Sirtfi</abbr></dt>
-                <dd>yes{{ if not (eq $p.Sirtfi true) }} {{ $p.Sirtfi }}{{ end }}, {{ with $p.entityID }}<a href="/technical/saml2/sirtfi/{{ .|sha1 }}.pdf" target="_blank">{{ end -}}
-                    self-assertion of compliance received
-                    {{- with $p.entityID }}</a>{{ end }}</dd>
-            {{ end }}
-            {{ if $p.CoCo }}
-            <dt><abbr title="entity has indicated it complies with http://www.geant.net/uri/dataprotection-code-of-conduct/">Sirtfi</abbr></dt>
-                <dd>yes {{ $p.CoCo }}, {{ with $p.entityID }}<a href="/technical/saml2/coco/{{ .|sha1 }}.pdf" target="_blank">{{ end -}}
-                    self-assertion of compliance received
-                    {{- with $p.entityID }}</a>{{ end }}</dd>
-            {{ end }}
-        {{- else -}}
-            <dt>Participation Agreement</dt>
-                <dd>{{ if $p.ParticipationAgreement }}yes, has signed{{ else }}no, has not yet signed{{ end }}</dd>
-        {{- end }}
-        {{- with $p.Notes }}
-            <dt>Notes</dt>
-                <dd>{{ template "stringOrArray" . }}</dd>
-        {{- end }}
-        </dl>
-    </div>
+	<!-- display a single participant $p with index $i -->
+	{{- $i := .i }}
+	{{- $p := .p }}
+	<h3 data-entityid="{{ $p.entityID }}" data-tabindex="{{ $i }}" {{ with $p.mdui.DisplayName }}data-name="{{ . | urlize}}"{{end}}} class="ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons">
+		{{- template "displayServiceName" $p -}}
+		<span style="float:right; margin-left:10px;">
+			{{- if or (not $p.ParticipationAgreement) (not $p.TechnicalIntegration) }}Pending {{ end -}}
+			{{- template "shortParticipantType" $p.entityType -}}
+		</span>
+		{{- if and ($p.RnS) (eq $p.entityType "sp") }}
+			<img class="provider-badge provider-badge-rns" src="{{ "wp-content/provider-badges/rns-black.svg" | absURL }}" title="Research and Scholarship" alt="RnS">
+		{{- end }}
+		{{- if $p.CoCo }}
+			<img class="provider-badge provider-badge-coco" src="{{ "wp-content/provider-badges/coco-black.svg" | absURL }}" title="GÉANT Code of Conduct" alt="CoCo">
+		{{- end }}
+		{{- if $p.Sirtfi }}
+			<img class="provider-badge provider-badge-sirtfi" src="{{ "wp-content/provider-badges/sirtfi-black.svg" | absURL }}" title="Sirtfi" alt="Sirtfi">
+		{{- end }}
+	</h3>
+	<div id="participantdetail-{{ printf "%03d" $i }}" style="display:none;" class="ui-accordion-content ui-corner-bottom ui-helper-reset ui-widget-content">
+		<div style="float: right">{{- template "displayLogo" $p -}}</div>
+		<p>{{- template "displayServiceDescription" $p -}}</p>
+		<dl class="participantDetail">
+			<dt>Type</dt>
+				<dd>{{- template "participantType" $p.entityType -}}</dd>
+			<dt>Participant</dt>
+				<dd>{{- template "displayParticipant" $p -}}</dd>
+			{{- if $p.contact }}
+			<dt>Contact info</dt><dd>
+			{{- range $contactType, $contact := $p.contact -}}
+				<button type="button" id="contactbutton-{{ printf "%03d" $i }}-{{ $contactType }}">{{ title $contactType }}</button>
+				<div class="participantContact" id="contactdiv-{{ printf "%03d" $i }}-{{ $contactType }}" title="{{ title $contactType }} contact for {{ template "displayOrgName" $p }}">
+				{{- template "displayContact" $contact -}}
+				</div>
+			{{- end }}
+			</dd>
+			{{- end }}
+			{{- if or $p.mdui.PrivacyStatementURL $p.mduiInformationURL }}
+			<dt>Additional info</dt>
+				<dd>
+				{{- with $p.mdui.PrivacyStatementURL -}}
+					<a target="_blank" href="{{.}}" title="Privacy Statement"><button type="button">Privacy Statement</button></a>
+				{{- end -}}
+				{{- with $p.mdui.InformationURL -}}
+					<a target="_blank" href="{{.}}"><button type="button">Information Page</button></a>
+				{{- end -}}
+				</dd>
+			{{- end }}
+		</dl><hr class="participantSeparator">
+		<dl class="participantTechnical">
+		{{- if $p.TechnicalIntegration }}
+			{{- with $p.RegistrationInstant }}
+			<dt><abbr title="Registration Instant (last substantive change to metadata)">Last updated</abbr></dt>
+				<dd>{{ dateFormat "2006-01-02T15:04Z" . }}</dd>
+			{{- end }}
+			{{- with $p.proxyEntityID }}
+			<dt><abbr title="Unique identifier for this particular participant (entity). Click for other forms.">Metadata entityID</abbr></dt>
+				<dd>
+					<details>
+						<summary>{{ . }}</summary>
+						<dl class="participantEntityIDs">
+							<dt><abbr title="Proxied entityID, as used for most purposes.">Proxied entityID</abbr></dt>
+							<dd>{{ . }}</dd>
+							{{- with $p.entityID }}
+							<dt><abbr title="Original, untransformed entityID from source metadata. This is almost never used.">Source entityID</abbr></dt>
+							<dd>{{ . }}</dd>
+							{{- end }}
+							{{- with $p.wayflessEntityID }}
+							<dt><abbr title="URL-encoded version of proxied entityID, needed for many wayfless URLs">Wayfless entityID</abbr></dt>
+							<dd>{{ . }}</dd>
+							{{- end }}
+						</dl>
+					</details>
+				</dd>
+			{{- end }}
+			{{- with $p.Scope }}
+			<dt>Domains</dt>
+				<dd>{{ template "stringOrArray" . }}</dd>
+			{{- end }}
+			{{- with $p.EntityCategories }}
+			<dt>Entity Categories</dt>
+				<dd>{{ template "stringOrArray" . }}</dd>
+			{{- end }}
+			<dt><abbr title="entity is published to eduGAIN and other interfederation partners">eduGAIN</abbr></dt>
+				<dd>{{ if $p.eduGAIN }}yes, will be published{{ else }}no, will not be published{{ end }}</dd>
+			{{ if $p.Sirtfi }}
+			<dt><abbr title="entity has indicated it complies with https://refeds.org/sirtfi">Sirtfi</abbr></dt>
+				<dd>yes{{ if not (eq $p.Sirtfi true) }} {{ $p.Sirtfi }}{{ end }}, {{ with $p.entityID }}<a href="/technical/saml2/sirtfi/{{ .|sha1 }}.pdf" target="_blank">{{ end -}}
+					self-assertion of compliance received
+					{{- with $p.entityID }}</a>{{ end }}</dd>
+			{{ end }}
+			{{ if $p.CoCo }}
+			<dt><abbr title="entity has indicated it complies with http://www.geant.net/uri/dataprotection-code-of-conduct/">Sirtfi</abbr></dt>
+				<dd>yes {{ $p.CoCo }}, {{ with $p.entityID }}<a href="/technical/saml2/coco/{{ .|sha1 }}.pdf" target="_blank">{{ end -}}
+					self-assertion of compliance received
+					{{- with $p.entityID }}</a>{{ end }}</dd>
+			{{ end }}
+		{{- else -}}
+			<dt>Participation Agreement</dt>
+				<dd>{{ if $p.ParticipationAgreement }}yes, has signed{{ else }}no, has not yet signed{{ end }}</dd>
+		{{- end }}
+		{{- with $p.Notes }}
+			<dt>Notes</dt>
+				<dd>{{ template "stringOrArray" . }}</dd>
+		{{- end }}
+		</dl>
+	</div>
 {{ end }}
 
 {{ define "participantType" }}
-    {{- if eq . "idp" -}}
-        Identity provider (home organisation)
-    {{- else if eq . "sp" -}}
-        Service provider (visited organisation)
-    {{- else if eq . "aa" -}}
-        Attribute authority
-    {{- else if eq . "fed" -}}
-        Federation Operator
-    {{- else -}}
-        Unknown Type
-    {{- end -}}
+	{{- if eq . "idp" -}}
+		Identity provider (home organisation)
+	{{- else if eq . "sp" -}}
+		Service provider (visited organisation)
+	{{- else if eq . "aa" -}}
+		Attribute authority
+	{{- else if eq . "fed" -}}
+		Federation Operator
+	{{- else -}}
+		Unknown Type
+	{{- end -}}
 {{ end }}
 
 {{ define "shortParticipantType" }}
-    {{- if eq . "idp" -}}
-        IdP
-    {{- else if eq . "sp" -}}
-        SP
-    {{- else if eq . "aa" -}}
-        AA
-    {{- else if eq . "fed" -}}
-        <img class="provider-badge provider-badge-safire" src="//static.safire.ac.za/logos/safire-icon.svg" title="SAFIRE Federation Operator" alt="FedOp">
-    {{- else -}}
-        ??
-    {{- end -}}
+	{{- if eq . "idp" -}}
+		IdP
+	{{- else if eq . "sp" -}}
+		SP
+	{{- else if eq . "aa" -}}
+		AA
+	{{- else if eq . "fed" -}}
+		<img class="provider-badge provider-badge-safire" src="//static.safire.ac.za/logos/safire-icon.svg" title="SAFIRE Federation Operator" alt="FedOp">
+	{{- else -}}
+		??
+	{{- end -}}
 {{ end }}
 
 {{ define "displayOrgName" }}
-    {{- if .OrganizationDisplayName -}}
-        {{- .OrganizationDisplayName -}}
-    {{- else -}}
-        {{- .OrganizationName -}}
-    {{- end -}}
+	{{- if .OrganizationDisplayName -}}
+		{{- .OrganizationDisplayName -}}
+	{{- else -}}
+		{{- .OrganizationName -}}
+	{{- end -}}
 {{ end }}
 
 {{ define "displayServiceName" }}
-    {{- if .mdui.DisplayName -}}
-        {{- .mdui.DisplayName -}}
-    {{- else -}}
-        {{- template "displayOrgName" . -}}
-    {{- end -}}
+	{{- if .mdui.DisplayName -}}
+		{{- .mdui.DisplayName -}}
+	{{- else -}}
+		{{- template "displayOrgName" . -}}
+	{{- end -}}
 {{ end }}
 
 {{ define "displayServiceDescription" }}
-    {{- if .mdui.Description -}}
-        {{- .mdui.Description -}}
-    {{- else -}}
-        <em class="missing">Description has not yet been provided.</em>
-    {{- end -}}
+	{{- if .mdui.Description -}}
+		{{- .mdui.Description -}}
+	{{- else -}}
+		<em class="missing">Description has not yet been provided.</em>
+	{{- end -}}
 {{ end }}
 
 {{ define "displayLogo" }}
-    <!-- logic to display a logo, or a logo placeholder -->
-    {{- if .mdui.Logo -}}
-        {{- with .OrganizationURL -}}
-            <a target="_blank" href="{{.}}">
-        {{- end -}}
-        {{- with .mdui.Logo.URL -}}
-            <img src="{{.|safeURL}}" style="max-width: 120px; max-height: 120px; width: auto; height: auto; margin: 0 0 8px 8px;" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f573.png';">
-        {{- end -}}
-        {{- if .OrganizationURL -}}</a>{{- end -}}
-    {{- else -}}
-        <div style="height: 102px; width: 102px; display: flex; align-items: center; justify-content: center; text-align: center; font-style: italic; color: #bbb; border: 1px dashed #bbb; margin: 0 0 8px 8px; padding: 4px;">No logo available</div>
-    {{- end -}}
+	<!-- logic to display a logo, or a logo placeholder -->
+	{{- if .mdui.Logo -}}
+		{{- with .OrganizationURL -}}
+			<a target="_blank" href="{{.}}">
+		{{- end -}}
+		{{- with .mdui.Logo.URL -}}
+			<img src="{{.|safeURL}}" style="max-width: 120px; max-height: 120px; width: auto; height: auto; margin: 0 0 8px 8px;" onerror="this.onerror=null;this.src='https://raw.githubusercontent.com/twitter/twemoji/master/assets/72x72/1f573.png';">
+		{{- end -}}
+		{{- if .OrganizationURL -}}</a>{{- end -}}
+	{{- else -}}
+		<div style="height: 102px; width: 102px; display: flex; align-items: center; justify-content: center; text-align: center; font-style: italic; color: #bbb; border: 1px dashed #bbb; margin: 0 0 8px 8px; padding: 4px;">No logo available</div>
+	{{- end -}}
 {{ end }}
 
 {{ define "displayParticipant" }}
-    {{- with .OrganizationURL }}<a target="_blank" href="{{.}}">{{- end -}}
-    <abbr title="{{ .OrganizationName }}">{{ template "displayOrgName" . }}</abbr>
-    {{- if .OrganizationURL -}}</a>{{- end -}}
-    {{- if not .ParticipationAgreement }}
-        <p class="pendingsignature">(pending signature of the <a href="{{ relURL "/safire/policy/participation/" }}">Participation Agreement</a>)</p>
-    {{- end -}}
-    {{- if not .TechnicalIntegration }}
-        <p class="pendingsignature">(pending technical integration)</p>
-    {{- end -}}
+	{{- with .OrganizationURL }}<a target="_blank" href="{{.}}">{{- end -}}
+	<abbr title="{{ .OrganizationName }}">{{ template "displayOrgName" . }}</abbr>
+	{{- if .OrganizationURL -}}</a>{{- end -}}
+	{{- if not .ParticipationAgreement }}
+		<p class="pendingsignature">(pending signature of the <a href="{{ relURL "/safire/policy/participation/" }}">Participation Agreement</a>)</p>
+	{{- end -}}
+	{{- if not .TechnicalIntegration }}
+		<p class="pendingsignature">(pending technical integration)</p>
+	{{- end -}}
 {{ end }}
 
 {{ define "displayContact" }}
-    <dl class="participantListContact">
-        <dt>Name</dt>
-            <dd>
-            {{- with .URL }}<a href=".">{{ end -}}
-            {{ .GivenName -}} {{- .SurName }}
-            {{- with .URL }}</a>{{ end -}}
-            </dd>
-        {{- with .Company }}
-        <dt>Company</dt>
-            <dd>{{.}}</dd>
-        {{- end }}
-        {{- with .EmailAddress }}
-        <dt>Email</dt>
-            <dd class="emailAddress">{{ template "stringOrArray" . }}</dd>
-        {{- end }}
-        {{- with .TelephoneNumber }}
-        <dt>Phone</dt>
-            <dd>{{ template "stringOrArray" . }}</dd>
-        {{- end }}
-    </dl>
+	<dl class="participantListContact">
+		<dt>Name</dt>
+			<dd>
+			{{- with .URL }}<a href=".">{{ end -}}
+			{{ .GivenName -}} {{- .SurName }}
+			{{- with .URL }}</a>{{ end -}}
+			</dd>
+		{{- with .Company }}
+		<dt>Company</dt>
+			<dd>{{.}}</dd>
+		{{- end }}
+		{{- with .EmailAddress }}
+		<dt>Email</dt>
+			<dd class="emailAddress">{{ template "stringOrArray" . }}</dd>
+		{{- end }}
+		{{- with .TelephoneNumber }}
+		<dt>Phone</dt>
+			<dd>{{ template "stringOrArray" . }}</dd>
+		{{- end }}
+	</dl>
 {{ end }}
 
 {{ define "stringOrArray" }}
-    <!-- only way I could find to determine string vs slice -->
-    {{- if eq "string" (printf "%T" .) -}}
-        {{ template "hyperlinkIfNeeded" . }}
-    {{- else -}}
-        <ul class="stringOrArrayList">
-        {{- range . }}
-            <li>{{ template "hyperlinkIfNeeded" . }}</li>
-        {{- end }}
-        </ul>
-    {{- end -}}
+	<!-- only way I could find to determine string vs slice -->
+	{{- if eq "string" (printf "%T" .) -}}
+		{{ template "hyperlinkIfNeeded" . }}
+	{{- else -}}
+		<ul class="stringOrArrayList">
+		{{- range . }}
+			<li>{{ template "hyperlinkIfNeeded" . }}</li>
+		{{- end }}
+		</ul>
+	{{- end -}}
 {{ end }}
 
 {{ define "hyperlinkIfNeeded" }}
-    {{- if findRE "^(http|https|tel):" . -}}
-        <a href="{{ . }}" target="_blank">{{ . }}</a>
-    {{- else if hasPrefix . "mailto:" -}}
-        <span class="tenet-obfusticate">
-        {{- range (split (base64Encode (replaceRE "^mailto:(.*)$" "$1" .)) "") -}}
-          {{- printf "&#x%X;" . | safeHTML -}}
-        {{- end -}}
-        </span>
-    {{- else if findRE "^[+][1-9][ 0-9.-]*$" . -}}
-        <a href="tel:{{ . }}">{{ . }}</a>
-    {{- else if hasPrefix . "eduPerson" -}}
-        {{ $url := printf "/technical/attributes/%s/" (lower . ) -}}
-        <a href="{{ $url }}">{{ . }}</a>
-    {{- else -}}
-        {{- . -}}
-    {{- end -}}
+	{{- if findRE "^(http|https|tel):" . -}}
+		<a href="{{ . }}" target="_blank">{{ . }}</a>
+	{{- else if hasPrefix . "mailto:" -}}
+		<span class="tenet-obfusticate">
+		{{- range (split (base64Encode (replaceRE "^mailto:(.*)$" "$1" .)) "") -}}
+		  {{- printf "&#x%X;" . | safeHTML -}}
+		{{- end -}}
+		</span>
+	{{- else if findRE "^[+][1-9][ 0-9.-]*$" . -}}
+		<a href="tel:{{ . }}">{{ . }}</a>
+	{{- else if hasPrefix . "eduPerson" -}}
+		{{ $url := printf "/technical/attributes/%s/" (lower . ) -}}
+		<a href="{{ $url }}">{{ . }}</a>
+	{{- else -}}
+		{{- . -}}
+	{{- end -}}
 {{ end }}

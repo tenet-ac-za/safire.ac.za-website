@@ -18,7 +18,7 @@
 	{{ with .Page.Keywords }}<meta name="keywords" content="{{.}}">{{ end -}}
 	<meta name="dc.modified" content="{{ .Lastmod | default .Date | time.Format "2006/01/02" }}">
 
-    {{- if .Site.Params.opengraph }}
+	{{- if .Site.Params.opengraph }}
 		{{ template "_internal/opengraph.html" . }}
 	{{- end }}
 	{{- if .Site.Params.schema }}

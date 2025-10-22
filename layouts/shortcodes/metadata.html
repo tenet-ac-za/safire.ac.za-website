@@ -1,26 +1,26 @@
 <table>
-  <tbody>
-    <tr>
-        <th>Metadata URL</th>
-        <td>{{ with .Get "url" }}<a href="{{ . }}">{{ . }}</a>{{ end }}</td>
-    </tr>
-    {{- if .Get "entityId" }}
-    <tr>
-        <th>Entity ID</th>
-        <td>https://<a href="{{ ref .Page "/safire/news/iziko-safire-ac-za.md" }}">iziko</a>.safire.ac.za/</td>
-    </tr>
-    {{- end }}
-    <tr>
-        <th>Signing Certificate</th>
-        <td><a href="https://metadata.safire.ac.za/safire-metadata.crt">https://metadata.safire.ac.za/safire-metadata.crt</a></td>
-    </tr>
-    <tr>
-        <th>Cert Fingerprints</th>
-            <td style="white-space:nowrap; font-size:65%;">
+	<tbody>
+		<tr>
+			<th>Metadata URL</th>
+			<td>{{ with .Get "url" }}<a href="{{ . }}">{{ . }}</a>{{ end }}</td>
+		</tr>
+		{{- if .Get "entityId" }}
+		<tr>
+			<th>Entity ID</th>
+			<td>https://<a href="{{ ref .Page "/safire/news/iziko-safire-ac-za.md" }}">iziko</a>.safire.ac.za/</td>
+		</tr>
+		{{- end }}
+		<tr>
+			<th>Signing Certificate</th>
+			<td><a href="https://metadata.safire.ac.za/safire-metadata.crt">https://metadata.safire.ac.za/safire-metadata.crt</a></td>
+		</tr>
+		<tr>
+			<th>Cert Fingerprints</th>
+				<td style="white-space:nowrap; font-size:65%;">
 BB:89:BA:97:E5:D8:DA:4F:7C:75:41:7B:14:6A:E6:EC:4A:01:C5:D8:51:2E:09:2D:7C:75:A8:2B:47:7F:00:4C (SHA256)<br>
 FF:EF:5D:8E:AA:12:EA:5D:A1:81:4F:48:02:F3:07:22:4A:7D:FA:05 (SHA1)
-            </td>
-        </tr>
-    </tbody>
+				</td>
+			</tr>
+	</tbody>
 </table>
 

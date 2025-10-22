@@ -13,6 +13,17 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 
-[*.css]
+# CSS, HTML, and JavaScript files use tabs
+[*.{css,html,js}]
 indent_style = tab
+indent_size = 4
+
+# YAML files use 2 spaces
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
+# Markdown files use 2 spaces for readability
+[*.md]
+indent_style = space
 indent_size = 2

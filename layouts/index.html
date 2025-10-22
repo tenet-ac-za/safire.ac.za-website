@@ -2,41 +2,41 @@
 <main class="main list" role="main">
 {{/* HACK: can't use layout to do this because sections don't read custom layouts */}}
 {{ if .Params.versioned }}
-    {{- .Render "versioned" -}}
+	{{- .Render "versioned" -}}
 {{ else }}
-        <header class="main__header">
-            <h1 class="main__title">{{ .Title }}</h1>
-        </header>
+	<header class="main__header">
+		<h1 class="main__title">{{ .Title }}</h1>
+	</header>
 
-        <div class="content main__content clearfix">
-            {{ .Content }}
+	<div class="content main__content clearfix">
+		{{ .Content }}
 
-            <nav class="display-posts-listing">
-                <h2>Latest News</h2>
-                <ul class="display-posts-listing">
-                {{ range first 4 (.Site.GetPage "section" "safire/news").Pages.ByDate.Reverse }}
-                    <li class="listing-item">
-                        <a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a>
-                        <span class="date" title="Last updated: {{ if .GitInfo }}{{ .GitInfo.AuthorDate.Format "2006-01-02" }}{{ else }}{{ (.Lastmod |default .Date).Format "2006-01-02" }}{{ end }}">
-                            <time class="date" datetime="{{ (.PublishDate |default .Date).Format "2006-01-02T15:04:05Z" }}">
-                                ({{ (.PublishDate | default .Date).Format "2006-01-02" }})
-                            </time>
-                        </span>
-                        <span class="excerpt-dash">-</span>
-                        <span class="excerpt">
-                            {{ .Summary|htmlUnescape|plainify }}
-                            {{ if .Truncated }}
-                            <a href="{{ .RelPermalink }}">&hellip;</a>
-                            {{ end }}
-                        </span>
-                    </li>
-                {{ end }}
-                </ul> <!-- .display-posts-listing -->
-            </nav> <!-- .display-posts-listing -->
-            <footer>
-                <a href="{{ relURL "/safire/news/" }}">news archive</a>
-            </footer>
-        </div><!-- .content -->
+		<nav class="display-posts-listing">
+			<h2>Latest News</h2>
+			<ul class="display-posts-listing">
+			{{ range first 4 (.Site.GetPage "section" "safire/news").Pages.ByDate.Reverse }}
+				<li class="listing-item">
+					<a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+					<span class="date" title="Last updated: {{ if .GitInfo }}{{ .GitInfo.AuthorDate.Format "2006-01-02" }}{{ else }}{{ (.Lastmod |default .Date).Format "2006-01-02" }}{{ end }}">
+						<time class="date" datetime="{{ (.PublishDate |default .Date).Format "2006-01-02T15:04:05Z" }}">
+							({{ (.PublishDate | default .Date).Format "2006-01-02" }})
+						</time>
+					</span>
+					<span class="excerpt-dash">-</span>
+					<span class="excerpt">
+						{{ .Summary|htmlUnescape|plainify }}
+						{{ if .Truncated }}
+						<a href="{{ .RelPermalink }}">&hellip;</a>
+						{{ end }}
+					</span>
+				</li>
+			{{ end }}
+			</ul> <!-- .display-posts-listing -->
+		</nav> <!-- .display-posts-listing -->
+		<footer>
+			<a href="{{ relURL "/safire/news/" }}">news archive</a>
+		</footer>
+	</div><!-- .content -->
 {{end}}
 </main>
 {{ end }}
