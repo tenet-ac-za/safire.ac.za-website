@@ -6,7 +6,8 @@
 
 /*
 {{- $highlightColor := .Site.Params.style.vars.highlightColor | default (.Site.Params.highlightColor | default "#e22d30") -}}
-{{- $menuBreadcrumbColor := .Site.Params.style.vars.menuBreadcrumbColor | default (.Site.Params.menuBreadcrumbColor | default "#1c77b7") -}}
+{{- $menuHighlightColor := .Site.Params.style.vars.menuHighlightColor | default $highlightColor -}}
+{{- $menuBreadcrumbColor := .Site.Params.style.vars.menuBreadcrumbColor | default "#1c77b7" -}}
 {{- $menuBackgroundColor := .Site.Params.style.vars.menuBackgroundColor | default "#32373c" -}}
 */
 /* theme colouring */
@@ -237,6 +238,30 @@ pre > code {
 	display: flex;
 	align-items: flex-start;
 	font-weight: normal;
+}
+
+.menu__item--active {
+	background: {{ $menuBreadcrumbColor }};
+}
+.menu__subitem--active {
+	background: {{ $menuBreadcrumbColor }};
+}
+
+.menu__btn {
+	background: {{ $menuHighlightColor }};
+}
+
+:focus > .menu__btn-title {
+  box-shadow: inset 0 0 1px 3px {{ $menuHighlightColor }};
+}
+
+.js .menu__btn--active {
+	background: {{ $menuHighlightColor }};
+	color: #fff;
+}
+
+.menu__item:hover {
+	background: {{ $menuHighlightColor }};
 }
 
 /* Section menu styling to match content lists */
@@ -700,13 +725,6 @@ ul.stringOrArrayList:has(li:only-child) {
 
 	.menu__sublink:hover {
 		color: #fff;
-	}
-
-	.menu__item--active {
-		background: {{ $menuBreadcrumbColor }};
-	}
-	.menu__subitem--active {
-		background: {{ $menuBreadcrumbColor }};
 	}
 }
 
