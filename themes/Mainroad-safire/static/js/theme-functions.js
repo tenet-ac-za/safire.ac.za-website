@@ -68,19 +68,19 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 
 	// Email obfuscation functionality
-	const elements = document.querySelectorAll('.tenet-obfusticate');
-	elements.forEach((element) => {
-		const href = element.dataset.href;
+	const defusticate = document.querySelectorAll('.tenet-obfusticate');
+	defusticate.forEach((e) => {
+		const href = e.dataset.href;
 		if (href) {
-			element.setAttribute('href', atob(href));
+			e.setAttribute('href', atob(href));
 		}
-		if (!element.classList.contains('tenet-cleartext')) {
-			const text = element.textContent;
-			element.innerHTML = atob(text);
+		if (!e.classList.contains('tenet-cleartext')) {
+			const text = e.textContent;
+			e.innerHTML = atob(text);
 		}
-		const css = element.dataset.class;
+		const css = e.dataset.class;
 		if (css) {
-			element.classList.add(css);
+			e.classList.add(css);
 		}
 	});
 });
