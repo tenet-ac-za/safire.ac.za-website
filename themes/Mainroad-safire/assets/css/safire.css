@@ -4,10 +4,19 @@
 /* CSS Variables                            */
 /* ========================================= */
 
+/*
 {{- $highlightColor := .Site.Params.style.vars.highlightColor | default (.Site.Params.highlightColor | default "#e22d30") -}}
-{{- $safirePurple := .Site.Params.style.vars.safirePurple | default "#6d488c" -}}
-{{- $safirePurpleLight := .Site.Params.style.vars.safirePurpleLight | default "#a77fb2" -}}
-{{- $safireMenuBg := .Site.Params.style.vars.safireMenuBg | default "#32373c" -}}
+{{- $menuBreadcrumbColor := .Site.Params.style.vars.menuBreadcrumbColor | default (.Site.Params.menuBreadcrumbColor | default "#1c77b7") -}}
+{{- $menuBackgroundColor := .Site.Params.style.vars.menuBackgroundColor | default "#32373c" -}}
+*/
+/* theme colouring */
+:root {
+  --safire-primary: #1c77b7;
+  --safire-light: #5da9dd;
+  --safire-purple: #6d488c;
+  --safire-purple-light: #a77fb2;
+  --safire-dark: #32373c;
+}
 
 /* ========================================= */
 /* Font Faces                               */
@@ -52,7 +61,7 @@ button:hover,
 input[type="button"]:hover,
 input[type="submit"]:hover {
 	color: #fff;
-	background-color: {{ $safirePurple }};
+	background-color: var(--safire-purple);
 	transform: translateY(-1px);
 }
 
@@ -61,12 +70,12 @@ button:active,
 input[type="button"]:active,
 input[type="submit"]:active {
 	color: #fff;
-	background-color: {{ $safirePurple }};
+	background-color: var(--safire-purple);
 }
 
 /* Link hover color overrides */
 .content a:hover, .warning a:hover, .authorbox__description a:hover {
-	color: {{ $safirePurple }};
+	color: var(--safire-purple);
 }
 
 /* Code styling */
@@ -253,7 +262,7 @@ pre > code {
 }
 
 .section-menu a:hover {
-	color: {{ $safirePurple }};
+	color: var(--safire-purple);
 	text-decoration: underline;
 }
 
@@ -339,7 +348,7 @@ article h6:hover .anchor .octicon-link {
 .status__draft .post__title,
 .status__draft .post__meta,
 .status__draft .post__meta a {
-	color: {{ $safirePurple }} !important;
+	color: var(--safire-purple) !important;
 }
 
 .status__draft .post__title::after {
@@ -397,7 +406,7 @@ table.fees {
 }
 
 table.fees th {
-	background-color: {{ $safirePurple }};
+	background-color: var(--safire-purple);
 	color: white;
 	text-align: center;
 	font-weight: 600;
@@ -426,7 +435,7 @@ table.fees tbody tr:hover {
 }
 
 #participantList dt {
-	color: {{ $safirePurple }};
+	color: var(--safire-purple);
 }
 
 #participantList dt:after {
@@ -598,7 +607,7 @@ ul.stringOrArrayList:has(li:only-child) {
 		position: absolute;
 		z-index: 999;
 		min-width: 200px;
-		background: {{ $safireMenuBg }};
+		background: {{ $menuBackgroundColor }};
 		border: 1px solid rgba(255, 255, 255, .1);
 		list-style: none;
 		margin: 0;
@@ -692,12 +701,19 @@ ul.stringOrArrayList:has(li:only-child) {
 	.menu__sublink:hover {
 		color: #fff;
 	}
+
+	.menu__item--active {
+		background: {{ $menuBreadcrumbColor }};
+	}
+	.menu__subitem--active {
+		background: {{ $menuBreadcrumbColor }};
+	}
 }
 
 /* Mobile submenu styles */
 @media screen and (max-width: 767px) {
 	.menu__submenu {
-		background: {{ $safireMenuBg }};
+		background: {{ $menuBackgroundColor }};
 		border-left: 3px solid {{ $highlightColor }};
 		list-style: none;
 		margin: 0;

@@ -12,13 +12,12 @@ disableKind: ["taxonomy", "RSS", "term"]
 params:
   Description: "South African Identity Federation"
   copyright: "TENET (South African Identity Federation)"
-  highlightColor: "#5da9dd"
+  highlightColor: "var(--safire-light, #5da9dd)"
   style:
     vars:
-      highlightColor: "#5da9dd"
-      safirePurple: "#6d488c"
-      safirePurpleLight: "#a77fb2"
-      safireMenuBg: "#32373c"
+      highlightColor: "var(--safire-light, #5da9dd)"
+      menuBreadcrumbColor: "var(--safire-primary)"
+      menuBackgroundColor: "var(--safire-dark)"
   # Mainroad theme configuration
   post_meta: ["date"]
   sidebar:
@@ -56,11 +55,11 @@ menu:
     Weight: 1
   - Name: "Home Organisations"
     Identifier: users-where-idp
-    pageRef: /participants/idp/list.md
+    URL: /participants/idp/list/
     Parent: users-where
   - Name: "Services"
     Identifier: users-where-sp
-    pageRef: /participants/sp/list.md
+    URL: /participants/sp/list/
     Parent: users-where
 
   - Name: "Test Login"

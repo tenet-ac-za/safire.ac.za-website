@@ -16,7 +16,7 @@
 			{{- if .HasChildren }}
 			<ul class="menu__submenu">
 				{{- range .Children }}
-				{{- template "menu-item" . }}
+				{{- template "menu-item" (dict "menuItem" . "currentNode" $currentNode) }}
 				{{- end }}
 			</ul>
 			{{- end }}
@@ -30,12 +30,12 @@
 {{- end }}
 
 {{ define "menu-item" }}
-	<li class="menu__subitem{{ if .HasChildren }} menu__subitem--has-children{{ end }}">
-		<a class="menu__sublink" href="{{ .URL }}">{{ .Name }}</a>
-		{{- if .HasChildren }}
+	<li class="menu__subitem{{ if .menuItem.HasChildren }} menu__subitem--has-children{{ end }}{{ if or (.currentNode.IsMenuCurrent "main" .menuItem) (.currentNode.HasMenuCurrent "main" .menuItem) }} menu__subitem--active{{ end }}">
+		<a class="menu__sublink" href="{{ .menuItem.URL }}">{{ .menuItem.Name }}</a>
+		{{- if .menuItem.HasChildren }}
 		<ul class="menu__submenu">
-			{{- range .Children }}
-				{{- template "menu-item" . }}
+			{{- range .menuItem.Children }}
+				{{- template "menu-item" (dict "menuItem" . "currentNode" $.currentNode) }}
 			{{- end }}
 		</ul>
 		{{- end }}
