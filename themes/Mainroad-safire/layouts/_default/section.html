@@ -27,7 +27,7 @@
 
 {{ define "section-menu-item" }}
 	<li>
-		<a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ if .Draft }} [Draft]{{ end }}
+		<a href="{{ .RelPermalink }}"{{ with .Params.noindex }} rel="noopener nofollow"{{ end }}>{{ .Title }}</a>{{ if .Draft }} [Draft]{{ end }}
 		{{- if .IsNode }}
 		<ul class="sub-menu">
 			{{- range (union .Pages .Sections) }}
