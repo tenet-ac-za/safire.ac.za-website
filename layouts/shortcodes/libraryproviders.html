@@ -1,6 +1,15 @@
 <!-- uses stringOrArray and hyperlinkIfNeeded defined in participantlist.html -->
 <!-- this is a counter used for button indices -->
 {{- $.Scratch.Set "i" 0 -}}
+
+<!-- Load jQuery, jQuery UI CSS and JS only when this shortcode is used -->
+{{- if not (.Page.Scratch.Get "jqueryLoaded") }}
+<link rel='stylesheet' href='{{ relURL "/css/jquery-ui.css" }}' type='text/css' media='all'>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js" integrity="sha512-MSOo1aY+3pXCOCdGAYoBZ6YGI0aragoQsg1mKKBHXCYPIWxamwOE7Drh+N5CPgGI5SA9IEKJiPjdfqWFWmZtRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{{- .Page.Scratch.Set "jqueryLoaded" true }}
+{{- end }}
+
 <style>
 .library-status-green { background-color:#0f3; }
 .library-status-yellow { background-color:#ffde00; }
@@ -85,7 +94,7 @@
 	{{- $.Scratch.Add "i" 1 -}}
 {{- end }}
 </div>
-<script>
+<script defer>
 	// Wait for jQuery to be loaded before initializing
 	function initializeLibraryProviders() {
 		if (typeof jQuery !== 'undefined') {

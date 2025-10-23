@@ -1,6 +1,15 @@
 {{- $type := .Get "type" }}
 <!-- this is a counter used for button indices -->
 {{- $.Scratch.Set "i" 0 -}}
+
+<!-- Load jQuery, jQuery UI CSS and JS only when this shortcode is used -->
+{{- if not (.Page.Scratch.Get "jqueryLoaded") }}
+<link rel='stylesheet' href='{{ relURL "/css/jquery-ui.css" }}' type='text/css' media='all'>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.14.1/jquery-ui.min.js" integrity="sha512-MSOo1aY+3pXCOCdGAYoBZ6YGI0aragoQsg1mKKBHXCYPIWxamwOE7Drh+N5CPgGI5SA9IEKJiPjdfqWFWmZtRA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+{{- .Page.Scratch.Set "jqueryLoaded" true }}
+{{- end }}
+
 <div id="participantList" class="ui-accordion ui-widget ui-helper-reset">
 	<!-- display the participants from metadata -->
 	{{- range $p := .Site.Data.safire.metadata }}

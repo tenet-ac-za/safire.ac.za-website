@@ -1,6 +1,8 @@
 'use strict';
 
-(() => {
+// All theme functionality - runs when DOM is ready
+document.addEventListener('DOMContentLoaded', () => {
+	// Menu functionality
 	const menuBtn = document.querySelector('.menu__btn');
 	const menu = document.querySelector('.menu__list');
 
@@ -64,4 +66,21 @@
 			});
 		}
 	});
-})();
+
+	// Email obfuscation functionality
+	const elements = document.querySelectorAll('.tenet-obfusticate');
+	elements.forEach((element) => {
+		const href = element.dataset.href;
+		if (href) {
+			element.setAttribute('href', atob(href));
+		}
+		if (!element.classList.contains('tenet-cleartext')) {
+			const text = element.textContent;
+			element.innerHTML = atob(text);
+		}
+		const css = element.dataset.class;
+		if (css) {
+			element.classList.add(css);
+		}
+	});
+});
