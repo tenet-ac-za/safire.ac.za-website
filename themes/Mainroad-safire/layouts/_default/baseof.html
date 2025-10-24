@@ -36,13 +36,6 @@
 	<link rel="stylesheet" {{ printf `href="%s"` $googleFontsLink | safeHTMLAttr }}>
 	{{- end }}
 
-	<!-- library specific styles -->
-	<link rel='dns-prefetch' href='https://cdnjs.cloudflare.com'>
-	<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github.min.css" integrity="sha512-0aPQyyeZrWj9sCA46UlmWgKOP0mUipLQ6OZXu8l4IcAmD2u31EPEy9VcIMvl7SoAaKe8bLXZhYoMaE/in+gcgA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/genericons/3.1/genericons.min.css" integrity="sha512-YFEHzmYYA+rfkaiT3gCuwHwEy+omzHyKLOJ1Pe/TAVmz3iSXwGgO4XgOq5zzL2eTYr3omXmdWR+45Swcp7J8rA==" crossorigin="anonymous" referrerpolicy="no-referrer">
-	<link href='https://static.safire.ac.za' crossorigin rel='preconnect'>
-
 	{{ $style := resources.Get "css/style.css" | resources.ExecuteAsTemplate "css/style.css" . -}}
 	<link rel="stylesheet" href="{{ $style.RelPermalink }}">
 	{{ $safireStyle := resources.Get "css/safire.css" | resources.ExecuteAsTemplate "css/safire.css" . -}}
@@ -58,6 +51,7 @@
 	{{ printf `<link rel="%s" type="%s" href="%s" title="%s">` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
 	{{- end }}
 
+	<link href='https://static.safire.ac.za' crossorigin rel='preconnect'>
 	<link rel="shortcut icon" type="image/icon" href="//static.safire.ac.za/favicons/favicon.ico">
 	<link rel="icon" type="image/png" sizes="16x16" href="//static.safire.ac.za/favicons/favicon-16x16.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="//static.safire.ac.za/favicons/favicon-32x32.png">
@@ -97,9 +91,6 @@
 {{- partial "mathjax.html" . -}}
 
 <!-- SAFIRE specific scripts -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js" integrity="sha512-EBLzUL8XLl+va/zAsmXwS7Z2B1F9HUHkZwyS/VKwh3S7T/U0nF4BaU29EP/ZSf6zgiIxYAnKLu6bJ8dqpmX5uw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/languages/powershell.min.js" integrity="sha512-J5RVPDNPGNQPjzhjtYPsrLHTX/7GPhPU1AvmyCo/hjKWBecwfX6ByD0oG/NAS5VU3hwk8A/DVVxjXm4ZEBJwhg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script type="text/javascript">hljs.highlightAll();</script>
 {{ partial "tarteaucitron.html" . }}
 </body>
 </html>

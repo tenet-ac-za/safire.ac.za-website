@@ -422,6 +422,10 @@ blockquote.message-box > p {
 	margin-bottom: 0;
 }
 
+pre:has(code) {
+	padding: 1em;
+}
+
 /* Table styling */
 table.fees {
 	width: auto !important;
