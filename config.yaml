@@ -47,8 +47,8 @@ markup:
         block: true
   highlight:
     style: monokailight
-    lineNos: true
-    lineNumbersInTable: false
+    # lineNos: true
+    # lineNumbersInTable: false
 
 # External menu links & crosslinks
 menu:
