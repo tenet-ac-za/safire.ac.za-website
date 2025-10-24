@@ -426,6 +426,12 @@ pre:has(code) {
 	padding: 1em;
 }
 
+.section__safire.section__contact.page___index ul.section-menu,
+.unique__35bc801e31eb69cfa091a04ec8cf5ace ul.section-menu {
+	list-style: none;
+	margin: 0;
+}
+
 /* Table styling */
 table.fees {
 	width: auto !important;
@@ -481,8 +487,6 @@ table.fees tbody tr:hover {
 	padding: 0;
 	margin: 0;
 }
-
-
 
 /* Style details/summary for entity ID folding */
 .participantTechnical details {
