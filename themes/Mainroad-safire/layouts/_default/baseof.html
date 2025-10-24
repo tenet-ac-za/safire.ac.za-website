@@ -66,7 +66,7 @@
 		{{ template "_internal/google_analytics.html" . }}
 	{{- end }}
 </head>
-<body class="body kind__{{ .Kind }} {{ with .Section }}section__{{ . }} {{ end }}{{ with .File }}file__{{ .BaseFileName }} unique__{{ .UniqueID }}{{ end }}{{ if .Draft }} status__draft{{ end }}">
+<body class="body kind__{{ .Kind }} {{ with .Layout }}layout__{{ . }} {{ end }}{{ range .Ancestors.Reverse }}{{ with .Slug }}section__{{ . }} {{ end }}{{ end }}{{ if .IsNode }}section__{{ .Slug }} {{ end }}{{ with .File }}page__{{ .TranslationBaseName }} unique__{{ .UniqueID }}{{ end }}{{ if .Draft }} status__draft{{ end }}">
 	<div class="container container--outer">
 		{{ block "header" . }}{{ partial "header.html" . }}{{ end }}
 		<div class="wrapper flex">
