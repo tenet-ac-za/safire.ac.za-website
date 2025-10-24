@@ -17,7 +17,6 @@
 	<meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Params.Description }}{{ end }}">
 	{{ with .Page.Keywords }}<meta name="keywords" content="{{.}}">{{ end -}}
 	<meta name="dc.modified" content="{{ .Lastmod | default .Date | time.Format "2006/01/02" }}">
-
 	{{- if .Site.Params.opengraph }}
 		{{ template "_internal/opengraph.html" . }}
 	{{- end }}
@@ -84,13 +83,11 @@
 		</div>
 		{{ block "footer" . }}{{ partial "footer.html" . }}{{ end }}
 	</div>
-<script src="{{ "js/theme-functions.js" | relURL }}"></script>
+<script async defer src="{{ "js/menu.js" | relURL }}"></script>
 {{ range .Site.Params.customJS -}}
 <script src="{{ . | relURL }}"></script>
 {{- end }}
 {{- partial "mathjax.html" . -}}
-
-<!-- SAFIRE specific scripts -->
 {{ partial "tarteaucitron.html" . }}
 </body>
 </html>
