@@ -11,10 +11,10 @@
 	</div>
 	{{- end }}
 
-	{{- if not .Params.skipsectionmenu }}
+	{{- if not .Params.skipSectionMenu }}
 	<nav class="section-menu">
 		<ul class="section-menu">
-		{{- range (union .Pages .Sections) }}
+		{{- range (union .Pages .Sections).ByTitle }}
 			{{- if not (in .Params.tags "versioned") -}}
 				{{ template "section-menu-item" . }}
 			{{- end -}}
@@ -30,7 +30,7 @@
 		<a href="{{ .RelPermalink }}"{{ with .Params.noindex }} rel="noopener nofollow"{{ end }}>{{ .Title }}</a>{{ if .Draft }} [Draft]{{ end }}
 		{{- if .IsNode }}
 		<ul class="sub-menu">
-			{{- range (union .Pages .Sections) }}
+			{{- range (union .Pages .Sections).ByTitle }}
 				{{- if not (in .Params.tags "versioned") -}}
 					{{ template "section-menu-item" . }}
 				{{- end -}}
