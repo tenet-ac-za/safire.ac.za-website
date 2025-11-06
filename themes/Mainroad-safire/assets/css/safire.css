@@ -79,6 +79,21 @@ input[type="submit"]:active {
 	color: var(--safire-purple);
 }
 
+/* Style external links differently */
+a[href^="http://"]:not([href*="safire.ac.za"]):not([href*="tenet.ac.za"]):not([href*="{{ .Site.BaseURL }}"]):hover,
+a[href^="https://"]:not([href*="safire.ac.za"]):not([href*="tenet.ac.za"]):not([href*="{{ .Site.BaseURL }}"]):hover {
+	text-decoration: dashed underline;
+}
+
+a[href^="http://"]:not([href*="safire.ac.za"]):not([href*="tenet.ac.za"]):not([href*="{{ .Site.BaseURL }}"]):after,
+a[href^="https://"]:not([href*="safire.ac.za"]):not([href*="tenet.ac.za"]):not([href*="{{ .Site.BaseURL }}"]):after {
+	content: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	margin-left: 4px;
+	vertical-align: middle;
+	opacity: 1;
+	transition: color 0.3s ease;
+}
+
 /* Code styling */
 pre.xml {
 	white-space: pre;

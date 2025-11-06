@@ -8,7 +8,7 @@ tags:
 title: SAFIRE federation hub compatibility quirks
 ---
 
-To ensure broad compatibility with commonly used SAML identity providers, SAFIRE's federation hub can adjust its behaviour to handle specific quirks in some implementations. This is mainly intended for proprietary SAML software stacks that do not fully support our [deployment profiles]({{< ref "/technical/saml2/deployment-profiles.md" >}}). It is not a substitute for correcting misconfigurations.
+To ensure broad compatibility with commonly used SAML identity providers, SAFIRE's federation hub can adjust its behaviour to handle specific [quirks](https://dictionary.cambridge.org/dictionary/english/quirk) in some implementations. This is mainly intended for proprietary SAML software stacks that do not fully support our [deployment profiles]({{< ref "/technical/saml2/deployment-profiles.md" >}}). It is not a substitute for correcting misconfigurations.
 
 Quirks are signalled in identity provider metadata by setting the `x-safire.ac.za:quirks` EntityAttribute as follows:
 ```xml
