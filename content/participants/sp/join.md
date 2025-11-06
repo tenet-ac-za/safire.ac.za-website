@@ -27,6 +27,11 @@ SAFIRE does not charge service providers at this stage, but may levy a [joining 
 
 To be eligible to become a service provider in the SAML2 Technology Profile, you need one or more [existing identity providers]({{< ref "/participants/idp/list.md" >}}) to confirm that they're interested in using your service. In some cases the federation may already be aware of such identity providers; in others you may be asked to indicate which identity providers you're working with.
 
-  * [Technical requirements]({{< ref "/technical/saml2/sp-requirements/_index.md" >}})
-  * [Registration request form]({{< ref "/technical/saml2/forms/_index.md" >}})
+You should review the following requirements and ensure your service provider meets them:
 
+  * [Technical requirements for service providers]({{< ref "/technical/saml2/sp-requirements/_index.md" >}})
+  * [Sirtfi (security) requirements]({{< ref "/technical/saml2/sirtfi/_index.md" >}}) (optional, but highly recommended)
+
+Then, to register an SP, you need to submit metadata together with the following form:
+
+  * [SP Registration Request Form]({{< ref "/technical/saml2/forms/_index.md" >}})
