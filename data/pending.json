@@ -24,5 +24,47 @@
                 "URL": "https:\/\/www.seals.ac.za\/media\/seals\/site_assets\/images\/logo.gif"
             }
         }
+    },
+    {
+        "entityType": "sp",
+        "ParticipationAgreement": true,
+        "OrganizationName": "Canva Pty Ltd",
+        "OrganizationDisplayName": "Canva",
+        "OrganizationURL": "https:\/\/www.canva.com\/",
+        "TechnicalIntegration": false
+    },
+    {
+        "entityType": "sp",
+        "ParticipationAgreement": true,
+        "OrganizationName": "LexisNexis (Pty) Ltd",
+        "OrganizationDisplayName": "LexisNexis",
+        "OrganizationURL": "https:\/\/www.lexisnexis.co.za\/",
+        "TechnicalIntegration": false
+    },
+    {
+        "entityType": "idp",
+        "ParticipationAgreement": true,
+        "OrganizationName": "University of Zululand",
+        "OrganizationDisplayName": "University of Zululand",
+        "OrganizationURL": "https:\/\/www.unizulu.ac.za\/",
+        "TechnicalIntegration": false,
+        "mdui": {
+            "Logo": {
+                "URL": "https://upload.wikimedia.org/wikipedia/en/1/14/University_of_Zululand_logo.svg"
+            }
+        }
+    },
+    {
+        "entityType": "idp",
+        "ParticipationAgreement": true,
+        "OrganizationName": "Durban University of Technology",
+        "OrganizationDisplayName": "Durban University of Technology",
+        "OrganizationURL": "https:\/\/www.dut.ac.za\/",
+        "TechnicalIntegration": false,
+        "mdui": {
+            "Logo": {
+                "URL": "https://pbs.twimg.com/profile_images/1778000033557671936/Ztg8wTPM_400x400.jpg"
+            }
+        }
     }
 ]
