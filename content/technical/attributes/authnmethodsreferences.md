@@ -28,7 +28,8 @@ attributeNotes: |2
   authentication methods supported by Microsoft are compatible
   with REFEDS MFA, this quirk is **not enabled by default**.
 
-  Identity providers that wish to make use of REFEDS MFA and require this quirk
+  Identity providers that wish to make use of REFEDS MFA and require the
+  ["multiauthn" quirk]({{< ref "/technical/resources/safire-compatibility-quirks.md" >}})
   must explicitly request it, and confirm that the multi-factor authentication
   methods they use are compatible with REFEDS MFA.
 

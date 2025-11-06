@@ -104,7 +104,7 @@ then replace the captured regex output group(s) and user.objectid input paramete
 Then apply next transformation.
 ```
 
-If for some reason you don't have a valid attribute you can extract a scope from (unlikely), please speak to us about enabling the "subjectid" quirk for your identity provider. This will cause the Federation hub to generate subject-id on your behalf (which is not ideal, as pairwise-id may not be generated unless you do this yourself).
+If for some reason you don't have a valid attribute you can extract a scope from (unlikely), please speak to us about enabling the ["subjectid" quirk]({{< ref "/technical/resources/safire-compatibility-quirks.md" >}}) for your identity provider. This will cause the Federation hub to generate subject-id on your behalf (which is not ideal, as pairwise-id may not be generated unless you do this yourself).
 {.message-box}
 
 ### eduPersonScopedAffiliation
@@ -193,7 +193,7 @@ In order to meet the requirements of SAFIRE's [metadata registration practice st
 
 Entra ID has built-in support for multi-factor authentication. To enable signalling of support multi-factor authentication for your users, you will need to explicitly confirm that the authentication methods you've enabled are compatible with academic federation. See [authnmethodsreferences]({{< ref "/technical/attributes/authnmethodsreferences.md" >}}) for details.
 
-If you'd like to do this, please ask us to enable the "multiauthn" quirk for your identity provider.
+If you'd like to do this, please ask us to enable the ["multiauthn" quirk]({{< ref "/technical/resources/safire-compatibility-quirks.md" >}}) for your identity provider.
 
 # Improving generated metadata
 

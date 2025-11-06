@@ -85,7 +85,7 @@ While we've documented the major pitfalls above, there are also some clear benef
 
 ### Built-in MFA & FIDO2 support
 
-A major benefit of switching to Entra ID is built-in multi-factor authentication. SAFIRE's federation hub includes [translation support]({{< ref "/safire/news/20220111-refeds-mfa-support.md" >}}) for the [REFEDS MFA profile](https://refeds.org/profile/mfa), allowing you to assert compliance easily. All you need to do is let us know you've enabled MFA and would like the quirk turned on for your identity provider.
+A major benefit of switching to Entra ID is built-in multi-factor authentication. SAFIRE's federation hub includes [translation support]({{< ref "/safire/news/20220111-refeds-mfa-support.md" >}}) for the [REFEDS MFA profile](https://refeds.org/profile/mfa), allowing you to assert compliance easily. All you need to do is let us know you've enabled MFA and would like the ["multiauthn" quirk]({{< ref "/technical/resources/safire-compatibility-quirks.md" >}}) turned on for your identity provider.
 
 Entra ID also [supports FIDO2/WebAuthn (Passkeys)](https://learn.microsoft.com/en-us/entra/identity/authentication/how-to-enable-passkey-fido2) and integrates with Windows Hello, offering stronger authentication options by default.
 
