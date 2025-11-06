@@ -66,5 +66,18 @@
                 "URL": "https://pbs.twimg.com/profile_images/1778000033557671936/Ztg8wTPM_400x400.jpg"
             }
         }
+    },
+    {
+        "entityType": "idp",
+        "ParticipationAgreement": true,
+        "OrganizationName": "George Whitefield College",
+        "OrganizationDisplayName": "George Whitefield College",
+        "OrganizationURL": "https:\/\/www.gwc.ac.za\/",
+        "TechnicalIntegration": false,
+        "mdui": {
+            "Logo": {
+                "URL": "https://www.gwc.ac.za/wp-content/uploads/2020/07/GWC-Logo.svg"
+            }
+        }
     }
 ]
