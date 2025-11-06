@@ -20,4 +20,4 @@ url: /safire/publications/sci-gaia-icri-fringe-event-2016/
 >}}
 <!--more-->
 
-{{< gview file="/wp-content/uploads/2016/10/SAFIRE-ICRI-SciGaIA-Oct-2016.pptx" >}}
+{{< docview file="/wp-content/uploads/2016/10/SAFIRE-ICRI-SciGaIA-Oct-2016.pptx" >}}

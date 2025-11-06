@@ -20,4 +20,4 @@ url: /safire/publications/sci-gaia-final-event-march-2017/
 >}}
 <!--more-->
 
-{{< gview file="/wp-content/uploads/2017/03/SAFIRE-SciGaIA-Final-Event-Mar-2017.pptx" >}}
+{{< docview file="/wp-content/uploads/2017/03/SAFIRE-SciGaIA-Final-Event-Mar-2017.pptx" >}}

@@ -1,0 +1,77 @@
+{{- $file := .Get "file" }}
+{{- if $file }}
+{{- $ext := path.Ext $file | strings.TrimPrefix "." | upper }}
+{{- if eq $ext "PDF" }}
+<!-- Native PDF viewer for PDF files -->
+<div class="doc-viewer doc-viewer--pdf">
+	<iframe src="{{ relURL $file }}" class="doc-frame" style="width:100%; height:60vh; min-height:400px; max-height:800px; border:1px solid #ddd; border-radius:4px;"></iframe>
+	<noscript>
+		<div class="doc-fallback" style="padding:20px; text-align:center; background:#f8f9fa; border:1px solid #ddd; border-radius:4px; margin-top:10px;">
+			<p><strong>PDF Viewer Not Supported</strong></p>
+			<p>Your browser doesn't support embedded PDF viewing. Please download the document to view it.</p>
+			<a href="{{ relURL $file }}" target="_blank" download><button>Download PDF</button></a>
+		</div>
+	</noscript>
+	<p style="text-align:center; margin-top:10px;" class="doc-links">
+		<a href="{{ relURL $file }}" target="_blank" download><button>Download {{ $ext }}</button></a>
+		<a href="{{ relURL $file }}" target="_blank"><button>Open in New Tab</button></a>
+	</p>
+</div>
+{{- else }}
+<!-- Google Document Viewer for other document types -->
+<div class="doc-viewer doc-viewer--google">
+	<iframe src="//docs.google.com/viewer?hl=en_GB&embedded=true&{{ querify "url" (absURL $file)|safeURL }}" class="doc-frame" style="width:100%; height:60vh; min-height:400px; max-height:800px; border:1px solid #ddd; border-radius:4px; overflow:hidden;"></iframe>
+	<p style="text-align:center; margin-top:10px;" class="doc-links">
+		<a href="{{ relURL $file }}" target="_blank" download><button>Download {{ $ext }}</button></a>
+		<a href="//docs.google.com/viewer?hl=en_GB&{{ querify "url" (absURL $file)|safeURL }}" target="_blank"><button>Open with Google Docs</button></a>
+	</p>
+</div>
+{{- end }}
+
+<style>
+.doc-viewer {
+	margin: 1rem 0;
+}
+
+.doc-frame {
+	display: block;
+	background: #f8f9fa;
+}
+
+@media (max-width: 768px) {
+	.doc-frame {
+		height: 50vh !important;
+		min-height: 300px !important;
+	}
+
+	.doc-links button {
+		font-size: 0.9em;
+		padding: 8px 12px;
+		margin: 0 4px;
+	}
+}
+
+@media (max-width: 480px) {
+	.doc-frame {
+		height: 40vh !important;
+		min-height: 250px !important;
+	}
+
+	.doc-links {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+		align-items: center;
+	}
+
+	.doc-links a {
+		width: 100%;
+		max-width: 200px;
+	}
+
+	.doc-links button {
+		width: 100%;
+	}
+}
+</style>
+{{- end }}

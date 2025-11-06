@@ -19,4 +19,4 @@ url: /safire/publications/chpc-national-meeting-2016/
 >}}
 <!--more-->
 
-{{< gview file="/wp-content/uploads/2016/12/SAFIRE-CHPC-Conf-Dec-2016.pptx" >}}
+{{< docview file="/wp-content/uploads/2016/12/SAFIRE-CHPC-Conf-Dec-2016.pptx" >}}

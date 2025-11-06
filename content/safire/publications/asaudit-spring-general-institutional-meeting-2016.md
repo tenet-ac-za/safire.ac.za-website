@@ -20,4 +20,4 @@ url: /safire/publications/asaudit-spring-general-institutional-meeting-2016/
 >}}
 <!--more-->
 
-{{< gview file="/wp-content/uploads/2016/10/SAFIRE-ASUDIT-GM-Oct-2016.pptx" >}}
+{{< docview file="/wp-content/uploads/2016/10/SAFIRE-ASUDIT-GM-Oct-2016.pptx" >}}

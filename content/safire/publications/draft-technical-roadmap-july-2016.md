@@ -18,4 +18,4 @@ url: /safire/publications/draft-technical-roadmap-july-2016/
 >}}
 <!--more-->
 
-{{< gview file="/wp-content/uploads/2016/06/SAFIRE-Roadmap-July-2016.pptx" >}}
+{{< docview file="/wp-content/uploads/2016/06/SAFIRE-Roadmap-July-2016.pptx" >}}

@@ -19,4 +19,4 @@ url: /safire/publications/eresearch-africa-may-2017/
 >}}
 <!--more-->
 
-{{< gview file="/wp-content/uploads/2017/05/SAFIRE-eResearch-Africa-May-2017.pptx" >}}
+{{< docview file="/wp-content/uploads/2017/05/SAFIRE-eResearch-Africa-May-2017.pptx" >}}

@@ -21,4 +21,4 @@ tags:
 >}}
 <!--more-->
 
-{{< gview file="/wp-content/uploads/2017/10/SAFIRE-ORCID-Workshop-Oct-2017.pptx" >}}
+{{< docview file="/wp-content/uploads/2017/10/SAFIRE-ORCID-Workshop-Oct-2017.pptx" >}}

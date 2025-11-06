@@ -19,4 +19,4 @@ url: /safire/publications/20160916-sla-reference-group-report-back/
 >}}
 <!--more-->
 
-{{< gview file="/wp-content/uploads/2016/08/SAFIRE-SLARG-August-2016.pptx" >}}
+{{< docview file="/wp-content/uploads/2016/08/SAFIRE-SLARG-August-2016.pptx" >}}

@@ -34,6 +34,6 @@ url: /safire/publications/safire-workshop-nate-2017/
 >}}
 <!--more-->
 
-{{< gview file="/wp-content/uploads/2017/07/SAFIRE-Workshop-NATE-June-2017.pptx" >}}
+{{< docview file="/wp-content/uploads/2017/07/SAFIRE-Workshop-NATE-June-2017.pptx" >}}
 
-{{< gview file="/wp-content/uploads/2017/07/UCT-path-to-SAFIRE-NATE-2017.pptx" >}}
+{{< docview file="/wp-content/uploads/2017/07/UCT-path-to-SAFIRE-NATE-2017.pptx" >}}

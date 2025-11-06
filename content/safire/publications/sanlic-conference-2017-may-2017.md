@@ -21,4 +21,4 @@ url: /safire/publications/sanlic-conference-2017-may-2017/
 >}}
 <!--more-->
 
-{{< gview file="/wp-content/uploads/2017/05/SAFIRE-SANLiC-May-2017.pptx" >}}
+{{< docview file="/wp-content/uploads/2017/05/SAFIRE-SANLiC-May-2017.pptx" >}}
