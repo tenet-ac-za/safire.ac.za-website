@@ -32,7 +32,7 @@ You should review the following requirements and ensure your identity provider m
   * [Technical requirements for identity providers]({{< ref "/technical/saml2/idp-requirements/_index.md" >}})
   * [Sirtfi (security) requirements]({{< ref "/technical/saml2/sirtfi/_index.md" >}}) (mandatory since [Sept 2025]({{< ref "/safire/news/20250901-baseline-changes.md" >}}))
 
-Then, to register an IdP, you need to submit metadata together with the following forms:
+Then, to register a SAML2 IdP, you need to submit metadata together with the following forms:
 
   * [IdP Registration Request Form]({{< ref "/technical/saml2/forms/_index.md" >}})
   * [Attestation of Sirtfi compliance]({{< ref "/technical/saml2/sirtfi/_index.md#attesting-sirtfi-compliance" >}})

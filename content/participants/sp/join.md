@@ -32,6 +32,6 @@ You should review the following requirements and ensure your service provider me
   * [Technical requirements for service providers]({{< ref "/technical/saml2/sp-requirements/_index.md" >}})
   * [Sirtfi (security) requirements]({{< ref "/technical/saml2/sirtfi/_index.md" >}}) (optional, but highly recommended)
 
-Then, to register an SP, you need to submit metadata together with the following form:
+Then, to register a SAML2 SP, you need to submit metadata together with the following form:
 
   * [SP Registration Request Form]({{< ref "/technical/saml2/forms/_index.md" >}})
