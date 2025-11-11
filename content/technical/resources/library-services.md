@@ -45,7 +45,7 @@ If the provider is accessing your identity provider via eduGAIN, the value they 
 ### Wayfless URLs
 You may also be asked to make use of a "Wayfless" URL. Different providers have different mechanisms for constructing these, so you will need to refer to the providers's documentation. However, they will always involve a [URL-encoded](https://en.wikipedia.org/wiki/Percent-encoding) version of your entity ID --- to get this, find your institution in [our list of identity providers]({{< ref "/participants/idp/list.md" >}}) and then click on  the `Metadata entityID` field to expand it. This will display other forms of the entity ID, including the `Wayfless entityID` for you to copy-and-paste.
 
-Our colleagues at the [UK Access Management Federation](https://www.ukfederation.org.uk/) have also developed a very useful utility that can [generate a Wayfless URL](https://wugen.ukfederation.org.uk/wugen/generate/idp-sp-selector.xhtml) for you.
+Our colleagues at the [UK Access Management Federation](https://www.ukfederation.org.uk/) have also developed a very useful utility that can [generate a Wayfless URL](https://wugen.ukfederation.org.uk/) for you.
 
 ### eduPersonScopedAffiliation
 You may be asked for affiliation or scoped affiliation values. These are the values your institution sets for [_eduPersonScopedAffiliation_]({{< ref "/technical/attributes/edupersonscopedaffiliation.md" >}}) and will be a value like `member@example.ac.za`. You may be able to figure out the correct ones by logging into our [test service provider](https://testsp.safire.ac.za/), but generally you should confirm them with your own identity provider administrator or IT support staff.
