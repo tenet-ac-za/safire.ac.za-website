@@ -130,6 +130,8 @@ The well-known parameters are `SAMLRequest` for a SAML request, `SAMLResponse` f
 
 One of SAML's weaknesses is poor support for single logout (**SLO**) --- that is for a logout at one service provider to be able to initiate a logout at every other one for the same SSO session. Whilst the protocol supports it, its implementation varies considerably and is sometimes non-existent. [Much has been written about this subject](https://www.google.co.za/search?q=saml+single+logout).
 
+Most modern providers do have limited support for SLO, although this is far from guarenteed. Where supported, it should probably be enabled.
+
 ## 5. SAML metadata
 
 In order for the protocol to work, both parties need to know stuff about each other. The service provider needs to know where to send an AuthN request, and the identity provider needs to know where to send a response and any assertions. In addition, in order for signing and encryption to work, the **[relying parties](https://en.wikipedia.org/wiki/Relying_party)** need to share public keys. This is achieved by means of SAML metadata.
