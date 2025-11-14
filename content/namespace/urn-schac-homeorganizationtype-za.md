@@ -18,9 +18,12 @@ The REFEDS SCHAC Editorial Board has delegated the operation of **urn:schac:home
 | Prefix | Use/Description |
 :--------|:----------------|
 | **urn:schac:homeOrganizationType:za:**… | Used as described for the [schacHomeOrganizationType]({{< ref "/technical/attributes/schachomeorganizationtype.md" >}}) attribute. |
-| urn:schac:homeOrganizationType:za:private-college | Private College (as defined in the Continuing Education and Training Act) |
-| urn:schac:homeOrganizationType:za:private-hei | Private Higher Educational Institution (as defined in the Higher Education Act) |
-| urn:schac:homeOrganizationType:za:research-council | Statutory research council established by act of parliament |
-| urn:schac:homeOrganizationType:za:tvet | Public TVET College (as defined in the Continuing Education and Training Act) |
-| urn:schac:homeOrganizationType:za:university | Public University (as defined in the Higher Education Act) |
+| urn:schac:homeOrganizationType:za:private-college | Private College (as defined in the Continuing Education and Training Act[^ceta]) |
+| urn:schac:homeOrganizationType:za:private-hei | Private Higher Educational Institution (as defined in the Higher Education Act[^hea]) |
+| urn:schac:homeOrganizationType:za:research-council | Statutory science or research council established by act of parliament |
+| urn:schac:homeOrganizationType:za:tvet | Public TVET College (as defined in the Continuing Education and Training Act[^ceta]) |
+| urn:schac:homeOrganizationType:za:university | Public University (as defined in the Higher Education Act[^hea]) |
+
+[^hea]: Higher Education Act 101 of 1997 [[gov.za](https://www.gov.za/documents/higher-education-act)], [LawLibrary](https://lawlibrary.org.za/akn/za/act/1997/101/eng)]
+[^ceta]: Continuing Education and Training Act 16 of 2006 [[gov.za](https://www.gov.za/documents/further-education-and-training-colleges-act), [LawLibrary](https://lawlibrary.org.za/akn/za/act/2006/16/eng)]
 

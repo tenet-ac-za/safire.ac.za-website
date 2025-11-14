@@ -25,7 +25,7 @@ You should be aware that registering as an identity provider means that you will
 
 ## SAML2 Technology Profile
 
-To be eligible to become an identity provider in the SAML2 Technology Profile, you need to be a higher educational institution recognised under the Higher Education Act (101 of 1997, as amended) or a public statutory research council. Other requests will be considered on a case-by-case basis by SAFIRE's steering committee.
+To be eligible to become an identity provider in the SAML2 Technology Profile, you need to be a higher educational institution recognised under the Higher Education Act[^hea] or a public statutory science or research council. Other requests will be considered on a case-by-case basis by SAFIRE's steering committee.
 
 You should review the following requirements and ensure your identity provider meets them:
 
@@ -36,3 +36,5 @@ Then, to register a SAML2 IdP, you need to submit metadata together with the fol
 
   * [IdP Registration Request Form]({{< ref "/technical/saml2/forms/_index.md" >}})
   * [Attestation of Sirtfi compliance]({{< ref "/technical/saml2/sirtfi/_index.md#attesting-sirtfi-compliance" >}})
+
+[^hea]: Higher Education Act 101 of 1997 [[gov.za](https://www.gov.za/documents/higher-education-act)], [LawLibrary](https://lawlibrary.org.za/akn/za/act/1997/101/eng)]
