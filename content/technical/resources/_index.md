@@ -44,13 +44,14 @@ This page contains links to more information and technical resources. It will be
 
 # User Interface/Login pages/Discovery
 
-  * [Seamless Access](https://seamlessaccess.org/) - the Seamless Access discovery service, building on the outcomes of [RA21](https://ra21.org/). _(This is the recommended approach for people deploying new services.)_
+  * [Seamless Access](https://seamlessaccess.org/) - the Seamless Access discovery service, building on the [outcomes of RA21](https://doi.org/10.3789/niso-rp-27-2019). _(This is the recommended approach for people deploying new services.)_
   * [Shibboleth embedded discovery service](https://wiki.shibboleth.net/confluence/display/EDS10/Embedded+Discovery+Service)
   * ~~[eduGAIN DSX embedded discovery](https://wiki.geant.org/display/eduGAIN/Embedded+Discovery)~~ *[decommissioned]*
   * ~~[DiscoJuice](http://discojuice.org/) - user-friendly, JavaScript discovery service.~~ *[decomissioned]*
 
 ### Best Practices for UX
-  * [RA21](https://ra21.org/): Resource Access for the 21st Century
+  * ~~[RA21](https://ra21.org/): Resource Access for the 21st Century~~
+  * [NISO RP-27-2019, RA21 Recommended Practices for Improved Access to Institutionally-Provided Information Resources](https://doi.org/10.3789/niso-rp-27-2019) - Results from the Resource Access in the 21st Century (RA21) Project
   * [REFEDS Discovery Guide](https://discovery.refeds.org/) - best practices for integrating federation login into your web site.
   * [MDUI](https://wiki.refeds.org/display/FBP/MDUI+Advice) - metadata user interface extensions.
 
