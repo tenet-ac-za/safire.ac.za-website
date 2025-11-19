@@ -97,12 +97,12 @@ a[href^="https://"]{{ range $safire }}:not([href*="{{ . }}"]){{ end }}:not([role
 	content: '';
 	display: inline-block;
 	width: 1em;
-	height: 1em;
+	height: 1.5em; /* roughly line-height from body */
 	margin-left: 0.25em;
 	background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 	background-size: 1em;
 	background-repeat: no-repeat;
-	background-position: center bottom;
+	background-position: center;
 }
 
 /* Code styling */
