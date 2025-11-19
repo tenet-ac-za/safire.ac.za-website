@@ -1,7 +1,7 @@
-﻿/* SAFIRE-specific CSS overrides and customizations */
+/* SAFIRE-specific CSS overrides and customizations */
 
 /* ========================================= */
-/* CSS Variables                            */
+/* CSS Variables                             */
 /* ========================================= */
 
 /*
@@ -20,7 +20,7 @@
 }
 
 /* ========================================= */
-/* Font Faces                               */
+/* Font Faces                                */
 /* ========================================= */
 
 @font-face {
@@ -33,7 +33,7 @@
 }
 
 /* ========================================= */
-/* Base Element Overrides                   */
+/* Base Element Overrides                    */
 /* ========================================= */
 
 /* Ensure hidden attribute works properly for entityidfold */
@@ -80,18 +80,29 @@ input[type="submit"]:active {
 }
 
 /* Style external links differently */
-a[href^="http://"]:not([href*="safire.ac.za"]):not([href*="tenet.ac.za"]):not([href*="{{ .Site.BaseURL }}"]):hover,
-a[href^="https://"]:not([href*="safire.ac.za"]):not([href*="tenet.ac.za"]):not([href*="{{ .Site.BaseURL }}"]):hover {
+{{ $safire := slice "safire.ac.za" "tenet.ac.za" .Site.BaseURL -}}
+a[href^="http://"]{{ range $safire }}:not([href*="{{ . }}"]){{ end }}:not([role]):not(:has(img)):not(:has(button)):hover,
+a[href^="https://"]{{ range $safire }}:not([href*="{{ . }}"]){{ end }}:not([role]):not(:has(img)):not(:has(button)):hover {
 	text-decoration: dashed underline;
 }
 
-a[href^="http://"]:not([href*="safire.ac.za"]):not([href*="tenet.ac.za"]):not([href*="{{ .Site.BaseURL }}"]):after,
-a[href^="https://"]:not([href*="safire.ac.za"]):not([href*="tenet.ac.za"]):not([href*="{{ .Site.BaseURL }}"]):after {
-	content: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-	margin-left: 4px;
-	vertical-align: middle;
-	opacity: 1;
-	transition: color 0.3s ease;
+a[href^="http://"]{{ range $safire }}:not([href*="{{ . }}"]){{ end }}:not([role]):not(:has(img)):not(:has(button)),
+a[href^="https://"]{{ range $safire }}:not([href*="{{ . }}"]){{ end }}:not([role]):not(:has(img)):not(:has(button)) {
+	padding-right: 1.25em;
+}
+
+a[href^="http://"]{{ range $safire }}:not([href*="{{ . }}"]){{ end }}:not([role]):not(:has(img)):not(:has(button)):after,
+a[href^="https://"]{{ range $safire }}:not([href*="{{ . }}"]){{ end }}:not([role]):not(:has(img)):not(:has(button)):after {
+	position: absolute;
+	content: '';
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	margin-left: 0.25em;
+	background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	background-size: 1em;
+	background-repeat: no-repeat;
+	background-position: center bottom;
 }
 
 /* Code styling */
@@ -124,7 +135,7 @@ pre > code {
 }
 
 /* ========================================= */
-/* Typography                               */
+/* Typography                                */
 /* ========================================= */
 
 .post__title,
@@ -137,7 +148,7 @@ pre > code {
 }
 
 /* ========================================= */
-/* Layout & Structure                       */
+/* Layout & Structure                        */
 /* ========================================= */
 
 .post__header {
@@ -226,7 +237,7 @@ pre > code {
 }
 
 /* ========================================= */
-/* Header & Logo                           */
+/* Header & Logo                             */
 /* ========================================= */
 
 /* SAFIRE logo sizing */
@@ -246,7 +257,7 @@ pre > code {
 }
 
 /* ========================================= */
-/* Main Menu                               */
+/* Main Menu                                 */
 /* ========================================= */
 
 .menu__link {
@@ -332,7 +343,7 @@ pre > code {
 }
 
 /* ========================================= */
-/* Main Content & Post Styling             */
+/* Main Content & Post Styling               */
 /* ========================================= */
 
 /* GitHub-style hover anchor links - OVERRIDE EVERYTHING */
@@ -476,7 +487,7 @@ table.fees tbody tr:hover {
 }
 
 /* ========================================= */
-/* Specialized Content - Participant Lists */
+/* Specialized Content - Participant Lists   */
 /* ========================================= */
 
 /* Participant list specific styling */
@@ -513,7 +524,7 @@ table.fees tbody tr:hover {
 #participantList dl,
 #libraryProviderList dl {
 	margin-bottom: 1.5rem !important;
-	clear: both;
+	clear: left;
 	display: block;
 	overflow: hidden; /* Contains floated elements */
 }
@@ -624,7 +635,7 @@ ul.stringOrArrayList:has(li:only-child) {
 }
 
 /* ========================================= */
-/* Footer                                   */
+/* Footer                                    */
 /* ========================================= */
 
 .footer__copyright-credits {
@@ -632,7 +643,7 @@ ul.stringOrArrayList:has(li:only-child) {
 }
 
 /* ========================================= */
-/* Media Queries                           */
+/* Media Queries                             */
 /* ========================================= */
 
 @media screen and (max-width: 782px) {
