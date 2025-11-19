@@ -53,31 +53,5 @@
                 "URL": "https://upload.wikimedia.org/wikipedia/en/1/14/University_of_Zululand_logo.svg"
             }
         }
-    },
-    {
-        "entityType": "idp",
-        "ParticipationAgreement": true,
-        "OrganizationName": "Durban University of Technology",
-        "OrganizationDisplayName": "Durban University of Technology",
-        "OrganizationURL": "https:\/\/www.dut.ac.za\/",
-        "TechnicalIntegration": false,
-        "mdui": {
-            "Logo": {
-                "URL": "https://pbs.twimg.com/profile_images/1778000033557671936/Ztg8wTPM_400x400.jpg"
-            }
-        }
-    },
-    {
-        "entityType": "idp",
-        "ParticipationAgreement": true,
-        "OrganizationName": "George Whitefield College",
-        "OrganizationDisplayName": "George Whitefield College",
-        "OrganizationURL": "https:\/\/www.gwc.ac.za\/",
-        "TechnicalIntegration": false,
-        "mdui": {
-            "Logo": {
-                "URL": "https://www.gwc.ac.za/wp-content/uploads/2020/07/GWC-Logo.svg"
-            }
-        }
     }
 ]
