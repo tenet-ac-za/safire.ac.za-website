@@ -35,7 +35,7 @@ You will need to create a new *Enterprise Application* in your organisation's Mi
 
 You can name the application whatever makes sense to you and your users (they'll see the name when logging in, so something like "ExampleU SAFIRE Identity Provider" might make sense). Your new SAFIRE application is integrating with other applications that are not in the Microsoft Entra Application gallery.
 
-Once it's created, go to the new application's *Properties* page and ensure *Enabled for users to sign-in* is set to "Yes" and [*Assignment required*](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/application-properties#assignment-required) is set to "No". You can also do things like set a [logo]({{< ref "/technica/logos.md" >}}) to help your users recognise what they're logging into.
+Once it's created, go to the new application's *Properties* page and ensure *Enabled for users to sign-in* is set to "Yes" and [*Assignment required*](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/application-properties#assignment-required) is set to "No". You can also do things like set a [logo]({{< ref "/technical/logos.md" >}}) to help your users recognise what they're logging into.
 
 # 2. Set up single sign-on
 
