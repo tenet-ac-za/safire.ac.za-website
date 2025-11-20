@@ -33,7 +33,9 @@ In identity federation terminology, Identity Providers take on SAFIRE's metadata
 
 You will need to create a new *Enterprise Application* in your organisation's Microsoft Entra ID Service. You can do so by adding a *New application* and then *Create your own application* under the *Enterprise Applications* Management item.
 
-You can name the application whatever makes sense to you and your users. Your new SAFIRE application is integrating with other applications that are not in the Microsoft Entra Application gallery.
+You can name the application whatever makes sense to you and your users (they'll see the name when logging in, so something like "ExampleU SAFIRE Identity Provider" might make sense). Your new SAFIRE application is integrating with other applications that are not in the Microsoft Entra Application gallery.
+
+Once it's created, go to the new application's *Properties* page and ensure *Enabled for users to sign-in* is set to "Yes" and [*Assignment required*](https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/application-properties#assignment-required) is set to "No". You can also do things like set a [logo]({{< ref "/technica/logos.md" >}}) to help your users recognise what they're logging into.
 
 # 2. Set up single sign-on
 
@@ -49,7 +51,6 @@ Once saved, it is worthwhile double-checking that the information was correctly 
 
 > Entra ID generates an entity ID for your application using the well-known format *https://sts.windows.net/your-enterprise-application-id/*, and this **cannot be changed**. The entity ID uniquely identifies your provider to other service providers, and changing the entity ID can break existing trust relationships (for example [eduPersonTargetId]({{< ref "/technical/attributes/edupersontargetedid.md" >}}) will change, potentially unlinking user accounts). This limitation means you cannot migrate between a directly-integrated Entra ID identity provider and any other software (e.g. on-prem AD FS). This is one of the main reasons a [proxy is recommended](https://learn.microsoft.com/en-us/entra/architecture/multilateral-federation-introduction).
 {.message-box .warning}
-
 
 # 3. Configure Attribute claims rules
 
