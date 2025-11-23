@@ -14,14 +14,14 @@
 	<!-- display the participants from metadata -->
 	{{- range $p := .Site.Data.safire.metadata }}
 	{{- if or (not $type) (eq $p.entityType $type) (and (eq $type "sirtfi") ($p.Sirtfi)) (and (eq $type "coco") ($p.CoCo)) }}
-		{{ template "listParticipant" (dict "p" $p "i" ($.Scratch.Get "i")) }}
+		{{ template "listParticipant" (dict "p" $p "i" ($.Scratch.Get "i") "Page" $.Page) }}
 		{{- $.Scratch.Add "i" 1 -}}
 	{{- end }}
 	{{- end }}
 	<!-- display the pending participants from data/pending.json -->
 	{{- range $p := sort .Site.Data.pending "OrganizationDisplayName"  }}
 	{{- if or (not $type) (eq $p.entityType $type) }}
-		{{ template "listParticipant" (dict "p" $p "i" ($.Scratch.Get "i")) }}
+		{{ template "listParticipant" (dict "p" $p "i" ($.Scratch.Get "i") "Page" $.Page) }}
 		{{- $.Scratch.Add "i" 1 -}}
 	{{- end }}
 	{{- end }}
@@ -54,7 +54,7 @@
 				"security" (dict "GivenName" "TENET SAFIRE Incident Response Team" "URL" (ref . "/safire/contact/security.md"))
 			)
 		}}
-			{{ template "listParticipant" (dict "p" $p "i" ($.Scratch.Get "i")) }}
+			{{ template "listParticipant" (dict "p" $p "i" ($.Scratch.Get "i") "Page" $.Page) }}
 		{{- end }}
 	{{- end }}
 </div>
@@ -83,6 +83,7 @@
 				}
 				$('button').button();
 				$('abbr').tooltip();
+				$('.theme-colour-swatch').tooltip();
 				// allow us to pre-open a tab
 				if (window.location.hash) {
 					if ($.isNumeric(window.location.hash.substring(1))) {
@@ -105,6 +106,14 @@
 						$('#' + div).dialog('open');
 					});
 				});
+
+				const urlParams = new URLSearchParams(window.location.search);
+				if (urlParams.has('extra')) {
+					console.log("Showing extra info per URL parameter");
+					$('.participant-extra-info').each(function() {
+						$(this).removeAttr("hidden").show();
+					});
+				}
 			});
 		} else {
 			// jQuery not loaded yet, try again in 100ms
@@ -119,6 +128,7 @@
 	<!-- display a single participant $p with index $i -->
 	{{- $i := .i }}
 	{{- $p := .p }}
+	{{- $Page := .Page }}
 	<h3 data-entityid="{{ $p.entityID }}" data-tabindex="{{ $i }}" {{ with $p.mdui.DisplayName }}data-name="{{ . | urlize}}"{{end}}} class="ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons">
 		{{- template "displayServiceName" $p -}}
 		<span style="float:right; margin-left:10px;">
@@ -220,6 +230,34 @@
 		{{- with $p.Notes }}
 			<dt>Notes</dt>
 				<dd>{{ template "stringOrArray" . }}</dd>
+		{{- end }}
+		{{- with $p.quirks }}
+			<dt class="participant-extra-info" hidden>Hub Compatibility Quirks</dt>
+				<dd class="participant-extra-info" hidden><a href="{{ ref $Page "/technical/resources/safire-compatibility-quirks" }}">{{ template "stringOrArray" . }}</a></dd>
+		{{- end }}
+		{{- with $p.theme }}
+			<dt class="participant-extra-info" hidden>Theme Colours</dt>
+				<dd class="participant-extra-info" hidden>
+					<style>
+						:root {
+							--idp-theme-colour-{{ printf "%03d" $i }}: {{ with (index . 0) }}{{ . }}{{ end }};
+							--idp-theme-colour-{{ printf "%03d" $i }}-light: {{ with (index . 1) }}{{ . }}{{ else }}hsl(from var(--idp-theme-colour-{{ printf "%03d" $i }}) h s calc(l + 10)){{ end }};
+							--idp-theme-colour-{{ printf "%03d" $i }}-dark: {{ with (index . 2) }}{{ . }}{{ else }}hsl(from var(--idp-theme-colour-{{ printf "%03d" $i }}) h s calc(l - 10)){{ end }};
+						}
+						#idp-theme-colour-{{ printf "%03d" $i }} {
+							background-color: var(--idp-theme-colour-{{ printf "%03d" $i }});
+						}
+						#idp-theme-colour-{{ printf "%03d" $i }}-light {
+						background-color: var(--idp-theme-colour-{{ printf "%03d" $i }}-light);
+						}
+						#idp-theme-colour-{{ printf "%03d" $i }}-dark {
+							background-color: var(--idp-theme-colour-{{ printf "%03d" $i }}-dark);
+						}
+					</style>
+					<span id="idp-theme-colour-{{ printf "%03d" $i }}" class="theme-colour-swatch" title="Primary Colour: {{ (index . 0) }}">&nbsp;</span>
+					<span id="idp-theme-colour-{{ printf "%03d" $i }}-light" class="theme-colour-swatch" title="Secondary Colour (Light): {{ with (index . 1) }}{{ . }}{{ else }}computed{{ end }}">&nbsp;</span>
+					<span id="idp-theme-colour-{{ printf "%03d" $i }}-dark" class="theme-colour-swatch" title="Secondary Colour (Dark): {{ with (index . 2) }}{{ . }}{{ else }}computed{{ end }}">&nbsp;</span>
+				</dd>
 		{{- end }}
 		</dl>
 	</div>

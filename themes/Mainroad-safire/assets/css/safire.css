@@ -582,6 +582,17 @@ table.fees tbody tr:hover {
 	margin-left: 10px;
 }
 
+.participantTechnical .theme-colour-swatch {
+	display: inline-block;
+	width: 3em;
+	height: 1.5em;
+	border: 1px solid #ccc;
+	color: white;
+	margin-right: 0.5em;
+	vertical-align: middle;
+	text-align: center;
+}
+
 /* StringOrArrayList styling - ensure bullets align with content margin */
 ul.stringOrArrayList {
 	list-style: disc;
