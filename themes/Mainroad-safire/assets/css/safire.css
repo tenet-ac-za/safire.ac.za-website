@@ -594,6 +594,7 @@ table.fees tbody tr:hover {
 }
 
 .participantTechnical ol.theme-colour {
+	display: inline-block;
 	list-style: none;
 	margin: 0;
 }
