@@ -254,9 +254,11 @@
 							background-color: var(--idp-theme-colour-{{ printf "%03d" $i }}-dark);
 						}
 					</style>
-					<span id="idp-theme-colour-{{ printf "%03d" $i }}" class="theme-colour-swatch" title="Primary Colour: {{ (index . 0) }}">&nbsp;</span>
-					<span id="idp-theme-colour-{{ printf "%03d" $i }}-light" class="theme-colour-swatch" title="Secondary Colour (Light): {{ with (index . 1) }}{{ . }}{{ else }}computed{{ end }}">&nbsp;</span>
-					<span id="idp-theme-colour-{{ printf "%03d" $i }}-dark" class="theme-colour-swatch" title="Secondary Colour (Dark): {{ with (index . 2) }}{{ . }}{{ else }}computed{{ end }}">&nbsp;</span>
+					<ol class="theme-colour">
+						<li><span id="idp-theme-colour-{{ printf "%03d" $i }}" class="theme-colour-swatch">&nbsp;</span> <abbr title="Primary Colour (header, buttons)">{{ (index . 0) }}</abbr></li>
+						<li><span id="idp-theme-colour-{{ printf "%03d" $i }}-light" class="theme-colour-swatch">&nbsp;</span> <abbr title="Secondary Colour (mobile menu background, light){{ with (index . 1) }}">{{ . }}{{ else }} &mdash; calculated: primary plus 10% lightness">calculated{{ end }}</abbr></li>
+						<li><span id="idp-theme-colour-{{ printf "%03d" $i }}-dark" class="theme-colour-swatch">&nbsp;</span> <abbr  title="Secondary Colour (accents &amp; highlights, dark){{ with (index . 2) }}">{{ . }}{{ else }} &mdash; calculated: primary less 10% lightness">calculated{{ end }}</abbr></li>
+					</ol>
 				</dd>
 		{{- end }}
 		</dl>
