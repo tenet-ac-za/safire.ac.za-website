@@ -40,18 +40,5 @@
         "OrganizationDisplayName": "LexisNexis",
         "OrganizationURL": "https:\/\/www.lexisnexis.co.za\/",
         "TechnicalIntegration": false
-    },
-    {
-        "entityType": "idp",
-        "ParticipationAgreement": true,
-        "OrganizationName": "University of Zululand",
-        "OrganizationDisplayName": "University of Zululand",
-        "OrganizationURL": "https:\/\/www.unizulu.ac.za\/",
-        "TechnicalIntegration": false,
-        "mdui": {
-            "Logo": {
-                "URL": "https://upload.wikimedia.org/wikipedia/en/1/14/University_of_Zululand_logo.svg"
-            }
-        }
     }
 ]
