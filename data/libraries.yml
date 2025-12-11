@@ -411,24 +411,22 @@ Providers:
         Libraries need to contact Kluwer Law Online support and request federated (SAML/sometimes called Shibboleth) access  be enabled. Technical support contact form is available at the [login](https://kluwerlawonline.com/login) page
       SeamlessAccess: true
 
-    - Name: LexisNexus International
+    - Name: LexisNexis International
       LoginLink: Use Academic Sign-in
       Status: Tested, discovery problem
       StatusColour: yellow
       Notes: |
-        Metadata for South African institutions exists, and a WAYFless URL reaches the right identity provider. LexisNexus indicate support UK Fed and InCommon. Needs an institution using LexisNexus.com to engage with them about the next steps.
+        Metadata for South African institutions exists, and a WAYFless URL reaches the right identity provider. LexisNexis indicate support UK Fed and InCommon. Needs an institution using LexisNexis.com to engage with them about the next steps.
       AuthAttribute: eduPersonScopedAffiliation
       Documentation:
        - http://help.lexisnexis.com/tabula-rasa/common/federatedaccess_ref-reference?lbu=GB&locale=en_GB&audience=all
 
-    - Name: LexisNexus South Africa
-      Status: No support, contacted, on roadmap
+    - Name: LexisNexis South Africa
+      Status: No support, withdrawn
       StatusColour: red
-      StatusDate: 2025-10-01
+      StatusDate: 2025-12-11
       Notes: |
-        Thus far, both SAFIRE & two universities have reached out to LexisNexus SA about this. LexisNexus SA have indicated that it is on their roadmap for investigation starting in September 2020. [TENET:4612]; as of October 2025 engagements continue with LexisNexus SA indicating they'd like to participate in a trial [TENET:0163142].
-
-        Entity is the same as LexisNexis global, so in theory metadata exists.
+        Two universities have reached out to LexisNexus SA about this, and some progress was made towards a trial. However LexisNexis SA formally withdrew from the Participation Agreement in December 2025 [TENET:0163142].
 
     - Name: Marketline/GlobalData
       LoginLink: "[Sign in via Shibboleth](https://advantage.marketline.com/)"
