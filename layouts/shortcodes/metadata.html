@@ -23,4 +23,32 @@ FF:EF:5D:8E:AA:12:EA:5D:A1:81:4F:48:02:F3:07:22:4A:7D:FA:05 (SHA1)
 			</tr>
 	</tbody>
 </table>
+{{ if strings.Contains (.Get "url") "safire-idp-proxy-metadata.xml" }}
+<!-- display a notice when redirected from proxy.safire.ac.za -->
+<div id="legacy-redirect-notice" style="display: none;" class="message-box info">
+	You appear to be looking for the entityID: <em id="legacy-url"></em><br>
+	If you are an existing SAFIRE service provider looking for metadata for this entity,
+	you may need to consume the SAFIRE IdP Proxies aggregate.
+</div>
+<script defer>
+	// Parse URL parameters
+	const urlParams = new URLSearchParams(window.location.search);
+	const utmSource = urlParams.get('utm_source');
+	const utmContent = urlParams.get('utm_content');
 
+	// Check if redirected from legacy_birk
+	if (utmSource === 'legacy_birk' && utmContent) {
+		const noticeDiv = document.getElementById('legacy-redirect-notice');
+		const urlSpan = document.getElementById('legacy-url');
+
+		// Decode the URL-encoded content
+		const decodedUrl = decodeURIComponent(utmContent);
+
+		// Display the URL
+		urlSpan.textContent = decodedUrl;
+
+		// Show the notice
+		noticeDiv.style.display = 'block';
+	}
+</script>
+{{ end }}
