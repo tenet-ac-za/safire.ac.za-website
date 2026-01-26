@@ -15,6 +15,11 @@ $metadata['https://idp.example.ac.za/simplesaml/module.php/saml/idp/metadata'] =
     'SingleLogoutServiceBinding' => ['urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect',], /* SAML2int only requires HTTP-Redirect, but could include HTTP-POST */
     'attributes.NameFormat' => 'urn:oasis:names:tc:SAML:2.0:attrname-format:uri',
 
+    /* These control compliance with SAML2int, and are important for single logout */
+    'sign.logout' => true, /* [SDP-IDP30] MUST */
+    'redirect.sign' => true,
+    'redirect.validate' => null, /* NB! SSP enables validation of unsigned authn requests if this is set to true and validate.authnrequest is null, violating [SDP-IDP04]. OTOH, setting this null may violate [SDP-IDP26] (a lesser evil) */
+
     /*
      * Feel free to include as many official translations as you have.
      * English, IsiZulu, isiXhosa & Afrikaans currently natively supported.
