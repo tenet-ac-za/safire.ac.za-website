@@ -3,6 +3,8 @@ version: 2
 updates:
   - package-ecosystem: "npm"
     directory: "/themes/"
+    schedule:
+      interval: "semiannually"
     groups:
       theme-dependencies:
         exclude-patterns: ["*"]
