@@ -1,0 +1,9 @@
+---
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/themes/"
+    groups:
+      theme-dependencies:
+        ignore: *
+        exclude-patterns: *
