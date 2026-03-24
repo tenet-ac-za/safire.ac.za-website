@@ -5,6 +5,5 @@ updates:
     directory: "/themes/"
     groups:
       theme-dependencies:
-        ignore: "*"
-        exclude-patterns: "*"
+        exclude-patterns: ["*"]
 
