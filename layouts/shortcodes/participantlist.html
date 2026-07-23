@@ -49,9 +49,9 @@
 				"Logo" (dict "URL" "https://static.safire.ac.za/logos/safire-logo-300x300.png")
 			)
 			"contact" (dict
-				"support" (dict "GivenName" "TENET Service Support Centre" "URL" "https://www.tenet.ac.za/support/")
-				"technical" (dict "GivenName" "TENET SAFIRE Operations Team" "URL" (ref . "/safire/contact/_index.md"))
-				"security" (dict "GivenName" "TENET SAFIRE Incident Response Team" "URL" (ref . "/safire/contact/security.md"))
+				"support" (slice (dict "GivenName" "TENET Service Support Centre" "URL" "https://www.tenet.ac.za/support/"))
+				"technical" (slice (dict "GivenName" "TENET SAFIRE Operations Team" "URL" (ref . "/safire/contact/_index.md")))
+				"security" (slice (dict "GivenName" "TENET SAFIRE Incident Response Team" "URL" (ref . "/safire/contact/security.md")))
 			)
 		}}
 			{{ template "listParticipant" (dict "p" $p "i" ($.Scratch.Get "i") "Page" $.Page) }}
@@ -158,7 +158,9 @@
 			{{- range $contactType, $contact := $p.contact -}}
 				<button type="button" id="contactbutton-{{ printf "%03d" $i }}-{{ $contactType }}">{{ title $contactType }}</button>
 				<div class="participantContact" id="contactdiv-{{ printf "%03d" $i }}-{{ $contactType }}" title="{{ title $contactType }} contact for {{ template "displayOrgName" $p }}">
-				{{- template "displayContact" $contact -}}
+				{{- range $c := $contact -}}
+					{{- template "displayContact" $c -}}
+				{{- end -}}
 				</div>
 			{{- end }}
 			</dd>
