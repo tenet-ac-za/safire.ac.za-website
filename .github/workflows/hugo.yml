@@ -30,18 +30,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      HUGO_VERSION: 0.123.7
+      # match https://github.com/tenet-ac-za/safire-ansible-roles/blob/master/safire-web/tasks/hugo.yml#L10
+      HUGO_VERSION: 0.164.0
       HUGO_ENVIRONMENT: production
       TZ: Africa/Johannesburg
     steps:
-      # - name: Install Hugo CLI
-      #  run: |
-      #    wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
-      #    && sudo dpkg -i ${{ runner.temp }}/hugo.deb
       - name: Install Hugo CLI
-        run: sudo apt-get update && sudo apt-get install -y hugo
-        env:
-          DEBIAN_FRONTEND: noninteractive
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
       - name: Install Dart Sass Embedded
         run: sudo snap install dart-sass-embedded
       - name: Checkout
