@@ -34,7 +34,7 @@
 }
 </style>
 <div id="libraryProviderList" class="ui-accordion ui-widget ui-helper-reset">
-{{- range $p := .Site.Data.libraries.Providers }}
+{{- range $p := hugo.Data.libraries.Providers }}
 	<h3 data-name="{{ $p.Name|urlize }}" data-tabindex="{{ ($.Scratch.Get "i") }}" class="ui-accordion-header ui-corner-top ui-accordion-header-collapsed ui-corner-all ui-state-default ui-accordion-icons">
 		{{ $p.Name }}
 	<span class="library-status library-status-{{ $p.StatusColour|default "unknown" }}"></span>

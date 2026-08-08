@@ -12,14 +12,14 @@
 
 <div id="participantList" class="ui-accordion ui-widget ui-helper-reset">
 	<!-- display the participants from metadata -->
-	{{- range $p := .Site.Data.safire.metadata }}
+	{{- range $p := hugo.Data.safire.metadata }}
 	{{- if or (not $type) (eq $p.entityType $type) (and (eq $type "sirtfi") ($p.Sirtfi)) (and (eq $type "coco") ($p.CoCo)) }}
 		{{ template "listParticipant" (dict "p" $p "i" ($.Scratch.Get "i") "Page" $.Page) }}
 		{{- $.Scratch.Add "i" 1 -}}
 	{{- end }}
 	{{- end }}
 	<!-- display the pending participants from data/pending.json -->
-	{{- range $p := sort .Site.Data.pending "OrganizationDisplayName"  }}
+	{{- range $p := sort hugo.Data.pending "OrganizationDisplayName"  }}
 	{{- if or (not $type) (eq $p.entityType $type) }}
 		{{ template "listParticipant" (dict "p" $p "i" ($.Scratch.Get "i") "Page" $.Page) }}
 		{{- $.Scratch.Add "i" 1 -}}
