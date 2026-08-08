@@ -1,0 +1,23 @@
+---
+Description: "South African Identity Federation"
+copyright: "TENET (South African Identity Federation)"
+highlightColor: "var(--safire-light, #5da9dd)"
+style:
+  vars:
+    highlightColor: "var(--safire-light, #5da9dd)"
+    menuBreadcrumbColor: "var(--safire-primary)"
+    menuBackgroundColor: "var(--safire-dark)"
+# Mainroad theme configuration
+post_meta: ["date"]
+sidebar:
+  home: false
+  list: false
+  single: false
+  widgets: []
+widgets:
+  recent_num: 5
+  categories_counter: false
+  tags_counter: false
+logo:
+  image: "https://static.safire.ac.za/logos/SAFIRE_P_Colour.svg"
+  subtitle: South African Identity Federation

@@ -1,0 +1,44 @@
+---
+locale: en-ZA
+language: en
+title: SAFIRE
+theme: Mainroad-safire
+metaDataFormat: yaml
+canonifyURLs: true
+enableRobotsTXT: true
+disableAliases: true
+enableGitInfo: true
+buildDrafts: true
+disableKind: ["taxonomy", "RSS", "term"]
+
+Privacy:
+  googleAnalytics:
+    RespectDoNotTrack: true
+  youtube:
+    privacyEnhanced: true
+
+markup:
+  goldmark:
+    parser:
+      attribute:
+        block: true
+  highlight:
+    style: monokailight
+    # lineNos: true
+    # lineNumbersInTable: false
+
+# Based on https://gohugo.io/news/http2-server-push-in-hugo/
+outputs:
+ home: [ "HTML", "HTACCESS" ]
+
+mediaTypes:
+  "text/apache24":
+    suffixes: [ "" ]
+    delimiter: ""
+
+outputFormats:
+  HTACCESS:
+    mediatype: text/apache24
+    baseName: .htaccess
+    isPlainText: true
+    notAlternative: true

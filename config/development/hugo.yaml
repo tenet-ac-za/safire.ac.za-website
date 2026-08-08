@@ -1,0 +1,4 @@
+# Overrides for the staging environment
+---
+baseURL: "https://safire.home.arpa/"
+cleanDestinationDir: true

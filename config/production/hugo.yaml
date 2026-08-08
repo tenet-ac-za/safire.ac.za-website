@@ -1,0 +1,11 @@
+# Overrides for the production environment
+---
+baseURL: "https://safire.ac.za/"
+cleanDestinationDir: true
+
+minify:
+  minifyOutput: true
+
+Services:
+  googleAnalytics:
+    ID: "G-H6SRTQF871"

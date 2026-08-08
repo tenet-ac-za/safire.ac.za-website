@@ -1,4 +1,5 @@
 .hugo_build.lock
+hugo_stats.json
 public/**
 docs/**
 data/safire.*
