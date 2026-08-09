@@ -626,6 +626,11 @@ ul.stringOrArrayList:has(li:only-child) {
 	margin-left: 0 !important;
 }
 
+.participantContact dl:not(:last-of-type) {
+	border-bottom: 1px dashed #ccc;
+	padding-bottom: 10px;
+}
+
 /* Provider badges */
 .provider-badge {
 	float: right;

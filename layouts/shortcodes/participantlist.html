@@ -157,7 +157,7 @@
 			<dt>Contact info</dt><dd>
 			{{- range $contactType, $contact := $p.contact -}}
 				<button type="button" id="contactbutton-{{ printf "%03d" $i }}-{{ $contactType }}">{{ title $contactType }}</button>
-				<div class="participantContact" id="contactdiv-{{ printf "%03d" $i }}-{{ $contactType }}" title="{{ title $contactType }} contact for {{ template "displayOrgName" $p }}">
+				<div class="participantContact" id="contactdiv-{{ printf "%03d" $i }}-{{ $contactType }}" title="{{ title $contactType }} contact{{ if gt (len $contact) 1 }}s{{ end }} for {{ template "displayOrgName" $p }}">
 				{{- range $c := $contact -}}
 					{{- template "displayContact" $c -}}
 				{{- end -}}
