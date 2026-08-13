@@ -84,6 +84,7 @@
 				}
 				$('button').button();
 				$('abbr').tooltip();
+				$('a.theme-link').tooltip();
 				$('.theme-colour-swatch').tooltip();
 				// allow us to pre-open a tab
 				if (window.location.hash) {
@@ -173,7 +174,7 @@
 			<dt>Additional info</dt>
 				<dd>
 				{{- with $p.mdui.PrivacyStatementURL -}}
-					<a target="_blank" href="{{.}}" title="Privacy Statement"><button type="button">Privacy Statement</button></a>
+					<a target="_blank" href="{{.}}"><button type="button">Privacy Statement</button></a>
 				{{- end -}}
 				{{- with $p.mdui.InformationURL -}}
 					<a target="_blank" href="{{.}}"><button type="button">Information Page</button></a>
@@ -237,9 +238,15 @@
 			<dt>Notes</dt>
 				<dd>{{ template "stringOrArray" . }}</dd>
 		{{- end }}
-		{{- with $p.quirks }}
-			<dt class="participant-extra-info"{{ if (not $extra) }} hidden{{ end }}><abbr title="Flags that change the behaviour of the Federation hub">Hub Compatibility Quirksi</abbr></dt>
-				<dd class="participant-extra-info"{{ if (not $extra) }} hidden{{ end }}><a href="{{ ref $Page "/technical/resources/safire-compatibility-quirks" }}">{{ template "stringOrArray" . }}</a></dd>
+		{{- if $p.quirks }}
+			<dt class="participant-extra-info"{{ if (not $extra) }} hidden{{ end }}><abbr title="Flags that change the behaviour of the Federation hub">Hub Compatibility Quirks</abbr></dt>
+				<dd class="participant-extra-info"{{ if (not $extra) }} hidden{{ end }}>
+					<ul class="stringOrArrayList">
+					{{- range $quirk := $p.quirks }}
+						<li><a href="{{ ref $Page (printf "/technical/resources/safire-compatibility-quirks#%s" $quirk) }}">{{ $quirk }}</a>
+					{{- end }}
+					</ul>
+				</dd>
 		{{- end }}
 		{{- with $p.theme }}
 			<dt class="participant-extra-info"{{ if (not $extra) }} hidden{{ end }}><abbr title="Institutional colours used for theming the SAFIRE transfer notice page and error messages">Theme Colours</abbr></dt>
@@ -265,7 +272,7 @@
 						<li><span id="idp-theme-colour-{{ printf "%03d" $i }}-light" class="theme-colour-swatch">&nbsp;</span> <abbr title="Secondary Colour (mobile menu background, light){{ with (index . 1) }}">{{ . }}{{ else }} &mdash; calculated: primary plus 10% lightness">calculated{{ end }}</abbr></li>
 						<li><span id="idp-theme-colour-{{ printf "%03d" $i }}-dark" class="theme-colour-swatch">&nbsp;</span> <abbr  title="Secondary Colour (accents &amp; highlights, dark){{ with (index . 2) }}">{{ . }}{{ else }} &mdash; calculated: primary less 10% lightness">calculated{{ end }}</abbr></li>
 					</ol>
-					<a target="_blank" href="https://iziko.safire.ac.za/module.php/core/error/OTHER_ERROR?ts={{ time.Now.Unix }}&rp={{ ref $Page "/" }}&tid=theme&ctx={{ with $p.mdui.DisplayName }}Example+of+{{ . | urlquery }}+theme{{end}}&idp={{ $p.entityID  }}">[sample]</a>
+					<a target="_blank" class="theme-link" href="https://iziko.safire.ac.za/module.php/core/error/OTHER_ERROR?ts={{ time.Now.Unix }}&rp={{ ref $Page "/" }}&tid=theme&ctx={{ with $p.mdui.DisplayName }}Example+of+{{ . | urlquery }}+theme{{end}}&idp={{ $p.entityID  }}" title="Open a new tab with a stock error page that shows how this theme will render">[sample]</a>
 				</dd>
 		{{- end }}
 		</dl>
