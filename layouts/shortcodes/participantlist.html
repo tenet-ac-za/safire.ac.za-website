@@ -209,7 +209,7 @@
 				</dd>
 			{{- end }}
 			{{- with $p.Scope }}
-			<dt>Domains</dt>
+			<dt><abbr title="A list of valid right-hand-sides for scoped attributes like eduPersonScopedAffiliation. Typically, but not always, the same as the domain name(s) used for email addresses.">Scopes</abbr></dt>
 				<dd>{{ template "stringOrArray" . }}</dd>
 			{{- end }}
 			{{- with $p.EntityCategories }}
