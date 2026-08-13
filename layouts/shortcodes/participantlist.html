@@ -238,7 +238,7 @@
 				<dd>{{ template "stringOrArray" . }}</dd>
 		{{- end }}
 		{{- with $p.quirks }}
-			<dt class="participant-extra-info"{{ if (not $extra) }} hidden{{ end }}>Hub Compatibility Quirks</dt>
+			<dt class="participant-extra-info"{{ if (not $extra) }} hidden{{ end }}><abbr title="Flags that change the behaviour of the Federation hub">Hub Compatibility Quirksi</abbr></dt>
 				<dd class="participant-extra-info"{{ if (not $extra) }} hidden{{ end }}><a href="{{ ref $Page "/technical/resources/safire-compatibility-quirks" }}">{{ template "stringOrArray" . }}</a></dd>
 		{{- end }}
 		{{- with $p.theme }}
