@@ -524,6 +524,10 @@ table.fees tbody tr:hover {
 	margin: 0;
 }
 
+#participantList a {
+	font-weight: 550;
+}
+
 /* Style details/summary for entity ID folding */
 .participantTechnical details {
 	margin: 0;

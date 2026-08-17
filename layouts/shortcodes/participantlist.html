@@ -83,7 +83,7 @@
 					});
 				}
 				$('button').button();
-				$('abbr, dt, a.theme-link, .theme-colour-swatch').tooltip();
+				$('abbr, .tooltip, dt, .theme-colour-swatch').tooltip();
 				// allow us to pre-open a tab
 				if (window.location.hash) {
 					if ($.isNumeric(window.location.hash.substring(1))) {
@@ -277,7 +277,7 @@
 					<li><span id="idp-theme-colour-{{ printf "%03d" $i }}-light" class="theme-colour-swatch">&nbsp;</span> <abbr title="Secondary Colour (mobile menu background, light){{ with (index . 1) }}">{{ . }}{{ else }} &mdash; calculated: primary plus 10% lightness">calculated{{ end }}</abbr></li>
 					<li><span id="idp-theme-colour-{{ printf "%03d" $i }}-dark" class="theme-colour-swatch">&nbsp;</span> <abbr  title="Secondary Colour (accents &amp; highlights, dark){{ with (index . 2) }}">{{ . }}{{ else }} &mdash; calculated: primary less 10% lightness">calculated{{ end }}</abbr></li>
 				</ol>
-				<a target="_blank" class="theme-link" href="https://iziko.safire.ac.za/module.php/core/error/OTHER_ERROR?ts={{ time.Now.Unix }}&rp={{ ref $Page "/" }}&tid=theme&ctx={{ with $p.mdui.DisplayName }}Example+of+{{ . | urlquery }}+theme{{end}}&idp={{ $p.entityID  }}" title="Open a new tab with a stock error page that shows how this theme will render">[sample]</a>
+				<a target="_blank" class="tooltip" href="https://iziko.safire.ac.za/module.php/core/error/OTHER_ERROR?ts={{ time.Now.Unix }}&rp={{ ref $Page "/" }}&tid=theme&ctx={{ with $p.mdui.DisplayName }}Example+of+{{ . | urlquery }}+theme{{end}}&idp={{ $p.entityID  }}" title="Open a new tab with a stock error page that shows how this theme will render">[sample]</a>
 			</dd>
 		{{- end }}
 		</dl>
@@ -352,9 +352,9 @@
 {{ end }}
 
 {{ define "displayParticipant" }}
-	{{- with .OrganizationURL }}<a target="_blank" href="{{.}}">{{- end -}}
-	<abbr title="{{ .OrganizationName }}">{{ template "displayOrgName" . }}</abbr>
-	{{- if .OrganizationURL -}}</a>{{- end -}}
+	{{- if .OrganizationURL }}<a target="_blank" class="tooltip" href="{{ .OrganizationURL }}" title="{{ .OrganizationName }}" class="abbr">{{- end -}}
+	{{ template "displayOrgName" . }}
+	{{- if .OrganizationURL }}</a>{{- end -}}
 	{{- if not .ParticipationAgreement }}
 		<p class="pendingsignature">(pending signature of the <a href="{{ relURL "/safire/policy/participation/" }}">Participation Agreement</a>)</p>
 	{{- end -}}
