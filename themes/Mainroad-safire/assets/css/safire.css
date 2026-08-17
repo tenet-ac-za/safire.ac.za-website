@@ -105,6 +105,11 @@ a[href^="https://"]{{ range $safire }}:not([href*="{{ . }}"]){{ end }}:not([role
 	background-position: center;
 }
 
+abbr[title] {
+	border: inherit;
+	text-decoration: underline dotted;
+}
+
 /* Code styling */
 pre.xml {
 	white-space: pre;
@@ -502,6 +507,11 @@ table.fees tbody tr:hover {
 #participantList dt:after {
 	content: ":";
 	padding-right: 0.5em;
+}
+
+#participantList dt[title] {
+	cursor: help;
+	text-decoration: underline dotted;
 }
 
 #participantList dl.participantTechnical {

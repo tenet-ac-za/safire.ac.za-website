@@ -83,9 +83,7 @@
 					});
 				}
 				$('button').button();
-				$('abbr').tooltip();
-				$('a.theme-link').tooltip();
-				$('.theme-colour-swatch').tooltip();
+				$('abbr, dt, a.theme-link, .theme-colour-swatch').tooltip();
 				// allow us to pre-open a tab
 				if (window.location.hash) {
 					if ($.isNumeric(window.location.hash.substring(1))) {
@@ -155,11 +153,12 @@
 		<p>{{- template "displayServiceDescription" $p -}}</p>
 		<dl class="participantDetail">
 			<dt>Type</dt>
-				<dd>{{- template "participantType" $p.entityType -}}</dd>
+			<dd>{{- template "participantType" $p.entityType -}}</dd>
 			<dt>Participant</dt>
-				<dd>{{- template "displayParticipant" $p -}}</dd>
+			<dd>{{- template "displayParticipant" $p -}}</dd>
 			{{- if $p.contact }}
-			<dt>Contact info</dt><dd>
+			<dt>Contact info</dt>
+			<dd>
 			{{- range $contactType, $contact := $p.contact -}}
 				<button type="button" id="contactbutton-{{ printf "%03d" $i }}-{{ $contactType }}">{{ title $contactType }}</button>
 				<div class="participantContact" id="contactdiv-{{ printf "%03d" $i }}-{{ $contactType }}" title="{{ title $contactType }} contact{{ if gt (len $contact) 1 }}s{{ end }} for {{ template "displayOrgName" $p }}">
@@ -172,108 +171,114 @@
 			{{- end }}
 			{{- if or $p.mdui.PrivacyStatementURL $p.mduiInformationURL }}
 			<dt>Additional info</dt>
-				<dd>
-				{{- with $p.mdui.PrivacyStatementURL -}}
-					<a target="_blank" href="{{.}}"><button type="button">Privacy Statement</button></a>
-				{{- end -}}
-				{{- with $p.mdui.InformationURL -}}
-					<a target="_blank" href="{{.}}"><button type="button">Information Page</button></a>
-				{{- end -}}
-				</dd>
+			<dd>
+			{{- with $p.mdui.PrivacyStatementURL -}}
+				<a target="_blank" href="{{.}}"><button type="button">Privacy Statement</button></a>
+			{{- end -}}
+			{{- with $p.mdui.InformationURL -}}
+				<a target="_blank" href="{{.}}"><button type="button">Information Page</button></a>
+			{{- end -}}
+			</dd>
 			{{- end }}
 		</dl><hr class="participantSeparator">
 		<dl class="participantTechnical">
 		{{- if $p.TechnicalIntegration }}
 			{{- with $p.RegistrationInstant }}
-			<dt><abbr title="Registration Instant (last substantive change to metadata)">Last updated</abbr></dt>
-				<dd>{{ dateFormat "2006-01-02T15:04Z" . }}</dd>
+			<dt title="Registration Instant (last substantive change to metadata).">Last updated</dt>
+			<dd>{{ dateFormat "2006-01-02T15:04Z" . }}</dd>
 			{{- end }}
 			{{- with $p.proxyEntityID }}
-			<dt><abbr title="Unique identifier for this particular participant (entity). Click for other forms.">Metadata entityID</abbr></dt>
-				<dd>
-					<details>
-						<summary>{{ . }}</summary>
-						<dl class="participantEntityIDs">
-							<dt><abbr title="Proxied entityID, as used for most purposes.">Proxied entityID</abbr></dt>
-							<dd>{{ . }}</dd>
-							{{- with $p.entityID }}
-							<dt><abbr title="Original, untransformed entityID from source metadata. This is almost never used.">Source entityID</abbr></dt>
-							<dd>{{ . }}</dd>
-							{{- end }}
-							{{- with $p.wayflessEntityID }}
-							<dt><abbr title="URL-encoded version of proxied entityID, needed for many wayfless URLs">Wayfless entityID</abbr></dt>
-							<dd>{{ . }}</dd>
-							{{- end }}
-						</dl>
-					</details>
-				</dd>
+			<dt title="Unique identifier for this particular participant (entity). Click for other forms.">Metadata entityID</dt>
+			<dd>
+				<details>
+					<summary>{{ . }}</summary>
+					<dl class="participantEntityIDs">
+						<dt title="Proxied entityID, as used for most purposes.">Proxied entityID</dt>
+						<dd>{{ . }}</dd>
+						{{- with $p.wayflessEntityID }}
+						<dt title="URL-encoded version of proxied entityID, needed for the &quot;wayfless&quot; URLs used by library providers.">Wayfless entityID</dt>
+						<dd>{{ . }}</dd>
+						{{- end }}
+						{{- with $p.entityID }}
+						<dt title="Original, untransformed entityID from source metadata. This is almost never used.">Source entityID</dt>
+						<dd>{{ . }}</dd>
+						{{- end }}
+					</dl>
+				</details>
+			</dd>
 			{{- end }}
 			{{- with $p.Scope }}
-			<dt><abbr title="A list of valid right-hand-sides for scoped attributes like eduPersonScopedAffiliation. Typically, but not always, the same as the domain name(s) used for email addresses.">Scopes</abbr></dt>
-				<dd>{{ template "stringOrArray" . }}</dd>
+			<dt title="A list of valid right-hand-sides for scoped attributes like eduPersonScopedAffiliation. Typically, but not always, the same as the domain name(s) used for email addresses.">Scopes</dt>
+			<dd>{{ template "stringOrArray" . }}</dd>
 			{{- end }}
 			{{- with $p.EntityCategories }}
-			<dt>Entity Categories</dt>
-				<dd>{{ template "stringOrArray" . }}</dd>
+			<dt title="A set of labels showing which standards the entity supports or has complied with, which helps facilitate trust and attribute release. Clicking on the label URL will often give more information about the standard.">Entity Categories</dt>
+			<dd>{{ template "stringOrArray" . }}</dd>
 			{{- end }}
-			<dt><abbr title="entity is published to eduGAIN and other interfederation partners">eduGAIN</abbr></dt>
-				<dd>{{ if $p.eduGAIN }}yes, will be published{{ else }}no, will not be published{{ end }}</dd>
-			{{ if $p.Sirtfi }}
-			<dt><abbr title="entity has indicated it complies with https://refeds.org/sirtfi">Sirtfi</abbr></dt>
-				<dd>yes{{ if not (eq $p.Sirtfi true) }} {{ $p.Sirtfi }}{{ end }}, {{ with $p.entityID }}<a href="/technical/saml2/sirtfi/{{ .|sha1 }}.pdf" target="_blank">{{ end -}}
-					self-assertion of compliance received
-					{{- with $p.entityID }}</a>{{ end }}</dd>
-			{{ end }}
-			{{ if $p.CoCo }}
-			<dt><abbr title="entity has indicated it complies with http://www.geant.net/uri/dataprotection-code-of-conduct/">Sirtfi</abbr></dt>
-				<dd>yes {{ $p.CoCo }}, {{ with $p.entityID }}<a href="/technical/saml2/coco/{{ .|sha1 }}.pdf" target="_blank">{{ end -}}
-					self-assertion of compliance received
-					{{- with $p.entityID }}</a>{{ end }}</dd>
-			{{ end }}
+			<dt title="Will the entity be published to eduGAIN and other interfederation partners?">eduGAIN</dt>
+			<dd>{{ if $p.eduGAIN }}yes, will be published{{ else }}no, will not be published{{ end }}</dd>
+			{{- if $p.Sirtfi }}
+			<dt title="Has the entity has indicated it complies with the Security Incident Response Trust Framework for Federated Identity (https://refeds.org/sirtfi)?">Sirtfi</dt>
+			<dd>yes{{ if not (eq $p.Sirtfi true) }} {{ $p.Sirtfi }}{{ end }}, {{ with $p.entityID }}<a href="/technical/saml2/sirtfi/{{ .|sha1 }}.pdf" target="_blank">{{ end -}}
+				self-assertion of compliance received
+				{{- with $p.entityID }}</a>{{ end }}
+			</dd>
+			{{- end }}
+			{{- if $p.CoCo }}
+			<dt title="Has the entity has indicated it complies with a data protection code of conduct?">Code of Conduct</dt>
+			<dd>yes {{ $p.CoCo }}, {{ with $p.entityID }}<a href="/technical/saml2/coco/{{ .|sha1 }}.pdf" target="_blank">{{ end -}}
+				self-assertion of compliance received
+				{{- with $p.entityID }}</a>{{ end }}
+			</dd>
+			{{- end }}
+			{{- with $p.registrationPolicy }}
+			<dt class="participant-extra-info"{{ if (not $extra) }} hidden{{ end }} title="Version of the Metadata Registration Practice Statement that applied when this entity was registered or updated.">MRPS Version</dt>
+			<dd class="participant-extra-info"{{ if (not $extra) }} hidden{{ end }}><a href="{{ printf "/safire/policy/mrps/%s.html" . | relURL }}">{{ . }}</a></dd>
+			{{- end }}
 		{{- else -}}
-			<dt>Participation Agreement</dt>
-				<dd>{{ if $p.ParticipationAgreement }}yes, has signed{{ else }}no, has not yet signed{{ end }}</dd>
+			<dt title="Has the organisation controlling the entity signed SAFIRE's Participation Agreement?">Participation Agreement</dt>
+			<dd>{{ if $p.ParticipationAgreement }}yes, has signed{{ else }}no, has not yet signed{{ end }}</dd>
 		{{- end }}
 		{{- with $p.Notes }}
 			<dt>Notes</dt>
-				<dd>{{ template "stringOrArray" . }}</dd>
+			<dd>{{ template "stringOrArray" . }}</dd>
 		{{- end }}
 		{{- if $p.quirks }}
-			<dt class="participant-extra-info"{{ if (not $extra) }} hidden{{ end }}><abbr title="Flags that change the behaviour of the Federation hub">Hub Compatibility Quirks</abbr></dt>
-				<dd class="participant-extra-info"{{ if (not $extra) }} hidden{{ end }}>
-					<ul class="stringOrArrayList">
-					{{- range $quirk := $p.quirks }}
-						<li><a href="{{ ref $Page (printf "/technical/resources/safire-compatibility-quirks#%s" $quirk) }}">{{ $quirk }}</a>
-					{{- end }}
-					</ul>
-				</dd>
+			<dt class="participant-extra-info"{{ if (not $extra) }} hidden{{ end }} title="Flags that change the behaviour of the SAFIRE federation hub.">Hub Compatibility Quirks</dt>
+			<dd class="participant-extra-info"{{ if (not $extra) }} hidden{{ end }}>
+				<ul class="stringOrArrayList">
+				{{- range $quirk := $p.quirks }}
+					<li><a href="{{ ref $Page (printf "/technical/resources/safire-compatibility-quirks#%s" $quirk) }}">{{ $quirk }}</a>
+				{{- end }}
+				</ul>
+			</dd>
 		{{- end }}
 		{{- with $p.theme }}
-			<dt class="participant-extra-info"{{ if (not $extra) }} hidden{{ end }}><abbr title="Institutional colours used for theming the SAFIRE transfer notice page and error messages">Theme Colours</abbr></dt>
-				<dd class="participant-extra-info"{{ if (not $extra) }} hidden{{ end }}>
-					<style>
-						:root {
-							--idp-theme-colour-{{ printf "%03d" $i }}: {{ with (index . 0) }}{{ . }}{{ end }};
-							--idp-theme-colour-{{ printf "%03d" $i }}-light: {{ with (index . 1) }}{{ . }}{{ else }}hsl(from var(--idp-theme-colour-{{ printf "%03d" $i }}) h s calc(l + 10)){{ end }};
-							--idp-theme-colour-{{ printf "%03d" $i }}-dark: {{ with (index . 2) }}{{ . }}{{ else }}hsl(from var(--idp-theme-colour-{{ printf "%03d" $i }}) h s calc(l - 10)){{ end }};
-						}
-						#idp-theme-colour-{{ printf "%03d" $i }} {
-							background-color: var(--idp-theme-colour-{{ printf "%03d" $i }});
-						}
-						#idp-theme-colour-{{ printf "%03d" $i }}-light {
-						background-color: var(--idp-theme-colour-{{ printf "%03d" $i }}-light);
-						}
-						#idp-theme-colour-{{ printf "%03d" $i }}-dark {
-							background-color: var(--idp-theme-colour-{{ printf "%03d" $i }}-dark);
-						}
-					</style>
-					<ol class="theme-colour">
-						<li><span id="idp-theme-colour-{{ printf "%03d" $i }}" class="theme-colour-swatch">&nbsp;</span> <abbr title="Primary Colour (header, buttons)">{{ (index . 0) }}</abbr></li>
-						<li><span id="idp-theme-colour-{{ printf "%03d" $i }}-light" class="theme-colour-swatch">&nbsp;</span> <abbr title="Secondary Colour (mobile menu background, light){{ with (index . 1) }}">{{ . }}{{ else }} &mdash; calculated: primary plus 10% lightness">calculated{{ end }}</abbr></li>
-						<li><span id="idp-theme-colour-{{ printf "%03d" $i }}-dark" class="theme-colour-swatch">&nbsp;</span> <abbr  title="Secondary Colour (accents &amp; highlights, dark){{ with (index . 2) }}">{{ . }}{{ else }} &mdash; calculated: primary less 10% lightness">calculated{{ end }}</abbr></li>
-					</ol>
-					<a target="_blank" class="theme-link" href="https://iziko.safire.ac.za/module.php/core/error/OTHER_ERROR?ts={{ time.Now.Unix }}&rp={{ ref $Page "/" }}&tid=theme&ctx={{ with $p.mdui.DisplayName }}Example+of+{{ . | urlquery }}+theme{{end}}&idp={{ $p.entityID  }}" title="Open a new tab with a stock error page that shows how this theme will render">[sample]</a>
-				</dd>
+			<dt class="participant-extra-info"{{ if (not $extra) }} hidden{{ end }} title="Institutional colours used for theming the SAFIRE transfer notice page and error messages.">Theme Colours</dt>
+			<dd class="participant-extra-info"{{ if (not $extra) }} hidden{{ end }}>
+				<style>
+					:root {
+						--idp-theme-colour-{{ printf "%03d" $i }}: {{ with (index . 0) }}{{ . }}{{ end }};
+						--idp-theme-colour-{{ printf "%03d" $i }}-light: {{ with (index . 1) }}{{ . }}{{ else }}hsl(from var(--idp-theme-colour-{{ printf "%03d" $i }}) h s calc(l + 10)){{ end }};
+						--idp-theme-colour-{{ printf "%03d" $i }}-dark: {{ with (index . 2) }}{{ . }}{{ else }}hsl(from var(--idp-theme-colour-{{ printf "%03d" $i }}) h s calc(l - 10)){{ end }};
+					}
+					#idp-theme-colour-{{ printf "%03d" $i }} {
+						background-color: var(--idp-theme-colour-{{ printf "%03d" $i }});
+					}
+					#idp-theme-colour-{{ printf "%03d" $i }}-light {
+					background-color: var(--idp-theme-colour-{{ printf "%03d" $i }}-light);
+					}
+					#idp-theme-colour-{{ printf "%03d" $i }}-dark {
+						background-color: var(--idp-theme-colour-{{ printf "%03d" $i }}-dark);
+					}
+				</style>
+				<ol class="theme-colour">
+					<li><span id="idp-theme-colour-{{ printf "%03d" $i }}" class="theme-colour-swatch">&nbsp;</span> <abbr title="Primary Colour (header, buttons)">{{ (index . 0) }}</abbr></li>
+					<li><span id="idp-theme-colour-{{ printf "%03d" $i }}-light" class="theme-colour-swatch">&nbsp;</span> <abbr title="Secondary Colour (mobile menu background, light){{ with (index . 1) }}">{{ . }}{{ else }} &mdash; calculated: primary plus 10% lightness">calculated{{ end }}</abbr></li>
+					<li><span id="idp-theme-colour-{{ printf "%03d" $i }}-dark" class="theme-colour-swatch">&nbsp;</span> <abbr  title="Secondary Colour (accents &amp; highlights, dark){{ with (index . 2) }}">{{ . }}{{ else }} &mdash; calculated: primary less 10% lightness">calculated{{ end }}</abbr></li>
+				</ol>
+				<a target="_blank" class="theme-link" href="https://iziko.safire.ac.za/module.php/core/error/OTHER_ERROR?ts={{ time.Now.Unix }}&rp={{ ref $Page "/" }}&tid=theme&ctx={{ with $p.mdui.DisplayName }}Example+of+{{ . | urlquery }}+theme{{end}}&idp={{ $p.entityID  }}" title="Open a new tab with a stock error page that shows how this theme will render">[sample]</a>
+			</dd>
 		{{- end }}
 		</dl>
 	</div>
