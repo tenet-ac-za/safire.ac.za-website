@@ -123,7 +123,19 @@ pre > code {
 	overflow: auto;
 }
 
+code:not(pre code)  {
+	font-family: monospace, serif;
+	font-size: 12px;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+	word-break: break-all;
+}
+
 /* Attribute descriptions */
+.attributedescription tr {
+	vertical-align: top;
+}
+
 .attributedescription ul.referencelist li,
 .attributedescription ul.referencelist {
 	display: inline-block;

@@ -1,5 +1,14 @@
 ---
-attributeExample: 24d66f51ac1c0b140e617af335b9abb4b8d88a5b
+attributeExample: |2
+  ```xml
+  <saml:NameID
+    xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+    SPNameQualifier="https://sp.example.ac.za/Shibboleth.sso/Metadata"
+    Format="urn:oasis:names:tc:SAML:2.0:nameid-format:persistent"
+  >
+    24d66f51ac1c0b140e617af335b9abb4b8d88a5b
+  </saml:NameID>
+  ```
 attributeFormat: |2
   Single valued, guaranteed unique for a specific service provider. Not transferable between different service providers. The name identifier value will not be longer than 256 characters in length, but the exact presentation (and thus length) of this attribute is defined by the service provider.
 
@@ -8,6 +17,13 @@ attributeNotes: |2
   _eduPersonTargetedID_ is an abstracted version of the SAML V2.0 Name Identifier format of "urn:oasis:names:tc:SAML:2.0:nameid-format:persistent". In SAML, this is an XML construct consisting of a string value inside a `<saml:NameID>` element along with a number of XML attributes, of most significance NameQualifier and SPNameQualifier, which identify the source and intended audience of the value. Per the SAML format definition, the identifier portion must not exceed 256 characters, and the source and audience URI values must not exceed 1024 characters.
 
   In SAFIRE's case, the attribute consists of a `<saml:NameID>` element with the audience URI (SPNameQualifier) set to the entityID of the service provider. The name identifier value typically consists of a 40 character SHA1 hash generated from private information, but we reserve the right to change the algorithm and/or increase the length of this in future.
+
+  While _eduPersonTargetedID_ is transmitted as a `<saml:NameID>` on the wire, it is often rendered in software as
+  `https://proxy.safire.ac.za/birk.php/idp.example.net/shibboleth/idp!https://sp.example.ac.za/Shibboleth.sso/Metadata!24d66f51ac1c0b140e617af335b9abb4b8d88a5b`.
+  Using the default
+  [Shibboleth NameIDAttributeDecoder](https://shibboleth.atlassian.net/wiki/spaces/SP3/pages/2065334498/NameID+AttributeDecoder)
+  formatter results in a decoded attribute with a theoretical maximum length of 2306 characters, although in practice the values seen in SAFIRE tend to be far below this. Other formatters may render the attribute differently.
+
 attributeOid: urn:oid:1.3.6.1.4.1.5923.1.1.1.10
 attributeReferences:
   - Name: eduPerson
@@ -21,5 +37,5 @@ url: /technical/attributes/edupersontargetedid/
 
 A persistent, service-specific pseudonym that opaquely but uniquely identifies the subject.
 
-_Note: Direct use of this attribute is **deprecated** and it should not be consumed by new services --- please make use of the SAML2 Subject NameID instead (which contains exactly the same value subject to the same rules)._
+_Note: While still in widespread use, this attribute is **deprecated** in favour of the newer (and better defined) [pairwise-id]({{< relref "pairwise-id.md" >}})._
 
