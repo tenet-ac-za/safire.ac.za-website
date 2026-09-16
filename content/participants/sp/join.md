@@ -1,5 +1,5 @@
 ---
-date: 2022-02-17T11:47:00+02:00
+date: 2026-09-16T14:32:00+02:00
 menu:
   main:
     identifier: participants-sp-join
@@ -21,7 +21,7 @@ The Participation Agreement only needs to be completed once per juristic person,
 
 Once you've been accepted as a Participant, and provided you are eligible, you may register as a service provider. This generally involves reviewing the requirements for the particular Technology Profile(s) you intend on using, and then completing an appropriate registration request form.
 
-SAFIRE does not charge service providers at this stage, but may levy a [joining fee in future]({{< ref "/participants/sp/fees.md" >}}).
+There is a once-off [joining fee]({{< ref "/participants/sp/fees.md" >}}) to register as a service provider, but no recurring costs.
 
 ## SAML2 Technology Profile
 
