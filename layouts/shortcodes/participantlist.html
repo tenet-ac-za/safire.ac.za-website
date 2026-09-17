@@ -206,6 +206,11 @@
 					</dl>
 				</details>
 			</dd>
+			{{- else }}
+				{{- with $p.entityID }}
+				<dt title="Unique identifier for this particular participant (entity).">Metadata entityID</dt>
+				<dd>{{ . }}</dd>
+				{{- end }}
 			{{- end }}
 			{{- with $p.Scope }}
 			<dt title="A list of valid right-hand-sides for scoped attributes like eduPersonScopedAffiliation. Typically, but not always, the same as the domain name(s) used for email addresses.">Scopes</dt>
