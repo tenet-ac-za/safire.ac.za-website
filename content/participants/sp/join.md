@@ -35,3 +35,5 @@ You should review the following requirements and ensure your service provider me
 Then, to register a SAML2 SP, you need to submit metadata together with the following form:
 
   * [SP Registration Request Form]({{< ref "/technical/saml2/forms/_index.md" >}})
+
+We suggest you [pre-validate your SAML2 metadata]({{< ref "/technical/resources/validating-metadata.md" >}}) against our technical requirements before submitting it.
