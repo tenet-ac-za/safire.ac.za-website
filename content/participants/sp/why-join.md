@@ -32,4 +32,4 @@ Commercial service providers could consider translating the potential integratio
 
 Finally, apart from integration costs, use of SAFIRE is [free for service providers]({{< ref "/participants/sp/fees.md" >}}). Moreover, SAFIRE is run by a non-profit company; we're not in this to make money, we're in it to make things easier for staff and students of our higher educational institutions.
 
-[^verification]: For a student discount verification  use case (where authentication is not a primary requirement), you may want to consider InAcademia[https://inacademia.org/] instead.
+[^verification]: For a student discount verification  use case (where authentication is not a primary requirement), you may want to consider [InAcademia](https://inacademia.org/) instead.
