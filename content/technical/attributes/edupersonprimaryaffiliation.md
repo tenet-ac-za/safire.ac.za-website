@@ -14,6 +14,8 @@ layout: attributelist
 slug: edupersonprimaryaffiliation
 title: eduPersonPrimaryAffiliation
 url: /technical/attributes/edupersonprimaryaffiliation/
+attributeNotes: |2
+  This is not a mandatory attribute, and not all identity providers supply it. Where set, it should be definitive. However, a person's primary affiliation **cannot be inferred** from the order of affiliation nouns in an [_eduPersonAffiliation_](/technical/attributes/edupersonaffiliation/) assertion.
 ---
 
 Subject's primary role at their home organisation (as a subset of all their roles given in _[eduPersonAffiliation]({{< ref "/technical/attributes/edupersonaffiliation.md" >}})_).

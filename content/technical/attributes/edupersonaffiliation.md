@@ -7,7 +7,7 @@ attributeExample: |2
 
   _The above example would represent a person who is currently an administrative staff member and who is also an alumnus of the institution._
 attributeFormat: |2
-  Multi-valued with a controlled vocabulary --- only the following affiliations are accepted:
+  Multi-valued with a controlled vocabulary --- only the following affiliation nouns are accepted:
 
     * alum
     * affiliate
@@ -17,8 +17,10 @@ attributeFormat: |2
     * member
     * staff _(implies employee, member)_
     * student _(implies member)_
+
+    Note that affiliation nouns are **case sensitive**.
 attributeNotes: |2
-  The semantics of various affiliations is described in bold in the [ePSA usage comparison](https://refeds.org/wp-content/uploads/2015/05/ePSAcomparison_0_13.pdf).
+  The semantics of the various affiliation nouns is described in bold in the [ePSA usage comparison](https://refeds.org/wp-content/uploads/2015/05/ePSAcomparison_0_13.pdf).
 
   For South African universities, these should be interpreted so as to align with the Higher Education Management Information System (HEMIS) data elements. Thus the _eduPersonAffiliation_ definitions of "student", "faculty" &amp; "staff" should be aligned with the HEMIS definitions for "enrolled student" (both undergraduate and postgraduate) and the "instruction/research professional (academic)", and "executive/administrative/managerial professional + specialised/support professional + technical + non-professional administration (senior management, administrative & support staff)" personnel categories respectively. Staff in the "trade/craft + service" HEMIS personnel categories would typically only be an _eduPersonAffilliation_ "employee" (however depending on institutional policy they may additionally classify as "staff".
 
@@ -27,6 +29,8 @@ attributeNotes: |2
   The non-normative diagram below shows how the implied values result in nesting such that the outermost value implicitly includes all of the inner ones.
 
   ![Nesting of eduPersonAffiliation values in SAFIRE](/wp-content/uploads/2017/10/Nesting-of-eduPersonAffiliation-values.svg)
+
+  A person's primary affiliation cannot be inferred from the order of affiliation nouns in an assertion. For that, see _[eduPersonPrimaryAffiliation]({{< ref "/technical/attributes/edupersonprimaryaffiliation.md" >}})_.
 
 attributeOid: urn:oid:1.3.6.1.4.1.5923.1.1.1.1
 attributeReferences:
@@ -43,4 +47,4 @@ title: eduPersonAffiliation
 url: /technical/attributes/edupersonaffiliation/
 ---
 
-Subject's role at their home organisation in broad categories such as staff, student.
+Subject's role at their home organisation in broad categories such as staff, student --- see also _[eduPersonScopedAffiliation]({{< ref "/technical/attributes/edupersonscopedaffiliation.md" >}})_.
