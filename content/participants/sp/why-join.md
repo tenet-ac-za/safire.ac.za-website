@@ -11,11 +11,11 @@ title: Why join SAFIRE as a SP?
 url: /participants/sp/why-join/
 ---
 
-SAFIRE is an emerging federation, but has greatly benefited from the input of other [academic federations worldwide](https://refeds.org/federations/federations-map). This puts it in a unique position to add value to South African service providers looking to serve both the South African higher education market and to expand into the global research & education market.
+SAFIRE has over a decade of experience serving the South African higher education community and has greatly benefited from the input of other [academic federations worldwide](https://refeds.org/federations/federations-map). This puts it in a unique position to add value to South African service providers looking to serve both the South African higher education market and to expand into the global research & education market.
 
 The [NSRC](http://nsrc.org/), [REFEDS](http://refeds.org/) & [GÉANT](http://geant.org/) have produced a video series on identity federation, and have a specific episode on [Identity Federation for Service Providers](https://learn.nsrc.org/fedidm/service_providers). They've identified the following generic benefits for service providers making use of academic identity federations:
 
-  * Access to the unique information held by higher educational institutions, for instance verified affiliation (whether an individual is a _bona fide_ staff member or student). This can be useful for services that are allow access (or are licensed) to only a subset of campus users as it allows for automated, real-time verification of eligibility.
+  * Access to the unique information held by higher educational institutions, for instance verified affiliation (whether an individual is a _bona fide_ staff member or student). This can be useful for services that are allow access (or are licensed) to only a subset of campus users as it allows for automated, real-time verification of eligibility.[^verification].
   * Reduced support costs --- typical user problems such as password resets and name changes are effectively outsourced back to the user's home institution.
   * Re-use of existing credentials, meaning users don't need yet another password for your service. However, unlike social media logins, those credentials also provide third-party-verified identity and are tied to an affiliation with a particular institution --- meaning you can trust that the name, etc you're presented with is accurate and you'll know when users cease to be eligible for your service.
   * Allows South African service providers easier and more consistent access to a global research & education market, leveraging on already existing infrastructure for inter-federation.
@@ -31,3 +31,5 @@ SAFIRE is the South African academic identity federation, meaning we're focused 
 Commercial service providers could consider translating the potential integration savings into cost reductions for South African higher educational institutions. Cost has become increasingly important in the post 2015 #FeesMustFall era and thus may offer competitive advantage.
 
 Finally, apart from integration costs, use of SAFIRE is [free for service providers]({{< ref "/participants/sp/fees.md" >}}). Moreover, SAFIRE is run by a non-profit company; we're not in this to make money, we're in it to make things easier for staff and students of our higher educational institutions.
+
+[^verification]: For a student discount verification  use case (where authentication is not a primary requirement), you may want to consider InAcademia[https://inacademia.org/] instead.
