@@ -1,7 +1,8 @@
 ---
 attributeExample: |2
     * urn:mace:dir:entitlement:common-lib-terms
-    * urn:mace:safire.ac.za:entitlement:certs:smime
+    * urn:mace:terena.org:tcs:smime-sv-autoissue
+    * urn:mace:safire.ac.za:entitlement:eduroam:admin
 attributeFormat: |2
   Multi-valued, valid URL or URI.
 
